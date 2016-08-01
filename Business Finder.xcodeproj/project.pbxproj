@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
-		897489541D4FB5FD00531975 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489531D4FB5FD00531975 /* ViewController.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
 		8974895A1D4FB5FD00531975 /* Business_Finder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 897489581D4FB5FD00531975 /* Business_Finder.xcdatamodeld */; };
 		8974895C1D4FB5FD00531975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8974895B1D4FB5FD00531975 /* Assets.xcassets */; };
 		8974895F1D4FB5FD00531975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */; };
-		8974896A1D4FB5FE00531975 /* Business_FinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489691D4FB5FE00531975 /* Business_FinderTests.m */; };
 		897489751D4FB5FE00531975 /* Business_FinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489741D4FB5FE00531975 /* Business_FinderUITests.m */; };
+		897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */; };
+		897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */; };
+		897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489871D4FBD5200531975 /* MainStoryboardTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,19 +41,20 @@
 		8974894D1D4FB5FD00531975 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8974894F1D4FB5FD00531975 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		897489501D4FB5FD00531975 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		897489521D4FB5FD00531975 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		897489531D4FB5FD00531975 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		897489561D4FB5FD00531975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		897489591D4FB5FD00531975 /* Business_Finder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Business_Finder.xcdatamodel; sourceTree = "<group>"; };
 		8974895B1D4FB5FD00531975 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8974895E1D4FB5FD00531975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		897489601D4FB5FD00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897489651D4FB5FE00531975 /* Business FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		897489691D4FB5FE00531975 /* Business_FinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Business_FinderTests.m; sourceTree = "<group>"; };
 		8974896B1D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897489701D4FB5FE00531975 /* Business FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897489741D4FB5FE00531975 /* Business_FinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Business_FinderUITests.m; sourceTree = "<group>"; };
 		897489761D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesViewControllerTests.m; sourceTree = "<group>"; };
+		897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTableViewController.h; sourceTree = "<group>"; };
+		897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTableViewController.m; sourceTree = "<group>"; };
+		897489871D4FBD5200531975 /* MainStoryboardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStoryboardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +107,8 @@
 			children = (
 				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
 				897489501D4FB5FD00531975 /* AppDelegate.m */,
-				897489521D4FB5FD00531975 /* ViewController.h */,
-				897489531D4FB5FD00531975 /* ViewController.m */,
+				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
+				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
 				897489551D4FB5FD00531975 /* Main.storyboard */,
 				8974895B1D4FB5FD00531975 /* Assets.xcassets */,
 				8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */,
@@ -128,7 +130,8 @@
 		897489681D4FB5FE00531975 /* Business FinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				897489691D4FB5FE00531975 /* Business_FinderTests.m */,
+				897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */,
+				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 			);
 			path = "Business FinderTests";
@@ -210,6 +213,7 @@
 				TargetAttributes = {
 					897489481D4FB5FD00531975 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = G366SNANE6;
 					};
 					897489641D4FB5FE00531975 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -273,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				897489541D4FB5FD00531975 /* ViewController.m in Sources */,
+				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				8974894E1D4FB5FD00531975 /* main.m in Sources */,
 				8974895A1D4FB5FD00531975 /* Business_Finder.xcdatamodeld in Sources */,
@@ -284,7 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8974896A1D4FB5FE00531975 /* Business_FinderTests.m in Sources */,
+				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
+				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,10 +424,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Business Finder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -430,10 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Business Finder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

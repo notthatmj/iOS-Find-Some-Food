@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NearbyBusinessesTableViewController.h
 //  Business Finder
 //
 //  Created by Michael Johnson on 8/1/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NearbyBusinessesTableViewController : UITableViewController
 
 @end
-
