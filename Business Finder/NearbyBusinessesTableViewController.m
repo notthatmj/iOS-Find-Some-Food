@@ -32,22 +32,31 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 3;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"Larry";
+            break;
+        case 1:
+            cell.textLabel.text = @"Moe";
+            break;
+        case 2:
+            cell.textLabel.text = @"Curly";
+            break;
+            
+        default:
+            break;
+    }
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

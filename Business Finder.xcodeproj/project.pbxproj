@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */; };
+		86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
@@ -17,6 +19,9 @@
 		897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */; };
 		897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */; };
 		897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489871D4FBD5200531975 /* MainStoryboardTests.m */; };
+		89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */; };
+		89A10CD91D500DB8009E5867 /* NearbyBusinessControllerTestsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A10CD81D500DB8009E5867 /* NearbyBusinessControllerTestsStoryboard.storyboard */; };
+		DAA32C2811F3D02926DF467E /* libPods-Business FinderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business Finder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.release.xcconfig"; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8974894D1D4FB5FD00531975 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8974894F1D4FB5FD00531975 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,6 +64,14 @@
 		897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTableViewController.h; sourceTree = "<group>"; };
 		897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTableViewController.m; sourceTree = "<group>"; };
 		897489871D4FBD5200531975 /* MainStoryboardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStoryboardTests.m; sourceTree = "<group>"; };
+		89A10CD51D500761009E5867 /* NearbyBusinessFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessFinder.h; sourceTree = "<group>"; };
+		89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessFinder.m; sourceTree = "<group>"; };
+		89A10CD81D500DB8009E5867 /* NearbyBusinessControllerTestsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NearbyBusinessControllerTestsStoryboard.storyboard; sourceTree = "<group>"; };
+		A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B6C9CA7727AB48E1F1BA5818 /* Pods-Business Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business FinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business FinderUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +95,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA32C2811F3D02926DF467E /* libPods-Business FinderUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4662B8DC08A55B1D83FB1A79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */,
+				E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */,
+				F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		897489401D4FB5FD00531975 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +119,8 @@
 				897489681D4FB5FE00531975 /* Business FinderTests */,
 				897489731D4FB5FE00531975 /* Business FinderUITests */,
 				8974894A1D4FB5FD00531975 /* Products */,
+				F1D7D5EB022FCF6C291ACFB7 /* Pods */,
+				4662B8DC08A55B1D83FB1A79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
+				89A10CD51D500761009E5867 /* NearbyBusinessFinder.h */,
+				89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */,
 				897489501D4FB5FD00531975 /* AppDelegate.m */,
 				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
@@ -131,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */,
+				89A10CD81D500DB8009E5867 /* NearbyBusinessControllerTestsStoryboard.storyboard */,
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 			);
@@ -146,6 +181,19 @@
 			path = "Business FinderUITests";
 			sourceTree = "<group>";
 		};
+		F1D7D5EB022FCF6C291ACFB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6C9CA7727AB48E1F1BA5818 /* Pods-Business Finder.debug.xcconfig */,
+				7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */,
+				A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */,
+				23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */,
+				D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */,
+				717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 897489791D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business Finder" */;
 			buildPhases = (
+				FBBB4C7F44F542235EC3B3F0 /* 📦 Check Pods Manifest.lock */,
 				897489451D4FB5FD00531975 /* Sources */,
 				897489461D4FB5FD00531975 /* Frameworks */,
 				897489471D4FB5FD00531975 /* Resources */,
+				CE2B0E89C9C44682D63C4E93 /* 📦 Embed Pods Frameworks */,
+				E8CAE5198C782BF86F63087D /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderTests" */;
 			buildPhases = (
+				04F93C35797D95D70027CB8E /* 📦 Check Pods Manifest.lock */,
 				897489611D4FB5FE00531975 /* Sources */,
 				897489621D4FB5FE00531975 /* Frameworks */,
 				897489631D4FB5FE00531975 /* Resources */,
+				7CF25C65868B079C765000F3 /* 📦 Embed Pods Frameworks */,
+				ADE8EEC642293D60DF90FA71 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,9 +242,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8974897F1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderUITests" */;
 			buildPhases = (
+				4073450E5500D130A8108F60 /* 📦 Check Pods Manifest.lock */,
 				8974896C1D4FB5FE00531975 /* Sources */,
 				8974896D1D4FB5FE00531975 /* Frameworks */,
 				8974896E1D4FB5FE00531975 /* Resources */,
+				920601726518781885C9C1A7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A10CD91D500DB8009E5867 /* NearbyBusinessControllerTestsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,12 +329,136 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04F93C35797D95D70027CB8E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4073450E5500D130A8108F60 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7CF25C65868B079C765000F3 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		920601726518781885C9C1A7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADE8EEC642293D60DF90FA71 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2B0E89C9C44682D63C4E93 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8CAE5198C782BF86F63087D /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBBB4C7F44F542235EC3B3F0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		897489451D4FB5FD00531975 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
+				89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				8974894E1D4FB5FD00531975 /* main.m in Sources */,
 				8974895A1D4FB5FD00531975 /* Business_Finder.xcdatamodeld in Sources */,
@@ -422,6 +603,7 @@
 		};
 		8974897A1D4FB5FE00531975 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6C9CA7727AB48E1F1BA5818 /* Pods-Business Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -436,6 +618,7 @@
 		};
 		8974897B1D4FB5FE00531975 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -450,6 +633,7 @@
 		};
 		8974897D1D4FB5FE00531975 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Business FinderTests/Info.plist";
@@ -462,6 +646,7 @@
 		};
 		8974897E1D4FB5FE00531975 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Business FinderTests/Info.plist";
@@ -474,6 +659,7 @@
 		};
 		897489801D4FB5FE00531975 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Business FinderUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -485,6 +671,7 @@
 		};
 		897489811D4FB5FE00531975 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Business FinderUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -513,6 +700,7 @@
 				8974897B1D4FB5FE00531975 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +709,7 @@
 				8974897E1D4FB5FE00531975 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8974897F1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +718,7 @@
 				897489811D4FB5FE00531975 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

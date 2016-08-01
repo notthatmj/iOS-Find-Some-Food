@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class NearbyBusinessFinder;
 
 @interface NearbyBusinessesTableViewController : UITableViewController
-
+@property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @end
