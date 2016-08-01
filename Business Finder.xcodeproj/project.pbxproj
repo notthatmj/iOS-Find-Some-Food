@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
+		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
+		897489541D4FB5FD00531975 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489531D4FB5FD00531975 /* ViewController.m */; };
+		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
+		8974895A1D4FB5FD00531975 /* Business_Finder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 897489581D4FB5FD00531975 /* Business_Finder.xcdatamodeld */; };
+		8974895C1D4FB5FD00531975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8974895B1D4FB5FD00531975 /* Assets.xcassets */; };
+		8974895F1D4FB5FD00531975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */; };
+		8974896A1D4FB5FE00531975 /* Business_FinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489691D4FB5FE00531975 /* Business_FinderTests.m */; };
+		897489751D4FB5FE00531975 /* Business_FinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489741D4FB5FE00531975 /* Business_FinderUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		897489661D4FB5FE00531975 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 897489411D4FB5FD00531975 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 897489481D4FB5FD00531975;
+			remoteInfo = "Business Finder";
+		};
+		897489711D4FB5FE00531975 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 897489411D4FB5FD00531975 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 897489481D4FB5FD00531975;
+			remoteInfo = "Business Finder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8974894D1D4FB5FD00531975 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8974894F1D4FB5FD00531975 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		897489501D4FB5FD00531975 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		897489521D4FB5FD00531975 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		897489531D4FB5FD00531975 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		897489561D4FB5FD00531975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		897489591D4FB5FD00531975 /* Business_Finder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Business_Finder.xcdatamodel; sourceTree = "<group>"; };
+		8974895B1D4FB5FD00531975 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8974895E1D4FB5FD00531975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		897489601D4FB5FD00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		897489651D4FB5FE00531975 /* Business FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		897489691D4FB5FE00531975 /* Business_FinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Business_FinderTests.m; sourceTree = "<group>"; };
+		8974896B1D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		897489701D4FB5FE00531975 /* Business FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		897489741D4FB5FE00531975 /* Business_FinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Business_FinderUITests.m; sourceTree = "<group>"; };
+		897489761D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		897489461D4FB5FD00531975 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		897489621D4FB5FE00531975 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8974896D1D4FB5FE00531975 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		897489401D4FB5FD00531975 = {
+			isa = PBXGroup;
+			children = (
+				8974894B1D4FB5FD00531975 /* Business Finder */,
+				897489681D4FB5FE00531975 /* Business FinderTests */,
+				897489731D4FB5FE00531975 /* Business FinderUITests */,
+				8974894A1D4FB5FD00531975 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8974894A1D4FB5FD00531975 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				897489491D4FB5FD00531975 /* Business Finder.app */,
+				897489651D4FB5FE00531975 /* Business FinderTests.xctest */,
+				897489701D4FB5FE00531975 /* Business FinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8974894B1D4FB5FD00531975 /* Business Finder */ = {
+			isa = PBXGroup;
+			children = (
+				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
+				897489501D4FB5FD00531975 /* AppDelegate.m */,
+				897489521D4FB5FD00531975 /* ViewController.h */,
+				897489531D4FB5FD00531975 /* ViewController.m */,
+				897489551D4FB5FD00531975 /* Main.storyboard */,
+				8974895B1D4FB5FD00531975 /* Assets.xcassets */,
+				8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */,
+				897489601D4FB5FD00531975 /* Info.plist */,
+				897489581D4FB5FD00531975 /* Business_Finder.xcdatamodeld */,
+				8974894C1D4FB5FD00531975 /* Supporting Files */,
+			);
+			path = "Business Finder";
+			sourceTree = "<group>";
+		};
+		8974894C1D4FB5FD00531975 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8974894D1D4FB5FD00531975 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		897489681D4FB5FE00531975 /* Business FinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				897489691D4FB5FE00531975 /* Business_FinderTests.m */,
+				8974896B1D4FB5FE00531975 /* Info.plist */,
+			);
+			path = "Business FinderTests";
+			sourceTree = "<group>";
+		};
+		897489731D4FB5FE00531975 /* Business FinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				897489741D4FB5FE00531975 /* Business_FinderUITests.m */,
+				897489761D4FB5FE00531975 /* Info.plist */,
+			);
+			path = "Business FinderUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		897489481D4FB5FD00531975 /* Business Finder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 897489791D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business Finder" */;
+			buildPhases = (
+				897489451D4FB5FD00531975 /* Sources */,
+				897489461D4FB5FD00531975 /* Frameworks */,
+				897489471D4FB5FD00531975 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Business Finder";
+			productName = "Business Finder";
+			productReference = 897489491D4FB5FD00531975 /* Business Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		897489641D4FB5FE00531975 /* Business FinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderTests" */;
+			buildPhases = (
+				897489611D4FB5FE00531975 /* Sources */,
+				897489621D4FB5FE00531975 /* Frameworks */,
+				897489631D4FB5FE00531975 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				897489671D4FB5FE00531975 /* PBXTargetDependency */,
+			);
+			name = "Business FinderTests";
+			productName = "Business FinderTests";
+			productReference = 897489651D4FB5FE00531975 /* Business FinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8974896F1D4FB5FE00531975 /* Business FinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8974897F1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderUITests" */;
+			buildPhases = (
+				8974896C1D4FB5FE00531975 /* Sources */,
+				8974896D1D4FB5FE00531975 /* Frameworks */,
+				8974896E1D4FB5FE00531975 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				897489721D4FB5FE00531975 /* PBXTargetDependency */,
+			);
+			name = "Business FinderUITests";
+			productName = "Business FinderUITests";
+			productReference = 897489701D4FB5FE00531975 /* Business FinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		897489411D4FB5FD00531975 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Michael Johnson";
+				TargetAttributes = {
+					897489481D4FB5FD00531975 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					897489641D4FB5FE00531975 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 897489481D4FB5FD00531975;
+					};
+					8974896F1D4FB5FE00531975 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 897489481D4FB5FD00531975;
+					};
+				};
+			};
+			buildConfigurationList = 897489441D4FB5FD00531975 /* Build configuration list for PBXProject "Business Finder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 897489401D4FB5FD00531975;
+			productRefGroup = 8974894A1D4FB5FD00531975 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				897489481D4FB5FD00531975 /* Business Finder */,
+				897489641D4FB5FE00531975 /* Business FinderTests */,
+				8974896F1D4FB5FE00531975 /* Business FinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		897489471D4FB5FD00531975 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8974895F1D4FB5FD00531975 /* LaunchScreen.storyboard in Resources */,
+				8974895C1D4FB5FD00531975 /* Assets.xcassets in Resources */,
+				897489571D4FB5FD00531975 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		897489631D4FB5FE00531975 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8974896E1D4FB5FE00531975 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		897489451D4FB5FD00531975 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				897489541D4FB5FD00531975 /* ViewController.m in Sources */,
+				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
+				8974894E1D4FB5FD00531975 /* main.m in Sources */,
+				8974895A1D4FB5FD00531975 /* Business_Finder.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		897489611D4FB5FE00531975 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8974896A1D4FB5FE00531975 /* Business_FinderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8974896C1D4FB5FE00531975 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				897489751D4FB5FE00531975 /* Business_FinderUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		897489671D4FB5FE00531975 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 897489481D4FB5FD00531975 /* Business Finder */;
+			targetProxy = 897489661D4FB5FE00531975 /* PBXContainerItemProxy */;
+		};
+		897489721D4FB5FE00531975 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 897489481D4FB5FD00531975 /* Business Finder */;
+			targetProxy = 897489711D4FB5FE00531975 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		897489551D4FB5FD00531975 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				897489561D4FB5FD00531975 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8974895E1D4FB5FD00531975 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		897489771D4FB5FE00531975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		897489781D4FB5FE00531975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8974897A1D4FB5FE00531975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Business Finder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-Finder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8974897B1D4FB5FE00531975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Business Finder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-Finder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8974897D1D4FB5FE00531975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Business FinderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Business Finder.app/Business Finder";
+			};
+			name = Debug;
+		};
+		8974897E1D4FB5FE00531975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Business FinderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Business Finder.app/Business Finder";
+			};
+			name = Release;
+		};
+		897489801D4FB5FE00531975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Business FinderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Business Finder";
+			};
+			name = Debug;
+		};
+		897489811D4FB5FE00531975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Business FinderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Business Finder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		897489441D4FB5FD00531975 /* Build configuration list for PBXProject "Business Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				897489771D4FB5FE00531975 /* Debug */,
+				897489781D4FB5FE00531975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		897489791D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8974897A1D4FB5FE00531975 /* Debug */,
+				8974897B1D4FB5FE00531975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8974897D1D4FB5FE00531975 /* Debug */,
+				8974897E1D4FB5FE00531975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8974897F1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				897489801D4FB5FE00531975 /* Debug */,
+				897489811D4FB5FE00531975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		897489581D4FB5FD00531975 /* Business_Finder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				897489591D4FB5FD00531975 /* Business_Finder.xcdatamodel */,
+			);
+			currentVersion = 897489591D4FB5FD00531975 /* Business_Finder.xcdatamodel */;
+			path = Business_Finder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 897489411D4FB5FD00531975 /* Project object */;
+}
