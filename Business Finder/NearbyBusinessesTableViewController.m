@@ -7,6 +7,8 @@
 //
 
 #import "NearbyBusinessesTableViewController.h"
+#import "Business.h"
+#import "BusinessesRepository.h"
 
 @interface NearbyBusinessesTableViewController ()
 
@@ -16,12 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (self.businessesRepository == nil) {
+        self.businessesRepository = [BusinessesRepository new];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,25 +35,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.businessesRepository.businesses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"Larry";
-            break;
-        case 1:
-            cell.textLabel.text = @"Moe";
-            break;
-        case 2:
-            cell.textLabel.text = @"Curly";
-            break;
-            
-        default:
-            break;
-    }
+    Business *business = [self.businessesRepository businesses][indexPath.row];
+    cell.textLabel.text = business.name;
     return cell;
 }
 
