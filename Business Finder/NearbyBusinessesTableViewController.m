@@ -9,6 +9,7 @@
 #import "NearbyBusinessesTableViewController.h"
 #import "Business.h"
 #import "BusinessesRepository.h"
+#import "NearbyBusinessesDataSource.h"
 
 @interface NearbyBusinessesTableViewController ()
 
@@ -18,9 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.businessesRepository == nil) {
-        self.businessesRepository = [BusinessesRepository new];
+    [self.dataSource.businessesRepository updateBusinesses];
+}
+
+-(NearbyBusinessesDataSource *)dataSource {
+    if (_dataSource == nil) {
+        _dataSource = [NearbyBusinessesDataSource new];
     }
+    return _dataSource;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,15 +41,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.businessesRepository.businesses.count;
+    NSUInteger result = self.dataSource.businessesRepository.businesses.count;
+    return result;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.businessesRepository businesses][indexPath.row];
+    Business *business = [self.dataSource.businessesRepository businesses][indexPath.row];
     cell.textLabel.text = business.name;
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.

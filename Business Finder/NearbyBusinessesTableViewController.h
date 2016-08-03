@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "BusinessesRepository.h"
 @class NearbyBusinessFinder;
+@class NearbyBusinessesDataSource;
 
 @interface NearbyBusinessesTableViewController : UITableViewController
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
-@property (strong,nonatomic) id<BusinessesRepository> businessesRepository;
+//@property (strong,nonatomic) id<BusinessesRepository> businessesRepository;
+@property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;
 @end

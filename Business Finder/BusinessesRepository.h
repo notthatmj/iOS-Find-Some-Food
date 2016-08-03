@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @protocol BusinessesRepository <NSObject>
--(NSArray *)businesses;
+@property (readonly) NSArray *businesses;
+//-(NSArray *)businesses;
+-(void)updateBusinesses;
+-(void)updateBusinessesAndCallBlock: (void (^)(void)) block;
 @end
 
 @interface BusinessesRepository : NSObject<BusinessesRepository>
-
 @end
