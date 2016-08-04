@@ -8,6 +8,8 @@
 
 #import "NearbyBusinessesDataSource.h"
 #import "BusinessesRepository.h"
+#import "Business.h"
+@import UIKit;
 
 @implementation NearbyBusinessesDataSource
 - (id<BusinessesRepository>)businessesRepository {
@@ -16,4 +18,21 @@
     }
     return _businessesRepository;
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSUInteger result = self.businessesRepository.businesses.count;
+    return result;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
+    Business *business = [self.businessesRepository businesses][indexPath.row];
+    cell.textLabel.text = business.name;
+    return cell;
+}
+
 @end

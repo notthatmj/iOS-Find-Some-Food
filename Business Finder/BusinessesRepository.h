@@ -10,7 +10,6 @@
 
 @protocol BusinessesRepository <NSObject>
 @property (readonly) NSArray *businesses;
-//-(NSArray *)businesses;
 -(void)updateBusinesses;
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block;
 @end

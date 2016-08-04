@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.dataSource = self.dataSource;
     [self.dataSource.businessesRepository updateBusinesses];
 }
 
@@ -36,22 +37,17 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 1;
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger result = self.dataSource.businessesRepository.businesses.count;
-    return result;
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return [self.dataSource tableView:tableView numberOfRowsInSection:section];
+//}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.dataSource.businessesRepository businesses][indexPath.row];
-    cell.textLabel.text = business.name;
-    return cell;
-}
-
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return [self.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+//}
 
 /*
 // Override to support conditional editing of the table view.

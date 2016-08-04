@@ -25,10 +25,6 @@
     return self;
 }
 
-//- (NSArray *)businesses {
-//    return _businesses;
-//}
-
 -(void)updateBusinesses {
     NSMutableArray *results = [NSMutableArray new];
     NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];

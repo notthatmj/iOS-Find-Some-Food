@@ -1,0 +1,62 @@
+//
+//  NearbyBusinessesDataSourceTests.m
+//  Business Finder
+//
+//  Created by Michael Johnson on 8/4/16.
+//  Copyright © 2016 Michael Johnson. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import "NearbyBusinessesDataSource.h"
+#import "Business.h"
+#import "BusinessesRepository.h"
+#import "OCMock.h"
+
+@interface DummyCellClass : UITableViewCell
+@end
+@implementation DummyCellClass
+@end
+
+@interface NearbyBusinessesDataSourceTests : XCTestCase
+@property (nonnull,strong) NearbyBusinessesDataSource *SUT;
+@property (nonatomic, strong) NSArray<Business *> *businesses;
+@property (strong, nonatomic) UITableView *tableView;
+@end
+
+@implementation NearbyBusinessesDataSourceTests
+
+- (void)setUp {
+    [super setUp];
+    self.SUT = [NearbyBusinessesDataSource new];
+    Business *business1 = [[Business alloc] initWithName:@"Larry's Restaurant" distance:1.0];
+    Business *business2 = [[Business alloc] initWithName:@"Moe's Restaurant" distance:2.0];
+    Business *business3 = [[Business alloc] initWithName:@"Curly's Restaurant" distance:3.0];
+    self.businesses = @[business1,business2,business3];
+    id<BusinessesRepository> fakeBusinessesRepository = OCMProtocolMock(@protocol(BusinessesRepository));
+    OCMStub([fakeBusinessesRepository businesses]).andReturn(self.businesses);
+    self.SUT.businessesRepository = fakeBusinessesRepository;
+    
+    self.tableView = [UITableView new];
+    [self.tableView registerClass:[DummyCellClass class] forCellReuseIdentifier:@"PrototypeCell"];
+    self.tableView.dataSource = self.SUT;
+}
+
+- (void)testNumberOfSectionsInTableView {
+    NSInteger result = [self.SUT numberOfSectionsInTableView:self.tableView];
+    
+    XCTAssertEqual(result, 1);
+}
+
+-(void)testTableViewNumberOfRowsInSection {
+    XCTAssertEqual([self.SUT tableView:self.tableView numberOfRowsInSection:0],3);
+}
+
+- (void)testTableViewCellForRowAtIndexPath {
+    for(int i=0;i<self.businesses.count;i++){
+        UITableViewCell *cell = [self.SUT tableView:self.tableView
+                              cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        XCTAssertEqualObjects(cell.textLabel.text, self.businesses[i].name);
+    }
+}
+
+@end
