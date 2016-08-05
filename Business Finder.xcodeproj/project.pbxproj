@@ -10,7 +10,7 @@
 		1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */; };
 		86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */; };
 		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
-		89034AEA1D5532D800BCA3A0 /* URLFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE91D5532D800BCA3A0 /* URLFetcherTests.m */; };
+		89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
@@ -31,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		89034AF41D55379600BCA3A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 897489411D4FB5FD00531975 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 897489481D4FB5FD00531975;
+			remoteInfo = "Business Finder";
+		};
 		897489661D4FB5FE00531975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 897489411D4FB5FD00531975 /* Project object */;
@@ -54,7 +61,9 @@
 		7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.release.xcconfig"; sourceTree = "<group>"; };
 		89034AE61D5532C300BCA3A0 /* URLFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLFetcher.h; sourceTree = "<group>"; };
 		89034AE71D5532C300BCA3A0 /* URLFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcher.m; sourceTree = "<group>"; };
-		89034AE91D5532D800BCA3A0 /* URLFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherTests.m; sourceTree = "<group>"; };
+		89034AEF1D55379600BCA3A0 /* Slower Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slower Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89034AF31D55379600BCA3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherTests.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +75,7 @@
 		8974895B1D4FB5FD00531975 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8974895E1D4FB5FD00531975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		897489601D4FB5FD00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		897489651D4FB5FE00531975 /* Business FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		897489651D4FB5FE00531975 /* Fastest Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fastest Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8974896B1D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897489701D4FB5FE00531975 /* Business FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897489741D4FB5FE00531975 /* Business_FinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Business_FinderUITests.m; sourceTree = "<group>"; };
@@ -91,6 +100,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		89034AEC1D55379600BCA3A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		897489461D4FB5FD00531975 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,12 +144,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		89034AF01D55379600BCA3A0 /* Slower Tests */ = {
+			isa = PBXGroup;
+			children = (
+				89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */,
+				89034AF31D55379600BCA3A0 /* Info.plist */,
+			);
+			path = "Slower Tests";
+			sourceTree = "<group>";
+		};
 		897489401D4FB5FD00531975 = {
 			isa = PBXGroup;
 			children = (
 				8974894B1D4FB5FD00531975 /* Business Finder */,
-				897489681D4FB5FE00531975 /* Business FinderTests */,
+				897489681D4FB5FE00531975 /* Fastest Tests */,
 				897489731D4FB5FE00531975 /* Business FinderUITests */,
+				89034AF01D55379600BCA3A0 /* Slower Tests */,
 				8974894A1D4FB5FD00531975 /* Products */,
 				F1D7D5EB022FCF6C291ACFB7 /* Pods */,
 				4662B8DC08A55B1D83FB1A79 /* Frameworks */,
@@ -144,8 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				897489491D4FB5FD00531975 /* Business Finder.app */,
-				897489651D4FB5FE00531975 /* Business FinderTests.xctest */,
+				897489651D4FB5FE00531975 /* Fastest Tests.xctest */,
 				897489701D4FB5FE00531975 /* Business FinderUITests.xctest */,
+				89034AEF1D55379600BCA3A0 /* Slower Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,16 +212,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		897489681D4FB5FE00531975 /* Business FinderTests */ = {
+		897489681D4FB5FE00531975 /* Fastest Tests */ = {
 			isa = PBXGroup;
 			children = (
 				897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */,
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
-				89034AE91D5532D800BCA3A0 /* URLFetcherTests.m */,
 				89F4C7B91D52535300FC63D9 /* BusinessesRepositoryTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 			);
+			name = "Fastest Tests";
 			path = "Business FinderTests";
 			sourceTree = "<group>";
 		};
@@ -223,6 +250,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		89034AEE1D55379600BCA3A0 /* Slower Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89034AF61D55379600BCA3A0 /* Build configuration list for PBXNativeTarget "Slower Tests" */;
+			buildPhases = (
+				89034AEB1D55379600BCA3A0 /* Sources */,
+				89034AEC1D55379600BCA3A0 /* Frameworks */,
+				89034AED1D55379600BCA3A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89034AF51D55379600BCA3A0 /* PBXTargetDependency */,
+			);
+			name = "Slower Tests";
+			productName = "Slower Tests";
+			productReference = 89034AEF1D55379600BCA3A0 /* Slower Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		897489481D4FB5FD00531975 /* Business Finder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 897489791D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business Finder" */;
@@ -243,9 +288,9 @@
 			productReference = 897489491D4FB5FD00531975 /* Business Finder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		897489641D4FB5FE00531975 /* Business FinderTests */ = {
+		897489641D4FB5FE00531975 /* Fastest Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderTests" */;
+			buildConfigurationList = 8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Fastest Tests" */;
 			buildPhases = (
 				04F93C35797D95D70027CB8E /* 📦 Check Pods Manifest.lock */,
 				897489611D4FB5FE00531975 /* Sources */,
@@ -259,9 +304,9 @@
 			dependencies = (
 				897489671D4FB5FE00531975 /* PBXTargetDependency */,
 			);
-			name = "Business FinderTests";
+			name = "Fastest Tests";
 			productName = "Business FinderTests";
-			productReference = 897489651D4FB5FE00531975 /* Business FinderTests.xctest */;
+			productReference = 897489651D4FB5FE00531975 /* Fastest Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8974896F1D4FB5FE00531975 /* Business FinderUITests */ = {
@@ -293,6 +338,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Michael Johnson";
 				TargetAttributes = {
+					89034AEE1D55379600BCA3A0 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 897489481D4FB5FD00531975;
+					};
 					897489481D4FB5FD00531975 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = G366SNANE6;
@@ -321,13 +370,21 @@
 			projectRoot = "";
 			targets = (
 				897489481D4FB5FD00531975 /* Business Finder */,
-				897489641D4FB5FE00531975 /* Business FinderTests */,
+				897489641D4FB5FE00531975 /* Fastest Tests */,
 				8974896F1D4FB5FE00531975 /* Business FinderUITests */,
+				89034AEE1D55379600BCA3A0 /* Slower Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		89034AED1D55379600BCA3A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		897489471D4FB5FD00531975 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,6 +535,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		89034AEB1D55379600BCA3A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		897489451D4FB5FD00531975 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,7 +564,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
-				89034AEA1D5532D800BCA3A0 /* URLFetcherTests.m in Sources */,
 				89F4C7BA1D52535300FC63D9 /* BusinessesRepositoryTests.m in Sources */,
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
@@ -517,6 +581,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		89034AF51D55379600BCA3A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 897489481D4FB5FD00531975 /* Business Finder */;
+			targetProxy = 89034AF41D55379600BCA3A0 /* PBXContainerItemProxy */;
+		};
 		897489671D4FB5FE00531975 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 897489481D4FB5FD00531975 /* Business Finder */;
@@ -549,6 +618,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		89034AF71D55379600BCA3A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Slower Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Slower-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Business Finder.app/Business Finder";
+			};
+			name = Debug;
+		};
+		89034AF81D55379600BCA3A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Slower Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Slower-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Business Finder.app/Business Finder";
+			};
+			name = Release;
+		};
 		897489771D4FB5FE00531975 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -716,6 +809,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		89034AF61D55379600BCA3A0 /* Build configuration list for PBXNativeTarget "Slower Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89034AF71D55379600BCA3A0 /* Debug */,
+				89034AF81D55379600BCA3A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		897489441D4FB5FD00531975 /* Build configuration list for PBXProject "Business Finder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -734,7 +835,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderTests" */ = {
+		8974897C1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Fastest Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8974897D1D4FB5FE00531975 /* Debug */,
