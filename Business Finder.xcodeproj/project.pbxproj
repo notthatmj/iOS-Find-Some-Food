@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */; };
 		86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */; };
+		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
+		89034AEA1D5532D800BCA3A0 /* URLFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE91D5532D800BCA3A0 /* URLFetcherTests.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
@@ -21,7 +23,6 @@
 		897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */; };
 		897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489871D4FBD5200531975 /* MainStoryboardTests.m */; };
 		89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */; };
-		89A10CD91D500DB8009E5867 /* NearbyBusinessesViewControllerTestsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A10CD81D500DB8009E5867 /* NearbyBusinessesViewControllerTestsStoryboard.storyboard */; };
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
 		89A10CE21D512DFD009E5867 /* BusinessesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesRepository.m */; };
 		89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */; };
@@ -51,6 +52,9 @@
 		7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business Finder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.release.xcconfig"; sourceTree = "<group>"; };
+		89034AE61D5532C300BCA3A0 /* URLFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLFetcher.h; sourceTree = "<group>"; };
+		89034AE71D5532C300BCA3A0 /* URLFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcher.m; sourceTree = "<group>"; };
+		89034AE91D5532D800BCA3A0 /* URLFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherTests.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +77,6 @@
 		897489871D4FBD5200531975 /* MainStoryboardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStoryboardTests.m; sourceTree = "<group>"; };
 		89A10CD51D500761009E5867 /* NearbyBusinessFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessFinder.h; sourceTree = "<group>"; };
 		89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessFinder.m; sourceTree = "<group>"; };
-		89A10CD81D500DB8009E5867 /* NearbyBusinessesViewControllerTestsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NearbyBusinessesViewControllerTestsStoryboard.storyboard; sourceTree = "<group>"; };
 		89A10CDA1D511ABA009E5867 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
 		89A10CDB1D511ABA009E5867 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		89A10CDD1D5123ED009E5867 /* BusinessesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesRepository.h; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
 				89A10CDD1D5123ED009E5867 /* BusinessesRepository.h */,
 				89A10CE11D512DFC009E5867 /* BusinessesRepository.m */,
+				89034AE61D5532C300BCA3A0 /* URLFetcher.h */,
+				89034AE71D5532C300BCA3A0 /* URLFetcher.m */,
 				89A10CDA1D511ABA009E5867 /* Business.h */,
 				89A10CDB1D511ABA009E5867 /* Business.m */,
 				89A10CD51D500761009E5867 /* NearbyBusinessFinder.h */,
@@ -184,9 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */,
-				89A10CD81D500DB8009E5867 /* NearbyBusinessesViewControllerTestsStoryboard.storyboard */,
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
+				89034AE91D5532D800BCA3A0 /* URLFetcherTests.m */,
 				89F4C7B91D52535300FC63D9 /* BusinessesRepositoryTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 			);
@@ -337,7 +342,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89A10CD91D500DB8009E5867 /* NearbyBusinessesViewControllerTestsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +485,7 @@
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
 				89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */,
 				89A10CE21D512DFD009E5867 /* BusinessesRepository.m in Sources */,
+				89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				89A10CDC1D511ABA009E5867 /* Business.m in Sources */,
 				8974894E1D4FB5FD00531975 /* main.m in Sources */,
@@ -494,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
+				89034AEA1D5532D800BCA3A0 /* URLFetcherTests.m in Sources */,
 				89F4C7BA1D52535300FC63D9 /* BusinessesRepositoryTests.m in Sources */,
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,

@@ -42,4 +42,5 @@
     [self updateBusinesses];
     block();
 }
+
 @end
