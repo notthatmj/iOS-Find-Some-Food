@@ -14,7 +14,7 @@
     NSURLSession *sharedSession = [NSURLSession sharedSession];
     
     NSURLSessionDataTask *dataTask = [sharedSession
-                                      dataTaskWithURL:[NSURL URLWithString:@"https://www.google.com"]
+                                      dataTaskWithURL:[NSURL URLWithString:URLString]
                                       completionHandler:^void (NSData* data, NSURLResponse* response, NSError* error) {
                                           NSString *convertedString;
                                           [NSString stringEncodingForData:data

@@ -10,22 +10,32 @@
 #import "URLFetcher.h"
 
 @interface URLFetcherTests : XCTestCase
-
+@property (strong,nonatomic) NSString *responseString;
 @end
 
 @implementation URLFetcherTests
 
-- (void)testURLFetcher {
-    NSString * __block responseString = nil;
+- (NSString *) fetchURLAndWaitForResponse: (NSString *)urlString {
     XCTestExpectation *expectation = [self expectationWithDescription:@"foo"];
+    __block NSString *responseString = nil;
     
-    [URLFetcher fetchURLContents:@"https://www.google.com" completionHandler:^void (NSString *rs){
+    [URLFetcher fetchURLContents:urlString completionHandler:^void (NSString *rs){
         responseString = rs;
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    XCTAssertTrue([responseString hasPrefix:@"<!doctype html>"]);
-    XCTAssertNotNil(responseString);
+    return responseString;
+}
+
+- (void)testURLFetcherWithGoogle {
+    NSString *responseString = [self fetchURLAndWaitForResponse:@"https://www.google.com"];
+    XCTAssertTrue([responseString containsString:@"Google Search"]);
+}
+
+- (void)testURLFetcherWithDuckDuckGo {
+    NSString *responseString = [self fetchURLAndWaitForResponse:@"https://duckduckgo.com"];
+    XCTAssertTrue([responseString containsString:@"DuckDuckGo"]);
+    XCTAssertTrue([responseString containsString:@"The search engine that doesn't track you."]);
 }
 
 @end

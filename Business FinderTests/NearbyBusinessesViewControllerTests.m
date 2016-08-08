@@ -23,7 +23,7 @@
 - (void)setUp {
     [super setUp];
     self.SUT = [NearbyBusinessesTableViewController new];
-    id<BusinessesRepository> fakeBusinessesRepository = OCMProtocolMock(@protocol(BusinessesRepository));
+    BusinessesRepository *fakeBusinessesRepository = OCMClassMock([BusinessesRepository class]);
     OCMStub([fakeBusinessesRepository businesses]).andReturn(self.businesses);
     self.SUT.dataSource.businessesRepository = fakeBusinessesRepository;
     [self.SUT view];

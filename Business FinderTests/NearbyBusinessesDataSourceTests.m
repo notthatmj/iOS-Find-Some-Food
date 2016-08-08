@@ -32,7 +32,7 @@
     Business *business2 = [[Business alloc] initWithName:@"Moe's Restaurant" distance:2.0];
     Business *business3 = [[Business alloc] initWithName:@"Curly's Restaurant" distance:3.0];
     self.businesses = @[business1,business2,business3];
-    id<BusinessesRepository> fakeBusinessesRepository = OCMProtocolMock(@protocol(BusinessesRepository));
+    BusinessesRepository *fakeBusinessesRepository = OCMClassMock([BusinessesRepository class]);
     OCMStub([fakeBusinessesRepository businesses]).andReturn(self.businesses);
     self.SUT.businessesRepository = fakeBusinessesRepository;
     

@@ -11,7 +11,9 @@
 		86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */; };
 		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
 		89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */; };
+		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
+		894478A11D58F9B300523891 /* FourSquareGatewayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
@@ -64,6 +66,9 @@
 		89034AEF1D55379600BCA3A0 /* Slower Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slower Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89034AF31D55379600BCA3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherTests.m; sourceTree = "<group>"; };
+		89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareGateway.h; sourceTree = "<group>"; };
+		89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGateway.m; sourceTree = "<group>"; };
+		89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourSquareGatewayTests.m; path = "../Slower Tests/FourSquareGatewayTests.m"; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +163,8 @@
 			children = (
 				8974894B1D4FB5FD00531975 /* Business Finder */,
 				897489681D4FB5FE00531975 /* Fastest Tests */,
-				897489731D4FB5FE00531975 /* Business FinderUITests */,
 				89034AF01D55379600BCA3A0 /* Slower Tests */,
+				897489731D4FB5FE00531975 /* Business FinderUITests */,
 				8974894A1D4FB5FD00531975 /* Products */,
 				F1D7D5EB022FCF6C291ACFB7 /* Pods */,
 				4662B8DC08A55B1D83FB1A79 /* Frameworks */,
@@ -183,6 +188,8 @@
 				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
 				89A10CDD1D5123ED009E5867 /* BusinessesRepository.h */,
 				89A10CE11D512DFC009E5867 /* BusinessesRepository.m */,
+				89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */,
+				89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */,
 				89034AE61D5532C300BCA3A0 /* URLFetcher.h */,
 				89034AE71D5532C300BCA3A0 /* URLFetcher.m */,
 				89A10CDA1D511ABA009E5867 /* Business.h */,
@@ -219,6 +226,7 @@
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				89F4C7B91D52535300FC63D9 /* BusinessesRepositoryTests.m */,
+				89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 			);
 			name = "Fastest Tests";
@@ -556,6 +564,7 @@
 				8974894E1D4FB5FD00531975 /* main.m in Sources */,
 				8974895A1D4FB5FD00531975 /* Business_Finder.xcdatamodeld in Sources */,
 				8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */,
+				89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				894478A11D58F9B300523891 /* FourSquareGatewayTests.m in Sources */,
 				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
 				89F4C7BA1D52535300FC63D9 /* BusinessesRepositoryTests.m in Sources */,
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
@@ -816,6 +826,7 @@
 				89034AF81D55379600BCA3A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		897489441D4FB5FD00531975 /* Build configuration list for PBXProject "Business Finder" */ = {
 			isa = XCConfigurationList;

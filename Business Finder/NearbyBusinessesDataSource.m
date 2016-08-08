@@ -12,7 +12,7 @@
 @import UIKit;
 
 @implementation NearbyBusinessesDataSource
-- (id<BusinessesRepository>)businessesRepository {
+- (BusinessesRepository *)businessesRepository {
     if (_businessesRepository == nil) {
         _businessesRepository = [BusinessesRepository new];
     }
