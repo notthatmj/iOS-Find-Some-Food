@@ -17,4 +17,5 @@
 -(void) getNearbyBusinessesForLatitude:(double) latitude longitude:(double)longitude completionHandler:(void(^)())completionHandler;
 - (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude;
 - (void) getResponseForSearchURL:(NSString *) searchURL completionHandler:(void(^)())completionHandler;
+- (id) parseQueryResponse;
 @end

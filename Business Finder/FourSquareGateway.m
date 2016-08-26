@@ -27,12 +27,18 @@
 }
 
 -(void)getResponseForSearchURL:(NSString *)searchURL completionHandler:(void (^)())completionHandler {
-//    [URLFetcher fetchURLContents:searchURL completionHandler:]
     [URLFetcher fetchURLContents:searchURL completionHandler:^void (NSString *response){
         self.response = [response copy];
         completionHandler();
         return;
     }];
     return;
+}
+
+-(NSArray<Business *> *)parseQueryResponse {
+    NSData *data = [self.response dataUsingEncoding:NSUTF8StringEncoding];
+    id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    result = [NSArray new];
+    return result;
 }
 @end

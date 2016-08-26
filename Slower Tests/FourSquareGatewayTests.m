@@ -54,6 +54,23 @@
               
     XCTAssertNotNil(response);
     XCTAssertTrue([response containsString:@"venues"]);
-    
+}
+
+-(void)testParseQueryResponse {
+    FourSquareGateway *SUT = [FourSquareGateway new];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting response"];
+    NSString *searchURL = @"https://api.foursquare.com/v2/venues/search?client_id=KYZDFPBI4QBZA5RYW0KHIARABCHACXQU55CVJLHR3YFKLB0B&client_secret=F40OVIFWPTKBVTKO4LWU13F5JLOZHNPIB1DW1XU2UFBDLXXZ&v=20130815&ll=40.70000,-74.00000&query=sushi";
+    NSString __block *response = nil;
+    XCTAssertNil(response);
+    [SUT getResponseForSearchURL:searchURL completionHandler:^void {
+        response = [SUT.response copy];
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:10.0 handler: ^void (NSError *error) {}];
+    XCTAssertNotNil(response);
+
+    NSArray<Business *> *parsedResults = [SUT parseQueryResponse];
+    XCTAssertNotEqual([parsedResults count], 0);
+    Business *business = [parsedResults objectAtIndex:0];
 }
 @end
