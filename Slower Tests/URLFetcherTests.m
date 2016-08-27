@@ -27,8 +27,31 @@
     return responseString;
 }
 
+- (NSData *) fetchURLDataAndWaitForResponse: (NSString *)urlString {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"foo"];
+    __block NSData *responseData = nil;
+    
+    [URLFetcher fetchURLData:urlString completionHandler:^void (NSData *data){
+        responseData = data;
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    return responseData;
+}
+
 - (void)testURLFetcherWithGoogle {
     NSString *responseString = [self fetchURLAndWaitForResponse:@"https://www.google.com"];
+    XCTAssertTrue([responseString containsString:@"Google Search"]);
+}
+
+- (void)testURLDataFetcherWithGoogle {
+    NSData *responseData = [self fetchURLDataAndWaitForResponse:@"https://www.google.com"];
+    NSString *responseString;
+    [NSString stringEncodingForData:responseData
+                    encodingOptions:nil
+                    convertedString:&responseString
+                usedLossyConversion:nil];
+
     XCTAssertTrue([responseString containsString:@"Google Search"]);
 }
 

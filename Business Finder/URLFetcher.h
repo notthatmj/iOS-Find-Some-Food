@@ -11,5 +11,6 @@
 @interface URLFetcher : NSObject
 
 +(void)fetchURLContents:(NSString *)URLString completionHandler: (void (^)(NSString *))completionHandler;
++(void)fetchURLData:(NSString *)URLString completionHandler: (void (^)(NSData *))completionHandler;
 
 @end

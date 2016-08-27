@@ -9,68 +9,47 @@
 #import <XCTest/XCTest.h>
 #import "FourSquareGateway.h"
 #import "URLFetcher.h"
+#import "Business.h"
 
 @interface FourSquareGatewayTests : XCTestCase
-
+@property (nonatomic,strong) FourSquareGateway *SUT;
 @end
 
 @implementation FourSquareGatewayTests
 
-- (void)testFourSquareGateway {
-    FourSquareGateway *SUT = [FourSquareGateway new];
-    
+-(void)setUp {
+    [super setUp];
+    self.SUT = [FourSquareGateway new];
+}
+
+- (void)testGetNearbyBusinessForLatitudeLongitude {
     double latitude = 41.884529;
     double longitude = -87.627813;
     
-    __block Boolean blockWasRun = NO;
-    XCTAssertNil(SUT.businesses);
-    [SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:^void () {
-        blockWasRun = YES;
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting response"];
+    XCTAssertNil(self.SUT.businesses);
+    [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:^void () {
+        [expectation fulfill];
+        XCTAssertNotNil(self.SUT.businesses);
+        XCTAssert([self.SUT.businesses count] > 1);
+        for (Business *business in self.SUT.businesses) {
+            XCTAssertNotNil(business.name);
+        }
     }];
-    XCTAssertTrue(blockWasRun);
+    [self waitForExpectationsWithTimeout:10.0 handler: ^void (NSError *error) {}];
+}
+
+- (void)testFourSquareGateway {
+    XCTAssertNotNil(self.SUT.clientID);
+    XCTAssertNotNil(self.SUT.clientSecret);
 }
 
 -(void)testSearchURLForLatitudeLongitude {
-    FourSquareGateway *SUT = [FourSquareGateway new];
-    SUT.clientID = @"foo";
-    SUT.clientSecret = @"bar";
-    NSString *expectedResult = @"https://api.foursquare.com/v2/venues/search?client_id=foo&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
-    NSString *result = [SUT searchURLForLatitude:40.7 longitude:-74];
+    self.SUT.clientID = @"parrot";
+    self.SUT.clientSecret = @"bar";
+    NSString *expectedResult = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
+    NSString *result = [self.SUT searchURLForLatitude:40.7 longitude:-74];
     XCTAssertEqualObjects(result, expectedResult);
 }
 
--(void)testGetResponseForSearchURL {
-    FourSquareGateway *SUT = [FourSquareGateway new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting response"];
-    NSString *searchURL = @"https://api.foursquare.com/v2/venues/search?client_id=KYZDFPBI4QBZA5RYW0KHIARABCHACXQU55CVJLHR3YFKLB0B&client_secret=F40OVIFWPTKBVTKO4LWU13F5JLOZHNPIB1DW1XU2UFBDLXXZ&v=20130815&ll=40.70000,-74.00000&query=sushi";
-    NSString __block *response = nil;
-    
-    XCTAssertNil(response);
-    [SUT getResponseForSearchURL:searchURL completionHandler:^void {
-        response = [SUT.response copy];
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:10.0 handler: ^void (NSError *error) {}];
-              
-    XCTAssertNotNil(response);
-    XCTAssertTrue([response containsString:@"venues"]);
-}
-
--(void)testParseQueryResponse {
-    FourSquareGateway *SUT = [FourSquareGateway new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting response"];
-    NSString *searchURL = @"https://api.foursquare.com/v2/venues/search?client_id=KYZDFPBI4QBZA5RYW0KHIARABCHACXQU55CVJLHR3YFKLB0B&client_secret=F40OVIFWPTKBVTKO4LWU13F5JLOZHNPIB1DW1XU2UFBDLXXZ&v=20130815&ll=40.70000,-74.00000&query=sushi";
-    NSString __block *response = nil;
-    XCTAssertNil(response);
-    [SUT getResponseForSearchURL:searchURL completionHandler:^void {
-        response = [SUT.response copy];
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:10.0 handler: ^void (NSError *error) {}];
-    XCTAssertNotNil(response);
-
-    NSArray<Business *> *parsedResults = [SUT parseQueryResponse];
-    XCTAssertNotEqual([parsedResults count], 0);
-    Business *business = [parsedResults objectAtIndex:0];
-}
 @end
