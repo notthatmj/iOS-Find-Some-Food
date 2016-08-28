@@ -40,6 +40,7 @@
 
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
     [self updateBusinesses];
+//    [self.fourSquareGateway getNearbyBusinessesForLatitude:41.884529 longitude:-87.627813 completionHandler:^{}];
     block();
 }
 

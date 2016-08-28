@@ -36,7 +36,8 @@
 -(void)testViewDidLoad {
     XCTAssertNotNil(self.SUT);
     XCTAssertNotNil(self.SUT.dataSource.businessesRepository);
-    OCMVerify([self.SUT.dataSource.businessesRepository updateBusinesses]);
+//    OCMVerify([self.SUT.dataSource.businessesRepository updateBusinesses]);
+    OCMVerify([self.SUT.dataSource.businessesRepository updateBusinessesAndCallBlock:[OCMArg any]]);
     XCTAssertEqual(self.SUT.tableView.dataSource, self.SUT.dataSource);
 }
 @end

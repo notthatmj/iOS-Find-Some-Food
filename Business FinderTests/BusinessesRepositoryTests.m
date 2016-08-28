@@ -69,4 +69,18 @@
     XCTAssertEqualObjects([SUT.businesses[1] name],@"Aldi");
 }
 
+- (void)testBusinessesRepository3 {
+    BusinessesRepository *SUT = [BusinessesRepository new];
+    id fourSquareGateway = OCMClassMock([FourSquareGateway class]);
+    SUT.fourSquareGateway = fourSquareGateway;
+    
+    [SUT updateBusinessesAndCallBlock:^{}];
+    
+//    OCMVerify([fourSquareGateway getNearbyBusinessesForLatitude:[OCMArg any] longitude:[OCMArg any] completionHandler:[OCMArg any]]);
+    OCMVerify([[fourSquareGateway ignoringNonObjectArgs] getNearbyBusinessesForLatitude:0
+                                                                              longitude:0
+                                                                      completionHandler:[OCMArg any]]);
+    
+}
+
 @end
