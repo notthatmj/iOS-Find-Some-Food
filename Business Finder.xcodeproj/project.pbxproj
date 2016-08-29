@@ -27,6 +27,7 @@
 		89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */; };
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
 		89A10CE21D512DFD009E5867 /* BusinessesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesRepository.m */; };
+		89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D08E1D74B45B00C98165 /* IntegrationTests.m */; };
 		89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */; };
 		89F4C7BA1D52535300FC63D9 /* BusinessesRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F4C7B91D52535300FC63D9 /* BusinessesRepositoryTests.m */; };
 		DAA32C2811F3D02926DF467E /* libPods-Business FinderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */; };
@@ -68,7 +69,7 @@
 		89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherTests.m; sourceTree = "<group>"; };
 		89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareGateway.h; sourceTree = "<group>"; };
 		89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGateway.m; sourceTree = "<group>"; };
-		89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourSquareGatewayTests.m; path = "../Slower Tests/FourSquareGatewayTests.m"; sourceTree = "<group>"; };
+		89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayTests.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +96,7 @@
 		89A10CDB1D511ABA009E5867 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		89A10CDD1D5123ED009E5867 /* BusinessesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesRepository.h; sourceTree = "<group>"; };
 		89A10CE11D512DFC009E5867 /* BusinessesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesRepository.m; sourceTree = "<group>"; };
+		89F2D08E1D74B45B00C98165 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSourceTests.m; sourceTree = "<group>"; };
 		89F4C7B91D52535300FC63D9 /* BusinessesRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesRepositoryTests.m; sourceTree = "<group>"; };
 		A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,7 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */,
+				89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */,
 				89034AF31D55379600BCA3A0 /* Info.plist */,
+				89F2D08E1D74B45B00C98165 /* IntegrationTests.m */,
 			);
 			path = "Slower Tests";
 			sourceTree = "<group>";
@@ -226,7 +230,6 @@
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				89F4C7B91D52535300FC63D9 /* BusinessesRepositoryTests.m */,
-				89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 			);
 			name = "Fastest Tests";
@@ -547,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */,
 				89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
