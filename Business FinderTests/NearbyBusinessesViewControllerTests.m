@@ -25,19 +25,18 @@
     self.SUT = [NearbyBusinessesTableViewController new];
     BusinessesRepository *fakeBusinessesRepository = OCMClassMock([BusinessesRepository class]);
     OCMStub([fakeBusinessesRepository businesses]).andReturn(self.businesses);
+    OCMStub([fakeBusinessesRepository updateBusinessesAndCallBlock:[OCMArg invokeBlock]]);
     self.SUT.dataSource.businessesRepository = fakeBusinessesRepository;
-    [self.SUT view];
-}
-
-- (void)testNearbyBusinessesViewController {
-    XCTAssertNotNil(self.SUT);
 }
 
 -(void)testViewDidLoad {
+    UITableView *fakeTableView = OCMClassMock([UITableView class]);
+    self.SUT.view = fakeTableView;
     XCTAssertNotNil(self.SUT);
+    [self.SUT viewDidLoad];
     XCTAssertNotNil(self.SUT.dataSource.businessesRepository);
-//    OCMVerify([self.SUT.dataSource.businessesRepository updateBusinesses]);
+    OCMVerify([fakeTableView setDataSource:self.SUT.dataSource]);
     OCMVerify([self.SUT.dataSource.businessesRepository updateBusinessesAndCallBlock:[OCMArg any]]);
-    XCTAssertEqual(self.SUT.tableView.dataSource, self.SUT.dataSource);
+    OCMVerify([fakeTableView reloadData]);
 }
 @end

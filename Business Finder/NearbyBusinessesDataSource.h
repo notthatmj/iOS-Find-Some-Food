@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 @import UIKit;
-#import "BusinessesRepository.h"
+//#import "BusinessesRepository.h"
+@class BusinessesRepository;
 
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource>
 @property (strong,nonatomic) BusinessesRepository* businessesRepository;

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FourSquareGateway.h"
+//#import "FourSquareGateway.h"
+@class Business;
+@class FourSquareGateway;
 
 @interface BusinessesRepository : NSObject
 @property (readonly) NSArray<Business *> *businesses;

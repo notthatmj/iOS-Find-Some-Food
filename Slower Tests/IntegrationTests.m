@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "BusinessesRepository.h"
 #import "Business.h"
+#import "FourSquareGatewayTests.m"
 
 @interface IntegrationTests : XCTestCase
 
@@ -18,7 +19,6 @@
 
 - (void)testBusinessesRepositoryIntegration {
     BusinessesRepository *SUT = [BusinessesRepository new];
-    SUT.fourSquareGateway = [FourSquareGateway new];
     XCTAssertEqual(SUT.businesses.count,0);
     XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
     [SUT updateBusinessesAndCallBlock:^{
@@ -30,8 +30,7 @@
     XCTAssert([SUT.businesses count] > 1);
     for (Business *business in SUT.businesses) {
         XCTAssertNotNil(business.name);
-    }
-    
+    }    
 }
 
 @end

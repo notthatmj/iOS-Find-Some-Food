@@ -20,8 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self.dataSource;
-//    [self.dataSource.businessesRepository updateBusinesses];
-    [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{}];
+    [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
+        [self.tableView reloadData];
+    }];
 }
 
 -(NearbyBusinessesDataSource *)dataSource {

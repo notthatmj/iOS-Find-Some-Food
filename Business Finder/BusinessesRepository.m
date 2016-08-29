@@ -8,7 +8,7 @@
 
 #import "BusinessesRepository.h"
 #import "Business.h"
-
+#import "FourSquareGateway.h"
 
 @interface BusinessesRepository ()
 @property (strong,nonatomic) NSArray *businesses;
@@ -33,4 +33,10 @@
     }];
 }
 
+-(FourSquareGateway *)fourSquareGateway {
+    if (_fourSquareGateway == nil) {
+        _fourSquareGateway = [FourSquareGateway new];
+    }
+    return _fourSquareGateway;
+}
 @end

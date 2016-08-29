@@ -19,6 +19,7 @@
 @implementation BusinessesRepositoryTests
 
 - (void)testBusinessesRepository {
+    // Setup
     BusinessesRepository *SUT = [BusinessesRepository new];
     NSMutableArray *businesses = [NSMutableArray new];
     NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];
@@ -27,17 +28,18 @@
         business.name = businessName;
         [businesses addObject:business];
     }
-
     id fourSquareGateway = OCMClassMock([FourSquareGateway class]);
     OCMStub([fourSquareGateway businesses]).andReturn(businesses);
     OCMStub([[fourSquareGateway ignoringNonObjectArgs] getNearbyBusinessesForLatitude:0 longitude:0 completionHandler:[OCMArg invokeBlock]]);
     SUT.fourSquareGateway = fourSquareGateway;
-    
     XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
 
+    // Run
     [SUT updateBusinessesAndCallBlock:^{
         [expectation fulfill];
     }];
+    
+    // Verify
     [self waitForExpectationsWithTimeout:1.0 handler:^(NSError * _Nullable error) {}];
     OCMVerify([[fourSquareGateway ignoringNonObjectArgs] getNearbyBusinessesForLatitude:0
                                                                               longitude:0
@@ -45,6 +47,11 @@
     XCTAssertEqual([SUT.businesses count],2);
     XCTAssertEqualObjects(SUT.businesses[0].name, businessNames[0]);
     XCTAssertEqualObjects(SUT.businesses[1].name, businessNames[1]);
+}
+
+- (void)testInit {
+    BusinessesRepository *SUT = [BusinessesRepository new];
+    XCTAssertNotNil(SUT.fourSquareGateway);
 }
 
 @end
