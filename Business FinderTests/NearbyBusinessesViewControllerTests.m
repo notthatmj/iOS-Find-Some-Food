@@ -14,29 +14,33 @@
 #import "OCMock.h"
 
 @interface NearbyBusinessesViewControllerTests : XCTestCase
-@property (nonatomic, strong) NearbyBusinessesTableViewController *SUT;
-@property (nonatomic, strong) NSArray<Business *> *businesses;
 @end
 
 @implementation NearbyBusinessesViewControllerTests
 
 - (void)setUp {
     [super setUp];
-    self.SUT = [NearbyBusinessesTableViewController new];
-    BusinessesRepository *fakeBusinessesRepository = OCMClassMock([BusinessesRepository class]);
-    OCMStub([fakeBusinessesRepository businesses]).andReturn(self.businesses);
-    OCMStub([fakeBusinessesRepository updateBusinessesAndCallBlock:[OCMArg invokeBlock]]);
-    self.SUT.dataSource.businessesRepository = fakeBusinessesRepository;
 }
 
 -(void)testViewDidLoad {
+    // Setup
+    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
+    id fakeBusinessesRepository = OCMClassMock([BusinessesRepository class]);
+    OCMStub([fakeBusinessesRepository updateBusinessesAndCallBlock:[OCMArg invokeBlock]]);
+    SUT.dataSource.businessesRepository = fakeBusinessesRepository;
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
-    self.SUT.view = fakeTableView;
-    XCTAssertNotNil(self.SUT);
-    [self.SUT viewDidLoad];
-    XCTAssertNotNil(self.SUT.dataSource.businessesRepository);
-    OCMVerify([fakeTableView setDataSource:self.SUT.dataSource]);
-    OCMVerify([self.SUT.dataSource.businessesRepository updateBusinessesAndCallBlock:[OCMArg any]]);
+    SUT.view = fakeTableView;
+    XCTAssertNotNil(SUT);
+
+    // Run
+    [SUT viewDidLoad];
+    
+    // Verify
+    XCTAssertNotNil(SUT.dataSource.businessesRepository);
+    OCMVerify([[fakeBusinessesRepository ignoringNonObjectArgs] setLatitude:0]);
+    OCMVerify([[fakeBusinessesRepository ignoringNonObjectArgs] setLongitude:0]);
+    OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
+    OCMVerify([SUT.dataSource.businessesRepository updateBusinessesAndCallBlock:[OCMArg any]]);
     OCMVerify([fakeTableView reloadData]);
 }
 @end

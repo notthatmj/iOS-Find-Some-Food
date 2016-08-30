@@ -26,7 +26,7 @@
 }
 
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
-    [self.fourSquareGateway getNearbyBusinessesForLatitude:41.884529 longitude:-87.627813 completionHandler:^{
+    [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude completionHandler:^{
         NSArray<Business *> *results = self.fourSquareGateway.businesses;
         _businesses = results;
         block();

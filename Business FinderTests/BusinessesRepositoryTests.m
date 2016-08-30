@@ -21,6 +21,10 @@
 - (void)testBusinessesRepository {
     // Setup
     BusinessesRepository *SUT = [BusinessesRepository new];
+    const double testLatitude = 41.840457;
+    const double testLongitude = -87.660502;
+    SUT.latitude = testLatitude;
+    SUT.longitude = testLongitude;
     NSMutableArray *businesses = [NSMutableArray new];
     NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];
     for (NSString *businessName in businessNames) {
@@ -30,7 +34,9 @@
     }
     id fourSquareGateway = OCMClassMock([FourSquareGateway class]);
     OCMStub([fourSquareGateway businesses]).andReturn(businesses);
-    OCMStub([[fourSquareGateway ignoringNonObjectArgs] getNearbyBusinessesForLatitude:0 longitude:0 completionHandler:[OCMArg invokeBlock]]);
+    OCMStub([fourSquareGateway getNearbyBusinessesForLatitude:testLatitude
+                                                    longitude:testLongitude
+                                            completionHandler:[OCMArg invokeBlock]]);
     SUT.fourSquareGateway = fourSquareGateway;
     XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
 
@@ -41,9 +47,9 @@
     
     // Verify
     [self waitForExpectationsWithTimeout:1.0 handler:^(NSError * _Nullable error) {}];
-    OCMVerify([[fourSquareGateway ignoringNonObjectArgs] getNearbyBusinessesForLatitude:0
-                                                                              longitude:0
-                                                                      completionHandler:[OCMArg any]]);
+    OCMVerify([fourSquareGateway getNearbyBusinessesForLatitude:testLatitude
+                                                      longitude:testLongitude
+                                              completionHandler:[OCMArg any]]);
     XCTAssertEqual([SUT.businesses count],2);
     XCTAssertEqualObjects(SUT.businesses[0].name, businessNames[0]);
     XCTAssertEqualObjects(SUT.businesses[1].name, businessNames[1]);
