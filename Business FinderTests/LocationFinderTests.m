@@ -26,6 +26,7 @@
         [expectation fulfill];
     }];
     
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
     XCTAssertNotEqual(locationFinder.latitude,0);
     XCTAssertNotEqual(locationFinder.longitude,0);
 }

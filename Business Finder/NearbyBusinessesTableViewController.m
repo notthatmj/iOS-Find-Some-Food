@@ -10,6 +10,7 @@
 #import "Business.h"
 #import "BusinessesRepository.h"
 #import "NearbyBusinessesDataSource.h"
+#import "LocationGateway.h"
 
 @interface NearbyBusinessesTableViewController ()
 
@@ -19,12 +20,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.tableView.dataSource = self.dataSource;
     self.dataSource.businessesRepository.latitude = 41.840457;
     self.dataSource.businessesRepository.longitude = -87.660502;
-    
+    self.locationGateway = [LocationGateway new];
+//    [self.locationGateway requestWhenInUseAuthorization];
+    [self.locationGateway fetchLocationAndCallBlock:^{
+        NSLog(@"Well, at least we made it here.");
+    }];
+    NearbyBusinessesTableViewController * __weak weakSelf = self;
     [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
     }];
 }
 

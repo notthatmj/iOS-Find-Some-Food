@@ -15,7 +15,8 @@
 
 @implementation LocationFinder
 -(void)fetchLocationAndCallBlock:(void (^)())block {
-//    self.latitude = 1;
-//    self.longitude = 1;
+    self.latitude = 1;
+    self.longitude = 1;
+    block();
 }
 @end

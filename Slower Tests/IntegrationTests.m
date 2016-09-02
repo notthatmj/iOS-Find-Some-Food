@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "BusinessesRepository.h"
 #import "Business.h"
-#import "FourSquareGatewayTests.m"
+//#import "FourSquareGatewayTests.m"
 
 @interface IntegrationTests : XCTestCase
 

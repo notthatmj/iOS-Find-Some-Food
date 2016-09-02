@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CLLocationManager;
+@import CoreLocation;
 
 /**
  LocationGateway delegates its tasks to a CLLocationManager. According to the
@@ -17,6 +17,12 @@
  thread. So we initialize the locationManager when the LocationGateway is
  created, and use the same rules when interacting with the LocationGateway.
  */
-@interface LocationGateway : NSObject
+@interface LocationGateway : NSObject <CLLocationManagerDelegate>
 @property (strong, nonatomic,readonly) CLLocationManager *locationManager;
+@property (strong, nonatomic, readonly) NSNumber *latitude;
+@property (strong, nonatomic, readonly) NSNumber *longitude;
++ (CLAuthorizationStatus)authorizationStatus;
+-(void) fetchLocationAndCallBlock: (void (^)())block;
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
+-(void)requestWhenInUseAuthorization;
 @end

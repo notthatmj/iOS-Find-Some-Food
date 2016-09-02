@@ -37,6 +37,7 @@
     
     // Verify
     XCTAssertNotNil(SUT.dataSource.businessesRepository);
+    XCTAssertNotNil(SUT.locationGateway);
     OCMVerify([[fakeBusinessesRepository ignoringNonObjectArgs] setLatitude:0]);
     OCMVerify([[fakeBusinessesRepository ignoringNonObjectArgs] setLongitude:0]);
     OCMVerify([fakeTableView setDataSource:SUT.dataSource]);

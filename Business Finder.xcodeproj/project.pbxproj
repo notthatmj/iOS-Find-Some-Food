@@ -14,7 +14,6 @@
 		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		893552DF1D7739B300D590A6 /* LocationGatewayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893552DE1D7739B300D590A6 /* LocationGatewayTests.m */; };
-		894478A11D58F9B300523891 /* FourSquareGatewayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
@@ -25,11 +24,12 @@
 		897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489821D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m */; };
 		897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */; };
 		897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489871D4FBD5200531975 /* MainStoryboardTests.m */; };
+		8995D7DB1D7A0204006034B9 /* FourSquareGatewayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034B031D58F02800BCA3A0 /* FourSquareGatewayTests.m */; };
+		8995D7DC1D7A025D006034B9 /* LocationFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0901D75F2D000C98165 /* LocationFinderTests.m */; };
 		89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */; };
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
 		89A10CE21D512DFD009E5867 /* BusinessesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesRepository.m */; };
 		89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D08E1D74B45B00C98165 /* IntegrationTests.m */; };
-		89F2D0911D75F2D000C98165 /* LocationFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0901D75F2D000C98165 /* LocationFinderTests.m */; };
 		89F2D0941D75F5EF00C98165 /* LocationFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0931D75F5EF00C98165 /* LocationFinder.m */; };
 		89F2D0971D76041700C98165 /* LocationGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0961D76041700C98165 /* LocationGateway.m */; };
 		89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */; };
@@ -566,9 +566,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8995D7DB1D7A0204006034B9 /* FourSquareGatewayTests.m in Sources */,
 				89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */,
 				89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */,
-				89F2D0911D75F2D000C98165 /* LocationFinderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				894478A11D58F9B300523891 /* FourSquareGatewayTests.m in Sources */,
+				8995D7DC1D7A025D006034B9 /* LocationFinderTests.m in Sources */,
 				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
 				89F4C7BA1D52535300FC63D9 /* BusinessesRepositoryTests.m in Sources */,
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
