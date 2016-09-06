@@ -39,8 +39,8 @@
     
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    self.latitude = [NSNumber numberWithDouble:55.0];
-    self.longitude = [NSNumber numberWithDouble:55.0];
+    self.latitude = [NSNumber numberWithDouble:40.7128];
+    self.longitude = [NSNumber numberWithDouble:-74.0059];
     
     self.completionHandler();
 }

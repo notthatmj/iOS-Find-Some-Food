@@ -32,7 +32,7 @@
     [SUT fetchLocationAndCallBlock:^(){
         [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:30.0 handler:nil];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     XCTAssertNotNil(SUT.latitude);
     XCTAssertNotNil(SUT.longitude);
 }
