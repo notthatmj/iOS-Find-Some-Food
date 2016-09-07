@@ -32,7 +32,8 @@
     [SUT viewDidLoad];
     
     // Verify
-    XCTAssertNotNil(SUT.locationGateway);
+    XCTAssertNotNil(SUT.dataSource.businessesRepository.locationGateway);
+//    XCTAssertNotNil(SUT.dataSource.businessesRepository.locationGateway);
 }
 
 -(void)testViewDidLoad {
@@ -47,11 +48,12 @@
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
     
-    SUT.locationGateway = fakeLocationGateway;
+//    SUT.dataSource.businessesRepository.locationGateway = fakeLocationGateway;
+    OCMStub([SUT.dataSource.businessesRepository locationGateway]).andReturn(fakeLocationGateway);
     [SUT viewDidLoad];
     
     OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
-    XCTAssertEqual(SUT.locationGateway, fakeLocationGateway);
+    XCTAssertEqual(SUT.dataSource.businessesRepository.locationGateway, fakeLocationGateway);
     OCMVerify([fakeLocationGateway fetchLocationAndCallBlock:[OCMArg any]]);
     OCMVerify([fakeBusinessesRepository setLatitude:40.7589]);
     OCMVerify([fakeBusinessesRepository setLongitude:-73.9851]);

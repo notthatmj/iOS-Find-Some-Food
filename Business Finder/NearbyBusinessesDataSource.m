@@ -35,4 +35,14 @@
     return cell;
 }
 
+//-(void)updateBusinesses {
+////    NearbyBusinessesTableViewController * __weak weakSelf = self;
+//    self.businessesRepository.longitude = [self.locationGateway.longitude doubleValue];
+//    self.dataSource.businessesRepository.latitude = [self.locationGateway.latitude doubleValue];
+//    
+//    [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
+//        [weakSelf.tableView reloadData];
+//    }];
+//}
+
 @end

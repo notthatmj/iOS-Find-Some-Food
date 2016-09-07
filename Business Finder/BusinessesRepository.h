@@ -10,11 +10,13 @@
 //#import "FourSquareGateway.h"
 @class Business;
 @class FourSquareGateway;
+@class LocationGateway;
 
 @interface BusinessesRepository : NSObject
 @property (readonly) NSArray<Business *> *businesses;
 @property (strong, nonatomic) FourSquareGateway *fourSquareGateway;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
+@property (strong, nonatomic) LocationGateway *locationGateway;
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block;
 @end
