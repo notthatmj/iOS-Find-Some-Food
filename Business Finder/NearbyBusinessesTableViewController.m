@@ -22,25 +22,19 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self.dataSource;
-    self.dataSource.businessesRepository.latitude = 41.840457;
-    self.dataSource.businessesRepository.longitude = -87.660502;
     if (self.locationGateway == nil) {
         self.locationGateway = [LocationGateway new];
     }
-//    [self.locationGateway requestWhenInUseAuthorization];
+
     NearbyBusinessesTableViewController * __weak weakSelf = self;
     [self.locationGateway fetchLocationAndCallBlock:^{
-//        self.dataSource.businessesRepository.longitude = [self.locationGateway.longitude doubleValue];
+        self.dataSource.businessesRepository.longitude = [self.locationGateway.longitude doubleValue];
         self.dataSource.businessesRepository.latitude = [self.locationGateway.latitude doubleValue];
-//
-//        [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
-//            [weakSelf.tableView reloadData];
-//        }];
+
+        [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
+            [weakSelf.tableView reloadData];
+        }];
     }];
-//    NearbyBusinessesTableViewController * __weak weakSelf = self;
-//    [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
-//        [weakSelf.tableView reloadData];
-//    }];
 }
 
 -(NearbyBusinessesDataSource *)dataSource {
