@@ -19,10 +19,10 @@
 
 - (void)testBusinessesRepositoryIntegration {
     BusinessesRepository *SUT = [BusinessesRepository new];
-    const double testLatitude = 41.840457;
-    const double testLongitude = -87.660502;
-    SUT.latitude = testLatitude;
-    SUT.longitude = testLongitude;
+//    const double testLatitude = 41.840457;
+//    const double testLongitude = -87.660502;
+//    SUT.latitude = testLatitude;
+//    SUT.longitude = testLongitude;
     XCTAssertEqual(SUT.businesses.count,0);
     XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
     [SUT updateBusinessesAndCallBlock:^{

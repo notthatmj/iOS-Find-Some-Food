@@ -11,6 +11,7 @@
 #import "FourSquareGateway.h"
 #import "OCMock.h"
 #import "Business.h"
+#import "LocationGateway.h"
 
 @interface BusinessesRepositoryTests : XCTestCase
 
@@ -23,8 +24,11 @@
     BusinessesRepository *SUT = [BusinessesRepository new];
     const double testLatitude = 41.840457;
     const double testLongitude = -87.660502;
-    SUT.latitude = testLatitude;
-    SUT.longitude = testLongitude;
+    LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
+    OCMStub([fakeLocationGateway latitude]).andReturn([NSNumber numberWithDouble:testLatitude]);
+    OCMStub([fakeLocationGateway longitude]).andReturn([NSNumber numberWithDouble:testLongitude]);
+    SUT.locationGateway = fakeLocationGateway;
+    
     NSMutableArray *businesses = [NSMutableArray new];
     NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];
     for (NSString *businessName in businessNames) {
@@ -44,8 +48,8 @@
     [SUT updateBusinessesAndCallBlock:^{
         [expectation fulfill];
     }];
-    
-    // Verify
+//
+//    // Verify
     [self waitForExpectationsWithTimeout:1.0 handler:^(NSError * _Nullable error) {}];
     OCMVerify([fourSquareGateway getNearbyBusinessesForLatitude:testLatitude
                                                       longitude:testLongitude

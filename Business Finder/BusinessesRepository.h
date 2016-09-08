@@ -15,8 +15,9 @@
 @interface BusinessesRepository : NSObject
 @property (readonly) NSArray<Business *> *businesses;
 @property (strong, nonatomic) FourSquareGateway *fourSquareGateway;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
 @property (strong, nonatomic) LocationGateway *locationGateway;
+//-(void) initializeLocationGatewayOnCurrentThread;
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block;
 @end

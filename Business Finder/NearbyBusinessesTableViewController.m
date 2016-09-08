@@ -22,21 +22,17 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self.dataSource;
-    [self initializeLocationGateway];
-//    if (self.dataSource.businessesRepository.locationGateway == nil) {
-//        self.dataSource.businessesRepository.locationGateway = [LocationGateway new];
-//    }
-    
+
     NearbyBusinessesTableViewController * __weak weakSelf = self;
-    [self.dataSource.businessesRepository.locationGateway fetchLocationAndCallBlock:^{
-        [weakSelf updateBusinesses];
-    }];
+//    [self.dataSource.businessesRepository.locationGateway fetchLocationAndCallBlock:^{
+//        [weakSelf updateBusinesses];
+//    }];
 }
 
 -(void)updateBusinesses {
     NearbyBusinessesTableViewController * __weak weakSelf = self;
-    self.dataSource.businessesRepository.longitude = [self.dataSource.businessesRepository.locationGateway.longitude doubleValue];
-    self.dataSource.businessesRepository.latitude = [self.dataSource.businessesRepository.locationGateway.latitude doubleValue];
+//    self.dataSource.businessesRepository.longitude = [self.dataSource.businessesRepository.locationGateway.longitude doubleValue];
+//    self.dataSource.businessesRepository.latitude = [self.dataSource.businessesRepository.locationGateway.latitude doubleValue];
 
     [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
         [weakSelf.tableView reloadData];
@@ -48,12 +44,6 @@
         _dataSource = [NearbyBusinessesDataSource new];
     }
     return _dataSource;
-}
-
--(void) initializeLocationGateway {
-    if (self.dataSource.businessesRepository.locationGateway == nil) {
-        self.dataSource.businessesRepository.locationGateway = [LocationGateway new];
-    }
 }
 
 @end
