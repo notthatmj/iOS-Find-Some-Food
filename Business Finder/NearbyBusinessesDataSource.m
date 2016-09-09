@@ -9,6 +9,8 @@
 #import "NearbyBusinessesDataSource.h"
 #import "BusinessesRepository.h"
 #import "Business.h"
+#import "LocationGateway.h"
+
 @import UIKit;
 
 @implementation NearbyBusinessesDataSource
@@ -35,14 +37,15 @@
     return cell;
 }
 
-//-(void)updateBusinesses {
-////    NearbyBusinessesTableViewController * __weak weakSelf = self;
-//    self.businessesRepository.longitude = [self.locationGateway.longitude doubleValue];
-//    self.dataSource.businessesRepository.latitude = [self.locationGateway.latitude doubleValue];
-//    
-//    [self.dataSource.businessesRepository updateBusinessesAndCallBlock:^{
-//        [weakSelf.tableView reloadData];
+//-(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
+//    BusinessesRepository *businessesRepository = self.businessesRepository;
+//    [businessesRepository fetchLocationAndCallBlock:^{
+//        [businessesRepository updateBusinessesAndCallBlock:block];
 //    }];
 //}
+
+-(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
+    [self.businessesRepository updateLocationAndBusinessesAndCallBlock:block];
+}
 
 @end

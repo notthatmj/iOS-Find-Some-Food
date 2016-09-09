@@ -19,16 +19,25 @@
 
 @implementation BusinessesRepositoryTests
 
-- (void)testBusinessesRepository {
+- (void)testInit {
+    BusinessesRepository *SUT = [BusinessesRepository new];
+    XCTAssertNotNil(SUT.fourSquareGateway);
+}
+
+- (void)testUpdateLocationAndBusinessesAndCallBlock {
     // Setup
     BusinessesRepository *SUT = [BusinessesRepository new];
+    
+    // Setup fakeLocationGateway.
     const double testLatitude = 41.840457;
     const double testLongitude = -87.660502;
     LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
+    OCMStub([fakeLocationGateway fetchLocationAndCallBlock:[OCMArg invokeBlock]]);
     OCMStub([fakeLocationGateway latitude]).andReturn([NSNumber numberWithDouble:testLatitude]);
     OCMStub([fakeLocationGateway longitude]).andReturn([NSNumber numberWithDouble:testLongitude]);
     SUT.locationGateway = fakeLocationGateway;
     
+    // Setup fake FourSquareGatway
     NSMutableArray *businesses = [NSMutableArray new];
     NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];
     for (NSString *businessName in businessNames) {
@@ -38,30 +47,30 @@
     }
     id fourSquareGateway = OCMClassMock([FourSquareGateway class]);
     OCMStub([fourSquareGateway businesses]).andReturn(businesses);
-    OCMStub([fourSquareGateway getNearbyBusinessesForLatitude:testLatitude
-                                                    longitude:testLongitude
-                                            completionHandler:[OCMArg invokeBlock]]);
     SUT.fourSquareGateway = fourSquareGateway;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
-
+    OCMStub([fourSquareGateway getNearbyBusinessesForLatitude:testLatitude
+                                                      longitude:testLongitude
+                                              completionHandler:[OCMArg invokeBlock]]);
+    
     // Run
-    [SUT updateBusinessesAndCallBlock:^{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
+    [SUT updateLocationAndBusinessesAndCallBlock:^{
         [expectation fulfill];
     }];
-//
-//    // Verify
-    [self waitForExpectationsWithTimeout:1.0 handler:^(NSError * _Nullable error) {}];
-    OCMVerify([fourSquareGateway getNearbyBusinessesForLatitude:testLatitude
-                                                      longitude:testLongitude
-                                              completionHandler:[OCMArg any]]);
+
+    // Everything is mocked up in this test so nothing is actually asynchronous, which is why we give a timeout of 0.0 here.
+    [self waitForExpectationsWithTimeout:0.0 handler:nil];
+    
+    OCMVerify([fakeLocationGateway fetchLocationAndCallBlock:[OCMArg any]]);
+    XCTAssertEqual(SUT.latitude, testLatitude);
+    XCTAssertEqual(SUT.longitude, testLongitude);
+    OCMVerify([[fourSquareGateway ignoringNonObjectArgs] getNearbyBusinessesForLatitude:testLatitude
+                                                                              longitude:testLongitude
+                                                                      completionHandler:[OCMArg any]]);
+    
     XCTAssertEqual([SUT.businesses count],2);
     XCTAssertEqualObjects(SUT.businesses[0].name, businessNames[0]);
     XCTAssertEqualObjects(SUT.businesses[1].name, businessNames[1]);
-}
-
-- (void)testInit {
-    BusinessesRepository *SUT = [BusinessesRepository new];
-    XCTAssertNotNil(SUT.fourSquareGateway);
 }
 
 @end

@@ -29,6 +29,12 @@
     return self;
 }
 
+-(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
+    [self fetchLocationAndCallBlock:^{
+        [self updateBusinessesAndCallBlock:block];
+    }];
+}
+
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
     self.longitude = [self.locationGateway.longitude doubleValue];
     self.latitude = [self.locationGateway.latitude doubleValue];
@@ -38,6 +44,10 @@
         _businesses = results;
         block();
     }];
+}
+
+-(void)fetchLocationAndCallBlock:(void (^)(void))block {
+    [self.locationGateway fetchLocationAndCallBlock:block];
 }
 
 -(FourSquareGateway *)fourSquareGateway {

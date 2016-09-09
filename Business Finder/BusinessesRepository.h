@@ -18,6 +18,6 @@
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 @property (strong, nonatomic) LocationGateway *locationGateway;
-//-(void) initializeLocationGatewayOnCurrentThread;
--(void)updateBusinessesAndCallBlock: (void (^)(void)) block;
+-(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block;
+
 @end

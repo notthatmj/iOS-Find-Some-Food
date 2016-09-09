@@ -13,5 +13,5 @@
 
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource>
 @property (strong,nonatomic) BusinessesRepository* businessesRepository;
-//-(void)updateBusinesses;
+-(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block;
 @end

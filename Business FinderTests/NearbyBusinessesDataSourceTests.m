@@ -59,4 +59,9 @@
     }
 }
 
+- (void)testUpdateLocationAndBusinessesAndCallBlock {
+    void (^dummyBlock)() = ^{};
+    [self.SUT updateLocationAndBusinessesAndCallBlock:dummyBlock];
+    OCMVerify([self.SUT.businessesRepository updateLocationAndBusinessesAndCallBlock:dummyBlock]);    
+}
 @end
