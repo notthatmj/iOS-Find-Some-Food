@@ -15,10 +15,10 @@
 
 @implementation NearbyBusinessesDataSource
 - (BusinessesDataController *)BusinessesDataController {
-    if (_businessesRepository == nil) {
-        _businessesRepository = [BusinessesDataController new];
+    if (_businessesDataController == nil) {
+        _businessesDataController = [BusinessesDataController new];
     }
-    return _businessesRepository;
+    return _businessesDataController;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -26,19 +26,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger result = self.businessesRepository.businesses.count;
+    NSUInteger result = self.businessesDataController.businesses.count;
     return result;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.businessesRepository businesses][indexPath.row];
+    Business *business = [self.businessesDataController businesses][indexPath.row];
     cell.textLabel.text = business.name;
     return cell;
 }
 
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
-    [self.businessesRepository updateLocationAndBusinessesAndCallBlock:block];
+    [self.businessesDataController updateLocationAndBusinessesAndCallBlock:block];
 }
 
 @end

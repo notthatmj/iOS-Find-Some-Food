@@ -11,6 +11,6 @@
 @class BusinessesDataController;
 
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource>
-@property (strong,nonatomic) BusinessesDataController* businessesRepository;
+@property (strong,nonatomic) BusinessesDataController* businessesDataController;
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block;
 @end

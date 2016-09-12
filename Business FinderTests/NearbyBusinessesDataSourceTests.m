@@ -34,7 +34,7 @@
     self.businesses = @[business1,business2,business3];
     BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
     OCMStub([fakeBusinessesDataController businesses]).andReturn(self.businesses);
-    self.SUT.businessesRepository = fakeBusinessesDataController;
+    self.SUT.businessesDataController = fakeBusinessesDataController;
     
     self.tableView = [UITableView new];
     [self.tableView registerClass:[DummyCellClass class] forCellReuseIdentifier:@"PrototypeCell"];
@@ -62,6 +62,6 @@
 - (void)testUpdateLocationAndBusinessesAndCallBlock {
     void (^dummyBlock)() = ^{};
     [self.SUT updateLocationAndBusinessesAndCallBlock:dummyBlock];
-    OCMVerify([self.SUT.businessesRepository updateLocationAndBusinessesAndCallBlock:dummyBlock]);    
+    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinessesAndCallBlock:dummyBlock]);    
 }
 @end
