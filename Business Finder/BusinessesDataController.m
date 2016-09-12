@@ -36,9 +36,6 @@
 }
 
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
-//    self.longitude = [self.locationGateway.longitude doubleValue];
-//    self.latitude = [self.locationGateway.latitude doubleValue];
-
     [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude completionHandler:^{
         NSArray<Business *> *results = self.fourSquareGateway.businesses;
         _businesses = results;

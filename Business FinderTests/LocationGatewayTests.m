@@ -46,6 +46,16 @@
     }
 }
 
+- (void) testLocationManagerDidUpdateLocations {
+    LocationGateway *SUT = [LocationGateway new];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:40.758684 longitude:-73.985163];
+
+    [SUT locationManager:nil didUpdateLocations:@[location]];
+    
+    XCTAssertEqual([SUT.latitude doubleValue], 40.758684);
+    XCTAssertEqual([SUT.longitude doubleValue], -73.985163);
+}
+
 - (void) testInfoPlistKey {
     NSString *locationPrompt = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"];
     XCTAssertNotNil(locationPrompt);

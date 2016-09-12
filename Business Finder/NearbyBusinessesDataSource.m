@@ -14,7 +14,7 @@
 @import UIKit;
 
 @implementation NearbyBusinessesDataSource
-- (BusinessesDataController *)BusinessesDataController {
+- (BusinessesDataController *)businessesDataController {
     if (_businessesDataController == nil) {
         _businessesDataController = [BusinessesDataController new];
     }

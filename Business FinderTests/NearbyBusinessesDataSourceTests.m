@@ -65,3 +65,13 @@
     OCMVerify([self.SUT.businessesDataController updateLocationAndBusinessesAndCallBlock:dummyBlock]);    
 }
 @end
+
+@interface NearbyBusinessesDataSourceSimplePropertyTests : XCTestCase
+@end
+
+@implementation NearbyBusinessesDataSourceSimplePropertyTests
+-(void) testBusinessesDataController {
+    NearbyBusinessesDataSource *SUT = [NearbyBusinessesDataSource new];
+    XCTAssertNotNil(SUT.businessesDataController);
+}
+@end

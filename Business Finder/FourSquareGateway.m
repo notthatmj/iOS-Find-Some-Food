@@ -36,6 +36,7 @@
         self.responseData = [data copy];
         NSArray<Business *> *businesses = [self parseQueryResponse];
         self.businesses = businesses;
+//        dispatch_async(dispatch_get_main_queue(), completionHandler);
         completionHandler();
     }];
     return;

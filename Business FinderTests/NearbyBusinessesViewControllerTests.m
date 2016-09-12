@@ -7,7 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NearbyBusinessFinder.h"
 #import "NearbyBusinessesTableViewController.h"
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"

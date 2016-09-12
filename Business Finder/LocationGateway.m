@@ -33,16 +33,14 @@
         [self requestWhenInUseAuthorization];
     } else {
         [self.locationManager requestLocation];
-//        [self.locationManager startUpdatingLocation];
     }
-//    block();
-    
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    self.latitude = [NSNumber numberWithDouble:40.7128];
-    self.longitude = [NSNumber numberWithDouble:-74.0059];
-    
-    self.completionHandler();
+    self.latitude = [NSNumber numberWithDouble:locations[0].coordinate.latitude];
+    self.longitude = [NSNumber numberWithDouble:locations[0].coordinate.longitude];
+    if (self.completionHandler != nil) {
+        self.completionHandler();
+    }
 }
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 //    self.completionHandler();
