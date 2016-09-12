@@ -36,8 +36,8 @@
 }
 
 -(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
-    self.longitude = [self.locationGateway.longitude doubleValue];
-    self.latitude = [self.locationGateway.latitude doubleValue];
+//    self.longitude = [self.locationGateway.longitude doubleValue];
+//    self.latitude = [self.locationGateway.latitude doubleValue];
 
     [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude completionHandler:^{
         NSArray<Business *> *results = self.fourSquareGateway.businesses;
@@ -47,7 +47,11 @@
 }
 
 -(void)fetchLocationAndCallBlock:(void (^)(void))block {
-    [self.locationGateway fetchLocationAndCallBlock:block];
+    [self.locationGateway fetchLocationAndCallBlock: ^{
+        self.longitude = [self.locationGateway.longitude doubleValue];
+        self.latitude = [self.locationGateway.latitude doubleValue];
+        block();
+    }];
 }
 
 -(FourSquareGateway *)fourSquareGateway {

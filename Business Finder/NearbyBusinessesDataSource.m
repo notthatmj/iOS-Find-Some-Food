@@ -37,13 +37,6 @@
     return cell;
 }
 
-//-(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
-//    BusinessesRepository *businessesRepository = self.businessesRepository;
-//    [businessesRepository fetchLocationAndCallBlock:^{
-//        [businessesRepository updateBusinessesAndCallBlock:block];
-//    }];
-//}
-
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
     [self.businessesRepository updateLocationAndBusinessesAndCallBlock:block];
 }
