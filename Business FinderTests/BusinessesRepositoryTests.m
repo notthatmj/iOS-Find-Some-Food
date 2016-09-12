@@ -1,5 +1,5 @@
 //
-//  BusinessesRepositoryTests.m
+//  BusinessesDataControllerTests.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 8/3/16.
@@ -7,26 +7,26 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "BusinessesRepository.h"
+#import "BusinessesDataController.h"
 #import "FourSquareGateway.h"
 #import "OCMock.h"
 #import "Business.h"
 #import "LocationGateway.h"
 
-@interface BusinessesRepositoryTests : XCTestCase
+@interface BusinessesDataControllerTests : XCTestCase
 
 @end
 
-@implementation BusinessesRepositoryTests
+@implementation BusinessesDataControllerTests
 
 - (void)testInit {
-    BusinessesRepository *SUT = [BusinessesRepository new];
+    BusinessesDataController *SUT = [BusinessesDataController new];
     XCTAssertNotNil(SUT.fourSquareGateway);
 }
 
 - (void)testUpdateLocationAndBusinessesAndCallBlock {
     // Setup
-    BusinessesRepository *SUT = [BusinessesRepository new];
+    BusinessesDataController *SUT = [BusinessesDataController new];
     
     // Setup fakeLocationGateway.
     const double testLatitude = 41.840457;

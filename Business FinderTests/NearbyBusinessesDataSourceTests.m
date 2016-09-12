@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"
-#import "BusinessesRepository.h"
+#import "BusinessesDataController.h"
 #import "OCMock.h"
 
 @interface DummyCellClass : UITableViewCell
@@ -32,9 +32,9 @@
     Business *business2 = [[Business alloc] initWithName:@"Moe's Restaurant" distance:2.0];
     Business *business3 = [[Business alloc] initWithName:@"Curly's Restaurant" distance:3.0];
     self.businesses = @[business1,business2,business3];
-    BusinessesRepository *fakeBusinessesRepository = OCMClassMock([BusinessesRepository class]);
-    OCMStub([fakeBusinessesRepository businesses]).andReturn(self.businesses);
-    self.SUT.businessesRepository = fakeBusinessesRepository;
+    BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
+    OCMStub([fakeBusinessesDataController businesses]).andReturn(self.businesses);
+    self.SUT.businessesRepository = fakeBusinessesDataController;
     
     self.tableView = [UITableView new];
     [self.tableView registerClass:[DummyCellClass class] forCellReuseIdentifier:@"PrototypeCell"];

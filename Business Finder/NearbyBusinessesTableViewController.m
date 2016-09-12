@@ -8,7 +8,6 @@
 
 #import "NearbyBusinessesTableViewController.h"
 #import "Business.h"
-#import "BusinessesRepository.h"
 #import "NearbyBusinessesDataSource.h"
 #import "LocationGateway.h"
 

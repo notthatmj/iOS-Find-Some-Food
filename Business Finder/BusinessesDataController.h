@@ -1,5 +1,5 @@
 //
-//  BusinessesRepository.h
+//  BusinessesDataController.h
 //  Business Finder
 //
 //  Created by Michael Johnson on 8/2/16.
@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "FourSquareGateway.h"
 @class Business;
 @class FourSquareGateway;
 @class LocationGateway;
 
-@interface BusinessesRepository : NSObject
+@interface BusinessesDataController : NSObject
 @property (readonly) NSArray<Business *> *businesses;
 @property (strong, nonatomic) FourSquareGateway *fourSquareGateway;
 @property (nonatomic, readonly) double latitude;

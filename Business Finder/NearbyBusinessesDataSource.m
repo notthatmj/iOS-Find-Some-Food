@@ -7,16 +7,16 @@
 //
 
 #import "NearbyBusinessesDataSource.h"
-#import "BusinessesRepository.h"
+#import "BusinessesDataController.h"
 #import "Business.h"
 #import "LocationGateway.h"
 
 @import UIKit;
 
 @implementation NearbyBusinessesDataSource
-- (BusinessesRepository *)businessesRepository {
+- (BusinessesDataController *)BusinessesDataController {
     if (_businessesRepository == nil) {
-        _businessesRepository = [BusinessesRepository new];
+        _businessesRepository = [BusinessesDataController new];
     }
     return _businessesRepository;
 }

@@ -28,7 +28,7 @@
 		8995D7DC1D7A025D006034B9 /* LocationFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0901D75F2D000C98165 /* LocationFinderTests.m */; };
 		89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */; };
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
-		89A10CE21D512DFD009E5867 /* BusinessesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesRepository.m */; };
+		89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesDataController.m */; };
 		89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D08E1D74B45B00C98165 /* IntegrationTests.m */; };
 		89F2D0941D75F5EF00C98165 /* LocationFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0931D75F5EF00C98165 /* LocationFinder.m */; };
 		89F2D0971D76041700C98165 /* LocationGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0961D76041700C98165 /* LocationGateway.m */; };
@@ -99,8 +99,8 @@
 		89A10CD61D500761009E5867 /* NearbyBusinessFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessFinder.m; sourceTree = "<group>"; };
 		89A10CDA1D511ABA009E5867 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
 		89A10CDB1D511ABA009E5867 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
-		89A10CDD1D5123ED009E5867 /* BusinessesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesRepository.h; sourceTree = "<group>"; };
-		89A10CE11D512DFC009E5867 /* BusinessesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesRepository.m; sourceTree = "<group>"; };
+		89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesDataController.h; sourceTree = "<group>"; };
+		89A10CE11D512DFC009E5867 /* BusinessesDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataController.m; sourceTree = "<group>"; };
 		89F2D08E1D74B45B00C98165 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		89F2D0901D75F2D000C98165 /* LocationFinderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFinderTests.m; sourceTree = "<group>"; };
 		89F2D0921D75F5EF00C98165 /* LocationFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationFinder.h; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 				89F2D0931D75F5EF00C98165 /* LocationFinder.m */,
 				89F2D0951D76041700C98165 /* LocationGateway.h */,
 				89F2D0961D76041700C98165 /* LocationGateway.m */,
-				89A10CDD1D5123ED009E5867 /* BusinessesRepository.h */,
-				89A10CE11D512DFC009E5867 /* BusinessesRepository.m */,
+				89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */,
+				89A10CE11D512DFC009E5867 /* BusinessesDataController.m */,
 				89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */,
 				89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */,
 				89034AE61D5532C300BCA3A0 /* URLFetcher.h */,
@@ -579,7 +579,7 @@
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
 				89F2D0941D75F5EF00C98165 /* LocationFinder.m in Sources */,
 				89A10CD71D500761009E5867 /* NearbyBusinessFinder.m in Sources */,
-				89A10CE21D512DFD009E5867 /* BusinessesRepository.m in Sources */,
+				89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */,
 				89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				89A10CDC1D511ABA009E5867 /* Business.m in Sources */,

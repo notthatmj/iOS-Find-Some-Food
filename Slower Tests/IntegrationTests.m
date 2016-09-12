@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "BusinessesRepository.h"
+#import "BusinessesDataController.h"
 #import "Business.h"
 //#import "FourSquareGatewayTests.m"
 
@@ -17,9 +17,9 @@
 
 @implementation IntegrationTests
 
-- (void)testBusinessesRepositoryIntegration {
+- (void)testBusinessesDataControllerIntegration {
     // Setup
-    BusinessesRepository *SUT = [BusinessesRepository new];
+    BusinessesDataController *SUT = [BusinessesDataController new];
     XCTAssertEqual(SUT.businesses.count,0);
     XCTestExpectation *expectation = [self expectationWithDescription:@"expectation" ];
 

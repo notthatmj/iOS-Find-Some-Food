@@ -23,19 +23,6 @@
     [super setUp];
 }
 
--(void)testViewDidLoadInitializesLocationGateway {
-    // Setup
-    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-    XCTAssertNotNil(SUT);
-    
-    // Run
-    [SUT viewDidLoad];
-    
-    // Verify
-    XCTAssertNotNil(SUT.dataSource.businessesRepository.locationGateway);
-//    XCTAssertNotNil(SUT.dataSource.businessesRepository.locationGateway);
-}
-
 -(void)testViewDidLoad {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);

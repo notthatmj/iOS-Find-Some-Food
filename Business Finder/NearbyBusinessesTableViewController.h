@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BusinessesRepository.h"
 @class NearbyBusinessFinder;
 @class NearbyBusinessesDataSource;
 @class LocationGateway;
