@@ -11,11 +11,11 @@
 #import "URLFetcher.h"
 #import "Business.h"
 
-@interface FourSquareGatewayTests : XCTestCase
+@interface FourSquareGatewayIntegrationTests : XCTestCase
 @property (nonatomic,strong) FourSquareGateway *SUT;
 @end
 
-@implementation FourSquareGatewayTests
+@implementation FourSquareGatewayIntegrationTests
 
 -(void)setUp {
     [super setUp];
@@ -30,13 +30,13 @@
     XCTAssertNil(self.SUT.businesses);
     [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:^void () {
         [expectation fulfill];
-        XCTAssertNotNil(self.SUT.businesses);
-        XCTAssert([self.SUT.businesses count] > 1);
-        for (Business *business in self.SUT.businesses) {
-            XCTAssertNotNil(business.name);
-        }
     }];
     [self waitForExpectationsWithTimeout:10.0 handler: ^void (NSError *error) {}];
+    XCTAssertNotNil(self.SUT.businesses);
+    XCTAssert([self.SUT.businesses count] > 1);
+    for (Business *business in self.SUT.businesses) {
+        XCTAssertNotNil(business.name);
+    }
 }
 
 - (void)testFourSquareGateway {

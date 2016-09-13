@@ -9,6 +9,8 @@
 #import "FourSquareGateway.h"
 #import "URLFetcher.h"
 #import "Business.h"
+#import "FourSquareResponseParser.h"
+#import "GCDGateway.h"
 
 @interface FourSquareGateway ()
 @property (nonatomic, readwrite) NSArray<Business *> *businesses;
@@ -34,10 +36,11 @@
     NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
     [URLFetcher fetchURLData:searchURL completionHandler:^void (NSData *data){
         self.responseData = [data copy];
-        NSArray<Business *> *businesses = [self parseQueryResponse];
+        NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
         self.businesses = businesses;
-//        dispatch_async(dispatch_get_main_queue(), completionHandler);
-        completionHandler();
+        //        dispatch_async(dispatch_get_main_queue(), completionHandler);
+        //        completionHandler();
+        [GCDGateway dispatchToMainQueue:completionHandler];
     }];
     return;
 }
@@ -51,21 +54,6 @@
     NSNumber *longitudeNumber = [NSNumber numberWithDouble:longitude];
     NSString *longitudeString = [formatter stringFromNumber:longitudeNumber];
     return [NSString stringWithFormat:formatString,self.clientID,self.clientSecret,latitudeString,longitudeString];
-}
-
--(NSArray<Business *> *)parseQueryResponse {
-    NSData *data = self.responseData;
-    NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSDictionary *responseDictionary = [JSONDictionary objectForKey:@"response"];
-    NSArray *venues = [responseDictionary objectForKey:@"venues"];
-    NSMutableArray *result = [NSMutableArray new];
-    for (NSDictionary *venueDictionary in venues) {
-        NSString *venueName = [venueDictionary valueForKey:@"name"];
-        Business *business = [Business new];
-        business.name = venueName;
-        [result addObject:business];
-    }
-    return  [NSArray arrayWithArray:result];
 }
 
 @end
