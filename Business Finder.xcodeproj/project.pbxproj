@@ -64,7 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests.release.xcconfig"; sourceTree = "<group>"; };
 		7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business Finder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +111,6 @@
 		89FB39081D88A08C0086851E /* FourSquareResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareResponseParser.m; sourceTree = "<group>"; };
 		89FB390A1D88A0C80086851E /* GCDGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGateway.h; sourceTree = "<group>"; };
 		89FB390B1D88A0C80086851E /* GCDGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGateway.m; sourceTree = "<group>"; };
-		A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6C9CA7727AB48E1F1BA5818 /* Pods-Business Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.debug.xcconfig"; sourceTree = "<group>"; };
 		C65099FF8C1111BCF6CB8B1A /* Pods-Fastest Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastest Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fastest Tests/Pods-Fastest Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9406CA3CEFF290B2CC681AC /* libPods-Fastest Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fastest Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,8 +272,6 @@
 			children = (
 				B6C9CA7727AB48E1F1BA5818 /* Pods-Business Finder.debug.xcconfig */,
 				7890E97AE5F4EC343B747A04 /* Pods-Business Finder.release.xcconfig */,
-				A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */,
-				23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */,
 				D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */,
 				717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */,
 				C65099FF8C1111BCF6CB8B1A /* Pods-Fastest Tests.debug.xcconfig */,

@@ -41,6 +41,7 @@
     if (self.completionHandler != nil) {
         self.completionHandler();
     }
+    [self.delegate locationGatewayDidUpdateLocation:self];
 }
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 //    self.completionHandler();
@@ -52,5 +53,16 @@
 
 -(void)requestWhenInUseAuthorization {
     [self.locationManager requestWhenInUseAuthorization];
+}
+
+-(void)fetchLocationAndNotifyDelegate {
+    self.locationManager.delegate = self;
+    CLAuthorizationStatus authorizationStatus= [LocationGateway authorizationStatus];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if(authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [self requestWhenInUseAuthorization];
+    } else {
+        [self.locationManager requestLocation];
+    }
 }
 @end

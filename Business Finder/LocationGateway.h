@@ -17,12 +17,21 @@
  thread. So we initialize the locationManager when the LocationGateway is
  created, and use the same rules when interacting with the LocationGateway.
  */
+@protocol LocationGatewayDelegate;
+
 @interface LocationGateway : NSObject <CLLocationManagerDelegate>
 @property (strong, nonatomic,readonly) CLLocationManager *locationManager;
 @property (strong, nonatomic, readonly) NSNumber *latitude;
 @property (strong, nonatomic, readonly) NSNumber *longitude;
+@property (weak, nonatomic) id<LocationGatewayDelegate> delegate;
 + (CLAuthorizationStatus)authorizationStatus;
 -(void) fetchLocationAndCallBlock: (void (^)())block;
+-(void) fetchLocationAndNotifyDelegate;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 -(void)requestWhenInUseAuthorization;
 @end
+
+@protocol LocationGatewayDelegate <NSObject>
+-(void) locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway;
+@end
+
