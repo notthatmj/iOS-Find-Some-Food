@@ -15,5 +15,4 @@
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, copy) NSData *responseData;
 -(void) getNearbyBusinessesForLatitude:(double) latitude longitude:(double)longitude completionHandler:(void(^)())completionHandler;
-- (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude;
 @end
