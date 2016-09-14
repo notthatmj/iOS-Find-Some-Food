@@ -9,7 +9,7 @@
 #import "BusinessesDataController.h"
 #import "Business.h"
 #import "FourSquareGateway.h"
-#import "LocationGateway.h"
+//#import "LocationGateway.h"
 
 @interface BusinessesDataController ()
 @property (strong,nonatomic) NSArray *businesses;
@@ -44,11 +44,15 @@
 }
 
 -(void)fetchLocationAndCallBlock:(void (^)(void))block {
-    [self.locationGateway fetchLocationAndCallBlock: ^{
-        self.longitude = [self.locationGateway.longitude doubleValue];
-        self.latitude = [self.locationGateway.latitude doubleValue];
-        block();
-    }];
+    self.block = block;
+    self.locationGateway.delegate = self;
+    [self.locationGateway fetchLocationAndNotifyDelegate];
+}
+
+-(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
+//            self.longitude = [self.locationGateway.longitude doubleValue];
+//            self.latitude = [self.locationGateway.latitude doubleValue];
+//            self.block();
 }
 
 -(FourSquareGateway *)fourSquareGateway {

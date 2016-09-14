@@ -23,19 +23,19 @@
 
 @implementation LocationGatewayIntegrationTests
 
-- (void) testLocationGateway {
-    LocationGateway *SUT = [LocationGateway new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
-    
-    XCTAssertNil(SUT.latitude);
-    XCTAssertNil(SUT.longitude);
-    [SUT fetchLocationAndCallBlock:^(){
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    XCTAssertNotNil(SUT.latitude);
-    XCTAssertNotNil(SUT.longitude);
-}
+//- (void) testLocationGateway {
+//    LocationGateway *SUT = [LocationGateway new];
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
+//    
+//    XCTAssertNil(SUT.latitude);
+//    XCTAssertNil(SUT.longitude);
+//    [SUT fetchLocationAndCallBlock:^(){
+//        [expectation fulfill];
+//    }];
+//    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+//    XCTAssertNotNil(SUT.latitude);
+//    XCTAssertNotNil(SUT.longitude);
+//}
 
 - (void) testFetchLocationAndNotifyDelegate {
     LocationGateway *SUT = [LocationGateway new];
