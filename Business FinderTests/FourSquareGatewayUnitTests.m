@@ -45,21 +45,13 @@
     double longitude = -74;
     
     // Run
-    //    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
-    //    [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:^{
-    //        [expectation fulfill];
-    //    }];
-    //    [self waitForExpectationsWithTimeout:0 handler:nil];
     void (^handler)() = ^{};
     [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:handler];
     
     // Verify
-    //    OCMVerify([fakeURLFetcher fetchURLData:expectedURL completionHandler:[OCMArg any]]);
     XCTAssertEqual(self.SUT.responseData, fakeResponseData);
     XCTAssertEqualObjects(self.SUT.businesses, businesses);
-    //    OCMStub([GCDGateway dispatchToMainQueue:[OCMArg any]]);
     OCMVerify([fakeGCDGateway dispatchToMainQueue:handler]);
-    //    OCMVerify(<#invocation#>)
 }
 
 - (void)testFourSquareGateway {

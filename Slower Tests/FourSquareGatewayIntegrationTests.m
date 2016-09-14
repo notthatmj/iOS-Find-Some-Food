@@ -39,17 +39,4 @@
     }
 }
 
-- (void)testFourSquareGateway {
-    XCTAssertNotNil(self.SUT.clientID);
-    XCTAssertNotNil(self.SUT.clientSecret);
-}
-
--(void)testSearchURLForLatitudeLongitude {
-    self.SUT.clientID = @"parrot";
-    self.SUT.clientSecret = @"bar";
-    NSString *expectedResult = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
-    NSString *result = [self.SUT searchURLForLatitude:40.7 longitude:-74];
-    XCTAssertEqualObjects(result, expectedResult);
-}
-
 @end
