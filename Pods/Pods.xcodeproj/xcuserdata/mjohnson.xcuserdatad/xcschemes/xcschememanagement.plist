@@ -14,12 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Business FinderTests.xcscheme</key>
+		<key>Pods-Business FinderUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Business FinderUITests.xcscheme</key>
+		<key>Pods-Fastest Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,17 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89442E2B0ED44FD5A3E4319BE4FD062C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9C287AD09167E63ABB5EB4C1D93C283E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF0E7818B4039017211E37A67378FC07</key>
 		<dict>
 			<key>primary</key>
 			<true/>

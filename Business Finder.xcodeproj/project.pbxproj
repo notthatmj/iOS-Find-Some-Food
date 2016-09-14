@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */; };
+		3CB9D204DEFA0896DDB227E7 /* libPods-Fastest Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9406CA3CEFF290B2CC681AC /* libPods-Fastest Tests.a */; };
 		86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */; };
 		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
 		89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */; };
@@ -113,6 +114,9 @@
 		89FB390B1D88A0C80086851E /* GCDGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGateway.m; sourceTree = "<group>"; };
 		A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6C9CA7727AB48E1F1BA5818 /* Pods-Business Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business Finder/Pods-Business Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		C65099FF8C1111BCF6CB8B1A /* Pods-Fastest Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastest Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fastest Tests/Pods-Fastest Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C9406CA3CEFF290B2CC681AC /* libPods-Fastest Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fastest Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCC7ED2060E945744384C1D6 /* Pods-Fastest Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastest Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fastest Tests/Pods-Fastest Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Business FinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business FinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Business FinderUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86ACE515492EE9E3ADC01765 /* libPods-Business FinderTests.a in Frameworks */,
+				3CB9D204DEFA0896DDB227E7 /* libPods-Fastest Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +164,7 @@
 				7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */,
 				E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */,
 				F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */,
+				C9406CA3CEFF290B2CC681AC /* libPods-Fastest Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 				23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */,
 				D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */,
 				717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */,
+				C65099FF8C1111BCF6CB8B1A /* Pods-Fastest Tests.debug.xcconfig */,
+				CCC7ED2060E945744384C1D6 /* Pods-Fastest Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -483,7 +491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fastest Tests/Pods-Fastest Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		920601726518781885C9C1A7 /* 📦 Copy Pods Resources */ = {
@@ -513,7 +521,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business FinderTests/Pods-Business FinderTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fastest Tests/Pods-Fastest Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CE2B0E89C9C44682D63C4E93 /* 📦 Embed Pods Frameworks */ = {
@@ -795,7 +803,7 @@
 		};
 		8974897D1D4FB5FE00531975 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */;
+			baseConfigurationReference = C65099FF8C1111BCF6CB8B1A /* Pods-Fastest Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Fastest Tests/Info.plist";
@@ -808,7 +816,7 @@
 		};
 		8974897E1D4FB5FE00531975 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */;
+			baseConfigurationReference = CCC7ED2060E945744384C1D6 /* Pods-Fastest Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Fastest Tests/Info.plist";
