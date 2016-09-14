@@ -106,7 +106,6 @@
 		89F2D0951D76041700C98165 /* LocationGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGateway.h; sourceTree = "<group>"; };
 		89F2D0961D76041700C98165 /* LocationGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGateway.m; sourceTree = "<group>"; };
 		89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSourceTests.m; sourceTree = "<group>"; };
-		89FB39031D88A00B0086851E /* FourSquareGatewayUnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareGatewayUnitTests.h; sourceTree = "<group>"; };
 		89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayUnitTests.m; sourceTree = "<group>"; };
 		89FB39071D88A08C0086851E /* FourSquareResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareResponseParser.h; sourceTree = "<group>"; };
 		89FB39081D88A08C0086851E /* FourSquareResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareResponseParser.m; sourceTree = "<group>"; };
@@ -250,11 +249,9 @@
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
-				89FB39031D88A00B0086851E /* FourSquareGatewayUnitTests.h */,
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
 			);
-			name = "Fastest Tests";
-			path = "Business FinderTests";
+			path = "Fastest Tests";
 			sourceTree = "<group>";
 		};
 		897489731D4FB5FE00531975 /* Business FinderUITests */ = {
@@ -801,7 +798,7 @@
 			baseConfigurationReference = A92B6A02A9DB780A07F18F12 /* Pods-Business FinderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Business FinderTests/Info.plist";
+				INFOPLIST_FILE = "Fastest Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -814,7 +811,7 @@
 			baseConfigurationReference = 23B9B6251AAA274020DBEC35 /* Pods-Business FinderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Business FinderTests/Info.plist";
+				INFOPLIST_FILE = "Fastest Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
