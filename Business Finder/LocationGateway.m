@@ -24,17 +24,7 @@
     }
     return self;
 }
--(void) fetchLocationAndCallBlock: (void (^)())block {
-    self.completionHandler = block;
-    self.locationManager.delegate = self;
-    CLAuthorizationStatus authorizationStatus= [LocationGateway authorizationStatus];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    if(authorizationStatus == kCLAuthorizationStatusNotDetermined) {
-        [self requestWhenInUseAuthorization];
-    } else {
-        [self.locationManager requestLocation];
-    }
-}
+
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     self.latitude = [NSNumber numberWithDouble:locations[0].coordinate.latitude];
     self.longitude = [NSNumber numberWithDouble:locations[0].coordinate.longitude];

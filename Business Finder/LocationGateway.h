@@ -24,11 +24,12 @@
 @property (strong, nonatomic, readonly) NSNumber *latitude;
 @property (strong, nonatomic, readonly) NSNumber *longitude;
 @property (weak, nonatomic) id<LocationGatewayDelegate> delegate;
+
 + (CLAuthorizationStatus)authorizationStatus;
-//-(void) fetchLocationAndCallBlock: (void (^)())block;
 -(void) fetchLocationAndNotifyDelegate;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 -(void)requestWhenInUseAuthorization;
+
 @end
 
 @protocol LocationGatewayDelegate <NSObject>

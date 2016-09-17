@@ -14,125 +14,14 @@
 #import "LocationGateway.h"
 
 @interface BusinessesDataControllerTests : XCTestCase
-
+@property (strong, nonatomic) id originalSUT;
+@property (strong, nonatomic) BusinessesDataController *SUT;
+@property (nonatomic) double testLatitude;
+@property (nonatomic) double testLongitude;
+@property (strong, nonatomic) NSArray<Business*> *businesses;
 @end
 
 @implementation BusinessesDataControllerTests
-
-- (void)testInit {
-    BusinessesDataController *SUT = [BusinessesDataController new];
-    XCTAssertNotNil(SUT.fourSquareGateway);
-}
-
-//- (void)testFetchLocationAndCallBlock {
-//    //    // Setup
-//    BusinessesDataController *SUT = [BusinessesDataController new];
-//    LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
-//    SUT.locationGateway = fakeLocationGateway;
-//    void (^dummyBlock)(void) = ^{}
-//    ;
-//    [SUT fetchLocationAndCallBlock:dummyBlock];
-//    
-//    XCTAssertEqualObjects(SUT.block, dummyBlock);
-//    OCMVerify([fakeLocationGateway setDelegate:SUT]);
-////    XCTAssertEqual(SUT, SUT.locationGateway.delegate);
-//    OCMVerify([fakeLocationGateway fetchLocationAndNotifyDelegate]);
-//}
-
-//- (void)testFetchLocation {
-//    // Setup
-//    BusinessesDataController *SUT = [BusinessesDataController new];
-//    LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
-//    SUT.locationGateway = fakeLocationGateway;
-//    
-//    [SUT fetchLocation];
-//    
-//    OCMVerify([fakeLocationGateway setDelegate:SUT]);
-//    OCMVerify([fakeLocationGateway fetchLocationAndNotifyDelegate]);
-//}
-
-- (void)testUpdateLocationAndBusinessesAndCallBlock {
-    // Setup
-    BusinessesDataController *originalSUT = [BusinessesDataController new];
-    BusinessesDataController *SUT = OCMPartialMock(originalSUT);
-    FourSquareGateway *fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
-    SUT.fourSquareGateway = fakeFourSquareGateway;
-    LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
-    SUT.locationGateway = fakeLocationGateway;
-    void (^completionBlock)(void) = ^{};
-    
-    [SUT updateLocationAndBusinessesAndCallBlock:completionBlock];
-    
-    OCMVerify([fakeLocationGateway setDelegate:originalSUT]);
-    OCMVerify([fakeLocationGateway fetchLocationAndNotifyDelegate]);
-    XCTAssertEqual(SUT.block, completionBlock);
-//    SUT.block();
-//    OCMVerify([SUT updateBusinessesAndCallBlock:[OCMArg any]]);
-}
-
-- (void)testLocationGatewayDidUpdateLocation {
-    const double testLatitude = 41.840457;
-    const double testLongitude = -87.660502;
-    
-    // Setup
-    BusinessesDataController *originalSUT = [BusinessesDataController new];
-    BusinessesDataController *SUT = OCMPartialMock(originalSUT);
-    LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
-    OCMStub([fakeLocationGateway latitude]).andReturn([NSNumber numberWithDouble:testLatitude]);
-    OCMStub([fakeLocationGateway longitude]).andReturn([NSNumber numberWithDouble:testLongitude]);
-    SUT.locationGateway = fakeLocationGateway;
-    __block BOOL blockWasRun = NO;
-    void (^completionBlock)() = ^{
-        blockWasRun = YES;
-    };
-    SUT.block = completionBlock;
-    [SUT locationGatewayDidUpdateLocation:nil];
-    
-    XCTAssertEqual(SUT.latitude, testLatitude);
-    XCTAssertEqual(SUT.longitude, testLongitude);
-//    XCTAssertTrue(blockWasRun);
-    OCMVerify([SUT updateBusinessesAndCallBlock:completionBlock]);
-}
-
-- (void)testUpdateBusinessesAndCallBlock {
-    // Setup
-    const double testLatitude = 41.840457;
-    const double testLongitude = -87.660502;
-
-    BusinessesDataController *SUT = [BusinessesDataController new];
-    id fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
-    SUT.fourSquareGateway = fakeFourSquareGateway;
-    SUT.latitude = testLatitude;
-    SUT.longitude = testLongitude;
-    void (^dummyBlock)() = ^{};
-    // Run
-    [SUT updateBusinessesAndCallBlock:dummyBlock];
-    
-    // Verify
-    OCMVerify([fakeFourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:testLatitude longitude:testLongitude]);
-    XCTAssertEqualObjects(SUT.otherBlock, dummyBlock);
-//    XCTAssertEqual(SUT.fourSquareGateway.delegate,SUT);
-    OCMVerify([SUT.fourSquareGateway setDelegate:SUT]);
-}
-
-- (void)testFourSquareGatewayDidFinishGettingBusinesses{
-    BusinessesDataController *SUT = [BusinessesDataController new];
-    NSArray<Business*> *businesses = [self makeBusinesses];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
-    void (^otherBlock)() = ^{
-        [expectation fulfill];
-    };
-    SUT.otherBlock = otherBlock;
-    id fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
-    SUT.fourSquareGateway = fakeFourSquareGateway;
-    OCMStub([fakeFourSquareGateway businesses]).andReturn(businesses);
-    
-    [SUT fourSquareGatewayDidFinishGettingBusinesses];
-    
-    [self waitForExpectationsWithTimeout:0.0 handler:nil];
-    XCTAssertEqualObjects(SUT.businesses, businesses);
-    XCTAssertNotEqual(SUT.businesses,businesses);
-}
 
 - (NSArray<Business*> *) makeBusinesses {
     NSMutableArray *businesses = [NSMutableArray new];
@@ -143,6 +32,58 @@
         [businesses addObject:business];
     }
     return businesses;
+}
+
+- (void) setUp {
+    [super setUp];
+    self.SUT = [BusinessesDataController new];
+    self.testLatitude = 41.840457;
+    self.testLongitude = -87.660502;
+    LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
+    OCMStub([fakeLocationGateway latitude]).andReturn([NSNumber numberWithDouble:self.testLatitude]);
+    OCMStub([fakeLocationGateway longitude]).andReturn([NSNumber numberWithDouble:self.testLongitude]);
+    self.SUT.locationGateway = fakeLocationGateway;
+
+    self.businesses = [self makeBusinesses];
+    id fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
+    self.SUT.fourSquareGateway = fakeFourSquareGateway;
+    OCMStub([fakeFourSquareGateway businesses]).andReturn(self.businesses);
+}
+
+- (void)testInit {
+    BusinessesDataController *SUT = self.SUT;
+    XCTAssertNotNil(SUT.fourSquareGateway);
+}
+
+- (void)testBusinessDataController {
+    // Setup
+    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
+    void (^completionBlock)(void) = ^{
+        [expectation fulfill];
+    };
+
+    // Run
+    [self.SUT updateLocationAndBusinessesAndCallBlock:completionBlock];
+
+    // Verify
+    OCMVerify([self.SUT.locationGateway setDelegate:self.SUT]);
+    OCMVerify([self.SUT.locationGateway fetchLocationAndNotifyDelegate]);
+
+    // Run
+    [self.SUT locationGatewayDidUpdateLocation:nil];
+    
+    // Verify
+    XCTAssertEqual(self.SUT.latitude, self.testLatitude);
+    XCTAssertEqual(self.SUT.longitude, self.testLongitude);
+    OCMVerify([self.SUT.fourSquareGateway setDelegate:self.SUT]);
+    OCMVerify([self.SUT.fourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:self.testLatitude
+                                                                                longitude:self.testLongitude]);
+
+    [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
+    [self waitForExpectationsWithTimeout:0.0 handler:nil];
+    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
+    XCTAssertNotEqual(self.SUT.businesses,self.businesses);
+
 }
 
 @end

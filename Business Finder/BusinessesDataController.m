@@ -13,8 +13,10 @@
 
 @interface BusinessesDataController ()
 @property (strong,nonatomic) NSArray *businesses;
-//@property (nonatomic) double latitude;
-//@property (nonatomic) double longitude;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, copy) void (^block)(void);
+@property (nonatomic, copy) void (^otherBlock)(void);
 @end
 
 @implementation BusinessesDataController

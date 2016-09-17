@@ -11,8 +11,9 @@
 #import "URLFetcher.h"
 #import "Business.h"
 
-@interface FourSquareGatewayIntegrationTests : XCTestCase
+@interface FourSquareGatewayIntegrationTests : XCTestCase<FourSquareGatewayDelegate>
 @property (nonatomic,strong) FourSquareGateway *SUT;
+@property (nonatomic,strong) XCTestExpectation *expectation;
 @end
 
 @implementation FourSquareGatewayIntegrationTests
@@ -25,13 +26,10 @@
 - (void)testGetNearbyBusinessForLatitudeLongitude {
     double latitude = 41.884529;
     double longitude = -87.627813;
-    
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting response"];
-    XCTAssertNil(self.SUT.businesses);
-    [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:^void () {
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:10.0 handler: ^void (NSError *error) {}];
+    self.expectation = [self expectationWithDescription:@"expectation"];
+    self.SUT.delegate = self;
+    [self.SUT getNearbyBusinessesAndNotifyDelegateForLatitude:latitude longitude:longitude];
+    [self waitForExpectationsWithTimeout:5.0 handler:nil];
     XCTAssertNotNil(self.SUT.businesses);
     XCTAssert([self.SUT.businesses count] > 1);
     for (Business *business in self.SUT.businesses) {
@@ -39,4 +37,7 @@
     }
 }
 
+-(void)fourSquareGatewayDidFinishGettingBusinesses {
+    [self.expectation fulfill];
+}
 @end
