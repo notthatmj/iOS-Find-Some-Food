@@ -13,8 +13,8 @@
 
 @interface BusinessesDataController ()
 @property (strong,nonatomic) NSArray *businesses;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
+//@property (nonatomic) double latitude;
+//@property (nonatomic) double longitude;
 @end
 
 @implementation BusinessesDataController
@@ -30,29 +30,21 @@
 }
 
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
-    [self fetchLocationAndCallBlock:^{
-        [self updateBusinessesAndCallBlock:block];
-    }];
-}
-
--(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
-    [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude completionHandler:^{
-        NSArray<Business *> *results = self.fourSquareGateway.businesses;
-        _businesses = results;
-        block();
-    }];
-}
-
--(void)fetchLocationAndCallBlock:(void (^)(void))block {
     self.block = block;
     self.locationGateway.delegate = self;
     [self.locationGateway fetchLocationAndNotifyDelegate];
 }
 
+-(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
+    self.otherBlock = block;
+    self.fourSquareGateway.delegate = self;
+    [self.fourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:self.latitude longitude:self.longitude];
+}
+
 -(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
-//            self.longitude = [self.locationGateway.longitude doubleValue];
-//            self.latitude = [self.locationGateway.latitude doubleValue];
-//            self.block();
+            self.longitude = [self.locationGateway.longitude doubleValue];
+            self.latitude = [self.locationGateway.latitude doubleValue];
+            [self updateBusinessesAndCallBlock:self.block];
 }
 
 -(FourSquareGateway *)fourSquareGateway {
@@ -60,5 +52,10 @@
         _fourSquareGateway = [FourSquareGateway new];
     }
     return _fourSquareGateway;
+}
+
+-(void)fourSquareGatewayDidFinishGettingBusinesses {
+    self.businesses = [self.fourSquareGateway.businesses copy];
+    self.otherBlock();
 }
 @end

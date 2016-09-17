@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 @class Business;
 
+@protocol FourSquareGatewayDelegate <NSObject>
+-(void)fourSquareGatewayDidFinishGettingBusinesses;
+@end
+
 @interface FourSquareGateway : NSObject
 @property (nonatomic, readonly) NSArray<Business *> *businesses;
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, copy) NSData *responseData;
+@property (nonatomic, weak) NSObject<FourSquareGatewayDelegate> *delegate;
 -(void) getNearbyBusinessesForLatitude:(double) latitude longitude:(double)longitude completionHandler:(void(^)())completionHandler;
+-(void)getNearbyBusinessesAndNotifyDelegateForLatitude:(double) latitude longitude:(double)longitude;
 @end
+
