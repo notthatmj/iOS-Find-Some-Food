@@ -34,5 +34,6 @@
 
 @protocol LocationGatewayDelegate <NSObject>
 -(void) locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway;
+-(void) locationGatewayDidFail;
 @end
 

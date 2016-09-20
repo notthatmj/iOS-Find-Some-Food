@@ -17,6 +17,9 @@
 -(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
     [self.expectation fulfill];
 }
+-(void)locationGatewayDidFail {
+    
+}
 @end
 @interface LocationGatewayIntegrationTests : XCTestCase
 @end

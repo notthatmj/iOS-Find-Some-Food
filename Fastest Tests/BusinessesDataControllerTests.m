@@ -86,4 +86,13 @@
     XCTAssertNotEqual(self.SUT.businesses,self.businesses);
     OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
 }
+
+- (void)testLocationGatewayDidFail {
+    // Setup fake delegate
+    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
+    self.SUT.delegate = testDelegate;
+
+    [self.SUT locationGatewayDidFail];
+    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
+}
 @end

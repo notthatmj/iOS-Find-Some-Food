@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "LocationGateway.h"
+#import "OCMock.h"
 
 @interface LocationGatewayUnitTests : XCTestCase
 
@@ -31,6 +32,21 @@
     
     XCTAssertEqual([SUT.latitude doubleValue], 40.758684);
     XCTAssertEqual([SUT.longitude doubleValue], -73.985163);
+}
+
+- (void) testLocationManagerDidFailWithError {
+    // Setup
+    LocationGateway *SUT = [LocationGateway new];
+    id<LocationGatewayDelegate> fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
+    SUT.delegate = fakeDelegate;
+    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
+    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+    
+    // Run
+    [SUT locationManager:dummyLocationManager didFailWithError:dummyError];
+    
+    // Verify
+    OCMVerify([fakeDelegate locationGatewayDidFail]);
 }
 
 - (void) testInfoPlistKey {

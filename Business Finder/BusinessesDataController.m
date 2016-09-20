@@ -41,6 +41,9 @@
     [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude];
 }
 
+-(void)locationGatewayDidFail {
+    [self.delegate businessDataControllerDidFailWithError:nil];
+}
 -(FourSquareGateway *)fourSquareGateway {
     if (_fourSquareGateway == nil) {
         _fourSquareGateway = [FourSquareGateway new];

@@ -48,4 +48,7 @@
 -(void)businessesDataControllerDidUpdateBusinesses {
     self.completionBlock();
 }
+-(void)businessDataControllerDidFailWithError:(NSError *)error {
+    
+}
 @end

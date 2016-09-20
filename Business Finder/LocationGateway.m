@@ -34,7 +34,7 @@
     [self.delegate locationGatewayDidUpdateLocation:self];
 }
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-//    self.completionHandler();
+    [self.delegate locationGatewayDidFail];
 }
 
 +(CLAuthorizationStatus)authorizationStatus {
