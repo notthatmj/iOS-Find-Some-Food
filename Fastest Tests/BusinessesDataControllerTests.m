@@ -78,7 +78,7 @@
     XCTAssertEqual(self.SUT.latitude, self.testLatitude);
     XCTAssertEqual(self.SUT.longitude, self.testLongitude);
     OCMVerify([self.SUT.fourSquareGateway setDelegate:self.SUT]);
-    OCMVerify([self.SUT.fourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:self.testLatitude
+    OCMVerify([self.SUT.fourSquareGateway getNearbyBusinessesForLatitude:self.testLatitude
                                                                                 longitude:self.testLongitude]);
     
     [self.SUT fourSquareGatewayDidFinishGettingBusinesses];

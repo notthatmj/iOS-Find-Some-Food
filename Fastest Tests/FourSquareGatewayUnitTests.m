@@ -78,7 +78,7 @@
     const double longitude = -74;
     
     // Run
-    [self.SUT getNearbyBusinessesAndNotifyDelegateForLatitude:latitude longitude:longitude ];
+    [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude ];
     
     // Verify
     XCTAssertEqual(self.SUT.responseData, fakeResponseData);

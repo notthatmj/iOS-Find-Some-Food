@@ -54,7 +54,7 @@
     return [NSString stringWithFormat:formatString,self.clientID,self.clientSecret,latitudeString,longitudeString];
 }
 
--(void)getNearbyBusinessesAndNotifyDelegateForLatitude:(double)latitude longitude:(double)longitude {
+-(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude {
     NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
     [URLFetcher fetchURLData:searchURL completionHandler:^void (NSData *data){
         self.responseData = [data copy];

@@ -40,7 +40,7 @@
     self.longitude = [self.locationGateway.longitude doubleValue];
     self.latitude = [self.locationGateway.latitude doubleValue];
     self.fourSquareGateway.delegate = self;
-    [self.fourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:self.latitude longitude:self.longitude];
+    [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude];
 }
 
 -(FourSquareGateway *)fourSquareGateway {

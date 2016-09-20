@@ -28,7 +28,7 @@
     double longitude = -87.627813;
     self.expectation = [self expectationWithDescription:@"expectation"];
     self.SUT.delegate = self;
-    [self.SUT getNearbyBusinessesAndNotifyDelegateForLatitude:latitude longitude:longitude];
+    [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude];
     [self waitForExpectationsWithTimeout:5.0 handler:nil];
     XCTAssertNotNil(self.SUT.businesses);
     XCTAssert([self.SUT.businesses count] > 1);
