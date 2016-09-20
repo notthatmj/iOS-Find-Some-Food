@@ -31,22 +31,16 @@
     return self;
 }
 
--(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
-    self.block = block;
+-(void)updateLocationAndBusinessesAndNotifyDelegate {
     self.locationGateway.delegate = self;
-    [self.locationGateway fetchLocationAndNotifyDelegate];
-}
-
--(void)updateBusinessesAndCallBlock: (void (^)(void)) block {
-    self.otherBlock = block;
-    self.fourSquareGateway.delegate = self;
-    [self.fourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:self.latitude longitude:self.longitude];
+    [self.locationGateway fetchLocationAndNotifyDelegate];    
 }
 
 -(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
-            self.longitude = [self.locationGateway.longitude doubleValue];
-            self.latitude = [self.locationGateway.latitude doubleValue];
-            [self updateBusinessesAndCallBlock:self.block];
+    self.longitude = [self.locationGateway.longitude doubleValue];
+    self.latitude = [self.locationGateway.latitude doubleValue];
+    self.fourSquareGateway.delegate = self;
+    [self.fourSquareGateway getNearbyBusinessesAndNotifyDelegateForLatitude:self.latitude longitude:self.longitude];
 }
 
 -(FourSquareGateway *)fourSquareGateway {
@@ -58,6 +52,9 @@
 
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     self.businesses = [self.fourSquareGateway.businesses copy];
-    self.otherBlock();
+    [self.delegate businessesDataControllerDidUpdateBusinesses];
+    if (self.block != nil) {
+        self.block();
+    }
 }
 @end

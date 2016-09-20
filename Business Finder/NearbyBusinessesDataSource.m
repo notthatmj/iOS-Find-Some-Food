@@ -7,12 +7,14 @@
 //
 
 #import "NearbyBusinessesDataSource.h"
-#import "BusinessesDataController.h"
 #import "Business.h"
 #import "LocationGateway.h"
 
 @import UIKit;
 
+@interface NearbyBusinessesDataSource ()
+@property (strong,nonatomic) void (^completionBlock)();
+@end
 @implementation NearbyBusinessesDataSource
 - (BusinessesDataController *)businessesDataController {
     if (_businessesDataController == nil) {
@@ -38,7 +40,12 @@
 }
 
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
-    [self.businessesDataController updateLocationAndBusinessesAndCallBlock:block];
+    self.completionBlock = block;
+    self.businessesDataController.delegate = self;
+    [self.businessesDataController updateLocationAndBusinessesAndNotifyDelegate];
 }
 
+-(void)businessesDataControllerDidUpdateBusinesses {
+    self.completionBlock();
+}
 @end

@@ -60,11 +60,25 @@
 }
 
 - (void)testUpdateLocationAndBusinessesAndCallBlock {
-    void (^dummyBlock)() = ^{};
-    [self.SUT updateLocationAndBusinessesAndCallBlock:dummyBlock];
-    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinessesAndCallBlock:dummyBlock]);    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
+    void (^completionBlock)() = ^{
+        [expectation fulfill];
+    };
+
+    // Run
+    [self.SUT updateLocationAndBusinessesAndCallBlock:completionBlock];
+    // Verify
+    OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);
+    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinessesAndNotifyDelegate]);
+    
+    // Run
+    [self.SUT businessesDataControllerDidUpdateBusinesses];
+    // Verify
+    [self waitForExpectationsWithTimeout:0.0 handler:nil];
 }
+
 @end
+
 
 @interface NearbyBusinessesDataSourceSimplePropertyTests : XCTestCase
 @end

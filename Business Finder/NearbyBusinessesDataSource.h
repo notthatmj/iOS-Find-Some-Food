@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 @import UIKit;
-@class BusinessesDataController;
+#import "BusinessesDataController.h"
 
-@interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource>
+@interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,BusinessesDataControllerDelegate>
 @property (strong,nonatomic) BusinessesDataController* businessesDataController;
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block;
 @end

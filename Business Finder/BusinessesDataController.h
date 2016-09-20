@@ -11,11 +11,19 @@
 #import "FourSquareGateway.h"
 @class Business;
 
+@protocol BusinessesDataControllerDelegate <NSObject>
+
+- (void) businessesDataControllerDidUpdateBusinesses;
+
+@end
+
 @interface BusinessesDataController : NSObject<LocationGatewayDelegate,FourSquareGatewayDelegate>
+@property (weak, nonatomic) id<BusinessesDataControllerDelegate> delegate;
 @property (readonly) NSArray<Business *> *businesses;
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 @property (strong, nonatomic) LocationGateway *locationGateway;
 @property (strong, nonatomic) FourSquareGateway *fourSquareGateway;
--(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block;
+-(void)updateLocationAndBusinessesAndNotifyDelegate;
 @end
+
