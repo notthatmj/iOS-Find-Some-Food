@@ -45,7 +45,7 @@
     [self.locationManager requestWhenInUseAuthorization];
 }
 
--(void)fetchLocationAndNotifyDelegate {
+-(void)fetchLocation {
     self.locationManager.delegate = self;
     CLAuthorizationStatus authorizationStatus= [LocationGateway authorizationStatus];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;

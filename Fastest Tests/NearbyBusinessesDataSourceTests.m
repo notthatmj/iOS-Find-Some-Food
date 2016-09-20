@@ -69,7 +69,7 @@
     [self.SUT updateLocationAndBusinessesAndCallBlock:completionBlock];
     // Verify
     OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);
-    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinessesAndNotifyDelegate]);
+    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinesses]);
     
     // Run
     [self.SUT businessesDataControllerDidUpdateBusinesses];

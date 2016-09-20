@@ -42,7 +42,7 @@
 -(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
     self.completionBlock = block;
     self.businessesDataController.delegate = self;
-    [self.businessesDataController updateLocationAndBusinessesAndNotifyDelegate];
+    [self.businessesDataController updateLocationAndBusinesses];
 }
 
 -(void)businessesDataControllerDidUpdateBusinesses {

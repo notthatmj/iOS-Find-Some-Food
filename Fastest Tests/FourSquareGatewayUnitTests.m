@@ -25,39 +25,8 @@
     self.SUT = [FourSquareGateway new];
 }
 
-//- (void)testGetNearbyBusinessForLatitudeLongitude {
-//    // Setup
-//    self.SUT.clientID = @"parrot";
-//    self.SUT.clientSecret = @"bar";
-//    
-//    id fakeURLFetcher = OCMClassMock([URLFetcher class]);
-//    NSString *expectedURL = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
-//    NSData *fakeResponseData = [NSData new];
-//    OCMStub([fakeURLFetcher fetchURLData:expectedURL completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData, nil])]);
-//    
-//    id parserMock = OCMClassMock([FourSquareResponseParser class]);
-//    NSArray *businesses = [self makeBusinesses];
-//    OCMStub([parserMock parseResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(businesses);
-//    
-//    id fakeGCDGateway = OCMClassMock([GCDGateway class]);
-//    
-//    double latitude = 40.7;
-//    double longitude = -74;
-//    
-//    // Run
-//    void (^handler)() = ^{};
-//    [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude completionHandler:handler];
-//    
-//    // Verify
-//    XCTAssertEqual(self.SUT.responseData, fakeResponseData);
-//    XCTAssertEqualObjects(self.SUT.businesses, businesses);
-//    OCMVerify([fakeGCDGateway dispatchToMainQueue:handler]);
-//}
-
-
--(void)testGetNearbyBusinessesAndNotifyDelegate {
+-(void)testGetNearbyBusinessesForLatitudeLongitude {
     // Setup
-//    id delegateMock = OCMProtocolMock(FourSquareGatewayDelegate);
     self.SUT.clientID = @"parrot";
     self.SUT.clientSecret = @"bar";
     id delegateMock = OCMProtocolMock(@protocol(FourSquareGatewayDelegate));

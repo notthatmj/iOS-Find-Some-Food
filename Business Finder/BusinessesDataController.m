@@ -9,13 +9,11 @@
 #import "BusinessesDataController.h"
 #import "Business.h"
 #import "FourSquareGateway.h"
-//#import "LocationGateway.h"
 
 @interface BusinessesDataController ()
 @property (strong,nonatomic) NSArray *businesses;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (nonatomic, copy) void (^block)(void);
 @property (nonatomic, copy) void (^otherBlock)(void);
 @end
 
@@ -31,9 +29,9 @@
     return self;
 }
 
--(void)updateLocationAndBusinessesAndNotifyDelegate {
+-(void)updateLocationAndBusinesses {
     self.locationGateway.delegate = self;
-    [self.locationGateway fetchLocationAndNotifyDelegate];    
+    [self.locationGateway fetchLocation];
 }
 
 -(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
@@ -53,8 +51,5 @@
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     self.businesses = [self.fourSquareGateway.businesses copy];
     [self.delegate businessesDataControllerDidUpdateBusinesses];
-    if (self.block != nil) {
-        self.block();
-    }
 }
 @end

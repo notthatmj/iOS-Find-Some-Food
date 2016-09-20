@@ -45,7 +45,7 @@
 }
 
 
-- (void)testUpdateLocationAndBusinessesAndNotifyDelegate {
+- (void)testUpdateLocationAndBusinesses {
     // Setup fake LocationGateway
     self.testLatitude = 41.840457;
     self.testLongitude = -87.660502;
@@ -65,11 +65,11 @@
     self.SUT.delegate = testDelegate;
     
     // Run
-    [self.SUT updateLocationAndBusinessesAndNotifyDelegate];
+    [self.SUT updateLocationAndBusinesses];
     
     // Verify
     OCMVerify([self.SUT.locationGateway setDelegate:self.SUT]);
-    OCMVerify([self.SUT.locationGateway fetchLocationAndNotifyDelegate]);
+    OCMVerify([self.SUT.locationGateway fetchLocation]);
 
     // Run
     [self.SUT locationGatewayDidUpdateLocation:nil];

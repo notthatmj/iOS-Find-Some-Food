@@ -26,7 +26,7 @@
 @property (weak, nonatomic) id<LocationGatewayDelegate> delegate;
 
 + (CLAuthorizationStatus)authorizationStatus;
--(void) fetchLocationAndNotifyDelegate;
+-(void) fetchLocation;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 -(void)requestWhenInUseAuthorization;
 

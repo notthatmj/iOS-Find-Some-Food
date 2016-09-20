@@ -19,7 +19,6 @@
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, copy) NSData *responseData;
 @property (nonatomic, weak) NSObject<FourSquareGatewayDelegate> *delegate;
-//-(void)getNearbyBusinessesAndNotifyDelegateForLatitude:(double) latitude longitude:(double)longitude;
 -(void)getNearbyBusinessesForLatitude:(double) latitude longitude:(double)longitude;
 @end
 

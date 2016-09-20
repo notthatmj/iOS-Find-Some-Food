@@ -24,6 +24,6 @@
 @property (nonatomic, readonly) double longitude;
 @property (strong, nonatomic) LocationGateway *locationGateway;
 @property (strong, nonatomic) FourSquareGateway *fourSquareGateway;
--(void)updateLocationAndBusinessesAndNotifyDelegate;
+-(void)updateLocationAndBusinesses;
 @end
 
