@@ -33,4 +33,13 @@
     [self.tableView reloadData];
 }
 
+-(void)nearbyBusinessesDataSourceDidFail {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:@"Businesses couldn't be retrieved"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                      handler:nil];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end

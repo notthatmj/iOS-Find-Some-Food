@@ -93,6 +93,7 @@
     self.SUT.delegate = testDelegate;
 
     [self.SUT locationGatewayDidFail];
-    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
+//    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
+    OCMVerify([testDelegate businessesDataControllerDidFail]);
 }
 @end

@@ -22,7 +22,7 @@
     [super setUp];
 }
 
--(void)test {
+-(void)testViewDidLoadAndSuccessfulRetrievalOfBusinesses {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     SUT.dataSource = fakeDataSource;
@@ -39,4 +39,36 @@
     OCMVerify([fakeTableView reloadData]);
 }
 
+- (void)testNearbyBusinessesDataSourceDidFail {
+    // Setup
+    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
+    SUT = OCMPartialMock(SUT);
+    OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
+    
+    // Run
+    [SUT nearbyBusinessesDataSourceDidFail];
+    
+    // Verify
+    BOOL (^checkAlertController)(id obj) = ^BOOL(id obj) {
+        
+        UIAlertController* alert = obj;
+        
+        if(![alert.title isEqualToString:@"Error"] ||
+           ![alert.message isEqualToString:@"Businesses couldn't be retrieved"] ||
+           alert.preferredStyle != UIAlertControllerStyleAlert ||
+           [alert.actions count] != 1) {
+            return false;
+        }
+
+        UIAlertAction *action = alert.actions[0];
+        if (![action.title isEqualToString:@"OK"] ||
+            action.style != UIAlertActionStyleDefault) {
+            return false;
+        }
+        return true;
+    };
+    OCMVerify([SUT presentViewController:[OCMArg checkWithBlock:checkAlertController]
+                                animated:YES
+                              completion:nil]);
+}
 @end

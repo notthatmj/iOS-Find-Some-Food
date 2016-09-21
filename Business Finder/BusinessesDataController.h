@@ -14,7 +14,8 @@
 @protocol BusinessesDataControllerDelegate <NSObject>
 
 - (void) businessesDataControllerDidUpdateBusinesses;
-- (void) businessDataControllerDidFailWithError:(NSError *)error;
+//- (void) businessDataControllerDidFailWithError:(NSError *)error;
+- (void) businessesDataControllerDidFail;
 @end
 
 @interface BusinessesDataController : NSObject<LocationGatewayDelegate,FourSquareGatewayDelegate>

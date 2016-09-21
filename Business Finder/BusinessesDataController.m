@@ -42,8 +42,9 @@
 }
 
 -(void)locationGatewayDidFail {
-    [self.delegate businessDataControllerDidFailWithError:nil];
+    [self.delegate businessesDataControllerDidFail];
 }
+
 -(FourSquareGateway *)fourSquareGateway {
     if (_fourSquareGateway == nil) {
         _fourSquareGateway = [FourSquareGateway new];

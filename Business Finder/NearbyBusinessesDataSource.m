@@ -39,28 +39,15 @@
     return cell;
 }
 
--(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block {
-    self.completionBlock = block;
-    self.businessesDataController.delegate = self;
-    [self.businessesDataController updateLocationAndBusinesses];
-}
-
-//-(void)updateLocationAndBusinessesAndNotifyDelegate {
-//    self.businessesDataController.delegate = self;
-//    [self.businessesDataController updateLocationAndBusinesses];    
-//}
-//
 -(void)updateBusinesses {
     self.businessesDataController.delegate = self;
     [self.businessesDataController updateLocationAndBusinesses];
 }
 -(void)businessesDataControllerDidUpdateBusinesses {
-    if (self.completionBlock != nil) {
-        self.completionBlock();
-    }
     [self.delegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
 }
 
--(void)businessDataControllerDidFailWithError:(NSError *)error {
+-(void)businessesDataControllerDidFail {
+    [self.delegate nearbyBusinessesDataSourceDidFail];
 }
 @end
