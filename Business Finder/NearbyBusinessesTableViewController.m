@@ -8,7 +8,6 @@
 
 #import "NearbyBusinessesTableViewController.h"
 #import "Business.h"
-#import "NearbyBusinessesDataSource.h"
 #import "LocationGateway.h"
 
 @interface NearbyBusinessesTableViewController ()
@@ -26,10 +25,20 @@
 
     self.tableView.dataSource = self.dataSource;
 
-    NearbyBusinessesTableViewController * __weak weakSelf = self;
-    [self.dataSource updateLocationAndBusinessesAndCallBlock:^{
-        [weakSelf.tableView reloadData];
-    }];
+    self.dataSource.delegate = self;
+    [self.dataSource updateLocationAndBusinessesAndNotifyDelegate];
 }
+
+-(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
+    [self.tableView reloadData];
+}
+//-(void)NearbyBusinessesDataSourceDidFailWithError:(NSError *)error {
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"An Alert" message:@"The Alert" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *defaultAction = [UIAlertAction
+//                                    actionWithTitle:@"OK"
+//                                    style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+//    [alert addAction:defaultAction];
+//    [self presentViewController:alert animated:YES completion:nil];
+//}
 
 @end

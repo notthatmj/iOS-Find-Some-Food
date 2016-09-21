@@ -45,10 +45,18 @@
     [self.businessesDataController updateLocationAndBusinesses];
 }
 
--(void)businessesDataControllerDidUpdateBusinesses {
-    self.completionBlock();
+-(void)updateLocationAndBusinessesAndNotifyDelegate {
+    self.businessesDataController.delegate = self;
+    [self.businessesDataController updateLocationAndBusinesses];    
 }
+
+-(void)businessesDataControllerDidUpdateBusinesses {
+    if (self.completionBlock != nil) {
+        self.completionBlock();
+    }
+    [self.delegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
+}
+
 -(void)businessDataControllerDidFailWithError:(NSError *)error {
-    
 }
 @end

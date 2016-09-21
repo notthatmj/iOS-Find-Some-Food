@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NearbyBusinessesDataSource.h"
 @class NearbyBusinessFinder;
-@class NearbyBusinessesDataSource;
 @class LocationGateway;
 
-@interface NearbyBusinessesTableViewController : UITableViewController
+@interface NearbyBusinessesTableViewController : UITableViewController<NearbyBusinessesDataSourceDelegate>
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;
 @end

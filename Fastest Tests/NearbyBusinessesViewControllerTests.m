@@ -22,10 +22,9 @@
     [super setUp];
 }
 
--(void)testViewDidLoad {
+-(void)test {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
-    OCMStub([fakeDataSource updateLocationAndBusinessesAndCallBlock:[OCMArg invokeBlock]]);
     SUT.dataSource = fakeDataSource;
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
@@ -33,8 +32,11 @@
     [SUT viewDidLoad];
     
     OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
-    OCMVerify([fakeDataSource updateLocationAndBusinessesAndCallBlock:[OCMArg any]]);
-    OCMVerify([SUT.tableView reloadData]);
+    OCMVerify([fakeDataSource setDelegate:SUT]);
+    OCMVerify([fakeDataSource updateLocationAndBusinessesAndNotifyDelegate]);
+    
+    [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
+    OCMVerify([fakeTableView reloadData]);
 }
 
 @end

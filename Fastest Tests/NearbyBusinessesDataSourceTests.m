@@ -59,22 +59,23 @@
     }
 }
 
-- (void)testUpdateLocationAndBusinessesAndCallBlock {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
-    void (^completionBlock)() = ^{
-        [expectation fulfill];
-    };
-
-    // Run
-    [self.SUT updateLocationAndBusinessesAndCallBlock:completionBlock];
-    // Verify
-    OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);
-    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinesses]);
+- (void)testUpdateLocationAndBusinessesAndNotifyDelegate {
+    // Setup
+    id<NearbyBusinessesDataSourceDelegate> fakeDelegate = OCMProtocolMock(@protocol(NearbyBusinessesDataSourceDelegate));
+    self.SUT.delegate = fakeDelegate;
     
     // Run
+    [self.SUT updateLocationAndBusinessesAndNotifyDelegate];
+    
+    //Verify
+    OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);
+    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinesses]);    
+
+    // Run
     [self.SUT businessesDataControllerDidUpdateBusinesses];
-    // Verify
-    [self waitForExpectationsWithTimeout:0.0 handler:nil];
+    
+    //Verify
+    OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses]);
 }
 
 @end

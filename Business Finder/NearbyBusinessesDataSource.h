@@ -10,7 +10,12 @@
 @import UIKit;
 #import "BusinessesDataController.h"
 
+@protocol NearbyBusinessesDataSourceDelegate <NSObject>
+- (void) nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
+@end
+
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,BusinessesDataControllerDelegate>
 @property (strong,nonatomic) BusinessesDataController* businessesDataController;
--(void)updateLocationAndBusinessesAndCallBlock:(void(^)(void))block;
+@property (weak,nonatomic) id delegate;
+-(void)updateLocationAndBusinessesAndNotifyDelegate;
 @end
