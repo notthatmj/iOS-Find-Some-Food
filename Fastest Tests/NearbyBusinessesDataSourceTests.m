@@ -59,13 +59,13 @@
     }
 }
 
-- (void)testUpdateLocationAndBusinessesAndNotifyDelegate {
+- (void)testUpdateBusinesses {
     // Setup
     id<NearbyBusinessesDataSourceDelegate> fakeDelegate = OCMProtocolMock(@protocol(NearbyBusinessesDataSourceDelegate));
     self.SUT.delegate = fakeDelegate;
     
     // Run
-    [self.SUT updateLocationAndBusinessesAndNotifyDelegate];
+    [self.SUT updateBusinesses];
     
     //Verify
     OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);

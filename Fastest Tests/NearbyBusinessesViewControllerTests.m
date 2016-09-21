@@ -33,7 +33,7 @@
     
     OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
     OCMVerify([fakeDataSource setDelegate:SUT]);
-    OCMVerify([fakeDataSource updateLocationAndBusinessesAndNotifyDelegate]);
+    OCMVerify([fakeDataSource updateBusinesses]);
     
     [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
     OCMVerify([fakeTableView reloadData]);

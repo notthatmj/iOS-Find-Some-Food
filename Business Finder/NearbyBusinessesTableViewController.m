@@ -26,19 +26,11 @@
     self.tableView.dataSource = self.dataSource;
 
     self.dataSource.delegate = self;
-    [self.dataSource updateLocationAndBusinessesAndNotifyDelegate];
+    [self.dataSource updateBusinesses];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
     [self.tableView reloadData];
 }
-//-(void)NearbyBusinessesDataSourceDidFailWithError:(NSError *)error {
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"An Alert" message:@"The Alert" preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *defaultAction = [UIAlertAction
-//                                    actionWithTitle:@"OK"
-//                                    style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
-//    [alert addAction:defaultAction];
-//    [self presentViewController:alert animated:YES completion:nil];
-//}
 
 @end

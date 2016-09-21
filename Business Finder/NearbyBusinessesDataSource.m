@@ -45,11 +45,15 @@
     [self.businessesDataController updateLocationAndBusinesses];
 }
 
--(void)updateLocationAndBusinessesAndNotifyDelegate {
+//-(void)updateLocationAndBusinessesAndNotifyDelegate {
+//    self.businessesDataController.delegate = self;
+//    [self.businessesDataController updateLocationAndBusinesses];    
+//}
+//
+-(void)updateBusinesses {
     self.businessesDataController.delegate = self;
-    [self.businessesDataController updateLocationAndBusinesses];    
+    [self.businessesDataController updateLocationAndBusinesses];
 }
-
 -(void)businessesDataControllerDidUpdateBusinesses {
     if (self.completionBlock != nil) {
         self.completionBlock();
