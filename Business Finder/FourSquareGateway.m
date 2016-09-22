@@ -32,16 +32,22 @@
     return _clientSecret;
 }
 
--(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude completionHandler:(void (^)())completionHandler {
-    NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
-    [URLFetcher fetchURLData:searchURL completionHandler:^void (NSData *data){
-        self.responseData = [data copy];
-        NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
-        self.businesses = businesses;
-        [GCDGateway dispatchToMainQueue:completionHandler];
-    }];
-    return;
-}
+//-(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude completionHandler:(void (^)())completionHandler {
+//    NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
+////    [URLFetcher fetchURLData:searchURL completionHandler:^void (NSData *data){
+////        self.responseData = [data copy];
+////        NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
+////        self.businesses = businesses;
+////        [GCDGateway dispatchToMainQueue:completionHandler];
+////    }];
+//    [URLFetcher fetchDataForURLString:searchURL completionHandler:^(NSData *data, NSError *error) {
+//        self.responseData = [data copy];
+//        NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
+//        self.businesses = businesses;
+//        [GCDGateway dispatchToMainQueue:completionHandler];
+//    }];
+//    return;
+//}
 
 - (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude{
     NSString *formatString = @"https://api.foursquare.com/v2/venues/search?client_id=\%@&client_secret=\%@&v=20130815&ll=\%@,\%@&query=sushi";
@@ -56,7 +62,15 @@
 
 -(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude {
     NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
-    [URLFetcher fetchURLData:searchURL completionHandler:^void (NSData *data){
+//    [URLFetcher fetchURLData:searchURL completionHandler:^void (NSData *data){
+//        self.responseData = [data copy];
+//        NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
+//        self.businesses = businesses;
+//        [GCDGateway dispatchToMainQueue:^{
+//            [self.delegate fourSquareGatewayDidFinishGettingBusinesses];
+//        }];
+//    }];
+    [URLFetcher fetchDataForURLString:searchURL completionHandler:^(NSData *data, NSError *error) {
         self.responseData = [data copy];
         NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
         self.businesses = businesses;

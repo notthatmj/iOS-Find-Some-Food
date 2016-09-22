@@ -35,8 +35,9 @@
     id fakeURLFetcher = OCMClassMock([URLFetcher class]);
     NSString *expectedURL = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
     NSData *fakeResponseData = [NSData new];
-    OCMStub([fakeURLFetcher fetchURLData:expectedURL completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData, nil])]);
-    
+//    OCMStub([fakeURLFetcher fetchURLData:expectedURL completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData, nil])]);
+    OCMStub([fakeURLFetcher fetchDataForURLString:expectedURL
+                            completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData, [NSNull null], nil])]);
     id parserMock = OCMClassMock([FourSquareResponseParser class]);
     NSArray *businesses = [self makeBusinesses];
     OCMStub([parserMock parseResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(businesses);

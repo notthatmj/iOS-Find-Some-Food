@@ -10,7 +10,8 @@
 
 @interface URLFetcher : NSObject
 
-+(void)fetchURLContents:(NSString *)URLString completionHandler: (void (^)(NSString *))completionHandler;
-+(void)fetchURLData:(NSString *)URLString completionHandler: (void (^)(NSData *))completionHandler;
-
+//+(void)fetchURLContents:(NSString *)URLString completionHandler: (void (^)(NSString *))completionHandler;
+//+(void)fetchURLData:(NSString *)URLString completionHandler: (void (^)(NSData *))completionHandler;
++(void)fetchDataForURLString:(NSString *)urlString
+           completionHandler: (void (^)(NSData *data,NSError *error))completionHandler;
 @end

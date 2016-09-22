@@ -10,7 +10,7 @@
 		1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */; };
 		3CB9D204DEFA0896DDB227E7 /* libPods-Fastest Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9406CA3CEFF290B2CC681AC /* libPods-Fastest Tests.a */; };
 		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
-		89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */; };
+		89034AFA1D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m */; };
 		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */; };
@@ -29,6 +29,7 @@
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
 		89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesDataController.m */; };
 		89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */; };
+		89E60A7E1D94435C000331AD /* URLFetcherUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E60A7D1D94435C000331AD /* URLFetcherUnitTests.m */; };
 		89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D08E1D74B45B00C98165 /* IntegrationTests.m */; };
 		89F2D0971D76041700C98165 /* LocationGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0961D76041700C98165 /* LocationGateway.m */; };
 		89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */; };
@@ -70,7 +71,7 @@
 		89034AE71D5532C300BCA3A0 /* URLFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcher.m; sourceTree = "<group>"; };
 		89034AEF1D55379600BCA3A0 /* Slower Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slower Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89034AF31D55379600BCA3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherTests.m; sourceTree = "<group>"; };
+		89034AF91D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherIntegrationTests.m; sourceTree = "<group>"; };
 		89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareGateway.h; sourceTree = "<group>"; };
 		89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGateway.m; sourceTree = "<group>"; };
 		89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayIntegrationTests.m; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesDataController.h; sourceTree = "<group>"; };
 		89A10CE11D512DFC009E5867 /* BusinessesDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataController.m; sourceTree = "<group>"; };
 		89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataControllerTests.m; sourceTree = "<group>"; };
+		89E60A7D1D94435C000331AD /* URLFetcherUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherUnitTests.m; sourceTree = "<group>"; };
 		89F2D08E1D74B45B00C98165 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		89F2D0951D76041700C98165 /* LocationGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGateway.h; sourceTree = "<group>"; };
 		89F2D0961D76041700C98165 /* LocationGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGateway.m; sourceTree = "<group>"; };
@@ -168,7 +170,7 @@
 		89034AF01D55379600BCA3A0 /* Slower Tests */ = {
 			isa = PBXGroup;
 			children = (
-				89034AF91D5537EF00BCA3A0 /* URLFetcherTests.m */,
+				89034AF91D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m */,
 				89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */,
 				8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */,
 				89034AF31D55379600BCA3A0 /* Info.plist */,
@@ -252,6 +254,7 @@
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
+				89E60A7D1D94435C000331AD /* URLFetcherUnitTests.m */,
 			);
 			path = "Fastest Tests";
 			sourceTree = "<group>";
@@ -573,7 +576,7 @@
 				8995D7DB1D7A0204006034B9 /* FourSquareGatewayIntegrationTests.m in Sources */,
 				89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */,
 				8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */,
-				89034AFA1D5537EF00BCA3A0 /* URLFetcherTests.m in Sources */,
+				89034AFA1D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +606,7 @@
 				89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */,
 				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
+				89E60A7E1D94435C000331AD /* URLFetcherUnitTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
 				893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */,
 				89FB39061D88A00B0086851E /* FourSquareGatewayUnitTests.m in Sources */,
