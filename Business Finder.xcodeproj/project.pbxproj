@@ -29,7 +29,6 @@
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
 		89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesDataController.m */; };
 		89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */; };
-		89E60A7E1D94435C000331AD /* URLFetcherUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E60A7D1D94435C000331AD /* URLFetcherUnitTests.m */; };
 		89F2D08F1D74B45B00C98165 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D08E1D74B45B00C98165 /* IntegrationTests.m */; };
 		89F2D0971D76041700C98165 /* LocationGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D0961D76041700C98165 /* LocationGateway.m */; };
 		89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */; };
@@ -102,7 +101,6 @@
 		89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesDataController.h; sourceTree = "<group>"; };
 		89A10CE11D512DFC009E5867 /* BusinessesDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataController.m; sourceTree = "<group>"; };
 		89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataControllerTests.m; sourceTree = "<group>"; };
-		89E60A7D1D94435C000331AD /* URLFetcherUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFetcherUnitTests.m; sourceTree = "<group>"; };
 		89F2D08E1D74B45B00C98165 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		89F2D0951D76041700C98165 /* LocationGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGateway.h; sourceTree = "<group>"; };
 		89F2D0961D76041700C98165 /* LocationGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGateway.m; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
-				89E60A7D1D94435C000331AD /* URLFetcherUnitTests.m */,
 			);
 			path = "Fastest Tests";
 			sourceTree = "<group>";
@@ -606,7 +603,6 @@
 				89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */,
 				897489831D4FBB4600531975 /* NearbyBusinessesViewControllerTests.m in Sources */,
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
-				89E60A7E1D94435C000331AD /* URLFetcherUnitTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
 				893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */,
 				89FB39061D88A00B0086851E /* FourSquareGatewayUnitTests.m in Sources */,
