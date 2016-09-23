@@ -50,13 +50,13 @@
             [GCDGateway dispatchToMainQueue:^{
                 [self.delegate fourSquareGatewayDidFail];
             }];
+        } else {
+            NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
+            self.businesses = businesses;
+            [GCDGateway dispatchToMainQueue:^{
+                [self.delegate fourSquareGatewayDidFinishGettingBusinesses];
+            }];
         }
-        self.responseData = [data copy];
-        NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
-        self.businesses = businesses;
-        [GCDGateway dispatchToMainQueue:^{
-            [self.delegate fourSquareGatewayDidFinishGettingBusinesses];
-        }];
     }];
     return;
 }

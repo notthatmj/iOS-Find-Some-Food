@@ -14,7 +14,6 @@
 #import "LocationGateway.h"
 
 @interface BusinessesDataControllerTests : XCTestCase
-@property (strong, nonatomic) id originalSUT;
 @property (strong, nonatomic) BusinessesDataController *SUT;
 @property (nonatomic) double testLatitude;
 @property (nonatomic) double testLongitude;
@@ -94,6 +93,16 @@
 
     [self.SUT locationGatewayDidFail];
 //    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
+    OCMVerify([testDelegate businessesDataControllerDidFail]);
+}
+
+- (void)testFourSquareGatewayDidFail {
+    // Setup fake delegate
+    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
+    self.SUT.delegate = testDelegate;
+    
+    [self.SUT fourSquareGatewayDidFail];
+    //    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
     OCMVerify([testDelegate businessesDataControllerDidFail]);
 }
 @end

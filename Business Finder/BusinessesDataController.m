@@ -41,10 +41,6 @@
     [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude];
 }
 
--(void)locationGatewayDidFail {
-    [self.delegate businessesDataControllerDidFail];
-}
-
 -(FourSquareGateway *)fourSquareGateway {
     if (_fourSquareGateway == nil) {
         _fourSquareGateway = [FourSquareGateway new];
@@ -52,12 +48,16 @@
     return _fourSquareGateway;
 }
 
+-(void)locationGatewayDidFail {
+    [self.delegate businessesDataControllerDidFail];
+}
+
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     self.businesses = [self.fourSquareGateway.businesses copy];
     [self.delegate businessesDataControllerDidUpdateBusinesses];
-}
+};
 
 -(void)fourSquareGatewayDidFail {
-    
+    [self.delegate businessesDataControllerDidFail];    
 }
 @end

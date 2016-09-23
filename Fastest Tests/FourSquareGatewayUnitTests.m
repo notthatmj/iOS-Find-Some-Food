@@ -16,6 +16,7 @@
 
 @interface FourSquareGatewayUnitTests : XCTestCase
 @property (nonatomic,strong) FourSquareGateway *SUT;
+@property (nonatomic,strong) NSArray<Business *>* businesses;
 @end
 
 @implementation FourSquareGatewayUnitTests
@@ -23,16 +24,21 @@
 -(void)testGetNearbyBusinessesForLatitudeLongitudeSuccess {
     id fakeError = [NSNull null];
     id delegateMock = OCMProtocolMock(@protocol(FourSquareGatewayDelegate));
+    
     [self setupAndRunTestWith:delegateMock error:fakeError];
+    
+    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
     OCMVerify([delegateMock fourSquareGatewayDidFinishGettingBusinesses]);
 }
 
 -(void)testGetNearbyBusinessesForLatitudeLongitudeWithError {
     id fakeError = [NSError errorWithDomain:@"fakeDomain" code:0 userInfo:nil];
     id delegateMock = OCMProtocolMock(@protocol(FourSquareGatewayDelegate));
+    
     [self setupAndRunTestWith:delegateMock error:fakeError];
 
     OCMVerify([delegateMock fourSquareGatewayDidFail]);
+    XCTAssertNil(self.SUT.businesses);
 }
 
 - (void)testFourSquareGateway {
@@ -54,9 +60,9 @@
     OCMStub([fakeURLFetcher fetchDataForURLString:expectedURL
                                      completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData,
                                                          error, nil])]);
-    NSArray *businesses = [self makeBusinesses];
+    self.businesses = [self makeBusinesses];
     id parserMock = OCMClassMock([FourSquareResponseParser class]);
-    OCMStub([parserMock parseResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(businesses);
+    OCMStub([parserMock parseResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(self.businesses);
     id fakeGCDGateway = OCMClassMock([GCDGateway class]);
     OCMStub([fakeGCDGateway dispatchToMainQueue:[OCMArg invokeBlock]]);
     
@@ -66,8 +72,8 @@
     [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude ];
     
     // Verify
-    XCTAssertEqual(self.SUT.responseData, fakeResponseData);
-    XCTAssertEqualObjects(self.SUT.businesses, businesses);
+//    XCTAssertEqual(self.SUT.responseData, fakeResponseData);
+//    XCTAssertEqualObjects(self.SUT.businesses, businesses);
     OCMVerify([fakeGCDGateway dispatchToMainQueue:[OCMArg any]]);
     
 }
