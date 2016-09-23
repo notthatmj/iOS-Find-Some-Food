@@ -46,6 +46,11 @@
 -(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude {
     NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
     [URLFetcher fetchDataForURLString:searchURL completionHandler:^(NSData *data, NSError *error) {
+        if (error != nil) {
+            [GCDGateway dispatchToMainQueue:^{
+                [self.delegate fourSquareGatewayDidFail];
+            }];
+        }
         self.responseData = [data copy];
         NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
         self.businesses = businesses;

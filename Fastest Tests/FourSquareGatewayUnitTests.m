@@ -20,32 +20,48 @@
 
 @implementation FourSquareGatewayUnitTests
 
--(void)setUp {
-    [super setUp];
-    self.SUT = [FourSquareGateway new];
+-(void)testGetNearbyBusinessesForLatitudeLongitudeSuccess {
+    id fakeError = [NSNull null];
+    id delegateMock = OCMProtocolMock(@protocol(FourSquareGatewayDelegate));
+    [self setupAndRunTestWith:delegateMock error:fakeError];
+    OCMVerify([delegateMock fourSquareGatewayDidFinishGettingBusinesses]);
 }
 
--(void)testGetNearbyBusinessesForLatitudeLongitude {
+-(void)testGetNearbyBusinessesForLatitudeLongitudeWithError {
+    id fakeError = [NSError errorWithDomain:@"fakeDomain" code:0 userInfo:nil];
+    id delegateMock = OCMProtocolMock(@protocol(FourSquareGatewayDelegate));
+    [self setupAndRunTestWith:delegateMock error:fakeError];
+
+    OCMVerify([delegateMock fourSquareGatewayDidFail]);
+}
+
+- (void)testFourSquareGateway {
+    self.SUT = [FourSquareGateway new];
+    XCTAssertNotNil(self.SUT.clientID);
+    XCTAssertNotNil(self.SUT.clientSecret);
+}
+
+-(void)setupAndRunTestWith:(id<FourSquareGatewayDelegate>)delegate error:(id) error {
     // Setup
+    self.SUT = [FourSquareGateway new];
     self.SUT.clientID = @"parrot";
     self.SUT.clientSecret = @"bar";
-    id delegateMock = OCMProtocolMock(@protocol(FourSquareGatewayDelegate));
-    self.SUT.delegate = delegateMock;
+    self.SUT.delegate = delegate;
     
+    NSData *fakeResponseData = [NSData new];
     id fakeURLFetcher = OCMClassMock([URLFetcher class]);
     NSString *expectedURL = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
-    NSData *fakeResponseData = [NSData new];
     OCMStub([fakeURLFetcher fetchDataForURLString:expectedURL
-                            completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData, [NSNull null], nil])]);
-    id parserMock = OCMClassMock([FourSquareResponseParser class]);
+                                     completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData,
+                                                         error, nil])]);
     NSArray *businesses = [self makeBusinesses];
+    id parserMock = OCMClassMock([FourSquareResponseParser class]);
     OCMStub([parserMock parseResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(businesses);
-    
     id fakeGCDGateway = OCMClassMock([GCDGateway class]);
     OCMStub([fakeGCDGateway dispatchToMainQueue:[OCMArg invokeBlock]]);
+    
     const double latitude = 40.7;
     const double longitude = -74;
-    
     // Run
     [self.SUT getNearbyBusinessesForLatitude:latitude longitude:longitude ];
     
@@ -53,12 +69,7 @@
     XCTAssertEqual(self.SUT.responseData, fakeResponseData);
     XCTAssertEqualObjects(self.SUT.businesses, businesses);
     OCMVerify([fakeGCDGateway dispatchToMainQueue:[OCMArg any]]);
-    OCMVerify([delegateMock fourSquareGatewayDidFinishGettingBusinesses]);
-}
-
-- (void)testFourSquareGateway {
-    XCTAssertNotNil(self.SUT.clientID);
-    XCTAssertNotNil(self.SUT.clientSecret);
+    
 }
 
 - (NSMutableArray *) makeBusinesses {

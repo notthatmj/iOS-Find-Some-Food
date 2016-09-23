@@ -11,6 +11,7 @@
 
 @protocol FourSquareGatewayDelegate <NSObject>
 -(void)fourSquareGatewayDidFinishGettingBusinesses;
+-(void)fourSquareGatewayDidFail;
 @end
 
 @interface FourSquareGateway : NSObject

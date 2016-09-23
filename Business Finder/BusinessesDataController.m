@@ -56,4 +56,8 @@
     self.businesses = [self.fourSquareGateway.businesses copy];
     [self.delegate businessesDataControllerDidUpdateBusinesses];
 }
+
+-(void)fourSquareGatewayDidFail {
+    
+}
 @end

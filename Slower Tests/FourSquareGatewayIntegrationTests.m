@@ -40,4 +40,8 @@
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     [self.expectation fulfill];
 }
+
+-(void)fourSquareGatewayDidFail {
+}
+
 @end
