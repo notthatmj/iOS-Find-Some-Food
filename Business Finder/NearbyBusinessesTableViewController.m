@@ -26,11 +26,16 @@
     self.tableView.dataSource = self.dataSource;
 
     self.dataSource.delegate = self;
+//    self.refreshControl = [UIRefreshControl new];
+//    [self.refreshControl addTarget:self.tableView
+//                            action:@selector(reloadData)
+//                  forControlEvents:UIControlEventValueChanged];
     [self.dataSource updateBusinesses];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
     [self.tableView reloadData];
+//    [self.refreshControl endRefreshing];
 }
 
 -(void)nearbyBusinessesDataSourceDidFail {
@@ -41,5 +46,6 @@
                                                       handler:nil];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
+//    [self.refreshControl endRefreshing];
 }
 @end
