@@ -9,6 +9,7 @@
 #import "NearbyBusinessesTableViewController.h"
 #import "Business.h"
 #import "LocationGateway.h"
+#import "RefreshController.h"
 
 @interface NearbyBusinessesTableViewController ()
 
@@ -23,22 +24,23 @@
         self.dataSource = [NearbyBusinessesDataSource new];
     }
 
+    if (self.refreshController == nil) {
+        self.refreshController = [RefreshController new];
+    }
     self.tableView.dataSource = self.dataSource;
 
     self.dataSource.delegate = self;
-//    self.refreshControl = [UIRefreshControl new];
-//    [self.refreshControl addTarget:self.tableView
-//                            action:@selector(reloadData)
-//                  forControlEvents:UIControlEventValueChanged];
+    [self.refreshController installRefreshControlOnTableView:self.tableView selector:@selector(updateBusinesses)];
     [self.dataSource updateBusinesses];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
     [self.tableView reloadData];
-//    [self.refreshControl endRefreshing];
+    [self.refreshController endRefreshing];
 }
 
 -(void)nearbyBusinessesDataSourceDidFail {
+    [self.refreshController endRefreshing];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:@"Businesses couldn't be retrieved"
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -46,6 +48,5 @@
                                                       handler:nil];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
-//    [self.refreshControl endRefreshing];
 }
 @end
