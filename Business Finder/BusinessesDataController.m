@@ -9,6 +9,7 @@
 #import "BusinessesDataController.h"
 #import "Business.h"
 #import "FourSquareGateway.h"
+#import "BusinessFinderErrorDomain.h"
 
 @interface BusinessesDataController ()
 @property (strong,nonatomic) NSArray *businesses;
@@ -49,7 +50,12 @@
 }
 
 -(void)locationGatewayDidFail {
-    [self.delegate businessesDataControllerDidFail];
+    NSString *desc =  NSLocalizedString(@"Unable to retrieve location.", @"");
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
+    NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
+                                         code:kBusinessesDataControllerErrorLocation
+                                     userInfo:userInfo];
+    [self.delegate businessesDataControllerDidFailWithError:error];
 }
 
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
@@ -58,6 +64,11 @@
 };
 
 -(void)fourSquareGatewayDidFail {
-    [self.delegate businessesDataControllerDidFail];    
+    NSString *desc =  NSLocalizedString(@"Unable to retrieve businesses from the server.", @"");
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
+    NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
+                                         code:kBusinessesDataControllerErrorServer
+                                     userInfo:userInfo];
+    [self.delegate businessesDataControllerDidFailWithError:error];
 }
 @end

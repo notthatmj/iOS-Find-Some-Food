@@ -13,6 +13,7 @@
 #import "OCMock.h"
 #import "LocationGateway.h"
 #import "RefreshController.h"
+#import "BusinessFinderErrorDomain.h"
 
 @interface NearbyBusinessesViewControllerTests : XCTestCase
 @end
@@ -49,12 +50,17 @@
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     SUT = OCMPartialMock(SUT);
     OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
-//    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     RefreshController *mockRefreshController = OCMClassMock([RefreshController class]);
     SUT.refreshController = mockRefreshController;
+    
+    NSString *testErrorMessage = @"foobar";
+    NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
+    NSError *testError = [NSError errorWithDomain:kBusinessFinderErrorDomain
+                                             code:kBusinessesDataControllerErrorLocation
+                                         userInfo:testUserInfo];
 
     // Run
-    [SUT nearbyBusinessesDataSourceDidFail];
+    [SUT nearbyBusinessesDataSourceDidFailWithError:testError];
     
     // Verify
     BOOL (^checkAlertController)(id obj) = ^BOOL(id obj) {
@@ -62,12 +68,12 @@
         UIAlertController* alert = obj;
         
         if(![alert.title isEqualToString:@"Error"] ||
-           ![alert.message isEqualToString:@"Businesses couldn't be retrieved"] ||
+           ![alert.message isEqualToString:testErrorMessage] ||
            alert.preferredStyle != UIAlertControllerStyleAlert ||
            [alert.actions count] != 1) {
             return false;
         }
-
+        
         UIAlertAction *action = alert.actions[0];
         if (![action.title isEqualToString:@"OK"] ||
             action.style != UIAlertActionStyleDefault) {

@@ -49,7 +49,8 @@
     self.locationManager.delegate = self;
     CLAuthorizationStatus authorizationStatus= [LocationGateway authorizationStatus];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    if(authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+    if(authorizationStatus == kCLAuthorizationStatusNotDetermined ||
+       authorizationStatus == kCLAuthorizationStatusDenied) {
         [self requestWhenInUseAuthorization];
     } else {
         [self.locationManager requestLocation];

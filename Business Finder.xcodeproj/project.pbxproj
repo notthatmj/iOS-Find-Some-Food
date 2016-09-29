@@ -15,6 +15,7 @@
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		891FC6891D96C37E00ED44C4 /* RefreshControllerUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */; };
 		891FC68C1D96C3F500ED44C4 /* RefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* RefreshController.m */; };
+		891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */; };
 		8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */; };
 		893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
@@ -81,6 +82,8 @@
 		891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshControllerUnitTests.m; sourceTree = "<group>"; };
 		891FC68A1D96C3F500ED44C4 /* RefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshController.h; sourceTree = "<group>"; };
 		891FC68B1D96C3F500ED44C4 /* RefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshController.m; sourceTree = "<group>"; };
+		891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessFinderErrorDomain.h; sourceTree = "<group>"; };
+		891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessFinderErrorDomain.m; sourceTree = "<group>"; };
 		8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayIntegrationTests.m; sourceTree = "<group>"; };
 		893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayUnitTests.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +214,8 @@
 			children = (
 				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
 				897489501D4FB5FD00531975 /* AppDelegate.m */,
+				891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */,
+				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
 				891FC68A1D96C3F500ED44C4 /* RefreshController.h */,
 				891FC68B1D96C3F500ED44C4 /* RefreshController.m */,
 				89F2D0951D76041700C98165 /* LocationGateway.h */,
@@ -591,6 +596,7 @@
 			files = (
 				891FC68C1D96C3F500ED44C4 /* RefreshController.m in Sources */,
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
+				891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */,
 				89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */,
 				89FB39091D88A08C0086851E /* FourSquareResponseParser.m in Sources */,
 				89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */,

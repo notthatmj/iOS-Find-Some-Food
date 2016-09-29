@@ -12,7 +12,7 @@
 
 @protocol NearbyBusinessesDataSourceDelegate <NSObject>
 - (void) nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
-- (void) nearbyBusinessesDataSourceDidFail;
+- (void) nearbyBusinessesDataSourceDidFailWithError:(NSError *)error;
 @end
 
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,BusinessesDataControllerDelegate>

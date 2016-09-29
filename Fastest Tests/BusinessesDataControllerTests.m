@@ -12,6 +12,7 @@
 #import "OCMock.h"
 #import "Business.h"
 #import "LocationGateway.h"
+#import "BusinessFinderErrorDomain.h"
 
 @interface BusinessesDataControllerTests : XCTestCase
 @property (strong, nonatomic) BusinessesDataController *SUT;
@@ -86,14 +87,21 @@
     OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
 }
 
-- (void)testLocationGatewayDidFail {
+- (void)testLocationGatewayDidFailWithError {
     // Setup fake delegate
     id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
     self.SUT.delegate = testDelegate;
-
+    
     [self.SUT locationGatewayDidFail];
-//    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
-    OCMVerify([testDelegate businessesDataControllerDidFail]);
+    OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+        NSError *error = obj;
+        if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
+            error.code == kBusinessesDataControllerErrorLocation &&
+            [error.localizedDescription isEqualToString: NSLocalizedString(@"Unable to retrieve location.", @"")]){
+            return true;
+        }
+        return false;
+    }]]);
 }
 
 - (void)testFourSquareGatewayDidFail {
@@ -102,7 +110,14 @@
     self.SUT.delegate = testDelegate;
     
     [self.SUT fourSquareGatewayDidFail];
-    //    OCMVerify([testDelegate businessDataControllerDidFailWithError:[OCMArg any]]);
-    OCMVerify([testDelegate businessesDataControllerDidFail]);
+    OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+        NSError *error = obj;
+        if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
+            error.code == kBusinessesDataControllerErrorServer &&
+            [error.localizedDescription isEqualToString: NSLocalizedString(@"Unable to retrieve businesses from the server.", @"")]){
+            return true;
+        }
+        return false;
+    }]]);
 }
 @end

@@ -37,7 +37,7 @@
 -(void)businessesDataControllerDidUpdateBusinesses {
     [self.expectation fulfill];
 }
--(void)businessesDataControllerDidFail {
+-(void)businessesDataControllerDidFailWithError:(NSError *)error {
     
 }
 @end

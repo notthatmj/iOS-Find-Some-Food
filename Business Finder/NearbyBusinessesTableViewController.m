@@ -39,13 +39,15 @@
     [self.refreshController endRefreshing];
 }
 
--(void)nearbyBusinessesDataSourceDidFail {
+-(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
     [self.refreshController endRefreshing];
+    NSString *message = [error localizedDescription];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                   message:@"Businesses couldn't be retrieved"
+                                                                   message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
+
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                      handler:nil];
+                                                          handler:nil];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
 }

@@ -47,7 +47,8 @@
     [self.delegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
 }
 
--(void)businessesDataControllerDidFail {
-    [self.delegate nearbyBusinessesDataSourceDidFail];
+-(void)businessesDataControllerDidFailWithError:(NSError *)error {
+    [self.delegate nearbyBusinessesDataSourceDidFailWithError:error];
 }
+
 @end

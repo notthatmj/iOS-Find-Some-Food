@@ -82,9 +82,9 @@
     id<NearbyBusinessesDataSourceDelegate> fakeDelegate = OCMProtocolMock(@protocol(NearbyBusinessesDataSourceDelegate));
     self.SUT.delegate = fakeDelegate;
     
-    [self.SUT businessesDataControllerDidFail];
+    [self.SUT businessesDataControllerDidFailWithError:nil];
     
-    OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidFail]);
+    OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidFailWithError:nil]);
 }
 @end
 
