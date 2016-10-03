@@ -10,6 +10,7 @@ extern NSString *const kBusinessFinderErrorDomain;
 
 typedef NS_ENUM(NSInteger, BusinessesDataControllerError) {
     kBusinessesDataControllerErrorLocation=0,
+    kBusinessesDataControllerErrorLocationPermissionDenied,
     kBusinessesDataControllerErrorServer
 };
 

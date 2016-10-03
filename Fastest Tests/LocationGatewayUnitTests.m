@@ -11,42 +11,28 @@
 #import "OCMock.h"
 
 @interface LocationGatewayUnitTests : XCTestCase
-
+@property (nonatomic, strong) LocationGateway *SUT;
 @end
 
 @implementation LocationGatewayUnitTests
 
+-(void)setUp {
+    self.SUT = [LocationGateway new];
+}
 - (void) testLocationManagerInitialization {
-    LocationGateway *SUT = [LocationGateway new];
-    
     // It's important that the location gateway be initialized when the LocationGateway is created,
     // because CLLocationManager's have to be created on a thread with a run loop (i.e. the main thread).
-    XCTAssertNotNil(SUT.locationManager);
+    XCTAssertNotNil(self.SUT.locationManager);
+    XCTAssertFalse(self.SUT.fetchingLocation);
 }
 
 - (void) testLocationManagerDidUpdateLocations {
-    LocationGateway *SUT = [LocationGateway new];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:40.758684 longitude:-73.985163];
 
-    [SUT locationManager:nil didUpdateLocations:@[location]];
+    [self.SUT locationManager:nil didUpdateLocations:@[location]];
     
-    XCTAssertEqual([SUT.latitude doubleValue], 40.758684);
-    XCTAssertEqual([SUT.longitude doubleValue], -73.985163);
-}
-
-- (void) testLocationManagerDidFailWithError {
-    // Setup
-    LocationGateway *SUT = [LocationGateway new];
-    id<LocationGatewayDelegate> fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
-    SUT.delegate = fakeDelegate;
-    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
-    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
-    
-    // Run
-    [SUT locationManager:dummyLocationManager didFailWithError:dummyError];
-    
-    // Verify
-    OCMVerify([fakeDelegate locationGatewayDidFail]);
+    XCTAssertEqual([self.SUT.latitude doubleValue], 40.758684);
+    XCTAssertEqual([self.SUT.longitude doubleValue], -73.985163);
 }
 
 - (void) testInfoPlistKey {
@@ -54,4 +40,60 @@
     XCTAssertNotNil(locationPrompt);
 }
 
+- (void) testFetchLocation {
+    [self.SUT fetchLocation];
+    XCTAssertTrue(self.SUT.fetchingLocation);
+}
+
+- (void) testFetchingLocation {
+    id<LocationGatewayDelegate> fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
+    self.SUT.delegate = fakeDelegate;
+    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
+    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+
+    XCTAssertFalse(self.SUT.fetchingLocation);
+    [self.SUT fetchLocation];
+    XCTAssertTrue(self.SUT.fetchingLocation);
+    [self.SUT locationManager:dummyLocationManager didFailWithError:dummyError];
+    XCTAssertFalse(self.SUT.fetchingLocation);
+}
+@end
+
+@interface LocationGatewayUnitTests2 : XCTestCase
+@property (nonatomic, strong) LocationGateway *SUT;
+@end
+
+@implementation LocationGatewayUnitTests2
+
+-(void)setUp {
+    self.SUT = [LocationGateway new];
+}
+
+- (void) testLocationManagerDidFailWithErrorWhenFetching {
+    // Setup
+    id<LocationGatewayDelegate> fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
+    self.SUT.delegate = fakeDelegate;
+    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
+    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+    
+    // Run
+    [self.SUT fetchLocation];
+    [self.SUT locationManager:dummyLocationManager didFailWithError:dummyError];
+    
+    // Verify
+    OCMVerify([fakeDelegate locationGatewayDidFailWithError:dummyError]);
+}
+
+- (void) testLocationManagerDidFailWithErrorWhenNotFetching {
+    // Setup
+    id<LocationGatewayDelegate> fakeDelegate = OCMStrictProtocolMock(@protocol(LocationGatewayDelegate));
+    self.SUT.delegate = fakeDelegate;
+    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
+    self.SUT.locationManager = dummyLocationManager;
+    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+    
+    // Run
+    [self.SUT locationManager:dummyLocationManager didFailWithError:dummyError];
+    
+}
 @end

@@ -9,10 +9,10 @@
 #import "LocationGateway.h"
 
 @interface LocationGateway ()
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (nonatomic, copy) void (^completionHandler)();
+//@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
+@property (nonatomic) BOOL fetchingLocation;
 @end
 
 @implementation LocationGateway
@@ -28,13 +28,13 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     self.latitude = [NSNumber numberWithDouble:locations[0].coordinate.latitude];
     self.longitude = [NSNumber numberWithDouble:locations[0].coordinate.longitude];
-    if (self.completionHandler != nil) {
-        self.completionHandler();
-    }
     [self.delegate locationGatewayDidUpdateLocation:self];
 }
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    [self.delegate locationGatewayDidFail];
+    if (self.fetchingLocation) {
+        [self.delegate locationGatewayDidFailWithError:error];
+    }
+    self.fetchingLocation = NO;
 }
 
 +(CLAuthorizationStatus)authorizationStatus {
@@ -52,8 +52,8 @@
     if(authorizationStatus == kCLAuthorizationStatusNotDetermined ||
        authorizationStatus == kCLAuthorizationStatusDenied) {
         [self requestWhenInUseAuthorization];
-    } else {
-        [self.locationManager requestLocation];
     }
+    self.fetchingLocation = true;
+    [self.locationManager requestLocation];
 }
 @end

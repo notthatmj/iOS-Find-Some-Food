@@ -92,12 +92,30 @@
     id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
     self.SUT.delegate = testDelegate;
     
-    [self.SUT locationGatewayDidFail];
+    [self.SUT locationGatewayDidFailWithError:nil];
     OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
         NSError *error = obj;
         if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
             error.code == kBusinessesDataControllerErrorLocation &&
             [error.localizedDescription isEqualToString: NSLocalizedString(@"Unable to retrieve location.", @"")]){
+            return true;
+        }
+        return false;
+    }]]);
+}
+
+- (void)testLocationGatewayDidFailWithError_AuthorizationDenied {
+    // Setup fake delegate
+    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
+    self.SUT.delegate = testDelegate;
+    NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorDenied userInfo:nil];
+    
+    [self.SUT locationGatewayDidFailWithError:error];
+    OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+        NSError *error = obj;
+        if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
+            error.code == kBusinessesDataControllerErrorLocationPermissionDenied &&
+            [error.localizedDescription isEqualToString: NSLocalizedString(@"Please enable location services in your device settings.", @"")]){
             return true;
         }
         return false;

@@ -20,9 +20,10 @@
 @protocol LocationGatewayDelegate;
 
 @interface LocationGateway : NSObject <CLLocationManagerDelegate>
-@property (strong, nonatomic,readonly) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic, readonly) NSNumber *latitude;
 @property (strong, nonatomic, readonly) NSNumber *longitude;
+@property (nonatomic, readonly) BOOL fetchingLocation;
 @property (weak, nonatomic) id<LocationGatewayDelegate> delegate;
 
 + (CLAuthorizationStatus)authorizationStatus;
@@ -34,6 +35,6 @@
 
 @protocol LocationGatewayDelegate <NSObject>
 -(void) locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway;
--(void) locationGatewayDidFail;
+-(void) locationGatewayDidFailWithError:(NSError *)error;
 @end
 

@@ -17,7 +17,7 @@
 -(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
     [self.expectation fulfill];
 }
--(void)locationGatewayDidFail {
+-(void)locationGatewayDidFailWithError:(NSError *)error {
     
 }
 @end

@@ -49,7 +49,15 @@
     return _fourSquareGateway;
 }
 
--(void)locationGatewayDidFail {
+-(void)locationGatewayDidFailWithError:(NSError *)locationError {
+    if ([locationError domain] == kCLErrorDomain) {
+        NSString *desc =  NSLocalizedString(@"Please enable location services in your device settings.", @"");
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
+        NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
+                                             code:kBusinessesDataControllerErrorLocationPermissionDenied
+                                         userInfo:userInfo];
+        [self.delegate businessesDataControllerDidFailWithError:error];
+    }
     NSString *desc =  NSLocalizedString(@"Unable to retrieve location.", @"");
     NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
     NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
