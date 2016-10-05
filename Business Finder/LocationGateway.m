@@ -9,7 +9,6 @@
 #import "LocationGateway.h"
 
 @interface LocationGateway ()
-//@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
 @property (nonatomic) BOOL fetchingLocation;

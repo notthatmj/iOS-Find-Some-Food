@@ -57,13 +57,14 @@
                                              code:kBusinessesDataControllerErrorLocationPermissionDenied
                                          userInfo:userInfo];
         [self.delegate businessesDataControllerDidFailWithError:error];
+    } else {
+        NSString *desc =  NSLocalizedString(@"Unable to retrieve location.", @"");
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
+        NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
+                                             code:kBusinessesDataControllerErrorLocation
+                                         userInfo:userInfo];
+        [self.delegate businessesDataControllerDidFailWithError:error];
     }
-    NSString *desc =  NSLocalizedString(@"Unable to retrieve location.", @"");
-    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
-    NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
-                                         code:kBusinessesDataControllerErrorLocation
-                                     userInfo:userInfo];
-    [self.delegate businessesDataControllerDidFailWithError:error];
 }
 
 -(void)fourSquareGatewayDidFinishGettingBusinesses {

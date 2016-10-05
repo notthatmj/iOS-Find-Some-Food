@@ -45,55 +45,49 @@
     XCTAssertTrue(self.SUT.fetchingLocation);
 }
 
-- (void) testFetchingLocation {
-    id<LocationGatewayDelegate> fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
-    self.SUT.delegate = fakeDelegate;
-    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
-    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
-
-    XCTAssertFalse(self.SUT.fetchingLocation);
-    [self.SUT fetchLocation];
-    XCTAssertTrue(self.SUT.fetchingLocation);
-    [self.SUT locationManager:dummyLocationManager didFailWithError:dummyError];
-    XCTAssertFalse(self.SUT.fetchingLocation);
-}
 @end
 
-@interface LocationGatewayUnitTests2 : XCTestCase
+@interface LocationGatewayDidFailWithErrorTests : XCTestCase
 @property (nonatomic, strong) LocationGateway *SUT;
+@property (nonatomic, strong) id<LocationGatewayDelegate> fakeDelegate;
+@property (strong, nonatomic) CLLocationManager *dummyLocationManager;
+@property (strong, nonatomic) NSError *dummyError;
 @end
 
-@implementation LocationGatewayUnitTests2
+@implementation LocationGatewayDidFailWithErrorTests
 
 -(void)setUp {
     self.SUT = [LocationGateway new];
+    self.dummyLocationManager = OCMClassMock([CLLocationManager class]);
+    self.SUT.locationManager = self.dummyLocationManager;
+    self.dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+
+}
+
+- (void)setFakeDelegate:(id<LocationGatewayDelegate>)fakeDelegate {
+    _fakeDelegate = fakeDelegate;
+    self.SUT.delegate = fakeDelegate;
 }
 
 - (void) testLocationManagerDidFailWithErrorWhenFetching {
     // Setup
-    id<LocationGatewayDelegate> fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
-    self.SUT.delegate = fakeDelegate;
-    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
-    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+    self.fakeDelegate = OCMProtocolMock(@protocol(LocationGatewayDelegate));
     
     // Run
     [self.SUT fetchLocation];
-    [self.SUT locationManager:dummyLocationManager didFailWithError:dummyError];
+    [self.SUT locationManager:self.dummyLocationManager didFailWithError:self.dummyError];
     
     // Verify
-    OCMVerify([fakeDelegate locationGatewayDidFailWithError:dummyError]);
+    XCTAssertFalse(self.SUT.fetchingLocation);
+    OCMVerify([self.fakeDelegate locationGatewayDidFailWithError:self.dummyError]);
 }
 
 - (void) testLocationManagerDidFailWithErrorWhenNotFetching {
     // Setup
-    id<LocationGatewayDelegate> fakeDelegate = OCMStrictProtocolMock(@protocol(LocationGatewayDelegate));
-    self.SUT.delegate = fakeDelegate;
-    CLLocationManager *dummyLocationManager = OCMClassMock([CLLocationManager class]);
-    self.SUT.locationManager = dummyLocationManager;
-    NSError *dummyError = [NSError errorWithDomain:@"dummy" code:0 userInfo:nil];
+    self.fakeDelegate = OCMStrictProtocolMock(@protocol(LocationGatewayDelegate));
     
     // Run
-    [self.SUT locationManager:dummyLocationManager didFailWithError:dummyError];
-    
+    [self.SUT locationManager:self.dummyLocationManager didFailWithError:self.dummyError];
+    XCTAssertFalse(self.SUT.fetchingLocation);
 }
 @end

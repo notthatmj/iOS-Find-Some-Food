@@ -87,39 +87,35 @@
     OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
 }
 
-- (void)testLocationGatewayDidFailWithError {
-    // Setup fake delegate
-    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
-    self.SUT.delegate = testDelegate;
-    
-    [self.SUT locationGatewayDidFailWithError:nil];
-    OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+- (id)setUpForLocationGatewayDidFailTestsWithErrorMessage:(NSString *)descriptionString errorCode:(int)errorCode {
+    BOOL (^errorCheckBlock) (id obj) = ^BOOL(id obj) {
         NSError *error = obj;
         if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
-            error.code == kBusinessesDataControllerErrorLocation &&
-            [error.localizedDescription isEqualToString: NSLocalizedString(@"Unable to retrieve location.", @"")]){
+            error.code == errorCode &&
+            [error.localizedDescription isEqualToString: NSLocalizedString(descriptionString, @"")]){
             return true;
         }
         return false;
-    }]]);
+    };
+    
+    id testDelegate = OCMStrictProtocolMock(@protocol(BusinessesDataControllerDelegate));
+    OCMExpect([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:errorCheckBlock]]);
+    self.SUT.delegate = testDelegate;
+    return testDelegate;
+}
+
+- (void)testLocationGatewayDidFailWithError_UnableToRetrieve {
+    // Setup fake delegate
+    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Unable to retrieve location." errorCode:kBusinessesDataControllerErrorLocation];
+    [self.SUT locationGatewayDidFailWithError:nil];
+    OCMVerifyAll(testDelegate);
 }
 
 - (void)testLocationGatewayDidFailWithError_AuthorizationDenied {
-    // Setup fake delegate
-    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
-    self.SUT.delegate = testDelegate;
+    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Please enable location services in your device settings." errorCode:kBusinessesDataControllerErrorLocationPermissionDenied];
     NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorDenied userInfo:nil];
-    
     [self.SUT locationGatewayDidFailWithError:error];
-    OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
-        NSError *error = obj;
-        if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
-            error.code == kBusinessesDataControllerErrorLocationPermissionDenied &&
-            [error.localizedDescription isEqualToString: NSLocalizedString(@"Please enable location services in your device settings.", @"")]){
-            return true;
-        }
-        return false;
-    }]]);
+    OCMVerifyAll(testDelegate);
 }
 
 - (void)testFourSquareGatewayDidFail {

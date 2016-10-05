@@ -41,16 +41,16 @@
     XCTAssertEqualObjects(actions[0], @"arbitraryDataSourceMethodName");
 }
 
-- (void)testBeginRefreshingEndRefreshing {
+- (void)testBeginRefreshingEndRefreshing2 {
     RefreshController *SUT = [RefreshController new];
-    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    UIRefreshControl *refreshControl = OCMClassMock([UIRefreshControl class]);
     SUT.refreshControl = refreshControl;
     
     [SUT beginRefreshing];
-    XCTAssert(refreshControl.isRefreshing);
+    OCMVerify([refreshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.0]);
     [SUT endRefreshing];
-    XCTAssert(!refreshControl.isRefreshing);
-}
+    OCMVerify([refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
 
+}
 
 @end
