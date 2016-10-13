@@ -41,12 +41,6 @@
 
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
     [self.refreshController endRefreshing];
-//    [self.refreshController performSelector:@selector(endRefreshing) withObject:nil afterDelay:0];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.refreshController endRefreshing];
-//    });
-//    [self.refreshController performSelectorOnMainThread:@selector(endRefreshing) withObject:nil waitUntilDone:NO];
-//    [self.refreshController performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0];
     NSString *message = [error localizedDescription];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:message

@@ -50,7 +50,7 @@
 }
 
 -(void)locationGatewayDidFailWithError:(NSError *)locationError {
-    if ([locationError domain] == kCLErrorDomain) {
+    if ([locationError domain] == kCLErrorDomain && [locationError code] == kCLErrorDenied) {
         NSString *desc =  NSLocalizedString(@"Please enable location services in your device settings.", @"");
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
         NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain

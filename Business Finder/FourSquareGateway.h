@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, weak) NSObject<FourSquareGatewayDelegate> *delegate;
+- (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude;
 -(void)getNearbyBusinessesForLatitude:(double) latitude longitude:(double)longitude;
 @end
 

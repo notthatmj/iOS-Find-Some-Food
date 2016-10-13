@@ -18,8 +18,12 @@
     NSMutableArray *result = [NSMutableArray new];
     for (NSDictionary *venueDictionary in venues) {
         NSString *venueName = [venueDictionary valueForKey:@"name"];
+        NSDictionary *locationDictionary = [venueDictionary valueForKey:@"location"];
+        NSNumber *distance = [locationDictionary valueForKey:@"distance"];
+        
         Business *business = [Business new];
         business.name = venueName;
+        business.distance = [distance floatValue];
         [result addObject:business];
     }
     return  [NSArray arrayWithArray:result];

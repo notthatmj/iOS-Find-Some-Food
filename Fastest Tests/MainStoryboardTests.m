@@ -31,22 +31,13 @@
     XCTAssert([initialViewController isKindOfClass:[NearbyBusinessesTableViewController class]]);
 }
 
-//- (void)testInitialViewController2 {
-//    UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    XCTAssertNotNil(SUT);
-//    NearbyBusinessesTableViewController *initialViewController = [SUT instantiateInitialViewController];
-//    
-//    [initialViewController viewDidLoad];
-//    
-//    id refreshControlMock = OCMPartialMock([UIRefreshControl new]);
-//    initialViewController.refreshControl = refreshControlMock;
-//    initialViewController.refreshControl = [UIRefreshControl new];
-//    [initialViewController nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
-//    
-////    id refreshControlMock = [MyRefreshControl new];
-////    initialViewController.refreshControl = refreshControlMock;
-////    [initialViewController nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
-////    OCMVerify([refreshControlMock endRefreshing]);
-//}
+- (void)testInitialViewControllerTableCell {
+    UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    XCTAssertNotNil(SUT);
+    NearbyBusinessesTableViewController *initialViewController = [SUT instantiateInitialViewController];
+    
+    UITableViewCell *cell = [initialViewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
+    XCTAssertNotNil(cell.detailTextLabel);
+}
 
 @end

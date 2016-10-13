@@ -105,9 +105,9 @@
 }
 
 - (void)testLocationGatewayDidFailWithError_UnableToRetrieve {
-    // Setup fake delegate
     id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Unable to retrieve location." errorCode:kBusinessesDataControllerErrorLocation];
-    [self.SUT locationGatewayDidFailWithError:nil];
+    NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorLocationUnknown userInfo:nil];
+    [self.SUT locationGatewayDidFailWithError:error];
     OCMVerifyAll(testDelegate);
 }
 

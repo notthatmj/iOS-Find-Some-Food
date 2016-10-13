@@ -55,7 +55,11 @@
     for(int i=0;i<self.businesses.count;i++){
         UITableViewCell *cell = [self.SUT tableView:self.tableView
                               cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        XCTAssertEqualObjects(cell.textLabel.text, self.businesses[i].name);
+        Business *currentBusiness = self.businesses[i];
+        XCTAssertEqualObjects(cell.textLabel.text, currentBusiness.name);
+        NSString *expectedDistanceString = [NSString stringWithFormat:@"%1.2f meters",currentBusiness.distance];
+//        NSString *expectedDistanceString = @"";
+        XCTAssertEqualObjects(cell.detailTextLabel.text,expectedDistanceString);
     }
 }
 
