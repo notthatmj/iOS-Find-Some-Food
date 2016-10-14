@@ -28,13 +28,13 @@
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     XCTAssertNotNil(SUT);
     UIViewController *initialViewController = [SUT instantiateInitialViewController];
-    XCTAssert([initialViewController isKindOfClass:[NearbyBusinessesTableViewController class]]);
+    XCTAssert([initialViewController isKindOfClass:[UINavigationController class]]);
 }
 
-- (void)testInitialViewControllerTableCell {
+- (void)testNearbyBusinessesTableViewController {
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     XCTAssertNotNil(SUT);
-    NearbyBusinessesTableViewController *initialViewController = [SUT instantiateInitialViewController];
+    NearbyBusinessesTableViewController *initialViewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
     
     UITableViewCell *cell = [initialViewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);

@@ -54,7 +54,7 @@
 
 - (void)testTableViewCellForRowAtIndexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    NearbyBusinessesTableViewController *tableViewController = [storyboard instantiateInitialViewController];
+    NearbyBusinessesTableViewController *tableViewController = [storyboard instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
     UITableView *tableView = tableViewController.tableView;
     
     tableView.dataSource = self.SUT;
@@ -107,29 +107,3 @@
     XCTAssertNotNil(SUT.businessesDataController);
 }
 @end
-
-//@interface NearbyBusinessesDataSourceTestsUsingStoryboard : XCTestCase
-//@end
-//@implementation NearbyBusinessesDataSourceTestsUsingStoryboard
-//- (void)testTableViewCellForRowAtIndexPath2 {
-//    NearbyBusinessesDataSource *SUT = [NearbyBusinessesDataSource new];
-//    Business *business1 = [[Business alloc] initWithName:@"Larry's Restaurant" distance:1.0];
-//    Business *business2 = [[Business alloc] initWithName:@"Moe's Restaurant" distance:2.0];
-//    Business *business3 = [[Business alloc] initWithName:@"Curly's Restaurant" distance:3.0];
-//    NSArray *businesses = @[business1,business2,business3];
-//    BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
-//    OCMStub([fakeBusinessesDataController businesses]).andReturn(businesses);
-//    SUT.businessesDataController = fakeBusinessesDataController;
-//
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    NearbyBusinessesTableViewController *tableViewController = [storyboard instantiateInitialViewController];
-//    UITableView *tableView = tableViewController.tableView;
-//    
-//    tableView.dataSource = SUT;
-//    
-//    UITableViewCell *cell1 = [SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//    XCTAssertEqualObjects(cell1.detailTextLabel.text, @"1.00 meters");
-//    UITableViewCell *cell2 = [SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-//    XCTAssertEqualObjects(cell2.detailTextLabel.text, @"2.00 meters");
-//}
-//@end
