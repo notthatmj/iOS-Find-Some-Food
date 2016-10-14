@@ -27,8 +27,9 @@
     
     NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:data];
     Business *firstBusiness = businesses[0];
+    float expectedDistance = 0.0155342799;
     XCTAssertEqualObjects(firstBusiness.name,@"Hot Woks Cool Sushi");
-    XCTAssertEqual(firstBusiness.distance, 25);
+    XCTAssertEqual(firstBusiness.distance, expectedDistance);
 }
 
 

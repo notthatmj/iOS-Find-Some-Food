@@ -34,10 +34,12 @@
 - (void)testNearbyBusinessesTableViewController {
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     XCTAssertNotNil(SUT);
-    NearbyBusinessesTableViewController *initialViewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
+    NearbyBusinessesTableViewController *viewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
     
-    UITableViewCell *cell = [initialViewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
+    UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);
+    
+    XCTAssertEqualObjects(viewController.navigationItem.title,@"Locations");
 }
 
 @end

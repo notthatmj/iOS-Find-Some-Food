@@ -23,7 +23,8 @@
         
         Business *business = [Business new];
         business.name = venueName;
-        business.distance = [distance floatValue];
+        const float metersPerMile = 1609.344;
+        business.distance = [distance floatValue] / metersPerMile ;
         [result addObject:business];
     }
     return  [NSArray arrayWithArray:result];
