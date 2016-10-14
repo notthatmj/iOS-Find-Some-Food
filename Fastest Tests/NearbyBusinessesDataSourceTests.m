@@ -11,6 +11,7 @@
 #import "Business.h"
 #import "BusinessesDataController.h"
 #import "OCMock.h"
+#import "NearbyBusinessesTableViewController.h"
 
 @interface DummyCellClass : UITableViewCell
 @end
@@ -52,14 +53,18 @@
 }
 
 - (void)testTableViewCellForRowAtIndexPath {
-    for(int i=0;i<self.businesses.count;i++){
-        UITableViewCell *cell = [self.SUT tableView:self.tableView
-                              cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    NearbyBusinessesTableViewController *tableViewController = [storyboard instantiateInitialViewController];
+    UITableView *tableView = tableViewController.tableView;
+    
+    tableView.dataSource = self.SUT;
+    
+    NSArray *expectedDistanceStrings = @[@"1.00 meters",@"2.00 meters",@"3.00 meters"];
+    for (int i=0; i < [self.businesses count]; i++) {
+        UITableViewCell *cell = [self.SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         Business *currentBusiness = self.businesses[i];
         XCTAssertEqualObjects(cell.textLabel.text, currentBusiness.name);
-        NSString *expectedDistanceString = [NSString stringWithFormat:@"%1.2f meters",currentBusiness.distance];
-//        NSString *expectedDistanceString = @"";
-        XCTAssertEqualObjects(cell.detailTextLabel.text,expectedDistanceString);
+        XCTAssertEqualObjects(cell.detailTextLabel.text, expectedDistanceStrings[i]);
     }
 }
 
@@ -102,3 +107,29 @@
     XCTAssertNotNil(SUT.businessesDataController);
 }
 @end
+
+//@interface NearbyBusinessesDataSourceTestsUsingStoryboard : XCTestCase
+//@end
+//@implementation NearbyBusinessesDataSourceTestsUsingStoryboard
+//- (void)testTableViewCellForRowAtIndexPath2 {
+//    NearbyBusinessesDataSource *SUT = [NearbyBusinessesDataSource new];
+//    Business *business1 = [[Business alloc] initWithName:@"Larry's Restaurant" distance:1.0];
+//    Business *business2 = [[Business alloc] initWithName:@"Moe's Restaurant" distance:2.0];
+//    Business *business3 = [[Business alloc] initWithName:@"Curly's Restaurant" distance:3.0];
+//    NSArray *businesses = @[business1,business2,business3];
+//    BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
+//    OCMStub([fakeBusinessesDataController businesses]).andReturn(businesses);
+//    SUT.businessesDataController = fakeBusinessesDataController;
+//
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    NearbyBusinessesTableViewController *tableViewController = [storyboard instantiateInitialViewController];
+//    UITableView *tableView = tableViewController.tableView;
+//    
+//    tableView.dataSource = SUT;
+//    
+//    UITableViewCell *cell1 = [SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    XCTAssertEqualObjects(cell1.detailTextLabel.text, @"1.00 meters");
+//    UITableViewCell *cell2 = [SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+//    XCTAssertEqualObjects(cell2.detailTextLabel.text, @"2.00 meters");
+//}
+//@end

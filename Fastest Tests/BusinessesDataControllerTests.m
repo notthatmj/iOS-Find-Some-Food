@@ -23,29 +23,12 @@
 
 @implementation BusinessesDataControllerTests
 
-- (NSArray<Business*> *) makeBusinesses {
-    NSMutableArray *businesses = [NSMutableArray new];
-    NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];
-    for (NSString *businessName in businessNames) {
-        Business *business = [Business new];
-        business.name = businessName;
-        [businesses addObject:business];
-    }
-    return businesses;
-}
-
 - (void) setUp {
     [super setUp];
     self.SUT = [BusinessesDataController new];
 }
 
-- (void)testInit {
-    BusinessesDataController *SUT = self.SUT;
-    XCTAssertNotNil(SUT.fourSquareGateway);
-}
-
-
-- (void)testUpdateLocationAndBusinesses {
+- (void) runAndVerifyHappyPath {
     // Setup fake LocationGateway
     self.testLatitude = 41.840457;
     self.testLongitude = -87.660502;
@@ -55,11 +38,10 @@
     self.SUT.locationGateway = fakeLocationGateway;
     
     // Setup fake FourSquareGateway
-    self.businesses = [self makeBusinesses];
     id fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
     self.SUT.fourSquareGateway = fakeFourSquareGateway;
     OCMStub([fakeFourSquareGateway businesses]).andReturn(self.businesses);
-
+    
     // Setup fake delegate
     id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
     self.SUT.delegate = testDelegate;
@@ -70,7 +52,7 @@
     // Verify
     OCMVerify([self.SUT.locationGateway setDelegate:self.SUT]);
     OCMVerify([self.SUT.locationGateway fetchLocation]);
-
+    
     // Run
     [self.SUT locationGatewayDidUpdateLocation:nil];
     
@@ -79,13 +61,39 @@
     XCTAssertEqual(self.SUT.longitude, self.testLongitude);
     OCMVerify([self.SUT.fourSquareGateway setDelegate:self.SUT]);
     OCMVerify([self.SUT.fourSquareGateway getNearbyBusinessesForLatitude:self.testLatitude
-                                                                                longitude:self.testLongitude]);
+                                                               longitude:self.testLongitude]);
     
     [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
-    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
-    XCTAssertNotEqual(self.SUT.businesses,self.businesses);
     OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
 }
+- (void)testInit {
+    BusinessesDataController *SUT = self.SUT;
+    XCTAssertNotNil(SUT.fourSquareGateway);
+}
+
+- (void)testUpdateLocationAndBusinesses {
+    NSMutableArray *businesses = [NSMutableArray new];
+    [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:1.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
+    self.businesses = businesses;
+    
+    [self runAndVerifyHappyPath];
+    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
+    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Trader Joe's");
+    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Aldi");
+}
+
+- (void)testUpdateLocationAndBusinesses2 {
+    NSMutableArray *businesses = [NSMutableArray new];
+    [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:2.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:1.0]];
+    self.businesses = businesses;
+    
+    [self runAndVerifyHappyPath];
+    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Aldi");
+    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Trader Joe's");
+}
+
 
 - (id)setUpForLocationGatewayDidFailTestsWithErrorMessage:(NSString *)descriptionString errorCode:(int)errorCode {
     BOOL (^errorCheckBlock) (id obj) = ^BOOL(id obj) {
@@ -135,3 +143,4 @@
     }]]);
 }
 @end
+

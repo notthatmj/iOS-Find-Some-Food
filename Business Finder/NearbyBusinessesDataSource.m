@@ -37,7 +37,6 @@
     Business *business = [self.businessesDataController businesses][indexPath.row];
     cell.textLabel.text = business.name;
     NSString *distanceString = [NSString stringWithFormat:@"%1.2f meters",business.distance];
-//    cell.detailTextLabel.text = @"Foobar";
     cell.detailTextLabel.text = distanceString;
     return cell;
 }

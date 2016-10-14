@@ -68,7 +68,15 @@
 }
 
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
-    self.businesses = [self.fourSquareGateway.businesses copy];
+    NSArray *unsortedBusinesses = [self.fourSquareGateway.businesses copy];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+    NSArray *businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
+//    NSArray *businesses = [unsortedBusinesses copy];
+//    NSMutableArray *switchedBusinesses = [NSMutableArray new];
+//    [switchedBusinesses addObject:unsortedBusinesses[1]];
+//    [switchedBusinesses addObject:unsortedBusinesses[0]];
+//    NSArray *businesses = switchedBusinesses;
+    self.businesses = businesses;
     [self.delegate businessesDataControllerDidUpdateBusinesses];
 };
 
