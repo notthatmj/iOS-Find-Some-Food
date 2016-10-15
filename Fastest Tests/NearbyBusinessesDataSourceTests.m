@@ -63,6 +63,7 @@
     for (int i=0; i < [self.businesses count]; i++) {
         UITableViewCell *cell = [self.SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         Business *currentBusiness = self.businesses[i];
+        XCTAssertNotNil(cell.imageView.image);
         XCTAssertEqualObjects(cell.textLabel.text, currentBusiness.name);
         XCTAssertEqualObjects(cell.detailTextLabel.text, expectedDistanceStrings[i]);
     }

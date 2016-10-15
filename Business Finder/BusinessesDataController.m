@@ -70,7 +70,11 @@
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     NSArray *unsortedBusinesses = [self.fourSquareGateway.businesses copy];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
-    NSArray *businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
+    NSArray <Business *>* businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
+    UIImage *image = [UIImage imageNamed:@"Foobar" inBundle:nil compatibleWithTraitCollection:nil];
+    for (Business *business in businesses) {
+        business.image = image;
+    }
     self.businesses = businesses;
     [self.delegate businessesDataControllerDidUpdateBusinesses];
 };

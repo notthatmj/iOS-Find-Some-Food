@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface Business : NSObject
 
 @property (strong,nonatomic) NSString *name;
 @property (nonatomic) float distance;
-
+@property (strong,nonatomic) UIImage *image;
 -(instancetype) initWithName:(NSString *) name distance:(float) distance;
 @end

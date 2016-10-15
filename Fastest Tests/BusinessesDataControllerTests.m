@@ -65,6 +65,9 @@
     
     [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
     OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
+    for (Business *business in self.SUT.businesses) {
+        XCTAssertNotNil(business.image);
+    }
 }
 - (void)testInit {
     BusinessesDataController *SUT = self.SUT;
