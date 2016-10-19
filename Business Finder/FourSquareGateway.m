@@ -43,6 +43,12 @@
     return [NSString stringWithFormat:formatString,self.clientID,self.clientSecret,latitudeString,longitudeString];
 }
 
+-(NSString *)photosURLForVenueID:(NSString *)venueID {
+//    NSString *s = @"https://api.foursquare.com/v2/venues/foobar/photos";
+    NSString *s = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos?client_id=\%@&client_secret=\%@&v=20130815", venueID,self.clientID,self.clientSecret];
+    return s;
+}
+
 -(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude {
     NSString *searchURL = [self searchURLForLatitude:latitude longitude:longitude];
     [URLFetcher fetchDataForURLString:searchURL completionHandler:^(NSData *data, NSError *error) {
@@ -52,6 +58,10 @@
             }];
         } else {
             NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
+            // For each business in businesses:
+            //     Launch a task that fetches additional data for that business and fills out
+            //     the business object with the fetche data;
+            // Wait until all the above tasks finish and then notify our delegate.
             self.businesses = businesses;
             [GCDGateway dispatchToMainQueue:^{
                 [self.delegate fourSquareGatewayDidFinishGettingBusinesses];
@@ -59,5 +69,28 @@
         }
     }];
     return;
+}
+
+-(void)downloadPhotoListForVenueID:(NSString *)businessID completionHandler:(void (^)(NSArray *))completionHandler {
+    NSString *url = [self photosURLForVenueID:businessID];
+    [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {
+        completionHandler(@[@"foo"]);
+    }];
+}
+-(void)downloadPhotoDictForVenueID:(NSString *)businessID completionHandler:(void (^)(NSDictionary *))completionHandler {
+    NSString *url = [self photosURLForVenueID:businessID];
+    [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {
+        NSDictionary *responseDictionary = [FourSquareResponseParser parsePhotoDictResponseData:data];
+        completionHandler(responseDictionary);
+    }];
+}
+
+-(UIImage *)downloadFirstPhotoForVenueID:(NSString *)venueID {
+    return [UIImage new];
+}
+
+-(NSString *)getFirstPhotoURLForVenueID:(NSString *)venueID {
+//    dispatch_sync(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+    return @"";
 }
 @end

@@ -30,6 +30,7 @@
     float expectedDistance = 0.0155342799;
     XCTAssertEqualObjects(firstBusiness.name,@"Hot Woks Cool Sushi");
     XCTAssertEqual(firstBusiness.distance, expectedDistance);
+    XCTAssertEqualObjects(firstBusiness.fourSquareID,@"4b3d120ff964a520458d25e3");
 }
 
 
