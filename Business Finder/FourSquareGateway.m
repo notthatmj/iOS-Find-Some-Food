@@ -94,10 +94,7 @@
     __block NSString *resultString = nil;
     [self downloadPhotoDictForVenueID:venueID
                     completionHandler:^(NSDictionary *photoDict) {
-                        NSString *prefixString = photoDict[@"response"][@"photos"][@"items"][0][@"prefix"];
-                        NSString *suffixString = photoDict[@"response"][@"photos"][@"items"][0][@"suffix"];
-                        resultString = [prefixString stringByAppendingString:@"36x36"];
-                        resultString = [resultString stringByAppendingString:suffixString];
+                        resultString = [FourSquareResponseParser extractPhotoURLFromPhotoDict:photoDict];
                         dispatch_semaphore_signal(semaphore);
                     }];
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);

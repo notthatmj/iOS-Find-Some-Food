@@ -33,4 +33,13 @@
     NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     return JSONDictionary;
 }
+
++(NSString *)extractPhotoURLFromPhotoDict:(NSDictionary *)photoDict {
+    NSDictionary *photoEntry = photoDict[@"response"][@"photos"][@"items"][0];
+    NSString *prefixString = photoEntry[@"prefix"];
+    NSString *suffixString = photoEntry[@"suffix"];
+    NSString *sizeSpecifier = @"100x100";
+    NSString *resultString = [[prefixString stringByAppendingString:sizeSpecifier] stringByAppendingString:suffixString];
+    return resultString;
+}
 @end

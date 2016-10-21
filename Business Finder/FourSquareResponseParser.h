@@ -12,4 +12,5 @@
 @interface FourSquareResponseParser : NSObject
 +(NSArray<Business *> *)parseResponseData:(NSData *)responseData;
 +(NSDictionary *)parsePhotoDictResponseData:(NSData *)responseData;
++(NSString *)extractPhotoURLFromPhotoDict:(NSDictionary *)photoDict;
 @end

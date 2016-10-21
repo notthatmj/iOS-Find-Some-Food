@@ -96,7 +96,7 @@
         XCTAssertEqualObjects([NSNumber numberWithInt:200],photoDict[@"meta"][@"code"]);
         [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:0.5 handler:nil];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 -(void)testDownloadPhotoListForVenueID{
@@ -107,7 +107,7 @@
         XCTAssertNotEqual([photoList count],0);
         [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:0.5 handler:nil];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 -(void)testGetFirstPhotoURLForVenueID {
