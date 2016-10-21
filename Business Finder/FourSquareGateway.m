@@ -90,7 +90,17 @@
 }
 
 -(NSString *)getFirstPhotoURLForVenueID:(NSString *)venueID {
-//    dispatch_sync(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
-    return @"";
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    __block NSString *resultString = nil;
+    [self downloadPhotoDictForVenueID:venueID
+                    completionHandler:^(NSDictionary *photoDict) {
+                        NSString *prefixString = photoDict[@"response"][@"photos"][@"items"][0][@"prefix"];
+                        NSString *suffixString = photoDict[@"response"][@"photos"][@"items"][0][@"suffix"];
+                        resultString = [prefixString stringByAppendingString:@"36x36"];
+                        resultString = [resultString stringByAppendingString:suffixString];
+                        dispatch_semaphore_signal(semaphore);
+                    }];
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    return resultString;
 }
 @end

@@ -39,6 +39,7 @@
     [dataTask resume];
     return;
 }
+
 +(void)fetchDataForURLString:(NSString *)urlString
            completionHandler:(void (^)(NSData *, NSError *))completionHandler {
     NSURLSession *sharedSession = [NSURLSession sharedSession];

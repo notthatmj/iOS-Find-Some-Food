@@ -114,7 +114,12 @@
     self.SUT = [FourSquareGateway new];
     NSString *url = [self.SUT getFirstPhotoURLForVenueID:@"4b3d120ff964a520458d25e3"];
     XCTAssertNotNil(url);
-    XCTAssertNotEqualObjects(url, @"");
+    NSString *expectedPrefix = @"https://";
+    XCTAssertEqualObjects([url substringToIndex:[expectedPrefix length]], expectedPrefix);
+    NSString *expectedSuffix = @".jpg";
+    XCTAssertEqualObjects([url substringFromIndex:[url length]-[expectedSuffix length]], expectedSuffix);
+    NSString *expectedSizeString = @"100x100";
+    XCTAssert([url containsString:expectedSizeString]);
 }
 
 -(void)testDownloadFirstPhotoForVenueID {
