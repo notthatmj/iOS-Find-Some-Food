@@ -1,20 +1,25 @@
 //
-//  URLFetcherTests.m
-//  Business Finder
+//  Slowest_Tests.m
+//  Slowest Tests
 //
-//  Created by Michael Johnson on 8/5/16.
+//  Created by Michael Johnson on 10/24/16.
 //  Copyright © 2016 Michael Johnson. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "URLFetcher.h"
 
-@interface URLFetcherTests : XCTestCase
+@interface URLFetcherTimeOutTests : XCTestCase
 @property (strong,nonatomic) NSString *responseString;
 @property (strong,nonatomic) NSError *error;
 @end
 
-@implementation URLFetcherTests
+@implementation URLFetcherTimeOutTests
+
+- (void)setUp {
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+}
 
 - (void) fetchDataForURLStringAndWaitForResponse: (NSString *)urlString {
     XCTestExpectation *expectation = [self expectationWithDescription:@"foo"];
@@ -35,27 +40,11 @@
     self.error = responseError;
 }
 
-- (void)testFetchDataForURLStringCompletionHandlerWithGoogle {
+- (void)testFetchDataForURLStringCompletionHandlerWithTimeout {
     
-    [self fetchDataForURLStringAndWaitForResponse:@"https://www.google.com"];
+    // We can't connect ot port 81 so this should timeout.
+    [self fetchDataForURLStringAndWaitForResponse:@"https://www.google.com:81"];
     
-    XCTAssertTrue([self.responseString containsString:@"Google Search"]);
-    XCTAssertNil(self.error);
-}
-
-- (void)testFetchDataForURLStringCompletionHandlerWithDuckDuckGo {
-    
-    [self fetchDataForURLStringAndWaitForResponse:@"https://duckduckgo.com"];
-    
-    XCTAssertTrue([self.responseString containsString:@"DuckDuckGo"]);
-    XCTAssertTrue([self.responseString containsString:@"The search engine that doesn't track you."]);
-    XCTAssertNil(self.error);
-}
-
-- (void)testFetchDataForURLStringCompletionHandlerWithBadURL {
-    
-    [self fetchDataForURLStringAndWaitForResponse:@"This is not a url"];
-
     XCTAssertNil(self.responseString);
     XCTAssertNotNil(self.error);
     XCTAssertEqualObjects(self.error.domain,NSURLErrorDomain);

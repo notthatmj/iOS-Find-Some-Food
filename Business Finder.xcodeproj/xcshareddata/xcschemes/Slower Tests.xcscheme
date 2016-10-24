@@ -43,7 +43,7 @@
             </LocationScenarioReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8974896F1D4FB5FE00531975"
@@ -71,7 +71,7 @@
             </LocationScenarioReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8921682D1DBE987100AACDA8"

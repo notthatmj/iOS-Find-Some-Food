@@ -59,6 +59,16 @@
                ReferencedContainer = "container:Business Finder.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8921682D1DBE987100AACDA8"
+               BuildableName = "Slowest Tests.xctest"
+               BlueprintName = "Slowest Tests"
+               ReferencedContainer = "container:Business Finder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
