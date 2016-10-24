@@ -38,7 +38,7 @@
     cell.textLabel.text = business.name;
     NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
     cell.detailTextLabel.text = distanceString;
-    UIImage *image = [UIImage imageNamed:@"Foobar" inBundle:nil compatibleWithTraitCollection:nil];
+    UIImage *image = business.image;
     cell.imageView.image = image;
     return cell;
 }

@@ -20,18 +20,27 @@
 
 @interface NearbyBusinessesDataSourceTests : XCTestCase
 @property (nonnull,strong) NearbyBusinessesDataSource *SUT;
-@property (nonatomic, strong) NSArray<Business *> *businesses;
+@property (strong, nonatomic) NSArray<Business *> *businesses;
 @property (strong, nonatomic) UITableView *tableView;
 @end
 
 @implementation NearbyBusinessesDataSourceTests
 
+- (Business *) makeBusinessWithName:(NSString *)businessName distance:(float)distance imagedNamed:(NSString *)imageName {
+    Business *business = [[Business alloc] initWithName:businessName distance:distance];
+    UIImage * image = [UIImage imageNamed:imageName
+                                  inBundle:[NSBundle bundleForClass:[self class]]
+             compatibleWithTraitCollection:nil];
+    business.image = image;
+    return business;
+}
+
 - (void)setUp {
     [super setUp];
     self.SUT = [NearbyBusinessesDataSource new];
-    Business *business1 = [[Business alloc] initWithName:@"Larry's Restaurant" distance:1.0];
-    Business *business2 = [[Business alloc] initWithName:@"Moe's Restaurant" distance:2.0];
-    Business *business3 = [[Business alloc] initWithName:@"Curly's Restaurant" distance:3.0];
+    Business *business1 = [self makeBusinessWithName:@"Larry's Restaurant" distance:1.0 imagedNamed:@"A"];
+    Business *business2 = [self makeBusinessWithName:@"Moe's Restaurant" distance:2.0 imagedNamed:@"B"];
+    Business *business3 = [self makeBusinessWithName:@"Curly's Restaurant" distance:3.0 imagedNamed:@"C"];
     self.businesses = @[business1,business2,business3];
     BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
     OCMStub([fakeBusinessesDataController businesses]).andReturn(self.businesses);
@@ -64,6 +73,7 @@
         UITableViewCell *cell = [self.SUT tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         Business *currentBusiness = self.businesses[i];
         XCTAssertNotNil(cell.imageView.image);
+        XCTAssertEqualObjects(currentBusiness.image,cell.imageView.image);
         XCTAssertEqualObjects(cell.textLabel.text, currentBusiness.name);
         XCTAssertEqualObjects(cell.detailTextLabel.text, expectedDistanceStrings[i]);
     }

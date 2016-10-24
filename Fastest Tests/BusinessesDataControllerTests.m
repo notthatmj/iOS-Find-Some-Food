@@ -23,6 +23,22 @@
 
 @implementation BusinessesDataControllerTests
 
+- (Business *) makeBusinessWithName:(NSString *)businessName
+                           distance:(float)distance
+                       fourSquareID:(NSString *)fourSquareID {
+    Business *business = [[Business alloc] initWithName:businessName distance:distance];
+    business.fourSquareID = fourSquareID;
+//    UIImage * image = [UIImage imageNamed:imageName
+//                                 inBundle:[NSBundle bundleForClass:[self class]]
+//            compatibleWithTraitCollection:nil];
+//    business.image = image;
+    return business;
+}
+
+//- (UIImage *) loadTestImageNamed:(NSString *)name {
+//    return [UIImage imageNamed:name inBundle:[NSBundle bundleForClass:[self class]];
+//}
+            
 - (void) setUp {
     [super setUp];
     self.SUT = [BusinessesDataController new];
@@ -41,7 +57,6 @@
     id fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
     self.SUT.fourSquareGateway = fakeFourSquareGateway;
     OCMStub([fakeFourSquareGateway businesses]).andReturn(self.businesses);
-    
     // Setup fake delegate
     id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
     self.SUT.delegate = testDelegate;
@@ -65,16 +80,16 @@
     
     [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
     OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
-    for (Business *business in self.SUT.businesses) {
-        XCTAssertNotNil(business.image);
-    }
+//    for (Business *business in self.SUT.businesses) {
+//        XCTAssertNotNil(business.image);
+//    }
 }
 - (void)testInit {
     BusinessesDataController *SUT = self.SUT;
     XCTAssertNotNil(SUT.fourSquareGateway);
 }
 
-- (void)testUpdateLocationAndBusinesses {
+- (void)testUpdateLocationAndBusinesses1 {
     NSMutableArray *businesses = [NSMutableArray new];
     [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:1.0]];
     [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
@@ -95,6 +110,10 @@
     [self runAndVerifyHappyPath];
     XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Aldi");
     XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Trader Joe's");
+}
+
+- (void)testFourSquareGatewayDidFinishGettingBusinesses {
+    
 }
 
 
@@ -144,6 +163,28 @@
         }
         return false;
     }]]);
+}
+@end
+
+@interface BusinessesDataControllerTests2 : XCTestCase
+@end
+
+@implementation BusinessesDataControllerTests2
+- (void)testFourSquareGatewayDidFinishGettingBusinesses {
+    BusinessesDataController *SUT = [BusinessesDataController new];
+    Business *business = [[Business alloc] initWithName:@"Jewel" distance:1.0];
+    business.fourSquareID = @"JewelVenueID";
+    FourSquareGateway *fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
+    OCMStub([fakeFourSquareGateway businesses]).andReturn(@[business]);
+    SUT.fourSquareGateway = fakeFourSquareGateway;
+    UIImage * image = [UIImage imageNamed:@"A"
+                                 inBundle:[NSBundle bundleForClass:[self class]]
+            compatibleWithTraitCollection:nil];
+    OCMStub([fakeFourSquareGateway downloadFirstPhotoForVenueID:business.fourSquareID]).andReturn(image);
+    
+    [SUT fourSquareGatewayDidFinishGettingBusinesses];
+    
+    XCTAssertEqualObjects(SUT.businesses[0].image, image);
 }
 @end
 
