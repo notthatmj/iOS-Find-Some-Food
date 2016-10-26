@@ -13,6 +13,12 @@ target 'Business Finder' do
 	pod 'OCMock'
   end
 
+  target 'Slower Tests' do
+    inherit! :search_paths
+    # Pods for testing
+	pod 'OCMock'
+  end
+
   target 'Business FinderUITests' do
     inherit! :search_paths
     # Pods for testing

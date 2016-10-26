@@ -35,7 +35,11 @@
 }
 
 +(NSString *)extractPhotoURLFromPhotoDict:(NSDictionary *)photoDict {
-    NSDictionary *photoEntry = photoDict[@"response"][@"photos"][@"items"][0];
+    NSArray *itemsList = photoDict[@"response"][@"photos"][@"items"];
+    if ([itemsList count] == 0) {
+        return nil;
+    }
+    NSDictionary *photoEntry = itemsList[0];
     NSString *prefixString = photoEntry[@"prefix"];
     NSString *suffixString = photoEntry[@"suffix"];
     NSString *sizeSpecifier = @"100x100";

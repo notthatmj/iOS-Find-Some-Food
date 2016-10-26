@@ -36,7 +36,6 @@
 }
 
 - (void)testFetchDataForURLStringCompletionHandlerWithGoogle {
-    
     [self fetchDataForURLStringAndWaitForResponse:@"https://www.google.com"];
     
     XCTAssertTrue([self.responseString containsString:@"Google Search"]);

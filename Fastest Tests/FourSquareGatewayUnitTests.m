@@ -86,15 +86,6 @@
     
 }
 
--(void)testDownloadFirstPhotoForVenueID {
-    self.SUT = [FourSquareGateway new];
-
-    UIImage *image = [self.SUT downloadFirstPhotoForVenueID:@"4b3d120ff964a520458d25e3"];
-    XCTAssertNotNil(image);
-    XCTAssertNotEqual(image.size.height, 0);
-}
-
-
 - (NSMutableArray *) makeBusinesses {
     NSMutableArray *businesses = [NSMutableArray new];
     NSArray<NSString *> *businessNames = @[@"Trader Joe's",@"Aldi"];
