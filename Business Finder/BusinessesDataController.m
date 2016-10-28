@@ -20,8 +20,7 @@
 
 @implementation BusinessesDataController
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _businesses = [NSArray new];
