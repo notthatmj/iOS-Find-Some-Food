@@ -16,4 +16,5 @@
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;
 @property (strong,nonatomic) RefreshController *refreshController;
+-(void)waitForInitialLoadToComplete;
 @end
