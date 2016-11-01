@@ -34,8 +34,10 @@
     
     XCTAssertNil(SUT.latitude);
     XCTAssertNil(SUT.longitude);
+    XCTAssertFalse(SUT.fetchingLocation);
     [SUT fetchLocation];
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    XCTAssertFalse(SUT.fetchingLocation);
     XCTAssertNotNil(SUT.latitude);
     XCTAssertNotNil(SUT.longitude);
 }
