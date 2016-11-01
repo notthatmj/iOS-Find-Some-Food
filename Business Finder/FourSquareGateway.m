@@ -97,6 +97,14 @@
     return image;
 }
 
+-(void)downloadFirstPhotoForVenueID:(NSString *)venueID completionHandler:(void (^)(UIImage *))completionHandler {
+    NSString *url = [self getFirstPhotoURLForVenueID:venueID];
+    [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        completionHandler(image);
+    }];
+}
+
 -(NSString *)getFirstPhotoURLForVenueID:(NSString *)venueID {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     __block NSString *resultString = nil;

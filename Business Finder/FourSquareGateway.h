@@ -28,6 +28,8 @@
 -(void)downloadPhotoDictForVenueID:(NSString *)businessID
                  completionHandler:(void (^)(NSDictionary *photoDict))completionHandler;
 -(UIImage *)downloadFirstPhotoForVenueID:(NSString *)venueID;
+-(void)downloadFirstPhotoForVenueID:(NSString *)venueID
+                  completionHandler:(void (^)(UIImage *))completionHandler;
 -(NSString *) getFirstPhotoURLForVenueID:(NSString *)venueID;
 @end
 
