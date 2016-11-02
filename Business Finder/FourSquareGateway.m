@@ -44,7 +44,6 @@
 }
 
 -(NSString *)photosURLForVenueID:(NSString *)venueID {
-//    NSString *s = @"https://api.foursquare.com/v2/venues/foobar/photos";
     NSString *s = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos?client_id=\%@&client_secret=\%@&v=20130815", venueID,self.clientID,self.clientSecret];
     return s;
 }
