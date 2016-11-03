@@ -32,11 +32,15 @@
     return _clientSecret;
 }
 
-- (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude{
-    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/v2/venues/search"];
+- (NSArray <NSURLQueryItem *>*) commonQueryItems {
     NSURLQueryItem *cliend_id_item = [NSURLQueryItem queryItemWithName:@"client_id" value:self.clientID];
     NSURLQueryItem *client_secret_item = [NSURLQueryItem queryItemWithName:@"client_secret" value:self.clientSecret];
     NSURLQueryItem *versionItem = [NSURLQueryItem queryItemWithName:@"v" value:@"20130815"];
+    return @[cliend_id_item,client_secret_item,versionItem];
+}
+
+- (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude{
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/v2/venues/search"];
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     formatter.minimumFractionDigits=5;
     NSNumber *latitudeNumber = [NSNumber numberWithDouble:latitude];
@@ -46,7 +50,7 @@
     NSString *latLongString = [NSString stringWithFormat:@"\%@,\%@",latitudeString,longitudeString];
     NSURLQueryItem *latLongItem  = [NSURLQueryItem queryItemWithName:@"ll" value:latLongString];
     NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:@"query" value:@"sushi"];
-    urlComponents.queryItems = @[cliend_id_item,client_secret_item,versionItem,latLongItem,queryItem];
+    urlComponents.queryItems = [self.commonQueryItems arrayByAddingObjectsFromArray:@[latLongItem,queryItem]];
     NSString *returnValue = [urlComponents string];
     return returnValue;
 }
@@ -55,10 +59,7 @@
     NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/"];
     NSString *path = [NSString stringWithFormat:@"/v2/venues/%@/photos",venueID];
     urlComponents.path = path;
-    NSURLQueryItem *cliend_id_item = [NSURLQueryItem queryItemWithName:@"client_id" value:self.clientID];
-    NSURLQueryItem *client_secret_item = [NSURLQueryItem queryItemWithName:@"client_secret" value:self.clientSecret];
-    NSURLQueryItem *versionItem = [NSURLQueryItem queryItemWithName:@"v" value:@"20130815"];
-    urlComponents.queryItems = @[cliend_id_item,client_secret_item,versionItem];
+    urlComponents.queryItems = self.commonQueryItems;
     NSString *returnValue = [urlComponents string];
     return returnValue;
 }
@@ -72,10 +73,6 @@
             }];
         } else {
             NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
-            // For each business in businesses:
-            //     Launch a task that fetches additional data for that business and fills out
-            //     the business object with the fetche data;
-            // Wait until all the above tasks finish and then notify our delegate.
             self.businesses = businesses;
             [GCDGateway dispatchToMainQueue:^{
                 [self.delegate fourSquareGatewayDidFinishGettingBusinesses];
@@ -85,12 +82,6 @@
     return;
 }
 
--(void)downloadPhotoListForVenueID:(NSString *)businessID completionHandler:(void (^)(NSArray *))completionHandler {
-    NSString *url = [self photosURLForVenueID:businessID];
-    [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {
-        completionHandler(@[@"foo"]);
-    }];
-}
 -(void)downloadPhotoDictForVenueID:(NSString *)businessID completionHandler:(void (^)(NSDictionary *))completionHandler {
     NSString *url = [self photosURLForVenueID:businessID];
     [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {

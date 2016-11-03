@@ -23,8 +23,6 @@
 - (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude;
 - (NSString *) photosURLForVenueID:(NSString *)id;
 -(void)getNearbyBusinessesForLatitude:(double) latitude longitude:(double)longitude;
--(void)downloadPhotoListForVenueID:(NSString *)businessID
-                completionHandler:(void (^)(NSArray *photoList))completionHandler;
 -(void)downloadPhotoDictForVenueID:(NSString *)businessID
                  completionHandler:(void (^)(NSDictionary *photoDict))completionHandler;
 -(UIImage *)downloadFirstPhotoForVenueID:(NSString *)venueID;

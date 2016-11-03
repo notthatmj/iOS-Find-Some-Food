@@ -50,17 +50,6 @@
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
--(void)testDownloadPhotoListForVenueID{
-    self.SUT = [FourSquareGateway new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
-    [self.SUT downloadPhotoListForVenueID:@"4b3d120ff964a520458d25e3" completionHandler:^(NSArray *photoList){
-        XCTAssertNotNil(photoList);
-        XCTAssertNotEqual([photoList count],0);
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:1.0 handler:nil];
-}
-
 -(void)testGetFirstPhotoURLForVenueID {
     self.SUT = [FourSquareGateway new];
     NSString *url = [self.SUT getFirstPhotoURLForVenueID:@"4b3d120ff964a520458d25e3"];
@@ -80,7 +69,6 @@
     XCTAssertNotNil(image);
     XCTAssertNotEqual(image.size.height, 0);
 }
-
 
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     [self.expectation fulfill];
