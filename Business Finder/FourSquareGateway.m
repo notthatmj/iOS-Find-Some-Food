@@ -33,19 +33,34 @@
 }
 
 - (NSString *) searchURLForLatitude:(double) latitude longitude:(double) longitude{
-    NSString *formatString = @"https://api.foursquare.com/v2/venues/search?client_id=\%@&client_secret=\%@&v=20130815&ll=\%@,\%@&query=sushi";
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/v2/venues/search"];
+    NSURLQueryItem *cliend_id_item = [NSURLQueryItem queryItemWithName:@"client_id" value:self.clientID];
+    NSURLQueryItem *client_secret_item = [NSURLQueryItem queryItemWithName:@"client_secret" value:self.clientSecret];
+    NSURLQueryItem *versionItem = [NSURLQueryItem queryItemWithName:@"v" value:@"20130815"];
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     formatter.minimumFractionDigits=5;
     NSNumber *latitudeNumber = [NSNumber numberWithDouble:latitude];
     NSString *latitudeString = [formatter stringFromNumber:latitudeNumber];
     NSNumber *longitudeNumber = [NSNumber numberWithDouble:longitude];
     NSString *longitudeString = [formatter stringFromNumber:longitudeNumber];
-    return [NSString stringWithFormat:formatString,self.clientID,self.clientSecret,latitudeString,longitudeString];
+    NSString *latLongString = [NSString stringWithFormat:@"\%@,\%@",latitudeString,longitudeString];
+    NSURLQueryItem *latLongItem  = [NSURLQueryItem queryItemWithName:@"ll" value:latLongString];
+    NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:@"query" value:@"sushi"];
+    urlComponents.queryItems = @[cliend_id_item,client_secret_item,versionItem,latLongItem,queryItem];
+    NSString *returnValue = [urlComponents string];
+    return returnValue;
 }
 
 -(NSString *)photosURLForVenueID:(NSString *)venueID {
-    NSString *s = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos?client_id=\%@&client_secret=\%@&v=20130815", venueID,self.clientID,self.clientSecret];
-    return s;
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/"];
+    NSString *path = [NSString stringWithFormat:@"/v2/venues/%@/photos",venueID];
+    urlComponents.path = path;
+    NSURLQueryItem *cliend_id_item = [NSURLQueryItem queryItemWithName:@"client_id" value:self.clientID];
+    NSURLQueryItem *client_secret_item = [NSURLQueryItem queryItemWithName:@"client_secret" value:self.clientSecret];
+    NSURLQueryItem *versionItem = [NSURLQueryItem queryItemWithName:@"v" value:@"20130815"];
+    urlComponents.queryItems = @[cliend_id_item,client_secret_item,versionItem];
+    NSString *returnValue = [urlComponents string];
+    return returnValue;
 }
 
 -(void)getNearbyBusinessesForLatitude:(double)latitude longitude:(double)longitude {
