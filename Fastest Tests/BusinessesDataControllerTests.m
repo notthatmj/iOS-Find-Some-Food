@@ -182,9 +182,5 @@
     }]]);
 }
 
-- (void) testFourSquareGatewayDidFinishGettingBusinesses {
-    BusinessesDataController *SUT = [BusinessesDataController new];
-    
-}
 @end
 

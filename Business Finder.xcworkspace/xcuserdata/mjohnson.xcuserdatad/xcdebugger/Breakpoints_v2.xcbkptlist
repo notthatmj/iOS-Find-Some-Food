@@ -11,6 +11,14 @@
             continueAfterRunningActions = "No"
             scope = "0"
             stopOnStyle = "0">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "po $arg1">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -19,13 +27,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slower Tests/LocationGatewayIntegrationTests.m"
-            timestampString = "499201342.623693"
+            filePath = "Fastest Tests/FourSquareGatewayUnitTests.m"
+            timestampString = "499885328.693268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "-locationGatewayDidUpdateLocation:"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-testGetNearbyBusinessesForLatitudeLongitudeSuccess"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -36,44 +44,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Business Finder/FourSquareGateway.m"
-            timestampString = "499205217.77398"
+            timestampString = "499887141.903673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-downloadPhotoDictForVenueID:completionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slower Tests/IntegrationTests.m"
-            timestampString = "499206262.335248"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-testBusinessesDataControllerDelegateAPIIntegration"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Business Finder/BusinessesDataController.m"
-            timestampString = "499206512.378165"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-locationGatewayDidUpdateLocation:"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-searchURLForLatitude:longitude:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -64,6 +64,7 @@
 - (void)testTableViewCellForRowAtIndexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     NearbyBusinessesTableViewController *tableViewController = [storyboard instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
+    [tableViewController waitForInitialLoadToComplete];
     UITableView *tableView = tableViewController.tableView;
     
     tableView.dataSource = self.SUT;
