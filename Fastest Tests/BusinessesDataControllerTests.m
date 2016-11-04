@@ -14,6 +14,19 @@
 #import "LocationGateway.h"
 #import "BusinessFinderErrorDomain.h"
 
+@interface BDCDelegateForHappyPathTests : NSObject<BusinessesDataControllerDelegate>
+@property XCTestExpectation *testExpectation;
+@end
+@implementation BDCDelegateForHappyPathTests
+
+-(void)businessesDataControllerDidUpdateBusinesses {
+    [self.testExpectation fulfill];
+}
+-(void)businessesDataControllerDidFailWithError:(NSError *)error {
+    [self.testExpectation fulfill];
+}
+@end
+
 @interface BusinessesDataControllerHappyPathTests : XCTestCase
 @property (strong, nonatomic) BusinessesDataController *SUT;
 @property (nonatomic) double testLatitude;
@@ -38,11 +51,17 @@
     self.SUT.locationGateway = fakeLocationGateway;
     
     // Setup fake FourSquareGateway
-    id fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
+    FourSquareGateway *fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
     self.SUT.fourSquareGateway = fakeFourSquareGateway;
     OCMStub([fakeFourSquareGateway businesses]).andReturn(self.businesses);
-    // Setup fake delegate
-    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
+    UIImage *testImage = [UIImage imageNamed:@"A"
+                                 inBundle:[NSBundle bundleForClass:[self class]]
+            compatibleWithTraitCollection:nil];
+    id completionHandlerArg = [OCMArg invokeBlockWithArgs:testImage,nil];
+    OCMStub([fakeFourSquareGateway downloadFirstPhotoForVenueID:[OCMArg any] completionHandler:completionHandlerArg]);
+    BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
+    testDelegate.testExpectation = expectation;
     self.SUT.delegate = testDelegate;
     
     // Run
@@ -63,10 +82,11 @@
                                                                longitude:self.testLongitude]);
     
     [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
-//    OCMVerify([testDelegate businessesDataControllerDidUpdateBusinesses]);
-//    for (Business *business in self.SUT.businesses) {
-//        XCTAssertNotNil(business.image);
-//    }
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    
+    for (Business *business in self.SUT.businesses) {
+        XCTAssertEqualObjects(business.image, testImage);
+    }
 }
 - (void)testInit {
     BusinessesDataController *SUT = self.SUT;
@@ -80,9 +100,9 @@
     self.businesses = businesses;
     
     [self runAndVerifyHappyPath];
-//    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
-//    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Trader Joe's");
-//    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Aldi");
+    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
+        XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Trader Joe's");
+        XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Aldi");
 }
 
 - (void)testUpdateLocationAndBusinesses2 {
@@ -92,8 +112,8 @@
     self.businesses = businesses;
     
     [self runAndVerifyHappyPath];
-//    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Aldi");
-//    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Trader Joe's");
+    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Aldi");
+    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Trader Joe's");
 }
 @end
 
@@ -109,29 +129,6 @@
 
 - (void)testInit {
     XCTAssertNotNil(self.SUT.fourSquareGateway);
-}
-
-- (void)testFourSquareGatewayDidFinishGettingBusinessesDownloadsAndSetsImages {
-    BusinessesDataController *SUT = [BusinessesDataController new];
-    Business *business = [[Business alloc] initWithName:@"Jewel" distance:1.0];
-    business.fourSquareID = @"JewelVenueID";
-    Business *business2 = [[Business alloc] initWithName:@"Whole Foods" distance:2.0];
-    business.fourSquareID = @"WholeFoodsVenueID";
-    FourSquareGateway *fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
-    OCMStub([fakeFourSquareGateway businesses]).andReturn(@[business]);
-    SUT.fourSquareGateway = fakeFourSquareGateway;
-    UIImage * image = [UIImage imageNamed:@"A"
-                                 inBundle:[NSBundle bundleForClass:[self class]]
-            compatibleWithTraitCollection:nil];
-    OCMStub([fakeFourSquareGateway downloadFirstPhotoForVenueID:business.fourSquareID]).andReturn(image);
-    UIImage *image2 = [UIImage imageNamed:@"B"
-                                 inBundle:[NSBundle bundleForClass:[self class]]
-            compatibleWithTraitCollection:nil];
-    OCMStub([fakeFourSquareGateway downloadFirstPhotoForVenueID:business2.fourSquareID]).andReturn(image2);
-    
-    [SUT fourSquareGatewayDidFinishGettingBusinesses];
-    
-//    XCTAssertEqualObjects(SUT.businesses[0].image, image);
 }
 
 - (id)setUpForLocationGatewayDidFailTestsWithErrorMessage:(NSString *)descriptionString errorCode:(int)errorCode {
