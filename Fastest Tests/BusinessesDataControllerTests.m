@@ -31,7 +31,8 @@
 @property (strong, nonatomic) BusinessesDataController *SUT;
 @property (nonatomic) double testLatitude;
 @property (nonatomic) double testLongitude;
-@property (strong, nonatomic) NSArray<Business*> *businesses;
+@property (nonatomic, strong) UIImage *testImage;
+@property (strong, nonatomic) NSMutableArray<Business*> *businesses;
 @end
 
 @implementation BusinessesDataControllerHappyPathTests
@@ -41,28 +42,28 @@
     self.SUT = [BusinessesDataController new];
 }
 
-- (void) runAndVerifyHappyPath {
-    // Setup fake LocationGateway
+- (void) setupFakeLocationGateway {
     self.testLatitude = 41.840457;
     self.testLongitude = -87.660502;
     LocationGateway *fakeLocationGateway = OCMClassMock([LocationGateway class]);
     OCMStub([fakeLocationGateway latitude]).andReturn([NSNumber numberWithDouble:self.testLatitude]);
     OCMStub([fakeLocationGateway longitude]).andReturn([NSNumber numberWithDouble:self.testLongitude]);
     self.SUT.locationGateway = fakeLocationGateway;
-    
-    // Setup fake FourSquareGateway
+}
+
+- (void) setupFakeFourSquareGateway {
     FourSquareGateway *fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
     self.SUT.fourSquareGateway = fakeFourSquareGateway;
     OCMStub([fakeFourSquareGateway businesses]).andReturn(self.businesses);
-    UIImage *testImage = [UIImage imageNamed:@"A"
-                                 inBundle:[NSBundle bundleForClass:[self class]]
-            compatibleWithTraitCollection:nil];
-    id completionHandlerArg = [OCMArg invokeBlockWithArgs:testImage,nil];
+    self.testImage = [UIImage imageNamed:@"A"
+                                inBundle:[NSBundle bundleForClass:[self class]]
+           compatibleWithTraitCollection:nil];
+    id completionHandlerArg = [OCMArg invokeBlockWithArgs:self.testImage,nil];
     OCMStub([fakeFourSquareGateway downloadFirstPhotoForVenueID:[OCMArg any] completionHandler:completionHandlerArg]);
-    BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
-    testDelegate.testExpectation = expectation;
-    self.SUT.delegate = testDelegate;
+}
+
+- (void)testUpdateLocationAndBusinesses {
+    [self setupFakeLocationGateway];
     
     // Run
     [self.SUT updateLocationAndBusinesses];
@@ -70,6 +71,13 @@
     // Verify
     OCMVerify([self.SUT.locationGateway setDelegate:self.SUT]);
     OCMVerify([self.SUT.locationGateway fetchLocation]);
+}
+
+- (void)testLocationGatewayDidUpdateLocation {
+    // Setup
+    [self setupFakeLocationGateway];
+    [self setupFakeFourSquareGateway];
+    [self.SUT updateLocationAndBusinesses];
     
     // Run
     [self.SUT locationGatewayDidUpdateLocation:nil];
@@ -80,34 +88,65 @@
     OCMVerify([self.SUT.fourSquareGateway setDelegate:self.SUT]);
     OCMVerify([self.SUT.fourSquareGateway getNearbyBusinessesForLatitude:self.testLatitude
                                                                longitude:self.testLongitude]);
+}
+
+- (void)testFourSquareGatewayDidFinishGettingBusinesses1 {
+    self.businesses = [NSMutableArray new];
+    [self setupFakeLocationGateway];
+    [self.businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:1.0]];
+    [self.businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
+    [self setupFakeFourSquareGateway];
+//    self.businesses = businesses;
     
+    // Setup test delegate
+    BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
+    testDelegate.testExpectation = expectation;
+    self.SUT.delegate = testDelegate;
+    
+    [self.SUT updateLocationAndBusinesses];
+    [self.SUT locationGatewayDidUpdateLocation:nil];
+    
+    // Run
     [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
+    
+    // Verify
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     for (Business *business in self.SUT.businesses) {
-        XCTAssertEqualObjects(business.image, testImage);
+        XCTAssertEqualObjects(business.image, self.testImage);
     }
-}
-
-- (void)testUpdateLocationAndBusinesses1 {
-    NSMutableArray *businesses = [NSMutableArray new];
-    [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:1.0]];
-    [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
-    self.businesses = businesses;
-    
-    [self runAndVerifyHappyPath];
     XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
-        XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Trader Joe's");
-        XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Aldi");
+    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Trader Joe's");
+    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Aldi");
 }
 
-- (void)testUpdateLocationAndBusinesses2 {
+- (void)testFourSquareGatewayDidFinishGettingBusinesses2 {
     NSMutableArray *businesses = [NSMutableArray new];
+    [self setupFakeLocationGateway];
     [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:2.0]];
     [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:1.0]];
     self.businesses = businesses;
+    [self setupFakeFourSquareGateway];
     
-    [self runAndVerifyHappyPath];
+    // Setup test delegate
+    BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
+    testDelegate.testExpectation = expectation;
+    self.SUT.delegate = testDelegate;
+    
+    [self.SUT updateLocationAndBusinesses];
+    [self.SUT locationGatewayDidUpdateLocation:nil];
+    
+    // Run
+    [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
+    
+    // Verify
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    
+    for (Business *business in self.SUT.businesses) {
+        XCTAssertEqualObjects(business.image, self.testImage);
+    }
     XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Aldi");
     XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Trader Joe's");
 }
