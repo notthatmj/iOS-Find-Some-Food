@@ -88,10 +88,6 @@
         XCTAssertEqualObjects(business.image, testImage);
     }
 }
-- (void)testInit {
-    BusinessesDataController *SUT = self.SUT;
-    XCTAssertNotNil(SUT.fourSquareGateway);
-}
 
 - (void)testUpdateLocationAndBusinesses1 {
     NSMutableArray *businesses = [NSMutableArray new];
