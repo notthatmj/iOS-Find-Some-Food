@@ -32,7 +32,7 @@
 @property (nonatomic) double testLatitude;
 @property (nonatomic) double testLongitude;
 @property (nonatomic, strong) UIImage *testImage;
-@property (strong, nonatomic) NSMutableArray<Business*> *businesses;
+@property (nonatomic, strong) BDCDelegateForHappyPathTests *testDelegate;
 @end
 
 @implementation BusinessesDataControllerHappyPathTests
@@ -40,6 +40,7 @@
 - (void) setUp {
     [super setUp];
     self.SUT = [BusinessesDataController new];
+    [self setupFakeLocationGateway];
 }
 
 - (void) setupFakeLocationGateway {
@@ -51,10 +52,10 @@
     self.SUT.locationGateway = fakeLocationGateway;
 }
 
-- (void) setupFakeFourSquareGateway {
+- (void) setupFakeFourSquareGatewayWithBusinesses:(NSArray<Business *>*) businesses {
     FourSquareGateway *fakeFourSquareGateway = OCMClassMock([FourSquareGateway class]);
     self.SUT.fourSquareGateway = fakeFourSquareGateway;
-    OCMStub([fakeFourSquareGateway businesses]).andReturn(self.businesses);
+    OCMStub([fakeFourSquareGateway businesses]).andReturn(businesses);
     self.testImage = [UIImage imageNamed:@"A"
                                 inBundle:[NSBundle bundleForClass:[self class]]
            compatibleWithTraitCollection:nil];
@@ -63,8 +64,6 @@
 }
 
 - (void)testUpdateLocationAndBusinesses {
-    [self setupFakeLocationGateway];
-    
     // Run
     [self.SUT updateLocationAndBusinesses];
     
@@ -75,8 +74,7 @@
 
 - (void)testLocationGatewayDidUpdateLocation {
     // Setup
-    [self setupFakeLocationGateway];
-    [self setupFakeFourSquareGateway];
+    [self setupFakeFourSquareGatewayWithBusinesses:@[]];
     [self.SUT updateLocationAndBusinesses];
     
     // Run
@@ -90,51 +88,22 @@
                                                                longitude:self.testLongitude]);
 }
 
-- (void)testFourSquareGatewayDidFinishGettingBusinesses1 {
-    self.businesses = [NSMutableArray new];
-    [self setupFakeLocationGateway];
-    [self.businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:1.0]];
-    [self.businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
-    [self setupFakeFourSquareGateway];
-//    self.businesses = businesses;
-    
-    // Setup test delegate
+- (void) setupTestDelegate {
     BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
     testDelegate.testExpectation = expectation;
     self.SUT.delegate = testDelegate;
-    
-    [self.SUT updateLocationAndBusinesses];
-    [self.SUT locationGatewayDidUpdateLocation:nil];
-    
-    // Run
-    [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
-    
-    // Verify
-    [self waitForExpectationsWithTimeout:10.0 handler:nil];
-    
-    for (Business *business in self.SUT.businesses) {
-        XCTAssertEqualObjects(business.image, self.testImage);
-    }
-    XCTAssertEqualObjects(self.SUT.businesses, self.businesses);
-    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Trader Joe's");
-    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Aldi");
+    // We need to keep a strong refrence to testDelegate to keep it alive until the end of the test
+    self.testDelegate = testDelegate;
 }
 
-- (void)testFourSquareGatewayDidFinishGettingBusinesses2 {
+- (void)testFourSquareGatewayDidFinishGettingBusinesses {
     NSMutableArray *businesses = [NSMutableArray new];
-    [self setupFakeLocationGateway];
-    [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:2.0]];
-    [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:1.0]];
-    self.businesses = businesses;
-    [self setupFakeFourSquareGateway];
+    [businesses addObject:[[Business alloc] initWithName:@"Trader Joe's" distance:1.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
+    [self setupFakeFourSquareGatewayWithBusinesses: businesses];
     
-    // Setup test delegate
-    BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
-    testDelegate.testExpectation = expectation;
-    self.SUT.delegate = testDelegate;
-    
+    [self setupTestDelegate];
     [self.SUT updateLocationAndBusinesses];
     [self.SUT locationGatewayDidUpdateLocation:nil];
     
@@ -147,16 +116,41 @@
     for (Business *business in self.SUT.businesses) {
         XCTAssertEqualObjects(business.image, self.testImage);
     }
-    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Aldi");
-    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Trader Joe's");
+    XCTAssertEqualObjects(self.SUT.businesses, businesses);
+}
+
+- (void)testFourSquareGatewayDidFinishGettingBusinessesSortsByDistance {
+    NSMutableArray *businesses = [NSMutableArray new];
+    [businesses addObject:[[Business alloc] initWithName:@"McDonalds" distance:5.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Burger King" distance:1.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Taco Bell" distance:3.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Wendy's" distance:2.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Popeye's" distance:4.0]];
+    [self setupFakeFourSquareGatewayWithBusinesses: businesses];
+    
+    [self setupTestDelegate];
+    [self.SUT updateLocationAndBusinesses];
+    [self.SUT locationGatewayDidUpdateLocation:nil];
+    
+    // Run
+    [self.SUT fourSquareGatewayDidFinishGettingBusinesses];
+    
+    // Verify
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+    
+    XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Burger King");
+    XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Wendy's");
+    XCTAssertEqualObjects(self.SUT.businesses[2].name,@"Taco Bell");
+    XCTAssertEqualObjects(self.SUT.businesses[3].name,@"Popeye's");
+    XCTAssertEqualObjects(self.SUT.businesses[4].name,@"McDonalds");
 }
 @end
 
-@interface BusinessesDataControllerTests : XCTestCase
+@interface BusinessesDataControllerFailureTests : XCTestCase
 @property (strong, nonatomic) BusinessesDataController *SUT;
 @end
 
-@implementation BusinessesDataControllerTests
+@implementation BusinessesDataControllerFailureTests
 - (void) setUp {
     [super setUp];
     self.SUT = [BusinessesDataController new];
