@@ -26,15 +26,6 @@
     XCTAssertFalse(self.SUT.fetchingLocation);
 }
 
-- (void) testLocationManagerDidUpdateLocations {
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:40.758684 longitude:-73.985163];
-
-    [self.SUT locationManager:nil didUpdateLocations:@[location]];
-    
-    XCTAssertEqual([self.SUT.latitude doubleValue], 40.758684);
-    XCTAssertEqual([self.SUT.longitude doubleValue], -73.985163);
-}
-
 - (void) testInfoPlistKey {
     NSString *locationPrompt = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"];
     XCTAssertNotNil(locationPrompt);

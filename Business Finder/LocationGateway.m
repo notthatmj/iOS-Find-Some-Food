@@ -24,9 +24,12 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    self.latitude = [NSNumber numberWithDouble:locations[0].coordinate.latitude];
-    self.longitude = [NSNumber numberWithDouble:locations[0].coordinate.longitude];
-    [self.delegate locationGatewayDidUpdateLocation:self];
+    if(self.fetchingLocation) {
+        self.latitude = [NSNumber numberWithDouble:locations[0].coordinate.latitude];
+        self.longitude = [NSNumber numberWithDouble:locations[0].coordinate.longitude];
+        self.fetchingLocation = NO;
+        [self.delegate locationGatewayDidUpdateLocation:self];
+    }
 }
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     if (self.fetchingLocation) {

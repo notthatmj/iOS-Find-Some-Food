@@ -68,17 +68,26 @@
 
 -(void)fourSquareGatewayDidFinishGettingBusinesses {
     NSArray *unsortedBusinesses = [self.fourSquareGateway.businesses copy];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+    NSArray <Business *>* businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
-        NSArray <Business *>* businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
+        dispatch_group_t downloadGroup = dispatch_group_create();
         for (Business *business in businesses) {
-            business.image = [self.fourSquareGateway downloadFirstPhotoForVenueID:business.fourSquareID];
+            dispatch_group_enter(downloadGroup);
+            [self.fourSquareGateway downloadFirstPhotoForVenueID:business.fourSquareID
+                                               completionHandler:^(UIImage *image) {
+                                                   business.image = image;
+                                                   dispatch_group_leave(downloadGroup);
+                                               }];
         }
-        self.businesses = businesses;
+        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER);
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.businesses = businesses;
             [self.delegate businessesDataControllerDidUpdateBusinesses];
         });
     });
+}
+
 // OLD VERSION:
 //    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
 //    NSArray <Business *>* businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
@@ -87,15 +96,15 @@
 //    }
 //    self.businesses = businesses;
 //    [self.delegate businessesDataControllerDidUpdateBusinesses];
-};
+//};
 
--(void)fourSquareGatewayDidFinishGettingBusinessesAlt {
-    NSArray *unsortedBusinesses = [self.fourSquareGateway.businesses copy];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
-    NSArray <Business *>* businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
-    dispatch_group_t downloadGroup = dispatch_group_create();
-        for (Business *business in businesses) {
-            dispatch_group_enter(downloadGroup);
+//-(void)fourSquareGatewayDidFinishGettingBusinessesAlt {
+//    NSArray *unsortedBusinesses = [self.fourSquareGateway.businesses copy];
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+//    NSArray <Business *>* businesses = [unsortedBusinesses sortedArrayUsingDescriptors:@[sortDescriptor]];
+//    dispatch_group_t downloadGroup = dispatch_group_create();
+//        for (Business *business in businesses) {
+//            dispatch_group_enter(downloadGroup);
 //            [self.fourSquareGateway downloadFirstPhotoForVenueID:business.fourSquareID
 //                                                 completionBlock:^(UIImage *image){
 //                                                     business.image = image;
@@ -105,8 +114,8 @@
             // Start a block running which will set business.image
 //            id dispatchGroup = [GCDGateway createDispatchGroup];
 //            [GCDGateway ]
-        }
-};
+//        }
+//};
 
 -(void)fourSquareGatewayDidFail {
     NSString *desc =  NSLocalizedString(@"Unable to retrieve businesses from the server.", @"");

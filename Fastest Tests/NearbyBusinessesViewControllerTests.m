@@ -34,6 +34,7 @@
     SUT.refreshController = mockRefreshController;
     
     [SUT viewDidLoad];
+    [SUT waitForInitialLoadToComplete];
     
     OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
     OCMVerify([fakeDataSource setDelegate:SUT]);
@@ -97,6 +98,7 @@
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     
     [SUT viewDidLoad];
+    [SUT waitForInitialLoadToComplete];
     
     XCTAssertNotNil(SUT.refreshController);
 }
@@ -107,6 +109,7 @@
     SUT.refreshController = originalRefreshController;
     
     [SUT viewDidLoad];
+    [SUT waitForInitialLoadToComplete];
     
     XCTAssertEqual(originalRefreshController, SUT.refreshController);
 }
@@ -117,6 +120,7 @@
     SUT.refreshController = mockRefreshController;
     
     [SUT viewDidLoad];
+    [SUT waitForInitialLoadToComplete];
     
     OCMVerify([mockRefreshController installRefreshControlOnTableView:SUT.tableView
                                                              selector:@selector(updateBusinesses)]);
