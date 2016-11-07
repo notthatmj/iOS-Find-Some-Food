@@ -13,7 +13,6 @@
 
 @interface NearbyBusinessesTableViewController ()
 @property (nonatomic, strong, readonly) dispatch_semaphore_t loadSemaphore;
-//@property (nonatomic, strong, bool)
 @end
 
 @implementation NearbyBusinessesTableViewController

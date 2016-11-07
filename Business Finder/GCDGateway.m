@@ -12,9 +12,6 @@
 +(void)dispatchToMainQueue:(void (^)(void))block {
     dispatch_async(dispatch_get_main_queue(), block);
 }
-//+(void)dispatchBlockAsyncToGlobalQueueWithQOS:(dispatch_block_t)block {
-//    dispatch_async(dispatch_get_global_queue(<#long identifier#>, 0), <#^(void)block#>)
-//}
 +(void)asynchronouslyDispatchBlock:(dispatch_block_t)block withQOS:(long)QOS {
     dispatch_async(dispatch_get_global_queue(QOS, 0), block);
 }

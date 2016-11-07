@@ -17,4 +17,8 @@
     }
     return self;
 }
+- (NSString *)description {
+    return [NSString stringWithFormat: @"Business: name=%@ distance=%f", self.name, self.distance];
+}
+
 @end
