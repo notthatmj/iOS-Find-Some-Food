@@ -37,19 +37,6 @@
     }
 }
 
-//-(void)testDownloadPhotoDictForVenueID{
-//    self.SUT = [FourSquareGateway new];
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
-//    [self.SUT downloadPhotoDictForVenueID:@"4b3d120ff964a520458d25e3" completionHandler:^(NSDictionary *photoDict){
-//        XCTAssertNotNil(photoDict);
-//        XCTAssertNotEqual([photoDict count],0);
-//        XCTAssertNotNil([photoDict valueForKey:@"meta"]);
-//        XCTAssertEqualObjects([NSNumber numberWithInt:200],photoDict[@"meta"][@"code"]);
-//        [expectation fulfill];
-//    }];
-//    [self waitForExpectationsWithTimeout:1.0 handler:nil];
-//}
-
 -(void)testGetFirstPhotoURLForVenueID {
     self.SUT = [FourSquareGateway new];
     NSString *url = [self.SUT getFirstPhotoURLForVenueID:@"4b3d120ff964a520458d25e3"];
