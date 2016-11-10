@@ -10,7 +10,7 @@
 @class Business;
 
 @interface FourSquareResponseParser : NSObject
-+(NSArray<Business *> *)parseResponseData:(NSData *)responseData;
++(NSArray<Business *> *)parseSearchResponseData:(NSData *)responseData;
 +(NSDictionary *)parsePhotoDictResponseData:(NSData *)responseData;
 +(NSString *)extractPhotoURLFromPhotoDict:(NSDictionary *)photoDict;
 @end

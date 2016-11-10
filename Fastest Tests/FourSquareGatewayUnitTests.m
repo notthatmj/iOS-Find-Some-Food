@@ -72,7 +72,7 @@
                                                          error, nil])]);
     self.businesses = [self makeBusinesses];
     id parserMock = OCMClassMock([FourSquareResponseParser class]);
-    OCMStub([parserMock parseResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(self.businesses);
+    OCMStub([parserMock parseSearchResponseData:[OCMArg isEqual:fakeResponseData]]).andReturn(self.businesses);
     id fakeGCDGateway = OCMClassMock([GCDGateway class]);
     OCMStub([fakeGCDGateway dispatchToMainQueue:[OCMArg invokeBlock]]);
     
