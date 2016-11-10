@@ -25,7 +25,7 @@
     NSString *path = [bundle pathForResource:@"Sample FourSquare Response" ofType:@"txt"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     
-    NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:data];
+    NSArray<Business *> *businesses = [FourSquareResponseParser parseSearchResponseData:data];
     Business *firstBusiness = businesses[0];
     float expectedDistance = 0.0155342799;
     XCTAssertEqualObjects(firstBusiness.name,@"Hot Woks Cool Sushi");

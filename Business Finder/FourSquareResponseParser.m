@@ -10,7 +10,7 @@
 #import "Business.h"
 
 @implementation FourSquareResponseParser
-+(NSArray<Business *> *)parseResponseData:(NSData *)responseData {
++(NSArray<Business *> *)parseSearchResponseData:(NSData *)responseData {
     NSData *data = responseData;
     NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSDictionary *responseDictionary = [JSONDictionary objectForKey:@"response"];

@@ -72,7 +72,7 @@
                 [self.delegate fourSquareGatewayDidFail];
             }];
         } else {
-            NSArray<Business *> *businesses = [FourSquareResponseParser parseResponseData:[data copy]];
+            NSArray<Business *> *businesses = [FourSquareResponseParser parseSearchResponseData:[data copy]];
             self.businesses = businesses;
             [GCDGateway dispatchToMainQueue:^{
                 [self.delegate fourSquareGatewayDidFinishGettingBusinesses];
