@@ -34,7 +34,6 @@
     SUT.refreshController = mockRefreshController;
     
     [SUT viewDidLoad];
-    [SUT waitForInitialLoadToComplete];
     
     OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
     OCMVerify([fakeDataSource setDelegate:SUT]);
