@@ -254,30 +254,11 @@
 		8974894B1D4FB5FD00531975 /* Business Finder */ = {
 			isa = PBXGroup;
 			children = (
+				89A8F94A1DD5297F00135762 /* Controllers */,
+				89A8F94B1DD529F200135762 /* Model */,
+				89A8F9481DD5290400135762 /* Gateways */,
 				8974894F1D4FB5FD00531975 /* AppDelegate.h */,
 				897489501D4FB5FD00531975 /* AppDelegate.m */,
-				891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */,
-				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
-				891FC68A1D96C3F500ED44C4 /* RefreshController.h */,
-				891FC68B1D96C3F500ED44C4 /* RefreshController.m */,
-				89F2D0951D76041700C98165 /* LocationGateway.h */,
-				89F2D0961D76041700C98165 /* LocationGateway.m */,
-				89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */,
-				89A10CE11D512DFC009E5867 /* BusinessesDataController.m */,
-				89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */,
-				89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */,
-				89FB39071D88A08C0086851E /* FourSquareResponseParser.h */,
-				89FB39081D88A08C0086851E /* FourSquareResponseParser.m */,
-				89FB390A1D88A0C80086851E /* GCDGateway.h */,
-				89FB390B1D88A0C80086851E /* GCDGateway.m */,
-				89034AE61D5532C300BCA3A0 /* URLFetcher.h */,
-				89034AE71D5532C300BCA3A0 /* URLFetcher.m */,
-				89A10CDA1D511ABA009E5867 /* Business.h */,
-				89A10CDB1D511ABA009E5867 /* Business.m */,
-				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
-				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
-				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
-				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
 				897489551D4FB5FD00531975 /* Main.storyboard */,
 				8974895B1D4FB5FD00531975 /* Assets.xcassets */,
 				8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */,
@@ -320,6 +301,49 @@
 				897489761D4FB5FE00531975 /* Info.plist */,
 			);
 			path = "Business FinderUITests";
+			sourceTree = "<group>";
+		};
+		89A8F9481DD5290400135762 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				89FB390A1D88A0C80086851E /* GCDGateway.h */,
+				89FB390B1D88A0C80086851E /* GCDGateway.m */,
+				89F2D0951D76041700C98165 /* LocationGateway.h */,
+				89F2D0961D76041700C98165 /* LocationGateway.m */,
+				89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */,
+				89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */,
+				89FB39071D88A08C0086851E /* FourSquareResponseParser.h */,
+				89FB39081D88A08C0086851E /* FourSquareResponseParser.m */,
+				89034AE61D5532C300BCA3A0 /* URLFetcher.h */,
+				89034AE71D5532C300BCA3A0 /* URLFetcher.m */,
+			);
+			name = Gateways;
+			sourceTree = "<group>";
+		};
+		89A8F94A1DD5297F00135762 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */,
+				89A10CE11D512DFC009E5867 /* BusinessesDataController.m */,
+				891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */,
+				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
+				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
+				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
+				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
+				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
+				891FC68A1D96C3F500ED44C4 /* RefreshController.h */,
+				891FC68B1D96C3F500ED44C4 /* RefreshController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		89A8F94B1DD529F200135762 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89A10CDA1D511ABA009E5867 /* Business.h */,
+				89A10CDB1D511ABA009E5867 /* Business.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		F1D7D5EB022FCF6C291ACFB7 /* Pods */ = {
