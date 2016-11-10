@@ -90,19 +90,6 @@
     }];
 }
 
--(UIImage *)downloadFirstPhotoForVenueID:(NSString *)venueID {
-    NSString *url = [self getFirstPhotoURLForVenueID:venueID];
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-    __block UIImage *image = nil;
-    [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {
-        image = [UIImage imageWithData:data];
-        dispatch_semaphore_signal(semaphore);
-    }];
-
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    return image;
-}
-
 -(void)downloadFirstPhotoForVenueID:(NSString *)venueID completionHandler:(void (^)(UIImage *))completionHandler {
     NSString *url = [self getFirstPhotoURLForVenueID:venueID];
     [URLFetcher fetchDataForURLString:url completionHandler:^(NSData *data, NSError *error) {
