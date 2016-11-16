@@ -23,7 +23,6 @@
                                               [interruptingElement.buttons[@"Allow"] tap];
                                               return YES;
                                           }];
-    
     // Launch app
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app launch];
@@ -34,8 +33,15 @@
     XCUIElementQuery *cellsQuery = [tablesQuery descendantsMatchingType:XCUIElementTypeCell];
     NSPredicate *cellsDidLoad = [NSPredicate predicateWithFormat:@"count >= 1"];
     [self expectationForPredicate:cellsDidLoad evaluatedWithObject:cellsQuery handler:nil];
-    float loadTimeout = 10.0;
+    float loadTimeout = 20.0;
     [self waitForExpectationsWithTimeout:loadTimeout handler:nil];
+
+    // Test that there's one "Business Name" label for every cell.
+    XCUIElementQuery *staticTextQuery = [tablesQuery descendantsMatchingType:XCUIElementTypeStaticText];
+    XCUIElementQuery *businessNameQuery = [staticTextQuery matchingIdentifier:@"Business Name"];
+    NSUInteger businessNameCount = [businessNameQuery count];
+    NSUInteger cellCount = [cellsQuery count];
+    XCTAssertEqual(businessNameCount, cellCount);
 }
 
 @end
