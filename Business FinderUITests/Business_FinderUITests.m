@@ -37,11 +37,21 @@
     [self waitForExpectationsWithTimeout:loadTimeout handler:nil];
 
     // Test that there's one "Business Name" label for every cell.
-    XCUIElementQuery *staticTextQuery = [tablesQuery descendantsMatchingType:XCUIElementTypeStaticText];
-    XCUIElementQuery *businessNameQuery = [staticTextQuery matchingIdentifier:@"Business Name"];
+    XCUIElementQuery *businessNameQuery = [[tablesQuery staticTexts] matchingIdentifier:@"Business Name"];
     NSUInteger businessNameCount = [businessNameQuery count];
     NSUInteger cellCount = [cellsQuery count];
     XCTAssertEqual(businessNameCount, cellCount);
+    
+    // Test that there's one "Distance" label for every cell.
+    XCUIElementQuery *distanceQuery = [[tablesQuery staticTexts] matchingIdentifier:@"Distance"];
+    NSUInteger distanceCount = [distanceQuery count];
+    XCTAssertEqual(cellCount, distanceCount);
+    
+    // Test that at least some of the photos loaded correctly.
+    XCUIElementQuery *imagesQuery = [tablesQuery.images matchingIdentifier:@"photo"];
+    NSUInteger imagesCount = [imagesQuery count];
+    XCTAssertLessThanOrEqual(1, imagesCount);
+    XCTAssertLessThanOrEqual(imagesCount, cellCount);
 }
 
 @end
