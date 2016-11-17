@@ -30,7 +30,7 @@
     SUT.dataSource = fakeDataSource;
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
-    Controller *mockController = OCMClassMock([Controller class]);
+    Controller *mockController = OCMPartialMock([Controller new]);
     SUT.refreshController = mockController;
     
     [SUT viewDidLoad];
@@ -115,7 +115,7 @@
 
 -(void)testViewDidLoadInstallsRefreshControl{
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-    Controller *mockController = OCMClassMock([Controller class]);
+    Controller *mockController = OCMPartialMock([Controller new]);
     SUT.refreshController = mockController;
     
     [SUT viewDidLoad];

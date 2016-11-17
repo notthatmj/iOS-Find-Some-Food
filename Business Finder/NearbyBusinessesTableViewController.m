@@ -35,14 +35,6 @@
     return self;
 }
 
-- (void) startInitialLoad {
-    self.tableView.dataSource = self.dataSource;
-    
-    self.dataSource.delegate = self;
-    [self.refreshController installRefreshControlOnTableView:self.tableView selector:@selector(updateBusinesses)];
-    [self.dataSource updateBusinesses];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -54,7 +46,7 @@
         self.refreshController = [Controller new];
     }
 
-    [self startInitialLoad];
+    [self.refreshController startInitialLoadForNearbyBusinessesTVC:self];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {

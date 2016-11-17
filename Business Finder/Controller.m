@@ -7,7 +7,7 @@
 //
 
 #import "Controller.h"
-#import "NearbyBusinessesDataSource.h"
+#import "NearbyBusinessesTableViewController.h"
 
 @implementation Controller
 
@@ -26,6 +26,14 @@
 
 -(void)endRefreshing{
     [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0];
+}
+
+- (void) startInitialLoadForNearbyBusinessesTVC: (NearbyBusinessesTableViewController *)tableViewController {
+    tableViewController.tableView.dataSource = tableViewController.dataSource;
+    
+    tableViewController.dataSource.delegate = tableViewController;
+    [self installRefreshControlOnTableView:tableViewController.tableView selector:@selector(updateBusinesses)];
+    [tableViewController.dataSource updateBusinesses];
 }
 
 @end
