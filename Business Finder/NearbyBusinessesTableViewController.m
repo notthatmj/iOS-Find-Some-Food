@@ -42,21 +42,21 @@
         self.dataSource = [NearbyBusinessesDataSource new];
     }
     
-    if (self.refreshController == nil) {
-        self.refreshController = [Controller new];
+    if (self.controller == nil) {
+        self.controller = [Controller new];
     }
 
-    [self.refreshController startInitialLoadForNearbyBusinessesTVC:self];
+    [self.controller startInitialLoadForNearbyBusinessesTVC:self];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
     [self.tableView reloadData];
-    [self.refreshController endRefreshing];
+    [self.controller endRefreshing];
     dispatch_semaphore_signal(self.loadSemaphore);
 }
 
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
-    [self.refreshController endRefreshing];
+    [self.controller endRefreshing];
     NSString *message = [error localizedDescription];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:message

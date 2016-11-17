@@ -31,7 +31,7 @@
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
     Controller *mockController = OCMPartialMock([Controller new]);
-    SUT.refreshController = mockController;
+    SUT.controller = mockController;
     
     [SUT viewDidLoad];
     
@@ -51,7 +51,7 @@
     SUT = OCMPartialMock(SUT);
     OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
     Controller *mockController = OCMClassMock([Controller class]);
-    SUT.refreshController = mockController;
+    SUT.controller = mockController;
     
     NSString *testErrorMessage = @"foobar";
     NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
@@ -90,7 +90,7 @@
 -(void)testInit {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     
-    XCTAssertNil(SUT.refreshController);
+    XCTAssertNil(SUT.controller);
 }
 
 -(void)testViewDidLoadInitializesRefreshController {
@@ -99,24 +99,24 @@
     [SUT viewDidLoad];
     [SUT waitForInitialLoadToComplete];
     
-    XCTAssertNotNil(SUT.refreshController);
+    XCTAssertNotNil(SUT.controller);
 }
 
 -(void)testViewDidLoadKeepsNonNilRefreshController {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     Controller *originalController = [Controller new];
-    SUT.refreshController = originalController;
+    SUT.controller = originalController;
     
     [SUT viewDidLoad];
     [SUT waitForInitialLoadToComplete];
     
-    XCTAssertEqual(originalController, SUT.refreshController);
+    XCTAssertEqual(originalController, SUT.controller);
 }
 
 -(void)testViewDidLoadInstallsRefreshControl{
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     Controller *mockController = OCMPartialMock([Controller new]);
-    SUT.refreshController = mockController;
+    SUT.controller = mockController;
     
     [SUT viewDidLoad];
     [SUT waitForInitialLoadToComplete];
