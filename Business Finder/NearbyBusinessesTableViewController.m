@@ -35,21 +35,26 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    if (self.dataSource == nil) {
-        self.dataSource = [NearbyBusinessesDataSource new];
-    }
-
-    if (self.refreshController == nil) {
-        self.refreshController = [Controller new];
-    }
+- (void) startInitialLoad {
     self.tableView.dataSource = self.dataSource;
-
+    
     self.dataSource.delegate = self;
     [self.refreshController installRefreshControlOnTableView:self.tableView selector:@selector(updateBusinesses)];
     [self.dataSource updateBusinesses];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    if (self.dataSource == nil) {
+        self.dataSource = [NearbyBusinessesDataSource new];
+    }
+    
+    if (self.refreshController == nil) {
+        self.refreshController = [Controller new];
+    }
+
+    [self startInitialLoad];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
