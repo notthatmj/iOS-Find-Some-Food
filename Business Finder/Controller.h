@@ -14,7 +14,8 @@
 -(void)installRefreshControlOnTableView:(UITableView *) tableView selector:(SEL)selector;
 -(void)beginRefreshing;
 -(void)endRefreshing;
--(void)startInitialLoadForNearbyBusinessesTVC: (NearbyBusinessesTableViewController *)tableViewController;
+-(void)startInitialLoad;
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinessesForTVC:(NearbyBusinessesTableViewController *)tableViewController;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @end

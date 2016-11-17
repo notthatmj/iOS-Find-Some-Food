@@ -28,12 +28,12 @@
     [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0];
 }
 
-- (void) startInitialLoadForNearbyBusinessesTVC: (NearbyBusinessesTableViewController *)tableViewController {
-    tableViewController.tableView.dataSource = tableViewController.dataSource;
+- (void)startInitialLoad {
+    self.nearbyBusinessesTableViewController.tableView.dataSource = self.nearbyBusinessesTableViewController.dataSource;
     
-    tableViewController.dataSource.delegate = tableViewController;
-    [self installRefreshControlOnTableView:tableViewController.tableView selector:@selector(updateBusinesses)];
-    [tableViewController.dataSource updateBusinesses];
+    self.nearbyBusinessesTableViewController.dataSource.delegate = self.nearbyBusinessesTableViewController;
+    [self installRefreshControlOnTableView:self.nearbyBusinessesTableViewController.tableView selector:@selector(updateBusinesses)];
+    [self.nearbyBusinessesTableViewController.dataSource updateBusinesses];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinessesForTVC:(NearbyBusinessesTableViewController *)tableViewController {

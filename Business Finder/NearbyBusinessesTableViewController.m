@@ -34,6 +34,11 @@
     return self;
 }
 
+- (void)setController:(Controller *)controller {
+    _controller = controller;
+    _controller.nearbyBusinessesTableViewController = self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -45,7 +50,7 @@
         self.controller = [Controller new];
     }
 
-    [self.controller startInitialLoadForNearbyBusinessesTVC:self];
+    [self.controller startInitialLoad];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
