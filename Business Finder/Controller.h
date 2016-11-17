@@ -16,6 +16,7 @@
 -(void)endRefreshing;
 -(void)startInitialLoad;
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
+-(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @end

@@ -58,17 +58,7 @@
 }
 
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
-    [self.controller endRefreshing];
-    NSString *message = [error localizedDescription];
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                   message:message
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:nil];
-    [alert addAction:defaultAction];
-    [self presentViewController:alert animated:YES completion:nil];
-    dispatch_semaphore_signal(self.loadSemaphore);
+    [self.controller nearbyBusinessesDataSourceDidFailWithError:error];
 }
 
 -(void)waitForInitialLoadToComplete {

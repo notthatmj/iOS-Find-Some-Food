@@ -50,7 +50,7 @@
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     SUT = OCMPartialMock(SUT);
     OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
-    Controller *mockController = OCMClassMock([Controller class]);
+    Controller *mockController = OCMPartialMock([Controller new]);
     SUT.controller = mockController;
     
     NSString *testErrorMessage = @"foobar";

@@ -41,4 +41,18 @@
     [self.nearbyBusinessesTableViewController.controller endRefreshing];
     dispatch_semaphore_signal(self.nearbyBusinessesTableViewController.loadSemaphore);
 }
+
+-(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
+    [self endRefreshing];
+    NSString *message = [error localizedDescription];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:nil];
+    [alert addAction:defaultAction];
+    [self.nearbyBusinessesTableViewController presentViewController:alert animated:YES completion:nil];
+    dispatch_semaphore_signal(self.nearbyBusinessesTableViewController.loadSemaphore);
+}
 @end
