@@ -15,7 +15,7 @@
 -(void)beginRefreshing;
 -(void)endRefreshing;
 -(void)startInitialLoad;
--(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinessesForTVC:(NearbyBusinessesTableViewController *)tableViewController;
+-(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @end

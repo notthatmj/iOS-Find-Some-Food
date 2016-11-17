@@ -54,7 +54,7 @@
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
-    [self.controller nearbyBusinessesDataSourceDidUpdateLocationAndBusinessesForTVC:self];
+    [self.controller nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
 }
 
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {

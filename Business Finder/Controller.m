@@ -36,9 +36,9 @@
     [self.nearbyBusinessesTableViewController.dataSource updateBusinesses];
 }
 
--(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinessesForTVC:(NearbyBusinessesTableViewController *)tableViewController {
-    [tableViewController.tableView reloadData];
-    [tableViewController.controller endRefreshing];
-    dispatch_semaphore_signal(tableViewController.loadSemaphore);
+-(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
+    [self.nearbyBusinessesTableViewController.tableView reloadData];
+    [self.nearbyBusinessesTableViewController.controller endRefreshing];
+    dispatch_semaphore_signal(self.nearbyBusinessesTableViewController.loadSemaphore);
 }
 @end
