@@ -10,11 +10,11 @@
 #import "NearbyBusinessesDataSource.h"
 @class NearbyBusinessFinder;
 @class LocationGateway;
-@class RefreshController;
+@class Controller;
 
 @interface NearbyBusinessesTableViewController : UITableViewController<NearbyBusinessesDataSourceDelegate>
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;
-@property (strong,nonatomic) RefreshController *refreshController;
+@property (strong,nonatomic) Controller *refreshController;
 -(void)waitForInitialLoadToComplete;
 @end

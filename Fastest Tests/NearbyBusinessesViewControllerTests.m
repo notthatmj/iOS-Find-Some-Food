@@ -12,7 +12,7 @@
 #import "Business.h"
 #import "OCMock.h"
 #import "LocationGateway.h"
-#import "RefreshController.h"
+#import "Controller.h"
 #import "BusinessFinderErrorDomain.h"
 
 @interface NearbyBusinessesViewControllerTests : XCTestCase
@@ -30,8 +30,8 @@
     SUT.dataSource = fakeDataSource;
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
-    RefreshController *mockRefreshController = OCMClassMock([RefreshController class]);
-    SUT.refreshController = mockRefreshController;
+    Controller *mockController = OCMClassMock([Controller class]);
+    SUT.refreshController = mockController;
     
     [SUT viewDidLoad];
     
@@ -42,7 +42,7 @@
     [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
 
     OCMVerify([fakeTableView reloadData]);
-    OCMVerify([mockRefreshController endRefreshing]);
+    OCMVerify([mockController endRefreshing]);
 }
 
 - (void)testNearbyBusinessesDataSourceDidFail {
@@ -50,8 +50,8 @@
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     SUT = OCMPartialMock(SUT);
     OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
-    RefreshController *mockRefreshController = OCMClassMock([RefreshController class]);
-    SUT.refreshController = mockRefreshController;
+    Controller *mockController = OCMClassMock([Controller class]);
+    SUT.refreshController = mockController;
     
     NSString *testErrorMessage = @"foobar";
     NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
@@ -84,7 +84,7 @@
     OCMVerify([SUT presentViewController:[OCMArg checkWithBlock:checkAlertController]
                                 animated:YES
                               completion:nil]);
-    OCMVerify([mockRefreshController endRefreshing]);
+    OCMVerify([mockController endRefreshing]);
 }
 
 -(void)testInit {
@@ -104,24 +104,24 @@
 
 -(void)testViewDidLoadKeepsNonNilRefreshController {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-    RefreshController *originalRefreshController = [RefreshController new];
-    SUT.refreshController = originalRefreshController;
+    Controller *originalController = [Controller new];
+    SUT.refreshController = originalController;
     
     [SUT viewDidLoad];
     [SUT waitForInitialLoadToComplete];
     
-    XCTAssertEqual(originalRefreshController, SUT.refreshController);
+    XCTAssertEqual(originalController, SUT.refreshController);
 }
 
 -(void)testViewDidLoadInstallsRefreshControl{
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-    RefreshController *mockRefreshController = OCMClassMock([RefreshController class]);
-    SUT.refreshController = mockRefreshController;
+    Controller *mockController = OCMClassMock([Controller class]);
+    SUT.refreshController = mockController;
     
     [SUT viewDidLoad];
     [SUT waitForInitialLoadToComplete];
     
-    OCMVerify([mockRefreshController installRefreshControlOnTableView:SUT.tableView
+    OCMVerify([mockController installRefreshControlOnTableView:SUT.tableView
                                                              selector:@selector(updateBusinesses)]);
 }
 

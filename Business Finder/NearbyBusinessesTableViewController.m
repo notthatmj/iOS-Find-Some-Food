@@ -9,7 +9,7 @@
 #import "NearbyBusinessesTableViewController.h"
 #import "Business.h"
 #import "LocationGateway.h"
-#import "RefreshController.h"
+#import "Controller.h"
 
 @interface NearbyBusinessesTableViewController ()
 @property (nonatomic, strong, readonly) dispatch_semaphore_t loadSemaphore;
@@ -43,7 +43,7 @@
     }
 
     if (self.refreshController == nil) {
-        self.refreshController = [RefreshController new];
+        self.refreshController = [Controller new];
     }
     self.tableView.dataSource = self.dataSource;
 

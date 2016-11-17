@@ -1,5 +1,5 @@
 //
-//  RefreshControllerTests.m
+//  ControllerTests.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "RefreshController.h"
+#import "Controller.h"
 #import "OCMock.h"
 
 @protocol TestDataSourceProtocol <NSObject>
@@ -16,14 +16,14 @@
 
 @end
 
-@interface RefreshControllerTests : XCTestCase
+@interface ControllerTests : XCTestCase
 
 @end
 
-@implementation RefreshControllerTests
+@implementation ControllerTests
 
 - (void)testinstallRefreshControlOnTableViewUpdateSelector {
-    RefreshController *SUT = [RefreshController new];
+    Controller *SUT = [Controller new];
     UITableView *tableView = [UITableView new];
     id dataSourceMock = OCMProtocolMock(@protocol(UITableViewDataSource));
     tableView.dataSource = dataSourceMock;
@@ -42,7 +42,7 @@
 }
 
 - (void)testBeginRefreshingEndRefreshing2 {
-    RefreshController *SUT = [RefreshController new];
+    Controller *SUT = [Controller new];
     UIRefreshControl *refreshControl = OCMClassMock([UIRefreshControl class]);
     SUT.refreshControl = refreshControl;
     

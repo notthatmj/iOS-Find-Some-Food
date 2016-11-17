@@ -1,15 +1,15 @@
 //
-//  RefreshController.m
+//  Controller.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
 //  Copyright © 2016 Michael Johnson. All rights reserved.
 //
 
-#import "RefreshController.h"
+#import "Controller.h"
 #import "NearbyBusinessesDataSource.h"
 
-@implementation RefreshController
+@implementation Controller
 
 -(void)installRefreshControlOnTableView:(UITableView *)tableView selector:(SEL)selector {
     self.refreshControl = [UIRefreshControl new];

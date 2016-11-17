@@ -15,7 +15,7 @@
 		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		891FC6891D96C37E00ED44C4 /* RefreshControllerUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */; };
-		891FC68C1D96C3F500ED44C4 /* RefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* RefreshController.m */; };
+		891FC68C1D96C3F500ED44C4 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* Controller.m */; };
 		891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */; };
 		892168311DBE987100AACDA8 /* URLFetcherTimeOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 892168301DBE987100AACDA8 /* URLFetcherTimeOutTests.m */; };
 		8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */; };
@@ -93,8 +93,8 @@
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshControllerUnitTests.m; sourceTree = "<group>"; };
-		891FC68A1D96C3F500ED44C4 /* RefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshController.h; sourceTree = "<group>"; };
-		891FC68B1D96C3F500ED44C4 /* RefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshController.m; sourceTree = "<group>"; };
+		891FC68A1D96C3F500ED44C4 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		891FC68B1D96C3F500ED44C4 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessFinderErrorDomain.h; sourceTree = "<group>"; };
 		891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessFinderErrorDomain.m; sourceTree = "<group>"; };
 		8921682E1DBE987100AACDA8 /* Slowest Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slowest Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,8 +331,8 @@
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
 				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
 				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
-				891FC68A1D96C3F500ED44C4 /* RefreshController.h */,
-				891FC68B1D96C3F500ED44C4 /* RefreshController.m */,
+				891FC68A1D96C3F500ED44C4 /* Controller.h */,
+				891FC68B1D96C3F500ED44C4 /* Controller.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -754,7 +754,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				891FC68C1D96C3F500ED44C4 /* RefreshController.m in Sources */,
+				891FC68C1D96C3F500ED44C4 /* Controller.m in Sources */,
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
 				891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */,
 				89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  RefreshController.h
+//  Controller.h
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface RefreshController : NSObject
+@interface Controller : NSObject
 -(void)installRefreshControlOnTableView:(UITableView *) tableView selector:(SEL)selector;
 -(void)beginRefreshing;
 -(void)endRefreshing;
