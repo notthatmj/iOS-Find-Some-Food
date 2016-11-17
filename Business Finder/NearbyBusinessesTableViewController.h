@@ -16,5 +16,6 @@
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;
 @property (strong,nonatomic) Controller *controller;
+@property (nonatomic, strong, readonly) dispatch_semaphore_t loadSemaphore;
 -(void)waitForInitialLoadToComplete;
 @end

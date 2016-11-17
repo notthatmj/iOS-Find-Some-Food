@@ -12,7 +12,6 @@
 #import "Controller.h"
 
 @interface NearbyBusinessesTableViewController ()
-@property (nonatomic, strong, readonly) dispatch_semaphore_t loadSemaphore;
 @end
 
 @implementation NearbyBusinessesTableViewController
@@ -50,9 +49,7 @@
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
-    [self.tableView reloadData];
-    [self.controller endRefreshing];
-    dispatch_semaphore_signal(self.loadSemaphore);
+    [self.controller nearbyBusinessesDataSourceDidUpdateLocationAndBusinessesForTVC:self];
 }
 
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
