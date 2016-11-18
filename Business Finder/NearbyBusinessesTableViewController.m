@@ -36,6 +36,24 @@
     return self;
 }
 
+-(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource controller: (Controller *) controller {
+    self = [super init];
+    if (self) {
+        _loadSemaphore = dispatch_semaphore_create(0);
+        dispatch_semaphore_signal(_loadSemaphore);
+        _dataSource = dataSource;
+        _controller = controller;
+    }
+    if(_dataSource == nil) {
+        _dataSource = [NearbyBusinessesDataSource new];
+    }
+    if (_controller == nil) {
+        _controller = [Controller new];
+    }
+    _controller.nearbyBusinessesTableViewController = self;
+    return self;
+}
+
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
