@@ -25,14 +25,6 @@
 }
 
 -(void)testViewDidLoadAndSuccessfulRetrievalOfBusinesses {
-//    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
-//    NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
-//                                                initWithDataSource:fakeDataSource];
-//    UITableView *fakeTableView = OCMClassMock([UITableView class]);
-//    SUT.tableView = fakeTableView;
-//    Controller *mockController = OCMPartialMock([Controller new]);
-//    SUT.controller = mockController;
-
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     Controller *mockController = OCMPartialMock([Controller new]);
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
@@ -40,7 +32,6 @@
                                                 controller:mockController];
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
-//    SUT.controller = mockController;
 
     [SUT viewDidLoad];
     
@@ -56,14 +47,7 @@
 
 - (void)testNearbyBusinessesDataSourceDidFail {
     // Setup
-//    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-//    SUT = OCMPartialMock(SUT);
-//    OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
-//    Controller *mockController = OCMPartialMock([Controller new]);
-//    SUT.controller = mockController;
     Controller *mockController = OCMPartialMock([Controller new]);
-//    SUT.controller = mockController;
-//    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController new]
                                                 initWithDataSource:nil controller:mockController];
     SUT = OCMPartialMock(SUT);
@@ -103,12 +87,6 @@
     OCMVerify([mockController endRefreshing]);
 }
 
-//-(void)testInit {
-//    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-//    
-//    XCTAssertNil(SUT.controller);
-//}
-
 -(void)testViewDidLoadInitializesRefreshController {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     
@@ -119,9 +97,6 @@
 }
 
 -(void)testViewDidLoadInstallsRefreshControl{
-//    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-//    Controller *mockController = OCMPartialMock([Controller new]);
-//    SUT.controller = mockController;
     Controller *mockController = OCMPartialMock([Controller new]);
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc] initWithDataSource:nil controller:mockController];
     [SUT viewDidLoad];
