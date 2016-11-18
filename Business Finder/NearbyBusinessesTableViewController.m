@@ -22,6 +22,7 @@
         _loadSemaphore = dispatch_semaphore_create(0);
         dispatch_semaphore_signal(_loadSemaphore);
         _dataSource = [NearbyBusinessesDataSource new];
+        _controller = [Controller new];
     }
     return self;
 }
@@ -32,6 +33,7 @@
         _loadSemaphore = dispatch_semaphore_create(0);
         dispatch_semaphore_signal(_loadSemaphore);
         _dataSource = dataSource;
+        _controller = [Controller new];
     }
     return self;
 }
@@ -60,21 +62,22 @@
         _loadSemaphore = dispatch_semaphore_create(0);
         dispatch_semaphore_signal(_loadSemaphore);
         _dataSource = [NearbyBusinessesDataSource new];
+        _controller = [Controller new];
     }
     return self;
 }
 
-- (void)setController:(Controller *)controller {
-    _controller = controller;
-    _controller.nearbyBusinessesTableViewController = self;
-}
+//- (void)setController:(Controller *)controller {
+//    _controller = controller;
+//    _controller.nearbyBusinessesTableViewController = self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if (self.controller == nil) {
-        self.controller = [Controller new];
-    }
+//    if (self.controller == nil) {
+//        self.controller = [Controller new];
+//    }
 
     [self.controller startInitialLoad];
 }

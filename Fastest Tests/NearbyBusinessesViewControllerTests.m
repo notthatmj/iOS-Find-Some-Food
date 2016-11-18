@@ -103,11 +103,11 @@
     OCMVerify([mockController endRefreshing]);
 }
 
--(void)testInit {
-    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-    
-    XCTAssertNil(SUT.controller);
-}
+//-(void)testInit {
+//    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
+//    
+//    XCTAssertNil(SUT.controller);
+//}
 
 -(void)testViewDidLoadInitializesRefreshController {
     NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
