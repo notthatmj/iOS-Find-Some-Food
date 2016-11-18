@@ -17,35 +17,22 @@
 @implementation NearbyBusinessesTableViewController
 
 -(instancetype)init {
-    self = [super init];
-    if (self) {
-        _loadSemaphore = dispatch_semaphore_create(0);
-        dispatch_semaphore_signal(_loadSemaphore);
-        _dataSource = [NearbyBusinessesDataSource new];
-        _controller = [Controller new];
-    }
-    return self;
-}
-
--(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource {
-    self = [super init];
-    if (self) {
-        _loadSemaphore = dispatch_semaphore_create(0);
-        dispatch_semaphore_signal(_loadSemaphore);
-        _dataSource = dataSource;
-        _controller = [Controller new];
-    }
-    return self;
+    return [self initWithDataSource:nil controller:nil];
 }
 
 -(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource controller: (Controller *) controller {
     self = [super init];
     if (self) {
-        _loadSemaphore = dispatch_semaphore_create(0);
-        dispatch_semaphore_signal(_loadSemaphore);
-        _dataSource = dataSource;
-        _controller = controller;
+        [self initializeInstanceVariablesWithDataSource:dataSource controller:controller];
     }
+    return self;
+}
+
+- (void) initializeInstanceVariablesWithDataSource:(NearbyBusinessesDataSource *)dataSource controller:(Controller *)controller {
+    _loadSemaphore = dispatch_semaphore_create(0);
+    dispatch_semaphore_signal(_loadSemaphore);
+    _dataSource = dataSource;
+    _controller = controller;
     if(_dataSource == nil) {
         _dataSource = [NearbyBusinessesDataSource new];
     }
@@ -53,16 +40,11 @@
         _controller = [Controller new];
     }
     _controller.nearbyBusinessesTableViewController = self;
-    return self;
 }
-
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _loadSemaphore = dispatch_semaphore_create(0);
-        dispatch_semaphore_signal(_loadSemaphore);
-        _dataSource = [NearbyBusinessesDataSource new];
-        _controller = [Controller new];
+        [self initializeInstanceVariablesWithDataSource:nil controller:nil];
     }
     return self;
 }
