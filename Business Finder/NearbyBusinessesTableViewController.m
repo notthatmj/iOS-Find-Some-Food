@@ -21,6 +21,17 @@
     if (self) {
         _loadSemaphore = dispatch_semaphore_create(0);
         dispatch_semaphore_signal(_loadSemaphore);
+        _dataSource = [NearbyBusinessesDataSource new];
+    }
+    return self;
+}
+
+-(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource {
+    self = [super init];
+    if (self) {
+        _loadSemaphore = dispatch_semaphore_create(0);
+        dispatch_semaphore_signal(_loadSemaphore);
+        _dataSource = dataSource;
     }
     return self;
 }
@@ -30,6 +41,7 @@
     if (self) {
         _loadSemaphore = dispatch_semaphore_create(0);
         dispatch_semaphore_signal(_loadSemaphore);
+        _dataSource = [NearbyBusinessesDataSource new];
     }
     return self;
 }
@@ -42,10 +54,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if (self.dataSource == nil) {
-        self.dataSource = [NearbyBusinessesDataSource new];
-    }
-    
     if (self.controller == nil) {
         self.controller = [Controller new];
     }

@@ -25,9 +25,9 @@
 }
 
 -(void)testViewDidLoadAndSuccessfulRetrievalOfBusinesses {
-    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
-    SUT.dataSource = fakeDataSource;
+    NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
+                                                initWithDataSource:fakeDataSource];
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     SUT.tableView = fakeTableView;
     Controller *mockController = OCMPartialMock([Controller new]);
