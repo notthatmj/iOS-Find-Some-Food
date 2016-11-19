@@ -14,7 +14,7 @@
 		89034AFA1D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m */; };
 		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
-		891FC6891D96C37E00ED44C4 /* RefreshControllerUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */; };
+		891FC6891D96C37E00ED44C4 /* ControllerUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* ControllerUnitTests.m */; };
 		891FC68C1D96C3F500ED44C4 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* Controller.m */; };
 		891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */; };
 		892168311DBE987100AACDA8 /* URLFetcherTimeOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 892168301DBE987100AACDA8 /* URLFetcherTimeOutTests.m */; };
@@ -92,7 +92,7 @@
 		89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayIntegrationTests.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
-		891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshControllerUnitTests.m; sourceTree = "<group>"; };
+		891FC6881D96C37E00ED44C4 /* ControllerUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerUnitTests.m; sourceTree = "<group>"; };
 		891FC68A1D96C3F500ED44C4 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		891FC68B1D96C3F500ED44C4 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessFinderErrorDomain.h; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
 				89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */,
 				89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */,
-				891FC6881D96C37E00ED44C4 /* RefreshControllerUnitTests.m */,
+				891FC6881D96C37E00ED44C4 /* ControllerUnitTests.m */,
 			);
 			path = "Fastest Tests";
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
 				893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */,
-				891FC6891D96C37E00ED44C4 /* RefreshControllerUnitTests.m in Sources */,
+				891FC6891D96C37E00ED44C4 /* ControllerUnitTests.m in Sources */,
 				89E9A4F71DA6C2760046E868 /* FourSquareResponseParserTests.m in Sources */,
 				89FB39061D88A00B0086851E /* FourSquareGatewayUnitTests.m in Sources */,
 			);
