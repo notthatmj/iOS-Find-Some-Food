@@ -35,7 +35,7 @@
 
     [SUT viewDidLoad];
     
-    OCMVerify([fakeTableView setDataSource:SUT.dataSource]);
+    OCMVerify([fakeTableView setDataSource:fakeDataSource]);
     OCMVerify([fakeDataSource setDelegate:SUT]);
     OCMVerify([fakeDataSource updateBusinesses]);
     

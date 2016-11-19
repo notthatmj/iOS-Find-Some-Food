@@ -29,11 +29,11 @@
 }
 
 - (void)startInitialLoad {
-    self.nearbyBusinessesTableViewController.tableView.dataSource = self.nearbyBusinessesTableViewController.dataSource;
+    self.nearbyBusinessesTableViewController.tableView.dataSource = self.dataSource;
     
-    self.nearbyBusinessesTableViewController.dataSource.delegate = self.nearbyBusinessesTableViewController;
+    self.dataSource.delegate = self.nearbyBusinessesTableViewController;
     [self installRefreshControlOnTableView:self.nearbyBusinessesTableViewController.tableView selector:@selector(updateBusinesses)];
-    [self.nearbyBusinessesTableViewController.dataSource updateBusinesses];
+    [self.dataSource updateBusinesses];
 }
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
