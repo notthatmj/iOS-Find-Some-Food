@@ -15,7 +15,6 @@
 @interface NearbyBusinessesTableViewController : UITableViewController<NearbyBusinessesDataSourceDelegate>
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @property (strong,nonatomic,readonly) Controller *controller;
-@property (nonatomic, strong, readonly) dispatch_semaphore_t loadSemaphore;
 -(void)waitForInitialLoadToComplete;
 -(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource controller:(Controller *)controller;
 @end

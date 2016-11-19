@@ -29,8 +29,6 @@
 }
 
 - (void) initializeInstanceVariablesWithDataSource:(NearbyBusinessesDataSource *)dataSource controller:(Controller *)controller {
-    _loadSemaphore = dispatch_semaphore_create(0);
-    dispatch_semaphore_signal(_loadSemaphore);
     _controller = controller;
     if(dataSource == nil) {
         dataSource = [NearbyBusinessesDataSource new];
@@ -64,6 +62,6 @@
 }
 
 -(void)waitForInitialLoadToComplete {
-    dispatch_semaphore_wait(self.loadSemaphore,DISPATCH_TIME_FOREVER);
+    [self.controller waitForInitialLoadToComplete];
 };
 @end

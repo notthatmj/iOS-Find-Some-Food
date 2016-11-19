@@ -18,7 +18,9 @@
 -(void)startInitialLoad;
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error;
+-(void)waitForInitialLoadToComplete;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;
+@property (nonatomic, strong) dispatch_semaphore_t loadSemaphore;
 @end
