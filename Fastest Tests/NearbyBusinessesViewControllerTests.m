@@ -13,7 +13,6 @@
 #import "OCMock.h"
 #import "LocationGateway.h"
 #import "Controller.h"
-#import "BusinessFinderErrorDomain.h"
 
 @interface NearbyBusinessesViewControllerTests : XCTestCase
 @end
@@ -36,45 +35,14 @@
 }
 
 - (void)testNearbyBusinessesDataSourceDidFail {
-    // Setup
-    Controller *mockController = OCMPartialMock([Controller new]);
-    NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController new]
-                                                initWithDataSource:nil controller:mockController];
-    SUT = OCMPartialMock(SUT);
-    OCMStub([SUT presentViewController:[OCMArg any] animated:YES completion:nil]);
-    
-    NSString *testErrorMessage = @"foobar";
-    NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
-    NSError *testError = [NSError errorWithDomain:kBusinessFinderErrorDomain
-                                             code:kBusinessesDataControllerErrorLocation
-                                         userInfo:testUserInfo];
-
-    // Run
+    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
+    Controller *fakeController = OCMPartialMock([Controller new]);
+    NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
+                                                initWithDataSource:fakeDataSource
+                                                controller:fakeController];
+    NSError *testError = [NSError errorWithDomain:@"TestErrorDomain" code:1 userInfo:nil];
     [SUT nearbyBusinessesDataSourceDidFailWithError:testError];
-    
-    // Verify
-    BOOL (^checkAlertController)(id obj) = ^BOOL(id obj) {
-        
-        UIAlertController* alert = obj;
-        
-        if(![alert.title isEqualToString:@"Error"] ||
-           ![alert.message isEqualToString:testErrorMessage] ||
-           alert.preferredStyle != UIAlertControllerStyleAlert ||
-           [alert.actions count] != 1) {
-            return false;
-        }
-        
-        UIAlertAction *action = alert.actions[0];
-        if (![action.title isEqualToString:@"OK"] ||
-            action.style != UIAlertActionStyleDefault) {
-            return false;
-        }
-        return true;
-    };
-    OCMVerify([SUT presentViewController:[OCMArg checkWithBlock:checkAlertController]
-                                animated:YES
-                              completion:nil]);
-    OCMVerify([mockController endRefreshing]);
+    OCMVerify([fakeController nearbyBusinessesDataSourceDidFailWithError:testError]);
 }
 
 -(void)testViewDidLoadInitializesRefreshController {
