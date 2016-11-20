@@ -45,15 +45,6 @@
     OCMVerify([fakeController nearbyBusinessesDataSourceDidFailWithError:testError]);
 }
 
--(void)testViewDidLoadInitializesRefreshController {
-    NearbyBusinessesTableViewController *SUT = [NearbyBusinessesTableViewController new];
-    
-    [SUT viewDidLoad];
-    [SUT waitForInitialLoadToComplete];
-    
-    XCTAssertNotNil(SUT.controller);
-}
-
 -(void)testViewDidLoadInstallsRefreshControl{
     Controller *mockController = OCMPartialMock([Controller new]);
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc] initWithDataSource:nil controller:mockController];
