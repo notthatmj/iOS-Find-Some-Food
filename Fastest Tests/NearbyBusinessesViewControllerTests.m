@@ -24,25 +24,15 @@
     [super setUp];
 }
 
--(void)testViewDidLoadAndSuccessfulRetrievalOfBusinesses {
+-(void)testViewDidLoad {
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
-    Controller *mockController = OCMPartialMock([Controller new]);
+    Controller *fakeController = OCMPartialMock([Controller new]);
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
                                                 initWithDataSource:fakeDataSource
-                                                controller:mockController];
-    UITableView *fakeTableView = OCMClassMock([UITableView class]);
-    SUT.tableView = fakeTableView;
-
+                                                controller:fakeController];
     [SUT viewDidLoad];
     
-    OCMVerify([fakeTableView setDataSource:fakeDataSource]);
-    OCMVerify([fakeDataSource setDelegate:SUT]);
-    OCMVerify([fakeDataSource updateBusinesses]);
-    
-    [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
-
-    OCMVerify([fakeTableView reloadData]);
-    OCMVerify([mockController endRefreshing]);
+    OCMVerify([fakeController startInitialLoad]);
 }
 
 - (void)testNearbyBusinessesDataSourceDidFail {

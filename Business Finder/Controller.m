@@ -22,7 +22,9 @@
 }
 
 -(void)installRefreshControlOnTableView:(UITableView *)tableView selector:(SEL)selector {
-    self.refreshControl = [UIRefreshControl new];
+    if (self.refreshControl == nil) {
+        self.refreshControl = [UIRefreshControl new];
+    }
     tableView.refreshControl = self.refreshControl;
     [self.refreshControl addTarget:tableView.dataSource action:selector forControlEvents:UIControlEventValueChanged];
 }
@@ -48,7 +50,7 @@
 
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
     [self.nearbyBusinessesTableViewController.tableView reloadData];
-    [self.nearbyBusinessesTableViewController.controller endRefreshing];
+    [self endRefreshing];
     dispatch_semaphore_signal(self.loadSemaphore);
 }
 

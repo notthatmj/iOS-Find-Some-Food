@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "Controller.h"
 #import "OCMock.h"
+#import "NearbyBusinessesTableViewController.h"
 
 @protocol TestDataSourceProtocol <NSObject>
 
@@ -21,6 +22,29 @@
 @end
 
 @implementation ControllerTests
+
+-(void)testStartInitialLoadAndSuccessfulRetrievalOfBusinesses {
+    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
+    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
+    NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
+    UITableView *fakeTableView = OCMClassMock([UITableView class]);
+    OCMStub([fakeTableViewController tableView]).andReturn(fakeTableView);
+    Controller *SUT = [Controller new];
+    SUT.dataSource = fakeDataSource;
+    SUT.nearbyBusinessesTableViewController = fakeTableViewController;
+    SUT.refreshControl = fakeRefreshControl;
+    
+    [SUT startInitialLoad];
+    
+    OCMVerify([fakeTableView setDataSource:fakeDataSource]);
+    OCMVerify([fakeDataSource setDelegate:fakeTableViewController]);
+    OCMVerify([fakeDataSource updateBusinesses]);
+    
+    [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
+    
+    OCMVerify([fakeTableView reloadData]);
+    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
+}
 
 - (void)testinstallRefreshControlOnTableViewUpdateSelector {
     Controller *SUT = [Controller new];
