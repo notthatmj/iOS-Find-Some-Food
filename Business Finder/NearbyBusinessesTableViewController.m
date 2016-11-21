@@ -17,17 +17,10 @@
 
 @implementation NearbyBusinessesTableViewController
 
--(instancetype)init {
-    return [self initWithController:nil];
-}
-
 -(instancetype)initWithController: (Controller *) controller {
     self = [super init];
     if (self) {
         _controller = controller;
-        if (_controller == nil) {
-            _controller = [Controller new];
-        }
         _controller.nearbyBusinessesTableViewController = self;
         _controller.dataSource = [NearbyBusinessesDataSource new];
     }
