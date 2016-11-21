@@ -16,5 +16,5 @@
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
 @property (strong,nonatomic,readonly) Controller *controller;
 -(void)waitForInitialLoadToComplete;
--(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource controller:(Controller *)controller;
+-(instancetype)initWithController:(Controller *)controller;
 @end

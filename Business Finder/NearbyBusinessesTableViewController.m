@@ -17,13 +17,13 @@
 @implementation NearbyBusinessesTableViewController
 
 -(instancetype)init {
-    return [self initWithDataSource:nil controller:nil];
+    return [self initWithController:nil];
 }
 
--(instancetype)initWithDataSource:(NearbyBusinessesDataSource *)dataSource controller: (Controller *) controller {
+-(instancetype)initWithController: (Controller *) controller {
     self = [super init];
     if (self) {
-        [self initializeInstanceVariablesWithDataSource:dataSource controller:controller];
+        [self initializeInstanceVariablesWithDataSource:nil controller:controller];
     }
     return self;
 }

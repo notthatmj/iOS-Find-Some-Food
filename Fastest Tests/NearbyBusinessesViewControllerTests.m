@@ -24,22 +24,18 @@
 }
 
 -(void)testViewDidLoad {
-    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     Controller *fakeController = OCMPartialMock([Controller new]);
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
-                                                initWithDataSource:fakeDataSource
-                                                controller:fakeController];
+                                                initWithController:fakeController];
     [SUT viewDidLoad];
     
     OCMVerify([fakeController startInitialLoad]);
 }
 
 - (void)testNearbyBusinessesDataSourceDidFail {
-    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     Controller *fakeController = OCMPartialMock([Controller new]);
     NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
-                                                initWithDataSource:fakeDataSource
-                                                controller:fakeController];
+                                                initWithController:fakeController];
     NSError *testError = [NSError errorWithDomain:@"TestErrorDomain" code:1 userInfo:nil];
     [SUT nearbyBusinessesDataSourceDidFailWithError:testError];
     OCMVerify([fakeController nearbyBusinessesDataSourceDidFailWithError:testError]);
