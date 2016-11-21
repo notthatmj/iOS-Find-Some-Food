@@ -23,26 +23,24 @@
 -(instancetype)initWithController: (Controller *) controller {
     self = [super init];
     if (self) {
-        [self initializeInstanceVariablesWithDataSource:nil controller:controller];
+        [self initializeInstanceVariablesWithController:controller];
     }
     return self;
 }
 
-- (void) initializeInstanceVariablesWithDataSource:(NearbyBusinessesDataSource *)dataSource controller:(Controller *)controller {
+- (void) initializeInstanceVariablesWithController:(Controller *)controller {
     _controller = controller;
-    if(dataSource == nil) {
-        dataSource = [NearbyBusinessesDataSource new];
-    }
     if (_controller == nil) {
         _controller = [Controller new];
     }
     _controller.nearbyBusinessesTableViewController = self;
-    _controller.dataSource = dataSource;
+    _controller.dataSource = [NearbyBusinessesDataSource new];
 }
+
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self initializeInstanceVariablesWithDataSource:nil controller:nil];
+        [self initializeInstanceVariablesWithController:nil];
     }
     return self;
 }
