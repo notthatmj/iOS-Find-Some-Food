@@ -42,6 +42,8 @@
     [super viewDidLoad];
     if (self.controller == nil) {
         self.controller = [Controller new];
+        self.controller.nearbyBusinessesTableViewController = self;
+        self.controller.dataSource = [NearbyBusinessesDataSource new];
     }
     [self.controller startInitialLoad];
 }
