@@ -37,14 +37,6 @@
     [self.controller startInitialLoad];
 }
 
--(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
-    [self.controller nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
-}
-
--(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
-    [self.controller nearbyBusinessesDataSourceDidFailWithError:error];
-}
-
 -(void)waitForInitialLoadToComplete {
     [self.controller waitForInitialLoadToComplete];
 };
