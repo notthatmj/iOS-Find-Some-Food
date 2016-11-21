@@ -24,18 +24,14 @@
 -(instancetype)initWithController: (Controller *) controller {
     self = [super init];
     if (self) {
-        [self initializeInstanceVariablesWithController:controller];
+        _controller = controller;
+        if (_controller == nil) {
+            _controller = [Controller new];
+        }
+        _controller.nearbyBusinessesTableViewController = self;
+        _controller.dataSource = [NearbyBusinessesDataSource new];
     }
     return self;
-}
-
-- (void) initializeInstanceVariablesWithController:(Controller *)controller {
-    _controller = controller;
-    if (_controller == nil) {
-        _controller = [Controller new];
-    }
-    _controller.nearbyBusinessesTableViewController = self;
-    _controller.dataSource = [NearbyBusinessesDataSource new];
 }
 
 - (void)viewDidLoad {
