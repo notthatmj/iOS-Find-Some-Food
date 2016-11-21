@@ -12,6 +12,7 @@
 #import "Controller.h"
 
 @interface NearbyBusinessesTableViewController ()
+@property (strong,nonatomic) Controller *controller;
 @end
 
 @implementation NearbyBusinessesTableViewController
@@ -37,17 +38,11 @@
     _controller.dataSource = [NearbyBusinessesDataSource new];
 }
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initializeInstanceVariablesWithController:nil];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    if (self.controller == nil) {
+        self.controller = [Controller new];
+    }
     [self.controller startInitialLoad];
 }
 
