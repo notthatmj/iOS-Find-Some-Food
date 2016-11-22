@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Controller.h"
+#import "NearbyBusinessesTVCDelegate.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
 #import "BusinessFinderErrorDomain.h"
@@ -31,7 +31,7 @@
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     OCMStub([fakeTableView dataSource]).andReturn(fakeDataSource);
     OCMStub([fakeTableViewController tableView]).andReturn(fakeTableView);
-    Controller *SUT = [Controller new];
+    NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
     SUT.dataSource = fakeDataSource;
     SUT.nearbyBusinessesTableViewController = fakeTableViewController;
     SUT.refreshControl = fakeRefreshControl;
@@ -58,7 +58,7 @@
     NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
     OCMStub([fakeTableViewController tableView]).andReturn(fakeTableView);
-    Controller *SUT = [Controller new];
+    NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
     SUT.dataSource = fakeDataSource;
     SUT.nearbyBusinessesTableViewController = fakeTableViewController;
     SUT.refreshControl = fakeRefreshControl;

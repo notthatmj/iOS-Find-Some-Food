@@ -9,7 +9,7 @@
 #import "NearbyBusinessesTableViewController.h"
 #import "Business.h"
 #import "LocationGateway.h"
-#import "Controller.h"
+#import "NearbyBusinessesTVCDelegate.h"
 
 @interface NearbyBusinessesTableViewController ()
 @end
@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.controller == nil) {
-        self.controller = [Controller new];
+        self.controller = [NearbyBusinessesTVCDelegate new];
         self.controller.nearbyBusinessesTableViewController = self;
         self.controller.dataSource = [NearbyBusinessesDataSource new];
     }

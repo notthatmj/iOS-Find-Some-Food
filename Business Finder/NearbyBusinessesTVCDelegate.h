@@ -1,5 +1,5 @@
 //
-//  Controller.h
+//  NearbyBusinessesTVCDelegate.h
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -10,7 +10,7 @@
 @class NearbyBusinessesTableViewController;
 #import "NearbyBusinessesDataSource.h"
 
-@interface Controller : NSObject<NearbyBusinessesDataSourceDelegate>
+@interface NearbyBusinessesTVCDelegate : NSObject<NearbyBusinessesDataSourceDelegate>
 -(void)startInitialLoad;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;

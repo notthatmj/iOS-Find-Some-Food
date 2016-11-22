@@ -10,9 +10,9 @@
 #import "NearbyBusinessesDataSource.h"
 @class NearbyBusinessFinder;
 @class LocationGateway;
-@class Controller;
+@class NearbyBusinessesTVCDelegate;
 
 @interface NearbyBusinessesTableViewController : UITableViewController
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
-@property (strong,nonatomic) Controller *controller;
+@property (strong,nonatomic) NearbyBusinessesTVCDelegate *controller;
 @end

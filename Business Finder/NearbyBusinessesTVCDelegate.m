@@ -6,10 +6,10 @@
 //  Copyright © 2016 Michael Johnson. All rights reserved.
 //
 
-#import "Controller.h"
+#import "NearbyBusinessesTVCDelegate.h"
 #import "NearbyBusinessesTableViewController.h"
 
-@implementation Controller
+@implementation NearbyBusinessesTVCDelegate
 
 -(void)installRefreshControlOnTableView:(UITableView *)tableView selector:(SEL)selector {
     if (self.refreshControl == nil) {
