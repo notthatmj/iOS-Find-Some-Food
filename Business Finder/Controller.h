@@ -7,17 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@import UIKit;
 @class NearbyBusinessesTableViewController;
 #import "NearbyBusinessesDataSource.h"
 
 @interface Controller : NSObject<NearbyBusinessesDataSourceDelegate>
--(void)installRefreshControlOnTableView:(UITableView *) tableView selector:(SEL)selector;
--(void)beginRefreshing;
--(void)endRefreshing;
 -(void)startInitialLoad;
--(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
--(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @property (strong,nonatomic) NearbyBusinessesDataSource *dataSource;

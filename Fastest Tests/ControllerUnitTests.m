@@ -97,16 +97,4 @@
     OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
 }
 
-- (void)testBeginRefreshingEndRefreshing2 {
-    Controller *SUT = [Controller new];
-    UIRefreshControl *refreshControl = OCMClassMock([UIRefreshControl class]);
-    SUT.refreshControl = refreshControl;
-    
-    [SUT beginRefreshing];
-    OCMVerify([refreshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.0]);
-    [SUT endRefreshing];
-    OCMVerify([refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
-
-}
-
 @end
