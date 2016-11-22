@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 @class NearbyBusinessesTableViewController;
-@class NearbyBusinessesDataSource;
+#import "NearbyBusinessesDataSource.h"
 
-@interface Controller : NSObject
+@interface Controller : NSObject<NearbyBusinessesDataSourceDelegate>
 -(void)installRefreshControlOnTableView:(UITableView *) tableView selector:(SEL)selector;
 -(void)beginRefreshing;
 -(void)endRefreshing;

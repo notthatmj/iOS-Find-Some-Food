@@ -43,7 +43,7 @@
 - (void)startInitialLoad {
     self.nearbyBusinessesTableViewController.tableView.dataSource = self.dataSource;
     
-    self.dataSource.delegate = self.nearbyBusinessesTableViewController;
+    self.dataSource.delegate = self;
     [self installRefreshControlOnTableView:self.nearbyBusinessesTableViewController.tableView selector:@selector(updateBusinesses)];
     [self.dataSource updateBusinesses];
 }

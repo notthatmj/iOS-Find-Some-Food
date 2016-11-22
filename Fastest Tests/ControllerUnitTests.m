@@ -39,7 +39,7 @@
     [SUT startInitialLoad];
     
     OCMVerify([fakeTableView setDataSource:fakeDataSource]);
-    OCMVerify([fakeDataSource setDelegate:fakeTableViewController]);
+    OCMVerify([fakeDataSource setDelegate:SUT]);
     OCMVerify([fakeDataSource updateBusinesses]);
     OCMVerify([fakeTableView setRefreshControl:fakeRefreshControl]);
     
