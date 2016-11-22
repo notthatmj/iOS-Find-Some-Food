@@ -19,26 +19,4 @@
 
 @implementation NearbyBusinessesViewControllerTests
 
-- (void)setUp {
-    [super setUp];
-}
-
--(void)testViewDidLoad {
-    Controller *fakeController = OCMPartialMock([Controller new]);
-    NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
-                                                initWithController:fakeController];
-    [SUT viewDidLoad];
-    
-    OCMVerify([fakeController startInitialLoad]);
-}
-
-//- (void)testNearbyBusinessesDataSourceDidFail {
-//    Controller *fakeController = OCMPartialMock([Controller new]);
-//    NearbyBusinessesTableViewController *SUT = [[NearbyBusinessesTableViewController alloc]
-//                                                initWithController:fakeController];
-//    NSError *testError = [NSError errorWithDomain:@"TestErrorDomain" code:1 userInfo:nil];
-//    [SUT nearbyBusinessesDataSourceDidFailWithError:testError];
-//    OCMVerify([fakeController nearbyBusinessesDataSourceDidFailWithError:testError]);
-//}
-
 @end

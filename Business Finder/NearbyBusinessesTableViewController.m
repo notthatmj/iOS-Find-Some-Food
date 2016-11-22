@@ -12,7 +12,6 @@
 #import "Controller.h"
 
 @interface NearbyBusinessesTableViewController ()
-@property (strong,nonatomic) Controller *controller;
 @end
 
 @implementation NearbyBusinessesTableViewController

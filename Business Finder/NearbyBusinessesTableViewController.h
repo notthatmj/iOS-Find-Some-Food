@@ -15,7 +15,7 @@
 //@interface NearbyBusinessesTableViewController : UITableViewController<NearbyBusinessesDataSourceDelegate>
 @interface NearbyBusinessesTableViewController : UITableViewController
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
-@property (strong,nonatomic,readonly) Controller *controller;
+@property (strong,nonatomic) Controller *controller;
 -(void)waitForInitialLoadToComplete;
 -(instancetype)initWithController:(Controller *)controller;
 @end
