@@ -14,5 +14,5 @@
 
 @interface NearbyBusinessesTableViewController : UITableViewController
 @property (strong,nonatomic) NearbyBusinessFinder *nearbyBusinessFinder;
-@property (strong,nonatomic) NearbyBusinessesTVCDelegate *controller;
+@property (strong,nonatomic) NearbyBusinessesTVCDelegate *delegate;
 @end

@@ -1,5 +1,5 @@
 //
-//  ControllerTests.m
+//  NearbyBusinessesTVCDelegateTests.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -18,11 +18,11 @@
 
 @end
 
-@interface ControllerTests : XCTestCase
+@interface NearbyBusinessesTVCDelegateTests : XCTestCase
 
 @end
 
-@implementation ControllerTests
+@implementation NearbyBusinessesTVCDelegateTests
 
 -(void)testStartInitialLoadAndSuccessfulRetrievalOfBusinesses {
     UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);

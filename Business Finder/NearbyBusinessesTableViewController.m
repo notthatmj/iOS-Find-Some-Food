@@ -18,12 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.controller == nil) {
-        self.controller = [NearbyBusinessesTVCDelegate new];
-        self.controller.nearbyBusinessesTableViewController = self;
-        self.controller.dataSource = [NearbyBusinessesDataSource new];
+    if (self.delegate == nil) {
+        self.delegate = [NearbyBusinessesTVCDelegate new];
+        self.delegate.nearbyBusinessesTableViewController = self;
+        self.delegate.dataSource = [NearbyBusinessesDataSource new];
     }
-    [self.controller startInitialLoad];
+    [self.delegate startInitialLoad];
 }
 
 @end
