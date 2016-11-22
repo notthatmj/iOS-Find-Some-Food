@@ -16,16 +16,6 @@
 
 @implementation NearbyBusinessesTableViewController
 
--(instancetype)initWithController: (Controller *) controller {
-    self = [super init];
-    if (self) {
-        _controller = controller;
-        _controller.nearbyBusinessesTableViewController = self;
-        _controller.dataSource = [NearbyBusinessesDataSource new];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.controller == nil) {
@@ -38,5 +28,5 @@
 
 -(void)waitForInitialLoadToComplete {
     [self.controller waitForInitialLoadToComplete];
-};
+}
 @end
