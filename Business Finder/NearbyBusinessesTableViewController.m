@@ -26,7 +26,4 @@
     [self.controller startInitialLoad];
 }
 
--(void)waitForInitialLoadToComplete {
-    [self.controller waitForInitialLoadToComplete];
-}
 @end

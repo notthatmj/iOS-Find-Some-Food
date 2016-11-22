@@ -11,16 +11,6 @@
 
 @implementation Controller
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _loadSemaphore = dispatch_semaphore_create(0);
-        dispatch_semaphore_signal(_loadSemaphore);
-    }
-    return self;
-}
-
 -(void)installRefreshControlOnTableView:(UITableView *)tableView selector:(SEL)selector {
     if (self.refreshControl == nil) {
         self.refreshControl = [UIRefreshControl new];
@@ -51,7 +41,6 @@
 -(void)nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses {
     [self.nearbyBusinessesTableViewController.tableView reloadData];
     [self endRefreshing];
-    dispatch_semaphore_signal(self.loadSemaphore);
 }
 
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
@@ -65,11 +54,6 @@
                                                           handler:nil];
     [alert addAction:defaultAction];
     [self.nearbyBusinessesTableViewController presentViewController:alert animated:YES completion:nil];
-    dispatch_semaphore_signal(self.loadSemaphore);
 }
-
--(void)waitForInitialLoadToComplete {
-    dispatch_semaphore_wait(self.loadSemaphore,DISPATCH_TIME_FOREVER);
-};
 
 @end
