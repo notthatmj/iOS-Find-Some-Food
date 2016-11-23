@@ -17,6 +17,6 @@
 
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,BusinessesDataControllerDelegate>
 @property (strong,nonatomic) BusinessesDataController* businessesDataController;
-@property (weak,nonatomic) id delegate;
+@property (weak,nonatomic) id<NearbyBusinessesDataSourceDelegate> delegate;
 -(void)updateBusinesses;
 @end

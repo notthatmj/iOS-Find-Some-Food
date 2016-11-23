@@ -10,6 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "NearbyBusinessesTableViewController.h"
 #import "OCMock.h"
+#import "NearbyBusinessesTVCDelegate.h"
 
 @interface MyRefreshControl : UIRefreshControl
 @property (nonatomic) BOOL theThingWasCalled;
@@ -36,7 +37,11 @@
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     XCTAssertNotNil(SUT);
     NearbyBusinessesTableViewController *viewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
-    [viewController waitForInitialLoadToComplete];
+    NearbyBusinessesTVCDelegate *fakeDelegate = OCMPartialMock([NearbyBusinessesTVCDelegate new]);
+    viewController.delegate = fakeDelegate;
+    [viewController view];
+    OCMVerify([fakeDelegate startInitialLoad]);
+
     UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);
     
