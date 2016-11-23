@@ -14,27 +14,44 @@
 
 @implementation Business_FinderUITests
 
-- (void)setUp {
-    [super setUp];
-    
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-    // In UI tests it is usually best to stop immediately when a failure occurs.
+- (void)testBasicUI {
     self.continueAfterFailure = NO;
-    // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-    [[[XCUIApplication alloc] init] launch];
+    // Set up a handler to tap "Allow" in case a system dialog requesting location access
+    // is triggered.
+    [self addUIInterruptionMonitorWithDescription:@"Location Dialog"
+                                          handler:^BOOL(XCUIElement * _Nonnull interruptingElement) {
+                                              [interruptingElement.buttons[@"Allow"] tap];
+                                              return YES;
+                                          }];
+    // Launch app
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    [app launch];
+    [app tap];
     
-    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-}
+    // Wait for cells to load
+    XCUIElementQuery *tablesQuery = app.tables;
+    XCUIElementQuery *cellsQuery = [tablesQuery descendantsMatchingType:XCUIElementTypeCell];
+    NSPredicate *cellsDidLoad = [NSPredicate predicateWithFormat:@"count >= 1"];
+    [self expectationForPredicate:cellsDidLoad evaluatedWithObject:cellsQuery handler:nil];
+    float loadTimeout = 20.0;
+    [self waitForExpectationsWithTimeout:loadTimeout handler:nil];
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample {
-    // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // Test that there's one "Business Name" label for every cell.
+    XCUIElementQuery *businessNameQuery = [[tablesQuery staticTexts] matchingIdentifier:@"Business Name"];
+    NSUInteger businessNameCount = [businessNameQuery count];
+    NSUInteger cellCount = [cellsQuery count];
+    XCTAssertEqual(businessNameCount, cellCount);
+    
+    // Test that there's one "Distance" label for every cell.
+    XCUIElementQuery *distanceQuery = [[tablesQuery staticTexts] matchingIdentifier:@"Distance"];
+    NSUInteger distanceCount = [distanceQuery count];
+    XCTAssertEqual(cellCount, distanceCount);
+    
+    // Test that at least some of the photos loaded correctly.
+    XCUIElementQuery *imagesQuery = [tablesQuery.images matchingIdentifier:@"photo"];
+    NSUInteger imagesCount = [imagesQuery count];
+    XCTAssertLessThanOrEqual(1, imagesCount);
+    XCTAssertLessThanOrEqual(imagesCount, cellCount);
 }
 
 @end

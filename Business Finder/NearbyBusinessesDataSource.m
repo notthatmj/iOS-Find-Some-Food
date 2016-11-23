@@ -39,6 +39,8 @@
     NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
     cell.detailTextLabel.text = distanceString;
     UIImage *image = business.image;
+    cell.imageView.isAccessibilityElement = YES;
+    cell.imageView.accessibilityIdentifier = @"photo";
     cell.imageView.image = image;
     return cell;
 }
