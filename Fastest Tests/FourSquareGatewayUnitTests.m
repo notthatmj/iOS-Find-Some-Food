@@ -66,7 +66,7 @@
     
     NSData *fakeResponseData = [NSData new];
     id fakeURLFetcher = OCMClassMock([URLFetcher class]);
-    NSString *expectedURL = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=sushi";
+    NSString *expectedURL = @"https://api.foursquare.com/v2/venues/search?client_id=parrot&client_secret=bar&v=20130815&ll=40.70000,-74.00000&query=";
     OCMStub([fakeURLFetcher fetchDataForURLString:expectedURL
                                      completionHandler:([OCMArg invokeBlockWithArgs:fakeResponseData,
                                                          error, nil])]);
