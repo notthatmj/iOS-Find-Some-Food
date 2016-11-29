@@ -71,20 +71,6 @@
                referenceType = "1">
             </LocationScenarioReference>
          </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8921682D1DBE987100AACDA8"
-               BuildableName = "Slowest Tests.xctest"
-               BlueprintName = "Slowest Tests"
-               ReferencedContainer = "container:Business Finder.xcodeproj">
-            </BuildableReference>
-            <LocationScenarioReference
-               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
-               referenceType = "1">
-            </LocationScenarioReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
