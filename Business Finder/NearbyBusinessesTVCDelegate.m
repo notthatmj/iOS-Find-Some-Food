@@ -46,11 +46,13 @@
 -(void)nearbyBusinessesDataSourceDidFailWithError:(NSError *) error {
     [self endRefreshing];
     NSString *message = [error localizedDescription];
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
+    NSString *errorTitle = NSLocalizedString(@"Error", @"Title for error alert dialog");
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:errorTitle
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+    NSString *actionTitle = NSLocalizedString(@"OK", @"Title for dialog action");
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:actionTitle
+                                                            style:UIAlertActionStyleDefault
                                                           handler:nil];
     [alert addAction:defaultAction];
     [self.nearbyBusinessesTableViewController presentViewController:alert animated:YES completion:nil];
