@@ -121,11 +121,11 @@
 
 - (void)testFourSquareGatewayDidFinishGettingBusinessesSortsByDistance {
     NSMutableArray *businesses = [NSMutableArray new];
-    [businesses addObject:[[Business alloc] initWithName:@"McDonalds" distance:5.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"McDonald's" distance:5.0]];
     [businesses addObject:[[Business alloc] initWithName:@"Burger King" distance:1.0]];
     [businesses addObject:[[Business alloc] initWithName:@"Taco Bell" distance:3.0]];
     [businesses addObject:[[Business alloc] initWithName:@"Wendy's" distance:2.0]];
-    [businesses addObject:[[Business alloc] initWithName:@"Popeye's" distance:4.0]];
+    [businesses addObject:[[Business alloc] initWithName:@"Popeyes" distance:4.0]];
     [self setupFakeFourSquareGatewayWithBusinesses: businesses];
     
     [self setupTestDelegate];
@@ -141,8 +141,8 @@
     XCTAssertEqualObjects(self.SUT.businesses[0].name,@"Burger King");
     XCTAssertEqualObjects(self.SUT.businesses[1].name,@"Wendy's");
     XCTAssertEqualObjects(self.SUT.businesses[2].name,@"Taco Bell");
-    XCTAssertEqualObjects(self.SUT.businesses[3].name,@"Popeye's");
-    XCTAssertEqualObjects(self.SUT.businesses[4].name,@"McDonalds");
+    XCTAssertEqualObjects(self.SUT.businesses[3].name,@"Popeyes");
+    XCTAssertEqualObjects(self.SUT.businesses[4].name,@"McDonald's");
 }
 @end
 
