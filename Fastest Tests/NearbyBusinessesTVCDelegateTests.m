@@ -28,7 +28,7 @@
     UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
-    UITableView *fakeTableView = OCMClassMock([UITableView class]);
+    id fakeTableView = OCMClassMock([UITableView class]);
     OCMStub([fakeTableView dataSource]).andReturn(fakeDataSource);
     OCMStub([fakeTableViewController tableView]).andReturn(fakeTableView);
     NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
@@ -44,7 +44,10 @@
     OCMVerify([fakeTableView setRefreshControl:fakeRefreshControl]);
     
     OCMVerify([fakeRefreshControl addTarget:[OCMArg any] action:@selector(updateBusinesses) forControlEvents:UIControlEventValueChanged]);
-
+    OCMVerify([fakeRefreshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.0]);
+//    OCMVerify([[fakeTableView stub] ignoringNonObjectArgs]);
+//    OCMVerify([fakeTableView setContentOffset:CGPointZero animated:YES]);
+    OCMVerify([[fakeTableView ignoringNonObjectArgs] setContentOffset:CGPointZero animated:YES]);
     [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
     
     OCMVerify([fakeTableView reloadData]);
