@@ -45,7 +45,7 @@
     UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);
     
-    XCTAssertEqualObjects(viewController.navigationItem.title,@"Locations");
+    XCTAssertEqualObjects(viewController.navigationItem.title,@"Nearby Businesses");
 }
 
 @end
