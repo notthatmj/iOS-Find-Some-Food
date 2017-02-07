@@ -46,20 +46,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8974896F1D4FB5FE00531975"
-               BuildableName = "Business FinderUITests.xctest"
-               BlueprintName = "Business FinderUITests"
-               ReferencedContainer = "container:Business Finder.xcodeproj">
-            </BuildableReference>
-            <LocationScenarioReference
-               identifier = "New York, NY, USA"
-               referenceType = "1">
-            </LocationScenarioReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "89034AEE1D55379600BCA3A0"
                BuildableName = "Slower Tests.xctest"
                BlueprintName = "Slower Tests"

@@ -24,7 +24,6 @@
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
 		8974895C1D4FB5FD00531975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8974895B1D4FB5FD00531975 /* Assets.xcassets */; };
 		8974895F1D4FB5FD00531975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */; };
-		897489751D4FB5FE00531975 /* Business_FinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489741D4FB5FE00531975 /* Business_FinderUITests.m */; };
 		897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */; };
 		897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489871D4FBD5200531975 /* MainStoryboardTests.m */; };
 		8995D7DB1D7A0204006034B9 /* FourSquareGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */; };
@@ -41,7 +40,6 @@
 		89FB39061D88A00B0086851E /* FourSquareGatewayUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */; };
 		89FB39091D88A08C0086851E /* FourSquareResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB39081D88A08C0086851E /* FourSquareResponseParser.m */; };
 		89FB390C1D88A0C80086851E /* GCDGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB390B1D88A0C80086851E /* GCDGateway.m */; };
-		DAA32C2811F3D02926DF467E /* libPods-Business FinderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +51,6 @@
 			remoteInfo = "Business Finder";
 		};
 		897489661D4FB5FE00531975 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 897489411D4FB5FD00531975 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 897489481D4FB5FD00531975;
-			remoteInfo = "Business Finder";
-		};
-		897489711D4FB5FE00531975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 897489411D4FB5FD00531975 /* Project object */;
 			proxyType = 1;
@@ -100,9 +91,6 @@
 		897489601D4FB5FD00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897489651D4FB5FE00531975 /* Fastest Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fastest Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8974896B1D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		897489701D4FB5FE00531975 /* Business FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Business FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		897489741D4FB5FE00531975 /* Business_FinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Business_FinderUITests.m; sourceTree = "<group>"; };
-		897489761D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTableViewController.h; sourceTree = "<group>"; };
 		897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTableViewController.m; sourceTree = "<group>"; };
 		897489871D4FBD5200531975 /* MainStoryboardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStoryboardTests.m; sourceTree = "<group>"; };
@@ -160,14 +148,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8974896D1D4FB5FE00531975 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DAA32C2811F3D02926DF467E /* libPods-Business FinderUITests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -202,7 +182,6 @@
 				8974894B1D4FB5FD00531975 /* Business Finder */,
 				897489681D4FB5FE00531975 /* Fastest Tests */,
 				89034AF01D55379600BCA3A0 /* Slower Tests */,
-				897489731D4FB5FE00531975 /* Business FinderUITests */,
 				8974894A1D4FB5FD00531975 /* Products */,
 				F1D7D5EB022FCF6C291ACFB7 /* Pods */,
 				4662B8DC08A55B1D83FB1A79 /* Frameworks */,
@@ -214,7 +193,6 @@
 			children = (
 				897489491D4FB5FD00531975 /* Business Finder.app */,
 				897489651D4FB5FE00531975 /* Fastest Tests.xctest */,
-				897489701D4FB5FE00531975 /* Business FinderUITests.xctest */,
 				89034AEF1D55379600BCA3A0 /* Slower Tests.xctest */,
 			);
 			name = Products;
@@ -260,15 +238,6 @@
 				891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */,
 			);
 			path = "Fastest Tests";
-			sourceTree = "<group>";
-		};
-		897489731D4FB5FE00531975 /* Business FinderUITests */ = {
-			isa = PBXGroup;
-			children = (
-				897489741D4FB5FE00531975 /* Business_FinderUITests.m */,
-				897489761D4FB5FE00531975 /* Info.plist */,
-			);
-			path = "Business FinderUITests";
 			sourceTree = "<group>";
 		};
 		89A8F9481DD5290400135762 /* Gateways */ = {
@@ -394,26 +363,6 @@
 			productReference = 897489651D4FB5FE00531975 /* Fastest Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8974896F1D4FB5FE00531975 /* Business FinderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8974897F1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderUITests" */;
-			buildPhases = (
-				4073450E5500D130A8108F60 /* 📦 Check Pods Manifest.lock */,
-				8974896C1D4FB5FE00531975 /* Sources */,
-				8974896D1D4FB5FE00531975 /* Frameworks */,
-				8974896E1D4FB5FE00531975 /* Resources */,
-				920601726518781885C9C1A7 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				897489721D4FB5FE00531975 /* PBXTargetDependency */,
-			);
-			name = "Business FinderUITests";
-			productName = "Business FinderUITests";
-			productReference = 897489701D4FB5FE00531975 /* Business FinderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -435,10 +384,6 @@
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 897489481D4FB5FD00531975;
 					};
-					8974896F1D4FB5FE00531975 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 897489481D4FB5FD00531975;
-					};
 				};
 			};
 			buildConfigurationList = 897489441D4FB5FD00531975 /* Build configuration list for PBXProject "Business Finder" */;
@@ -456,7 +401,6 @@
 			targets = (
 				897489481D4FB5FD00531975 /* Business Finder */,
 				897489641D4FB5FE00531975 /* Fastest Tests */,
-				8974896F1D4FB5FE00531975 /* Business FinderUITests */,
 				89034AEE1D55379600BCA3A0 /* Slower Tests */,
 			);
 		};
@@ -486,13 +430,6 @@
 			files = (
 				89E9A4FB1DA6CE930046E868 /* Sample FourSquare Response.txt in Resources */,
 				89EE610D1DBEADE400D2FB36 /* Test Media.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8974896E1D4FB5FE00531975 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,21 +466,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slower Tests/Pods-Slower Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4073450E5500D130A8108F60 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		6BF8275F046EC305520562D9 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,21 +494,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fastest Tests/Pods-Fastest Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		920601726518781885C9C1A7 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Business FinderUITests/Pods-Business FinderUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ADE8EEC642293D60DF90FA71 /* 📦 Copy Pods Resources */ = {
@@ -713,14 +620,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8974896C1D4FB5FE00531975 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				897489751D4FB5FE00531975 /* Business_FinderUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -733,11 +632,6 @@
 			isa = PBXTargetDependency;
 			target = 897489481D4FB5FD00531975 /* Business Finder */;
 			targetProxy = 897489661D4FB5FE00531975 /* PBXContainerItemProxy */;
-		};
-		897489721D4FB5FE00531975 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 897489481D4FB5FD00531975 /* Business Finder */;
-			targetProxy = 897489711D4FB5FE00531975 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -931,30 +825,6 @@
 			};
 			name = Release;
 		};
-		897489801D4FB5FE00531975 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D612ADB2EB6075CB6276616B /* Pods-Business FinderUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "Business FinderUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Business Finder";
-			};
-			name = Debug;
-		};
-		897489811D4FB5FE00531975 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 717AF45362CFD123FD8D3006 /* Pods-Business FinderUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "Business FinderUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.notthatmj.Business-FinderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Business Finder";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -990,15 +860,6 @@
 			buildConfigurations = (
 				8974897D1D4FB5FE00531975 /* Debug */,
 				8974897E1D4FB5FE00531975 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8974897F1D4FB5FE00531975 /* Build configuration list for PBXNativeTarget "Business FinderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				897489801D4FB5FE00531975 /* Debug */,
-				897489811D4FB5FE00531975 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
