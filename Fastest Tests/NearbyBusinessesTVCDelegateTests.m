@@ -25,7 +25,7 @@
 @implementation NearbyBusinessesTVCDelegateTests
 
 -(void)testStartInitialLoadAndSuccessfulRetrievalOfBusinesses {
-    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
+//    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
     id fakeTableView = OCMClassMock([UITableView class]);
@@ -34,29 +34,29 @@
     NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
     SUT.dataSource = fakeDataSource;
     SUT.nearbyBusinessesTableViewController = fakeTableViewController;
-    SUT.refreshControl = fakeRefreshControl;
+//    SUT.refreshControl = fakeRefreshControl;
     
     [SUT startInitialLoad];
     
     OCMVerify([fakeTableView setDataSource:fakeDataSource]);
     OCMVerify([fakeDataSource setDelegate:SUT]);
     OCMVerify([fakeDataSource updateBusinesses]);
-    OCMVerify([fakeTableView setRefreshControl:fakeRefreshControl]);
-    
-    OCMVerify([fakeRefreshControl addTarget:[OCMArg any] action:@selector(updateBusinesses) forControlEvents:UIControlEventValueChanged]);
-    OCMVerify([fakeRefreshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.0]);
-//    OCMVerify([[fakeTableView stub] ignoringNonObjectArgs]);
-//    OCMVerify([fakeTableView setContentOffset:CGPointZero animated:YES]);
-    OCMVerify([[fakeTableView ignoringNonObjectArgs] setContentOffset:CGPointZero animated:YES]);
+//    OCMVerify([fakeTableView setRefreshControl:fakeRefreshControl]);
+//    
+//    OCMVerify([fakeRefreshControl addTarget:[OCMArg any] action:@selector(updateBusinesses) forControlEvents:UIControlEventValueChanged]);
+//    OCMVerify([fakeRefreshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.0]);
+////    OCMVerify([[fakeTableView stub] ignoringNonObjectArgs]);
+////    OCMVerify([fakeTableView setContentOffset:CGPointZero animated:YES]);
+//    OCMVerify([[fakeTableView ignoringNonObjectArgs] setContentOffset:CGPointZero animated:YES]);
     [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
     
     OCMVerify([fakeTableView reloadData]);
-    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
+//    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
 }
 
 - (void)testNearbyBusinessesDataSourceDidFail {
     // Setup
-    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
+//    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
     NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
@@ -64,7 +64,7 @@
     NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
     SUT.dataSource = fakeDataSource;
     SUT.nearbyBusinessesTableViewController = fakeTableViewController;
-    SUT.refreshControl = fakeRefreshControl;
+//    SUT.refreshControl = fakeRefreshControl;
     
     NSString *testErrorMessage = @"foobar";
     NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
@@ -97,7 +97,7 @@
     OCMVerify([fakeTableViewController presentViewController:[OCMArg checkWithBlock:checkAlertController]
                                                     animated:YES
                                                   completion:nil]);
-    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
+//    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
 }
 
 @end
