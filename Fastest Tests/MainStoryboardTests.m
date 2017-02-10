@@ -40,8 +40,6 @@
     NearbyBusinessesTVCDelegate *fakeDelegate = OCMPartialMock([NearbyBusinessesTVCDelegate new]);
     viewController.delegate = fakeDelegate;
     [viewController view];
-    OCMVerify([fakeDelegate startInitialLoad]);
-
     UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);
     
