@@ -10,6 +10,7 @@
 #import "Business.h"
 #import "LocationGateway.h"
 #import "NearbyBusinessesTVCDelegate.h"
+#import "MapViewController.h"
 
 @interface NearbyBusinessesTableViewController ()
 @end
@@ -42,4 +43,9 @@
     [self.tableView setContentOffset:CGPointMake(0, offset) animated:YES];
     [self.delegate startInitialLoad];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    MapViewController *mapViewController = segue.destinationViewController;    
+}
+
 @end

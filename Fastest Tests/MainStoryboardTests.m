@@ -11,6 +11,7 @@
 #import "NearbyBusinessesTableViewController.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTVCDelegate.h"
+#import "MapViewController.h"
 
 @interface MyRefreshControl : UIRefreshControl
 @property (nonatomic) BOOL theThingWasCalled;
@@ -46,4 +47,11 @@
     XCTAssertEqualObjects(viewController.navigationItem.title,@"Nearby Businesses");
 }
 
+- (void)testMapViewController {
+    UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *mapViewController = [SUT instantiateViewControllerWithIdentifier:@"MapViewController"];
+    XCTAssertNotNil(mapViewController);
+    XCTAssertNotNil(SUT);
+    
+}
 @end

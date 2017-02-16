@@ -13,6 +13,7 @@
 		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
 		89034AFA1D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m */; };
 		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
+		890E51A81E563B01004A6061 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51A71E563B01004A6061 /* MapViewController.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */; };
 		891FC68C1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */; };
@@ -30,6 +31,7 @@
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
 		89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesDataController.m */; };
 		89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */; };
+		89CD09AB1E562CAB00F2CFD2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CD09AA1E562CAB00F2CFD2 /* MapKit.framework */; };
 		89E9A4F71DA6C2760046E868 /* FourSquareResponseParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */; };
 		89E9A4FB1DA6CE930046E868 /* Sample FourSquare Response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */; };
 		89EE610D1DBEADE400D2FB36 /* Test Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EE610C1DBEADE400D2FB36 /* Test Media.xcassets */; };
@@ -72,6 +74,8 @@
 		89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareGateway.h; sourceTree = "<group>"; };
 		89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGateway.m; sourceTree = "<group>"; };
 		89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayIntegrationTests.m; sourceTree = "<group>"; };
+		890E51A61E563B01004A6061 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		890E51A71E563B01004A6061 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegateTests.m; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesDataController.h; sourceTree = "<group>"; };
 		89A10CE11D512DFC009E5867 /* BusinessesDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataController.m; sourceTree = "<group>"; };
 		89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataControllerTests.m; sourceTree = "<group>"; };
+		89CD09AA1E562CAB00F2CFD2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareResponseParserTests.m; sourceTree = "<group>"; };
 		89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Sample FourSquare Response.txt"; sourceTree = "<group>"; };
 		89EE610C1DBEADE400D2FB36 /* Test Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Test Media.xcassets"; sourceTree = "<group>"; };
@@ -136,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CD09AB1E562CAB00F2CFD2 /* MapKit.framework in Frameworks */,
 				1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +160,7 @@
 		4662B8DC08A55B1D83FB1A79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89CD09AA1E562CAB00F2CFD2 /* MapKit.framework */,
 				7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */,
 				E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */,
 				F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */,
@@ -266,6 +273,8 @@
 				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
 				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
+				890E51A61E563B01004A6061 /* MapViewController.h */,
+				890E51A71E563B01004A6061 /* MapViewController.m */,
 				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
 				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
 				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
@@ -603,6 +612,7 @@
 				89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */,
 				89F2D0971D76041700C98165 /* LocationGateway.m in Sources */,
 				89FB390C1D88A0C80086851E /* GCDGateway.m in Sources */,
+				890E51A81E563B01004A6061 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
