@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1263.2" y="956.67166416791611"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="va8-5R-E3G">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="rcT-Gh-wul" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="rcT-Gh-wul" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5NA-FR-BLM"/>
                         <viewControllerLayoutGuide type="bottom" id="g16-tm-ayZ"/>

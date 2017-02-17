@@ -45,7 +45,8 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    MapViewController *mapViewController = segue.destinationViewController;    
+//    MapViewController *mapViewController = segue.destinationViewController;
+//    mapViewController.businessLocation = self.delegate.businessLocation;
 }
 
 @end
