@@ -84,6 +84,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="8tD-K2-Gzn" secondAttribute="trailing" constant="-16" id="jZi-IY-Us1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="8tD-K2-Gzn" id="LdN-Ks-b4X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHe-dg-48q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

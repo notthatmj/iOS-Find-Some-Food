@@ -45,8 +45,9 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    MapViewController *mapViewController = segue.destinationViewController;
-//    mapViewController.businessLocation = self.delegate.businessLocation;
+    MapViewController *mapViewController = segue.destinationViewController;
+    CLLocation *harolds = [[CLLocation alloc] initWithLatitude:41.800076 longitude:-87.596058];
+    mapViewController.businessLocation = harolds;
 }
 
 @end

@@ -16,12 +16,14 @@
 @implementation MapViewControllerTests
 
 - (void)testMapViewController {
-    UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
     XCTAssertNotNil(SUT);
+    XCTAssertNil(SUT.businessLocation);
     
-    MapViewController *mapViewController = [SUT instantiateViewControllerWithIdentifier:@"MapViewController"];
-    XCTAssertNotNil(mapViewController);
-    XCTAssertNil(mapViewController.businessLocation);
+    [SUT view];
+    
+    XCTAssertNotNil(SUT.mapView);
 }
 
 @end
