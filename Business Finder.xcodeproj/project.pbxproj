@@ -16,6 +16,7 @@
 		890E51A81E563B01004A6061 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51A71E563B01004A6061 /* MapViewController.m */; };
 		890E51AA1E579DEF004A6061 /* MapViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51A91E579DEF004A6061 /* MapViewControllerTests.m */; };
 		890E51AC1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */; };
+		890E51BA1E57BC4E004A6061 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51B91E57BC4E004A6061 /* BusinessCell.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */; };
 		891FC68C1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */; };
@@ -79,6 +80,8 @@
 		890E51A71E563B01004A6061 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		890E51A91E579DEF004A6061 /* MapViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewControllerTests.m; sourceTree = "<group>"; };
 		890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTableViewControllerTests.m; sourceTree = "<group>"; };
+		890E51B81E57BC4E004A6061 /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
+		890E51B91E57BC4E004A6061 /* BusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCell.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
 		891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegateTests.m; sourceTree = "<group>"; };
@@ -185,6 +188,15 @@
 			path = "Slower Tests";
 			sourceTree = "<group>";
 		};
+		890E51AE1E57BAAB004A6061 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				890E51B81E57BC4E004A6061 /* BusinessCell.h */,
+				890E51B91E57BC4E004A6061 /* BusinessCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		897489401D4FB5FD00531975 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +222,7 @@
 		8974894B1D4FB5FD00531975 /* Business Finder */ = {
 			isa = PBXGroup;
 			children = (
+				890E51AE1E57BAAB004A6061 /* Views */,
 				89A8F94A1DD5297F00135762 /* Controllers */,
 				89A8F94B1DD529F200135762 /* Model */,
 				89A8F9481DD5290400135762 /* Gateways */,
@@ -610,6 +623,7 @@
 				89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				89A10CDC1D511ABA009E5867 /* Business.m in Sources */,
+				890E51BA1E57BC4E004A6061 /* BusinessCell.m in Sources */,
 				8974894E1D4FB5FD00531975 /* main.m in Sources */,
 				8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */,
 				89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */,

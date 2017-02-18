@@ -11,6 +11,7 @@
 #import "LocationGateway.h"
 #import "NearbyBusinessesTVCDelegate.h"
 #import "MapViewController.h"
+#import "BusinessCell.h"
 
 @interface NearbyBusinessesTableViewController ()
 @end
@@ -46,8 +47,9 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MapViewController *mapViewController = segue.destinationViewController;
-    CLLocation *harolds = [[CLLocation alloc] initWithLatitude:41.800076 longitude:-87.596058];
-    mapViewController.businessLocation = harolds;
+    BusinessCell *cell = sender;
+    mapViewController.businessLocation = [[CLLocation alloc] initWithLatitude:cell.business.latitude
+                                                                    longitude:cell.business.longitude];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"
 #import "LocationGateway.h"
+#import "BusinessCell.h"
 
 @import UIKit;
 
@@ -33,15 +34,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.businessesDataController businesses][indexPath.row];
-    cell.textLabel.text = business.name;
-    NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
-    cell.detailTextLabel.text = distanceString;
-    UIImage *image = business.image;
-    cell.imageView.isAccessibilityElement = YES;
-    cell.imageView.accessibilityIdentifier = @"photo";
-    cell.imageView.image = image;
+    BusinessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
+    Business *business = [self.businessesDataController businesses][indexPath.row];    
+    cell.business = business;
     return cell;
 }
 

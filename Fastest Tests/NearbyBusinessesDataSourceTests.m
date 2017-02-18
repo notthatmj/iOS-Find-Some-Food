@@ -12,6 +12,7 @@
 #import "BusinessesDataController.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
+#import "BusinessCell.h"
 
 @interface DummyCellClass : UITableViewCell
 @end
@@ -63,16 +64,9 @@
 
 - (void)testTableViewCellForRowAtIndexPath {
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
-    NSArray *expectedDistanceStrings = @[@"1.00 miles",@"2.00 miles",@"3.00 miles"];
     for (int i=0; i < [self.businesses count]; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        UITableViewCell *fakeCell = OCMClassMock([UITableViewCell class]);
-        UILabel *fakeTextLabel = OCMClassMock([UILabel class]);
-        UILabel *fakeDetailTextLabel = OCMClassMock([UILabel class]);
-        UIImageView *fakeImageView = OCMClassMock([UIImageView class]);
-        OCMStub([fakeCell textLabel]).andReturn(fakeTextLabel);
-        OCMStub([fakeCell detailTextLabel]).andReturn(fakeDetailTextLabel);
-        OCMStub([fakeCell imageView]).andReturn(fakeImageView);
+        BusinessCell *fakeCell = OCMClassMock([BusinessCell class]);
         OCMStub([fakeTableView dequeueReusableCellWithIdentifier:@"PrototypeCell"
                                                     forIndexPath:indexPath]).andReturn(fakeCell);
         
@@ -80,11 +74,7 @@
         Business *currentBusiness = self.businesses[i];
 
         XCTAssertEqual(fakeCell, cell);
-        OCMVerify([fakeTextLabel setText:currentBusiness.name]);
-        OCMVerify([fakeDetailTextLabel setText:expectedDistanceStrings[i]]);
-        OCMVerify([fakeImageView setIsAccessibilityElement:YES]);
-        OCMVerify([fakeImageView setAccessibilityIdentifier:@"photo"]);
-        OCMVerify([fakeImageView setImage:currentBusiness.image]);
+        OCMVerify([fakeCell setBusiness:currentBusiness]);
     }
 }
 

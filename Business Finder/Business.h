@@ -13,6 +13,8 @@
 
 @property (strong,nonatomic) NSString *name;
 @property (nonatomic) float distance;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 @property (strong,nonatomic) UIImage *image;
 @property (strong,nonatomic) NSString *fourSquareID;
 -(instancetype) initWithName:(NSString *) name distance:(float) distance;
