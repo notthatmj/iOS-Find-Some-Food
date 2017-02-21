@@ -45,7 +45,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="rcT-Gh-wul" kind="showDetail" id="jli-Lm-Icw"/>
+                                    <segue destination="rcT-Gh-wul" kind="show" id="jli-Lm-Icw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,9 +97,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bqb-Jx-tsc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ofD-9i-jve">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="ofD-9i-jve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.20000000000000001" green="0.66411000490188599" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
