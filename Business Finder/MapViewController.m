@@ -7,6 +7,8 @@
 //
 
 #import "MapViewController.h"
+#import "BusinessAnnotation.h"
+#import "MapController.h"
 
 @interface MapViewController ()
 
@@ -16,15 +18,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self zoomToLocation:self.businessLocation withRadius:500];
+    [self.controller configureViewController];
 }
 
-- (void)zoomToLocation:(CLLocation *)location withRadius:(CLLocationDistance) radius {
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(location.coordinate, 2*radius, 2*radius)];
+- (MapController *)controller {
+    if (_controller == nil) {
+        self.controller = [[MapController alloc] initWithViewController:self];
+    }
+    return _controller;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+-(CLLocation *)businessLocation {
+    return self.controller.businessLocation;
+}
+
+-(void)setBusinessLocation:(CLLocation *)businessLocation {
+    self.controller.businessLocation = businessLocation;
+}
+
+- (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate {
+    BusinessAnnotation *annotation = [BusinessAnnotation new];
+    annotation.coordinate = coordinate;
+    [self.mapView addAnnotation:annotation];
+}
+
+- (void)zoomToCoordinate:(CLLocationCoordinate2D)coordinate withRadius:(int) radius {
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.businessLocation.coordinate,
+                                                               2*radius,
+                                                               2*radius)];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "MapViewController.h"
+#import "MapController.h"
+#import "OCMock.h"
 
 @interface MapViewControllerTests : XCTestCase
 
@@ -15,15 +17,28 @@
 
 @implementation MapViewControllerTests
 
+//- (void)testMapViewController {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    MapViewController *SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+//    XCTAssertNotNil(SUT);
+//    XCTAssertNil(SUT.businessLocation);
+//    
+//    [SUT view];
+//    
+//    XCTAssertNotNil(SUT.mapView);
+//}
+
 - (void)testMapViewController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MapViewController *SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
-    XCTAssertNotNil(SUT);
-    XCTAssertNil(SUT.businessLocation);
+    id fakeController = OCMClassMock([MapController class]);
+    SUT.controller = fakeController;
     
+    // Load View
     [SUT view];
     
-    XCTAssertNotNil(SUT.mapView);
+    OCMVerify([fakeController configureViewController]);
+    
 }
 
 @end

@@ -23,6 +23,10 @@
 		891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */; };
 		8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */; };
 		893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */; };
+		8940B6DC1E5CE36E000D8946 /* BusinessAnnotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6DB1E5CE36E000D8946 /* BusinessAnnotationTests.m */; };
+		8940B6DF1E5CE448000D8946 /* BusinessAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */; };
+		8940B6E21E5CED14000D8946 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E11E5CED14000D8946 /* MapController.m */; };
+		8940B6E41E5CED3C000D8946 /* MapControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E31E5CED3C000D8946 /* MapControllerTests.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
@@ -91,6 +95,12 @@
 		891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessFinderErrorDomain.m; sourceTree = "<group>"; };
 		8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayIntegrationTests.m; sourceTree = "<group>"; };
 		893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayUnitTests.m; sourceTree = "<group>"; };
+		8940B6DB1E5CE36E000D8946 /* BusinessAnnotationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessAnnotationTests.m; sourceTree = "<group>"; };
+		8940B6DD1E5CE448000D8946 /* BusinessAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessAnnotation.h; sourceTree = "<group>"; };
+		8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessAnnotation.m; sourceTree = "<group>"; };
+		8940B6E01E5CED14000D8946 /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
+		8940B6E11E5CED14000D8946 /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
+		8940B6E31E5CED3C000D8946 /* MapControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapControllerTests.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8974894D1D4FB5FD00531975 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8974894F1D4FB5FD00531975 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -249,11 +259,13 @@
 			isa = PBXGroup;
 			children = (
 				89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */,
+				8940B6DB1E5CE36E000D8946 /* BusinessAnnotationTests.m */,
 				89EE610C1DBEADE400D2FB36 /* Test Media.xcassets */,
 				893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */,
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
 				890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */,
 				890E51A91E579DEF004A6061 /* MapViewControllerTests.m */,
+				8940B6E31E5CED3C000D8946 /* MapControllerTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
 				89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */,
@@ -291,6 +303,10 @@
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
 				890E51A61E563B01004A6061 /* MapViewController.h */,
 				890E51A71E563B01004A6061 /* MapViewController.m */,
+				8940B6E01E5CED14000D8946 /* MapController.h */,
+				8940B6E11E5CED14000D8946 /* MapController.m */,
+				8940B6DD1E5CE448000D8946 /* BusinessAnnotation.h */,
+				8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */,
 				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
 				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
 				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
@@ -621,6 +637,8 @@
 				89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */,
 				89FB39091D88A08C0086851E /* FourSquareResponseParser.m in Sources */,
 				89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */,
+				8940B6DF1E5CE448000D8946 /* BusinessAnnotation.m in Sources */,
+				8940B6E21E5CED14000D8946 /* MapController.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				89A10CDC1D511ABA009E5867 /* Business.m in Sources */,
 				890E51BA1E57BC4E004A6061 /* BusinessCell.m in Sources */,
@@ -637,9 +655,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8940B6E41E5CED3C000D8946 /* MapControllerTests.m in Sources */,
 				89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */,
 				890E51AC1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
+				8940B6DC1E5CE36E000D8946 /* BusinessAnnotationTests.m in Sources */,
 				890E51AA1E579DEF004A6061 /* MapViewControllerTests.m in Sources */,
 				893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */,
 				891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */,
