@@ -22,7 +22,7 @@
 }
 
 -(void)configureViewController {
-    [self.mapViewController annotateCoordinate:self.businessLocation.coordinate];
+    [self.mapViewController annotateCoordinate:self.businessLocation.coordinate withTitle:self.businessName];
     int radius = 500;
     [self.mapViewController zoomToCoordinate:self.businessLocation.coordinate withRadius:radius];
 }

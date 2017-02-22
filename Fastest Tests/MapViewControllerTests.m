@@ -12,33 +12,52 @@
 #import "OCMock.h"
 
 @interface MapViewControllerTests : XCTestCase
-
+@property (strong, nonatomic) MapViewController *SUT;
 @end
 
 @implementation MapViewControllerTests
 
-//- (void)testMapViewController {
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    MapViewController *SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
-//    XCTAssertNotNil(SUT);
-//    XCTAssertNil(SUT.businessLocation);
-//    
-//    [SUT view];
-//    
-//    XCTAssertNotNil(SUT.mapView);
-//}
-
-- (void)testMapViewController {
+-(void)setUp {
+    [super setUp];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MapViewController *SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    self.SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+}
+- (void)testProperties {
+    XCTAssertNotNil(self.SUT);
+    XCTAssertNil(self.SUT.businessLocation);
+    XCTAssertNil(self.SUT.businessTitle);
+}
+
+- (void)testViewDidLoad {
     id fakeController = OCMClassMock([MapController class]);
-    SUT.controller = fakeController;
+    self.SUT.controller = fakeController;
     
     // Load View
-    [SUT view];
+    [self.SUT view];
     
+    XCTAssertNil(self.SUT.businessLocation);
+    XCTAssertNotNil(self.SUT.mapView);
     OCMVerify([fakeController configureViewController]);
+}
+
+- (void)testSetBusinessLocation {
+    MapController *fakeController = OCMClassMock([MapController class]);
+    self.SUT.controller = fakeController;
     
+    CLLocation *businessLocation = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+    self.SUT.businessLocation = businessLocation;
+    
+    OCMVerify([fakeController setBusinessLocation:businessLocation]);
+}
+
+- (void)testSetBusinessName {
+    MapController *fakeController = OCMClassMock([MapController class]);
+    self.SUT.controller = fakeController;
+    
+    NSString *businessName = @"Cyberdyne Systems";
+    self.SUT.businessTitle = businessName;
+    
+    OCMVerify([fakeController setBusinessName:businessName]);
 }
 
 @end

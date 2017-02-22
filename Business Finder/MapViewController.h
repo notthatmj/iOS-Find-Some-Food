@@ -11,9 +11,10 @@
 @class MapController;
 
 @interface MapViewController : UIViewController
-@property (nonatomic, strong) CLLocation* businessLocation;
+@property (nonatomic, copy) CLLocation* businessLocation;
+@property (nonatomic, copy) NSString* businessTitle;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) MapController *controller;
-- (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate;
+- (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title;
 - (void)zoomToCoordinate:(CLLocationCoordinate2D)coordinate withRadius:(int) radius;
 @end

@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1263.2" y="956.67166416791611"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="va8-5R-E3G">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="rcT-Gh-wul" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="rcT-Gh-wul" userLabel="Map" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5NA-FR-BLM"/>
                         <viewControllerLayoutGuide type="bottom" id="g16-tm-ayZ"/>
@@ -72,8 +72,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8tD-K2-Gzn">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8tD-K2-Gzn">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,7 +97,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bqb-Jx-tsc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="ofD-9i-jve">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ofD-9i-jve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -50,6 +50,7 @@
     BusinessCell *cell = sender;
     mapViewController.businessLocation = [[CLLocation alloc] initWithLatitude:cell.business.latitude
                                                                     longitude:cell.business.longitude];
+    mapViewController.businessTitle = cell.business.name;
 }
 
 @end

@@ -12,6 +12,7 @@
 
 @interface MapController : NSObject
 @property (nonatomic, strong) CLLocation *businessLocation;
+@property (nonatomic, copy) NSString *businessName;
 - (instancetype) initWithViewController:(MapViewController *)mapViewController;
 -(void) configureViewController;
 @end

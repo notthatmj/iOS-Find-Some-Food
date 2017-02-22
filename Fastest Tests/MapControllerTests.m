@@ -28,11 +28,11 @@
     int fakeLongitude = 2.0;
     CLLocation *fakeLocation = [[CLLocation alloc] initWithLatitude:fakeLatitude longitude:fakeLongitude];
     SUT.businessLocation = fakeLocation;
+    SUT.businessName = @"Cyberdyne Systems";
     
     [SUT configureViewController];
     
-//    OCMVerify([fakeViewController annotateBusinessLocation]);
-    OCMVerify([fakeViewController annotateCoordinate:fakeLocation.coordinate]);
+    OCMVerify([fakeViewController annotateCoordinate:fakeLocation.coordinate withTitle:SUT.businessName]);
     OCMVerify([fakeViewController zoomToCoordinate:fakeLocation.coordinate withRadius:500]);
 }
 

@@ -36,10 +36,16 @@
     self.controller.businessLocation = businessLocation;
 }
 
-- (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate {
+-(void)setBusinessTitle:(NSString *)businessTitle {
+    self.controller.businessName = [businessTitle copy];
+}
+
+- (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title {
     BusinessAnnotation *annotation = [BusinessAnnotation new];
     annotation.coordinate = coordinate;
+    annotation.title = title;
     [self.mapView addAnnotation:annotation];
+    [self.mapView selectAnnotation:annotation animated:YES];
 }
 
 - (void)zoomToCoordinate:(CLLocationCoordinate2D)coordinate withRadius:(int) radius {
