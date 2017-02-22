@@ -69,7 +69,7 @@
     NSString *testErrorMessage = @"foobar";
     NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
     NSError *testError = [NSError errorWithDomain:kBusinessFinderErrorDomain
-                                             code:kBusinessesDataControllerErrorLocation
+                                             code:kModelErrorLocation
                                          userInfo:testUserInfo];
     
     // Run

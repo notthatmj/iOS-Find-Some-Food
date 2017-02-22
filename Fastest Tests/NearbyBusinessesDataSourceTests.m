@@ -9,10 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"
-#import "BusinessesDataController.h"
+#import "Model.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
 #import "BusinessCell.h"
+#import "AppDelegate.h"
 
 @interface DummyCellClass : UITableViewCell
 @end
@@ -43,9 +44,9 @@
     Business *business2 = [self makeBusinessWithName:@"Moe's Restaurant" distance:2.0 imagedNamed:@"B"];
     Business *business3 = [self makeBusinessWithName:@"Curly's Restaurant" distance:3.0 imagedNamed:@"C"];
     self.businesses = @[business1,business2,business3];
-    BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
-    OCMStub([fakeBusinessesDataController businesses]).andReturn(self.businesses);
-    self.SUT.businessesDataController = fakeBusinessesDataController;
+    Model *fakeModel = OCMClassMock([Model class]);
+    OCMStub([fakeModel businesses]).andReturn(self.businesses);
+    self.SUT.model = fakeModel;
     
     self.tableView = [UITableView new];
     [self.tableView registerClass:[DummyCellClass class] forCellReuseIdentifier:@"PrototypeCell"];
@@ -87,21 +88,21 @@
     [self.SUT updateBusinesses];
     
     //Verify
-    OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);
-    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinesses]);    
+    OCMVerify([self.SUT.model setDelegate:self.SUT]);
+    OCMVerify([self.SUT.model updateLocationAndBusinesses]);
 
     // Run
-    [self.SUT businessesDataControllerDidUpdateBusinesses];
+    [self.SUT modelDidUpdateBusinesses];
     
     //Verify
     OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses]);
 }
 
-- (void)testBusinessDataControllerDidFail {
+- (void)testModelDidFail {
     id<NearbyBusinessesDataSourceDelegate> fakeDelegate = OCMProtocolMock(@protocol(NearbyBusinessesDataSourceDelegate));
     self.SUT.delegate = fakeDelegate;
     
-    [self.SUT businessesDataControllerDidFailWithError:nil];
+    [self.SUT modelDidFailWithError:nil];
     
     OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidFailWithError:nil]);
 }
@@ -112,8 +113,10 @@
 @end
 
 @implementation NearbyBusinessesDataSourceSimplePropertyTests
--(void) testBusinessesDataController {
+-(void) testModel {
     NearbyBusinessesDataSource *SUT = [NearbyBusinessesDataSource new];
-    XCTAssertNotNil(SUT.businessesDataController);
+    XCTAssertNotNil(SUT.model);
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    XCTAssert(SUT.model == appDelegate.model);
 }
 @end

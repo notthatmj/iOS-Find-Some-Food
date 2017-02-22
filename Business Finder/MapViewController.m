@@ -28,16 +28,8 @@
     return _controller;
 }
 
--(CLLocation *)businessLocation {
-    return self.controller.businessLocation;
-}
-
--(void)setBusinessLocation:(CLLocation *)businessLocation {
-    self.controller.businessLocation = businessLocation;
-}
-
--(void)setBusinessTitle:(NSString *)businessTitle {
-    self.controller.businessName = [businessTitle copy];
+-(void)setBusiness:(Business *)business {
+    self.controller.business = business;
 }
 
 - (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title {
@@ -49,7 +41,7 @@
 }
 
 - (void)zoomToCoordinate:(CLLocationCoordinate2D)coordinate withRadius:(int) radius {
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.businessLocation.coordinate,
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate,
                                                                2*radius,
                                                                2*radius)];
 }

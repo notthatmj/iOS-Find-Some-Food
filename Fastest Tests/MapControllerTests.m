@@ -10,6 +10,9 @@
 #import "MapController.h"
 #import "MapViewController.h"
 #import "OCMock.h"
+#import "Business.h"
+#import "Model.h"
+#import "AppDelegate.h"
 
 @interface MapControllerTests : XCTestCase
 
@@ -22,18 +25,46 @@
 }
 
 - (void)testConfigureViewController {
-    id fakeViewController = OCMClassMock([MapViewController class]);
-    MapController *SUT = [[MapController alloc] initWithViewController:fakeViewController];
-    int fakeLatitude = 1.0;
-    int fakeLongitude = 2.0;
-    CLLocation *fakeLocation = [[CLLocation alloc] initWithLatitude:fakeLatitude longitude:fakeLongitude];
-    SUT.businessLocation = fakeLocation;
-    SUT.businessName = @"Cyberdyne Systems";
+    const int testBusinessLatitude = 1.0, testBusinessLongitude = 3.0;
+    const int testUserLatitude = 3.0, testUserLongitude = 4.0;
     
+    // Setup
+    Model *fakeModel = OCMClassMock([Model class]);
+    OCMStub([fakeModel userLatitude]).andReturn(testUserLatitude);
+    OCMStub([fakeModel userLongitude]).andReturn(testUserLongitude);
+
+    MapViewController *fakeViewController = OCMClassMock([MapViewController class]);
+    MapController *SUT = [[MapController alloc] initWithViewController:fakeViewController
+                                              model:fakeModel];
+    
+    Business *business = [[Business alloc] initWithName:@"Cyberdyne Systems" distance:1.0];
+    business.latitude = testBusinessLatitude;
+    business.longitude = testBusinessLongitude;
+    SUT.business = business;
+
+    // Run
     [SUT configureViewController];
     
-    OCMVerify([fakeViewController annotateCoordinate:fakeLocation.coordinate withTitle:SUT.businessName]);
-    OCMVerify([fakeViewController zoomToCoordinate:fakeLocation.coordinate withRadius:500]);
+    // Verify
+    CLLocationCoordinate2D expectedBusinessCoordinate = CLLocationCoordinate2DMake(testBusinessLatitude, testBusinessLongitude);
+    OCMVerify([fakeViewController annotateCoordinate:expectedBusinessCoordinate withTitle:business.name]);
+    CLLocationCoordinate2D expectedUserCoordinate = CLLocationCoordinate2DMake(testUserLatitude,
+                                                                               testUserLongitude);
+    
+    OCMVerify([fakeViewController zoomToCoordinate:expectedUserCoordinate withRadius:500]);
+}
+
+-(void)testModel {
+    // Setup
+    id fakeViewController = OCMClassMock([MapViewController class]);
+    MapController *SUT = [[MapController alloc] initWithViewController:fakeViewController];
+    
+    // Run
+    Model *model = SUT.model;
+    
+    // Verify
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    XCTAssert(model == [appDelegate model]);
 }
 
 @end

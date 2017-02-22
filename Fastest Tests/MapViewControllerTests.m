@@ -10,6 +10,7 @@
 #import "MapViewController.h"
 #import "MapController.h"
 #import "OCMock.h"
+#import "Business.h"
 
 @interface MapViewControllerTests : XCTestCase
 @property (strong, nonatomic) MapViewController *SUT;
@@ -24,8 +25,6 @@
 }
 - (void)testProperties {
     XCTAssertNotNil(self.SUT);
-    XCTAssertNil(self.SUT.businessLocation);
-    XCTAssertNil(self.SUT.businessTitle);
 }
 
 - (void)testViewDidLoad {
@@ -35,29 +34,18 @@
     // Load View
     [self.SUT view];
     
-    XCTAssertNil(self.SUT.businessLocation);
     XCTAssertNotNil(self.SUT.mapView);
     OCMVerify([fakeController configureViewController]);
 }
 
-- (void)testSetBusinessLocation {
+- (void)testSetBusiness {
     MapController *fakeController = OCMClassMock([MapController class]);
     self.SUT.controller = fakeController;
-    
-    CLLocation *businessLocation = [[CLLocation alloc] initWithLatitude:0 longitude:0];
-    self.SUT.businessLocation = businessLocation;
-    
-    OCMVerify([fakeController setBusinessLocation:businessLocation]);
-}
+    Business *business = [[Business alloc] initWithName:@"Cyberdyne Systems" distance:1.0];
 
-- (void)testSetBusinessName {
-    MapController *fakeController = OCMClassMock([MapController class]);
-    self.SUT.controller = fakeController;
+    self.SUT.business = business;
     
-    NSString *businessName = @"Cyberdyne Systems";
-    self.SUT.businessTitle = businessName;
-    
-    OCMVerify([fakeController setBusinessName:businessName]);
+    OCMVerify([fakeController setBusiness:business]);
 }
 
 @end

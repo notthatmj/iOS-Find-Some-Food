@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
+#import "Model.h"
 
 @interface MapController : NSObject
-@property (nonatomic, strong) CLLocation *businessLocation;
-@property (nonatomic, copy) NSString *businessName;
+@property (nonatomic, strong) Business *business;
+@property (nonatomic, strong, readonly) Model* model;
 - (instancetype) initWithViewController:(MapViewController *)mapViewController;
+- (instancetype) initWithViewController:(MapViewController *)mapViewController
+                                  model:(Model *)model;
 -(void) configureViewController;
 @end

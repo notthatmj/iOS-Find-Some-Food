@@ -48,9 +48,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MapViewController *mapViewController = segue.destinationViewController;
     BusinessCell *cell = sender;
-    mapViewController.businessLocation = [[CLLocation alloc] initWithLatitude:cell.business.latitude
-                                                                    longitude:cell.business.longitude];
-    mapViewController.businessTitle = cell.business.name;
+    mapViewController.business = cell.business;
 }
 
 @end

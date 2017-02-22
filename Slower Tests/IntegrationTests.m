@@ -7,18 +7,18 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "BusinessesDataController.h"
+#import "Model.h"
 #import "Business.h"
 
-@interface IntegrationTests : XCTestCase<BusinessesDataControllerDelegate>
+@interface IntegrationTests : XCTestCase<ModelObserving>
 @property (strong, nonatomic) XCTestExpectation *expectation;
 @end
 
 @implementation IntegrationTests
 
-- (void)testBusinessesDataControllerDelegateAPIIntegration {
+- (void)testModelDelegateAPIIntegration {
     // Setup
-    BusinessesDataController *SUT = [BusinessesDataController new];
+    Model *SUT = [Model new];
     SUT.delegate = self;
     XCTAssertEqual(SUT.businesses.count,0);
     self.expectation = [self expectationWithDescription:@"expectation" ];
@@ -34,10 +34,12 @@
         XCTAssertNotNil(business.name);
     }
 }
--(void)businessesDataControllerDidUpdateBusinesses {
+
+-(void)modelDidUpdateBusinesses {
     [self.expectation fulfill];
 }
--(void)businessesDataControllerDidFailWithError:(NSError *)error {
+
+-(void)modelDidFailWithError:(NSError *)error {
     
 }
 @end

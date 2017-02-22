@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 @class MapController;
+@class Business;
 
 @interface MapViewController : UIViewController
-@property (nonatomic, copy) CLLocation* businessLocation;
-@property (nonatomic, copy) NSString* businessTitle;
+-(void)setBusiness:(Business *)business;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) MapController *controller;
 - (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title;
