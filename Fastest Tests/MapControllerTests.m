@@ -25,9 +25,10 @@
 }
 
 - (void)testConfigureViewController {
-    const int testBusinessLatitude = 1.0, testBusinessLongitude = 3.0;
+    const int testBusinessLatitude = 1.0, testBusinessLongitude = 2.0;
     const int testUserLatitude = 3.0, testUserLongitude = 4.0;
-    
+    // Distance (in meters) betweeen the coordinates above
+    const double expectedRadius = 313713;
     // Setup
     Model *fakeModel = OCMClassMock([Model class]);
     OCMStub([fakeModel userLatitude]).andReturn(testUserLatitude);
@@ -51,7 +52,7 @@
     CLLocationCoordinate2D expectedUserCoordinate = CLLocationCoordinate2DMake(testUserLatitude,
                                                                                testUserLongitude);
     
-    OCMVerify([fakeViewController zoomToCoordinate:expectedUserCoordinate withRadius:500]);
+    OCMVerify([fakeViewController zoomToCoordinate:expectedUserCoordinate withRadius:expectedRadius]);
 }
 
 -(void)testModel {

@@ -34,13 +34,13 @@
 }
 
 -(void)configureViewController {
-    CLLocationCoordinate2D userCoordinate = CLLocationCoordinate2DMake(self.model.userLatitude,
-                                                                   self.model.userLongitude);
-    CLLocationCoordinate2D businessCoordinate = CLLocationCoordinate2DMake(self.business.latitude,
-                                                                           self.business.longitude);
-    [self.mapViewController annotateCoordinate:businessCoordinate withTitle:self.business.name];
-    int radius = 500;
-    [self.mapViewController zoomToCoordinate:userCoordinate withRadius:radius];
+    CLLocation *userLocation = [[CLLocation alloc] initWithLatitude:self.model.userLatitude
+                                                         longitude:self.model.userLongitude];
+    CLLocation *businessLocation  = [[CLLocation alloc] initWithLatitude:self.business.latitude
+                                                               longitude:self.business.longitude];
+    CLLocationDistance distance = [userLocation distanceFromLocation:businessLocation];
+    [self.mapViewController annotateCoordinate:businessLocation.coordinate withTitle:self.business.name];
+    [self.mapViewController zoomToCoordinate:userLocation.coordinate withRadius:distance];
 }
 
 @end
