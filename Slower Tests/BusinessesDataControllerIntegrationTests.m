@@ -35,7 +35,7 @@
     Model *SUT = [Model new];
     ModelTestObserver *testDelegate = [ModelTestObserver new];
     testDelegate.expectation = [self expectationWithDescription:@"expectation"];
-    SUT.delegate = testDelegate;
+    SUT.observer = testDelegate;
     
     [SUT updateLocationAndBusinesses];
     

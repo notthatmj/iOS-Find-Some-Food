@@ -43,7 +43,7 @@
 }
 
 -(void)updateBusinesses {
-    self.model.delegate = self;
+    self.model.observer = self;
     [self.model updateLocationAndBusinesses];
 }
 -(void)modelDidUpdateBusinesses {

@@ -55,14 +55,14 @@
         NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
                                              code:kModelErrorLocationPermissionDenied
                                          userInfo:userInfo];
-        [self.delegate modelDidFailWithError:error];
+        [self.observer modelDidFailWithError:error];
     } else {
         NSString *desc =  NSLocalizedString(@"Unable to retrieve location.", @"");
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
         NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
                                              code:kModelErrorLocation
                                          userInfo:userInfo];
-        [self.delegate modelDidFailWithError:error];
+        [self.observer modelDidFailWithError:error];
     }
 }
 
@@ -83,7 +83,7 @@
         dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER);
         dispatch_async(dispatch_get_main_queue(), ^{
             self.businesses = businesses;
-            [self.delegate modelDidUpdateBusinesses];
+            [self.observer modelDidUpdateBusinesses];
         });
     });
 }
@@ -94,6 +94,6 @@
     NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
                                          code:kModelErrorServer
                                      userInfo:userInfo];
-    [self.delegate modelDidFailWithError:error];
+    [self.observer modelDidFailWithError:error];
 }
 @end

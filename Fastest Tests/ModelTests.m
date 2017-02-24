@@ -92,7 +92,7 @@
     ModelObserverForHappyPathTests *testDelegate = [ModelObserverForHappyPathTests new];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
     testDelegate.testExpectation = expectation;
-    self.SUT.delegate = testDelegate;
+    self.SUT.observer = testDelegate;
     // We need to keep a strong refrence to testDelegate to keep it alive until the end of the test
     self.testDelegate = testDelegate;
 }
@@ -173,7 +173,7 @@
     
     id testDelegate = OCMStrictProtocolMock(@protocol(ModelObserving));
     OCMExpect([testDelegate modelDidFailWithError:[OCMArg checkWithBlock:errorCheckBlock]]);
-    self.SUT.delegate = testDelegate;
+    self.SUT.observer = testDelegate;
     return testDelegate;
 }
 
@@ -194,7 +194,7 @@
 - (void)testFourSquareGatewayDidFail {
     // Setup fake delegate
     id testDelegate = OCMProtocolMock(@protocol(ModelObserving));
-    self.SUT.delegate = testDelegate;
+    self.SUT.observer = testDelegate;
     
     [self.SUT fourSquareGatewayDidFail];
     OCMVerify([testDelegate modelDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {

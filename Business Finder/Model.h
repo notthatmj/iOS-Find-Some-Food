@@ -17,7 +17,7 @@
 @end
 
 @interface Model : NSObject<LocationGatewayDelegate,FourSquareGatewayDelegate>
-@property (weak, nonatomic) id<ModelObserving> delegate;
+@property (weak, nonatomic) id<ModelObserving> observer;
 @property (readonly) NSArray<Business *> *businesses;
 @property (nonatomic, readonly) double userLatitude;
 @property (nonatomic, readonly) double userLongitude;

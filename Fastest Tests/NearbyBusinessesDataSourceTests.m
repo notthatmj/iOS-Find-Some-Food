@@ -88,7 +88,7 @@
     [self.SUT updateBusinesses];
     
     //Verify
-    OCMVerify([self.SUT.model setDelegate:self.SUT]);
+    OCMVerify([self.SUT.model setObserver:self.SUT]);
     OCMVerify([self.SUT.model updateLocationAndBusinesses]);
 
     // Run

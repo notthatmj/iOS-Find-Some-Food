@@ -19,7 +19,7 @@
 - (void)testModelDelegateAPIIntegration {
     // Setup
     Model *SUT = [Model new];
-    SUT.delegate = self;
+    SUT.observer = self;
     XCTAssertEqual(SUT.businesses.count,0);
     self.expectation = [self expectationWithDescription:@"expectation" ];
     
