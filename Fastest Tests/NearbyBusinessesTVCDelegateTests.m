@@ -11,61 +11,46 @@
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
 #import "BusinessFinderErrorDomain.h"
-
-@protocol TestDataSourceProtocol <NSObject>
-
-- arbitraryDataSourceMethodName;
-
-@end
+#import "Business.h"
 
 @interface NearbyBusinessesTVCDelegateTests : XCTestCase
-
+@property (nonatomic, strong) NearbyBusinessesTVCDelegate *SUT;
+@property (nonatomic, strong) NearbyBusinessesDataSource *fakeDataSource;
+@property (nonatomic, strong) NearbyBusinessesTableViewController *fakeTableViewController;
+@property (nonatomic, strong) id aFakeBusiness;
+@property (nonatomic, strong) id anotherFakeBusiness;
+@property (nonatomic, strong) id fakeTableView;
 @end
 
 @implementation NearbyBusinessesTVCDelegateTests
 
--(void)testStartInitialLoadAndSuccessfulRetrievalOfBusinesses {
-//    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
-    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
+-(void)setUp {
+    self.fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
     NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
-    id fakeTableView = OCMClassMock([UITableView class]);
-    OCMStub([fakeTableView dataSource]).andReturn(fakeDataSource);
-    OCMStub([fakeTableViewController tableView]).andReturn(fakeTableView);
-    NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
-    SUT.dataSource = fakeDataSource;
-    SUT.nearbyBusinessesTableViewController = fakeTableViewController;
-//    SUT.refreshControl = fakeRefreshControl;
+    self.aFakeBusiness = [Business new];
+    self.anotherFakeBusiness = [Business new];
+    OCMStub([self.fakeDataSource businessAtIndex:0]).andReturn(self.aFakeBusiness);
+    OCMStub([self.fakeDataSource businessAtIndex:1]).andReturn(self.anotherFakeBusiness);
+    self.fakeTableView = OCMClassMock([UITableView class]);
+    OCMStub([self.fakeTableView dataSource]).andReturn(self.fakeDataSource);
+    OCMStub([fakeTableViewController tableView]).andReturn(self.fakeTableView);
+    self.SUT = [NearbyBusinessesTVCDelegate new];
+    self.SUT.dataSource = self.fakeDataSource;
+    self.SUT.nearbyBusinessesTableViewController = fakeTableViewController;
+}
+
+-(void)testStartInitialLoadAndSuccessfulRetrievalOfBusinesses {
+    [self.SUT startInitialLoad];
     
-    [SUT startInitialLoad];
+    OCMVerify([self.fakeTableView setDataSource:self.fakeDataSource]);
+    OCMVerify([self.fakeDataSource setDelegate:self.SUT]);
+    OCMVerify([self.fakeDataSource updateBusinesses]);
+    [self.SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
     
-    OCMVerify([fakeTableView setDataSource:fakeDataSource]);
-    OCMVerify([fakeDataSource setDelegate:SUT]);
-    OCMVerify([fakeDataSource updateBusinesses]);
-//    OCMVerify([fakeTableView setRefreshControl:fakeRefreshControl]);
-//    
-//    OCMVerify([fakeRefreshControl addTarget:[OCMArg any] action:@selector(updateBusinesses) forControlEvents:UIControlEventValueChanged]);
-//    OCMVerify([fakeRefreshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.0]);
-////    OCMVerify([[fakeTableView stub] ignoringNonObjectArgs]);
-////    OCMVerify([fakeTableView setContentOffset:CGPointZero animated:YES]);
-//    OCMVerify([[fakeTableView ignoringNonObjectArgs] setContentOffset:CGPointZero animated:YES]);
-    [SUT nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
-    
-    OCMVerify([fakeTableView reloadData]);
-//    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
+    OCMVerify([self.fakeTableView reloadData]);
 }
 
 - (void)testNearbyBusinessesDataSourceDidFail {
-    // Setup
-//    UIRefreshControl *fakeRefreshControl = OCMClassMock([UIRefreshControl class]);
-    NearbyBusinessesDataSource *fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
-    NearbyBusinessesTableViewController *fakeTableViewController = OCMClassMock([NearbyBusinessesTableViewController class]);
-    UITableView *fakeTableView = OCMClassMock([UITableView class]);
-    OCMStub([fakeTableViewController tableView]).andReturn(fakeTableView);
-    NearbyBusinessesTVCDelegate *SUT = [NearbyBusinessesTVCDelegate new];
-    SUT.dataSource = fakeDataSource;
-    SUT.nearbyBusinessesTableViewController = fakeTableViewController;
-//    SUT.refreshControl = fakeRefreshControl;
-    
     NSString *testErrorMessage = @"foobar";
     NSDictionary *testUserInfo = @{NSLocalizedDescriptionKey : testErrorMessage};
     NSError *testError = [NSError errorWithDomain:kBusinessFinderErrorDomain
@@ -73,7 +58,7 @@
                                          userInfo:testUserInfo];
     
     // Run
-    [SUT nearbyBusinessesDataSourceDidFailWithError:testError];
+    [self.SUT nearbyBusinessesDataSourceDidFailWithError:testError];
     
     // Verify
     BOOL (^checkAlertController)(id obj) = ^BOOL(id obj) {
@@ -94,10 +79,17 @@
         }
         return true;
     };
-    OCMVerify([fakeTableViewController presentViewController:[OCMArg checkWithBlock:checkAlertController]
+    OCMVerify([self.fakeTableViewController presentViewController:[OCMArg checkWithBlock:checkAlertController]
                                                     animated:YES
                                                   completion:nil]);
-//    OCMVerify([fakeRefreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.0]);
 }
 
+- (void)testBusinessAtIndex {
+    Business *firstBusiness = [self.SUT businessAtIndex:0];
+    Business *secondBusiness = [self.SUT businessAtIndex:1];
+    
+    XCTAssertEqual(firstBusiness, self.aFakeBusiness);
+    XCTAssertEqual(secondBusiness, self.anotherFakeBusiness);
+    
+}
 @end

@@ -16,7 +16,7 @@
 - (void) modelDidFailWithError:(NSError *)error;
 @end
 
-@interface Model : NSObject<LocationGatewayDelegate,FourSquareGatewayDelegate>
+@interface Model : NSObject<LocationGatewayDelegate, FourSquareGatewayDelegate>
 @property (weak, nonatomic) id<ModelObserving> observer;
 @property (readonly) NSArray<Business *> *businesses;
 @property (nonatomic, readonly) double userLatitude;

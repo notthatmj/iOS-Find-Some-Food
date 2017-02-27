@@ -35,10 +35,19 @@
     return result;
 }
 
+- (Business *)businessAtIndex:(NSInteger)index {
+    return [self.model businesses][index];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BusinessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.model businesses][indexPath.row];
-    cell.business = business;
+    Business *business = [self businessAtIndex:indexPath.row];
+    cell.businessName = business.name;
+    NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
+    cell.distanceText = distanceString;
+    UIImage *image = business.image;
+    [cell setBusinessImage:image];
+    [cell setIndexPath:indexPath];
     return cell;
 }
 

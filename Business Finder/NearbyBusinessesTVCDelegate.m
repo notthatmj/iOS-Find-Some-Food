@@ -40,4 +40,9 @@
 -(void)updateBusinesses {
     [self.dataSource updateBusinesses];
 }
+
+-(Business *)businessAtIndex:(NSInteger) index {
+    return [self.dataSource businessAtIndex:index];
+}
+
 @end

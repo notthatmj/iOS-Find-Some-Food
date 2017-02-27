@@ -10,5 +10,8 @@
 #import "Business.h"
 
 @interface BusinessCell : UITableViewCell
-@property (strong, nonatomic) Business *business;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+-(void) setBusinessName:(NSString *)name;
+-(void) setDistanceText:(NSString *)text;
+-(void) setBusinessImage:(UIImage *)image;
 @end

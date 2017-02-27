@@ -302,6 +302,8 @@
 				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
 				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
+				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
+				891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */,
 				890E51A61E563B01004A6061 /* MapViewController.h */,
 				890E51A71E563B01004A6061 /* MapViewController.m */,
 				8940B6E01E5CED14000D8946 /* MapController.h */,
@@ -310,8 +312,6 @@
 				8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */,
 				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
 				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
-				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
-				891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

@@ -15,8 +15,9 @@
 - (void) nearbyBusinessesDataSourceDidFailWithError:(NSError *)error;
 @end
 
-@interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,ModelObserving>
+@interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource, ModelObserving>
 @property (strong,nonatomic) Model* model;
 @property (weak,nonatomic) id<NearbyBusinessesDataSourceDelegate> delegate;
 -(void)updateBusinesses;
+- (Business *)businessAtIndex:(NSInteger)index;
 @end

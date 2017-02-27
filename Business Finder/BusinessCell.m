@@ -10,12 +10,15 @@
 
 @implementation BusinessCell
 
-- (void)setBusiness:(Business *)business {
-    _business = business;
-    self.textLabel.text = business.name;
-    NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
-    self.detailTextLabel.text = distanceString;
-    UIImage *image = business.image;
+-(void)setBusinessName:(NSString *)businessName {
+    self.textLabel.text = businessName;
+}
+
+-(void)setDistanceText:(NSString *)distanceText {
+    self.detailTextLabel.text = distanceText;
+}
+
+-(void) setBusinessImage:(UIImage *)image {
     self.imageView.isAccessibilityElement = YES;
     self.imageView.accessibilityIdentifier = @"photo";
     self.imageView.image = image;

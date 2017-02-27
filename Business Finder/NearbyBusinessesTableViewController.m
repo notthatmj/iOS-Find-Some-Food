@@ -7,8 +7,6 @@
 //
 
 #import "NearbyBusinessesTableViewController.h"
-#import "Business.h"
-#import "LocationGateway.h"
 #import "NearbyBusinessesTVCDelegate.h"
 #import "MapViewController.h"
 #import "BusinessCell.h"
@@ -48,7 +46,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MapViewController *mapViewController = segue.destinationViewController;
     BusinessCell *cell = sender;
-    mapViewController.business = cell.business;
+    mapViewController.business = [self.delegate businessAtIndex:cell.indexPath.row];
 }
 
 @end

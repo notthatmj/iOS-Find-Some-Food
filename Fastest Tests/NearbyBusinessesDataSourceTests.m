@@ -65,6 +65,7 @@
 
 - (void)testTableViewCellForRowAtIndexPath {
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
+    NSArray<NSString *> *expectedDistanceString = @[@"1.00 miles", @"2.00 miles", @"3.00 miles"];
     for (int i=0; i < [self.businesses count]; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         BusinessCell *fakeCell = OCMClassMock([BusinessCell class]);
@@ -73,9 +74,13 @@
         
         UITableViewCell *cell = [self.SUT tableView:fakeTableView cellForRowAtIndexPath:indexPath];
         Business *currentBusiness = self.businesses[i];
-
+        
         XCTAssertEqual(fakeCell, cell);
-        OCMVerify([fakeCell setBusiness:currentBusiness]);
+        OCMVerify([fakeCell setBusinessName:currentBusiness.name]);
+        OCMVerify([fakeCell setDistanceText:expectedDistanceString[i]]);
+//        OCMVerify([fakeCell setDistanceText:[OCMArg any]]);
+        OCMVerify([fakeCell setBusinessImage:currentBusiness.image]);
+        OCMVerify([fakeCell setIndexPath:indexPath]);
     }
 }
 
@@ -105,6 +110,12 @@
     [self.SUT modelDidFailWithError:nil];
     
     OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidFailWithError:nil]);
+}
+
+- (void)testBusinessAtIndex {
+    XCTAssertEqual(self.businesses[0], [self.SUT businessAtIndex:0]);
+    XCTAssertEqual(self.businesses[1], [self.SUT businessAtIndex:1]);
+    XCTAssertEqual(self.businesses[2], [self.SUT businessAtIndex:2]);
 }
 @end
 
