@@ -53,6 +53,7 @@
                                                                                testUserLongitude);
     
     OCMVerify([fakeViewController zoomToCoordinate:expectedUserCoordinate withRadius:expectedRadius]);
+    OCMVerify([fakeViewController displayDirectionsToCoordinate:expectedBusinessCoordinate]);
 }
 
 -(void)testModel {

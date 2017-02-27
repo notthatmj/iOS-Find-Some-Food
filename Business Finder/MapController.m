@@ -41,6 +41,7 @@
     CLLocationDistance distance = [userLocation distanceFromLocation:businessLocation];
     [self.mapViewController annotateCoordinate:businessLocation.coordinate withTitle:self.business.name];
     [self.mapViewController zoomToCoordinate:userLocation.coordinate withRadius:distance];
+    [self.mapViewController displayDirectionsToCoordinate:businessLocation.coordinate];
 }
 
 @end

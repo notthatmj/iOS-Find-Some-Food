@@ -11,10 +11,11 @@
 @class MapController;
 @class Business;
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<MKMapViewDelegate>
 -(void)setBusiness:(Business *)business;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) MapController *controller;
-- (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title;
-- (void)zoomToCoordinate:(CLLocationCoordinate2D)coordinate withRadius:(int) radius;
+- (void) annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title;
+- (void) zoomToCoordinate:(CLLocationCoordinate2D)coordinate withRadius:(int) radius;
+- (void) displayDirectionsToCoordinate:(CLLocationCoordinate2D)coordinate;
 @end

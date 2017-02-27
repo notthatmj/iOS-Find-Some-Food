@@ -11,13 +11,14 @@
 #import "MapController.h"
 
 @interface MapViewController ()
-
+@property (nonatomic, strong) id<MKOverlay> routeOverlay;
 @end
 
 @implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mapView.delegate = self;
     [self.controller configureViewController];
 }
 
@@ -44,6 +45,33 @@
     [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate,
                                                                2*radius,
                                                                2*radius)];
+}
+
+-(void)displayDirectionsToCoordinate:(CLLocationCoordinate2D)coordinate {
+    MKMapItem *startingPoint = [MKMapItem mapItemForCurrentLocation];
+    MKPlacemark *endPointPlacemark = [[MKPlacemark alloc] initWithCoordinate:coordinate];
+    MKMapItem *endingPoint = [[MKMapItem alloc] initWithPlacemark:endPointPlacemark];
+    
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+    directionsRequest.source = startingPoint;
+    directionsRequest.destination = endingPoint;
+    directionsRequest.transportType = MKDirectionsTransportTypeWalking;
+    
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse * _Nullable response,
+                                                           NSError * _Nullable error) {
+        if (!error && response.routes != nil && response.routes.count>0) {
+            self.routeOverlay = response.routes[0].polyline;
+            [self.mapView addOverlay:self.routeOverlay level:MKOverlayLevelAboveRoads];
+        }
+    }];
+}
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.lineWidth = 5;
+    return renderer;
 }
 
 @end
