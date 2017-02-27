@@ -1,37 +1,21 @@
-
 //
-//  MainStoryboardTests.m
+//  NearbyBusinessesTableViewControllerTests.m
 //  Business Finder
 //
-//  Created by Michael Johnson on 8/1/16.
-//  Copyright © 2016 Michael Johnson. All rights reserved.
+//  Created by Michael Johnson on 2/17/17.
+//  Copyright © 2017 Michael Johnson. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "NearbyBusinessesTableViewController.h"
 #import "OCMock.h"
+#import "NearbyBusinessesTableViewController.h"
 #import "NearbyBusinessesTVCDelegate.h"
 
-@interface MyRefreshControl : UIRefreshControl
-@property (nonatomic) BOOL theThingWasCalled;
-@end
-
-@implementation MyRefreshControl
+@interface NearbyBusinessesTableViewControllerTests : XCTestCase
 
 @end
 
-@interface MainStoryboardTests : XCTestCase
-
-@end
-
-@implementation MainStoryboardTests
-
-- (void)testInitialViewController {
-    UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    XCTAssertNotNil(SUT);
-    UIViewController *initialViewController = [SUT instantiateInitialViewController];
-    XCTAssert([initialViewController isKindOfClass:[UINavigationController class]]);
-}
+@implementation NearbyBusinessesTableViewControllerTests
 
 - (void)testNearbyBusinessesTableViewController {
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

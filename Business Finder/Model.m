@@ -1,24 +1,24 @@
 //
-//  BusinessesDataController.m
+//  Model.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 8/2/16.
 //  Copyright © 2016 Michael Johnson. All rights reserved.
 //
 
-#import "BusinessesDataController.h"
+#import "Model.h"
 #import "Business.h"
 #import "FourSquareGateway.h"
 #import "BusinessFinderErrorDomain.h"
 
-@interface BusinessesDataController ()
+@interface Model ()
 @property (strong,nonatomic) NSArray *businesses;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
+@property (nonatomic) double userLatitude;
+@property (nonatomic) double userLongitude;
 @property (nonatomic, copy) void (^otherBlock)(void);
 @end
 
-@implementation BusinessesDataController
+@implementation Model
 
 - (instancetype)init {
     self = [super init];
@@ -35,10 +35,10 @@
 }
 
 -(void)locationGatewayDidUpdateLocation:(LocationGateway *)locationGateway {
-    self.longitude = [self.locationGateway.longitude doubleValue];
-    self.latitude = [self.locationGateway.latitude doubleValue];
+    self.userLongitude = [self.locationGateway.longitude doubleValue];
+    self.userLatitude = [self.locationGateway.latitude doubleValue];
     self.fourSquareGateway.delegate = self;
-    [self.fourSquareGateway getNearbyBusinessesForLatitude:self.latitude longitude:self.longitude];
+    [self.fourSquareGateway getNearbyBusinessesForLatitude:self.userLatitude longitude:self.userLongitude];
 }
 
 -(FourSquareGateway *)fourSquareGateway {
@@ -53,16 +53,16 @@
         NSString *desc =  NSLocalizedString(@"Please enable location services in your device settings.", @"");
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
         NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
-                                             code:kBusinessesDataControllerErrorLocationPermissionDenied
+                                             code:kModelErrorLocationPermissionDenied
                                          userInfo:userInfo];
-        [self.delegate businessesDataControllerDidFailWithError:error];
+        [self.observer modelDidFailWithError:error];
     } else {
         NSString *desc =  NSLocalizedString(@"Unable to retrieve location.", @"");
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
         NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
-                                             code:kBusinessesDataControllerErrorLocation
+                                             code:kModelErrorLocation
                                          userInfo:userInfo];
-        [self.delegate businessesDataControllerDidFailWithError:error];
+        [self.observer modelDidFailWithError:error];
     }
 }
 
@@ -83,7 +83,7 @@
         dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER);
         dispatch_async(dispatch_get_main_queue(), ^{
             self.businesses = businesses;
-            [self.delegate businessesDataControllerDidUpdateBusinesses];
+            [self.observer modelDidUpdateBusinesses];
         });
     });
 }
@@ -92,8 +92,8 @@
     NSString *desc =  NSLocalizedString(@"Unable to retrieve businesses from the server.", @"");
     NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc };
     NSError *error = [NSError errorWithDomain:kBusinessFinderErrorDomain
-                                         code:kBusinessesDataControllerErrorServer
+                                         code:kModelErrorServer
                                      userInfo:userInfo];
-    [self.delegate businessesDataControllerDidFailWithError:error];
+    [self.observer modelDidFailWithError:error];
 }
 @end

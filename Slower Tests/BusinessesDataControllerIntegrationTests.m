@@ -1,5 +1,5 @@
 //
-//  BusinessesDataControllerIntegrationTests.m
+//  ModelIntegrationTests.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 10/26/16.
@@ -7,35 +7,35 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "BusinessesDataController.h"
+#import "Model.h"
 #import "OCMock.h"
 
-@interface BusinessesDataControllerTestDelegate : NSObject <BusinessesDataControllerDelegate>
+@interface ModelTestObserver : NSObject <ModelObserving>
 @property (strong, nonatomic) XCTestExpectation *expectation;
 @property (nonatomic) BOOL businessesWereUpdatedSuccessfully;
 @end
-@implementation BusinessesDataControllerTestDelegate;
--(void)businessesDataControllerDidUpdateBusinesses {
+@implementation ModelTestObserver;
+-(void)modelDidUpdateBusinesses {
     self.businessesWereUpdatedSuccessfully = YES;
     [self.expectation fulfill];
 }
--(void)businessesDataControllerDidFailWithError:(NSError *)error {
+-(void)modelDidFailWithError:(NSError *)error {
     self.businessesWereUpdatedSuccessfully = NO;
     [self.expectation fulfill];
 }
 @end
 
-@interface BusinessesDataControllerIntegrationTests : XCTestCase
+@interface ModelIntegrationTests : XCTestCase
 
 @end
 
-@implementation BusinessesDataControllerIntegrationTests
+@implementation ModelIntegrationTests
 
 -(void)testUpdateLocationAndBusinesses {
-    BusinessesDataController *SUT = [BusinessesDataController new];
-    BusinessesDataControllerTestDelegate *testDelegate = [BusinessesDataControllerTestDelegate new];
+    Model *SUT = [Model new];
+    ModelTestObserver *testDelegate = [ModelTestObserver new];
     testDelegate.expectation = [self expectationWithDescription:@"expectation"];
-    SUT.delegate = testDelegate;
+    SUT.observer = testDelegate;
     
     [SUT updateLocationAndBusinesses];
     

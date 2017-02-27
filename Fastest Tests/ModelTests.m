@@ -1,5 +1,5 @@
 //
-//  BusinessesDataControllerTests.m
+//  ModelTests.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 8/3/16.
@@ -7,39 +7,39 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "BusinessesDataController.h"
+#import "Model.h"
 #import "FourSquareGateway.h"
 #import "OCMock.h"
 #import "Business.h"
 #import "LocationGateway.h"
 #import "BusinessFinderErrorDomain.h"
 
-@interface BDCDelegateForHappyPathTests : NSObject<BusinessesDataControllerDelegate>
+@interface ModelObserverForHappyPathTests : NSObject<ModelObserving>
 @property XCTestExpectation *testExpectation;
 @end
-@implementation BDCDelegateForHappyPathTests
+@implementation ModelObserverForHappyPathTests
 
--(void)businessesDataControllerDidUpdateBusinesses {
+-(void)modelDidUpdateBusinesses {
     [self.testExpectation fulfill];
 }
--(void)businessesDataControllerDidFailWithError:(NSError *)error {
+-(void)modelDidFailWithError:(NSError *)error {
     [self.testExpectation fulfill];
 }
 @end
 
-@interface BusinessesDataControllerHappyPathTests : XCTestCase
-@property (strong, nonatomic) BusinessesDataController *SUT;
+@interface ModelHappyPathTests : XCTestCase
+@property (strong, nonatomic) Model *SUT;
 @property (nonatomic) double testLatitude;
 @property (nonatomic) double testLongitude;
 @property (nonatomic, strong) UIImage *testImage;
-@property (nonatomic, strong) BDCDelegateForHappyPathTests *testDelegate;
+@property (nonatomic, strong) ModelObserverForHappyPathTests *testDelegate;
 @end
 
-@implementation BusinessesDataControllerHappyPathTests
+@implementation ModelHappyPathTests
 
 - (void) setUp {
     [super setUp];
-    self.SUT = [BusinessesDataController new];
+    self.SUT = [Model new];
     [self setupFakeLocationGateway];
 }
 
@@ -81,18 +81,18 @@
     [self.SUT locationGatewayDidUpdateLocation:nil];
     
     // Verify
-    XCTAssertEqual(self.SUT.latitude, self.testLatitude);
-    XCTAssertEqual(self.SUT.longitude, self.testLongitude);
+    XCTAssertEqual(self.SUT.userLatitude, self.testLatitude);
+    XCTAssertEqual(self.SUT.userLongitude, self.testLongitude);
     OCMVerify([self.SUT.fourSquareGateway setDelegate:self.SUT]);
     OCMVerify([self.SUT.fourSquareGateway getNearbyBusinessesForLatitude:self.testLatitude
                                                                longitude:self.testLongitude]);
 }
 
 - (void) setupTestDelegate {
-    BDCDelegateForHappyPathTests *testDelegate = [BDCDelegateForHappyPathTests new];
+    ModelObserverForHappyPathTests *testDelegate = [ModelObserverForHappyPathTests new];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
     testDelegate.testExpectation = expectation;
-    self.SUT.delegate = testDelegate;
+    self.SUT.observer = testDelegate;
     // We need to keep a strong refrence to testDelegate to keep it alive until the end of the test
     self.testDelegate = testDelegate;
 }
@@ -146,14 +146,14 @@
 }
 @end
 
-@interface BusinessesDataControllerFailureTests : XCTestCase
-@property (strong, nonatomic) BusinessesDataController *SUT;
+@interface ModelFailureTests : XCTestCase
+@property (strong, nonatomic) Model *SUT;
 @end
 
-@implementation BusinessesDataControllerFailureTests
+@implementation ModelFailureTests
 - (void) setUp {
     [super setUp];
-    self.SUT = [BusinessesDataController new];
+    self.SUT = [Model new];
 }
 
 - (void)testInit {
@@ -171,21 +171,21 @@
         return false;
     };
     
-    id testDelegate = OCMStrictProtocolMock(@protocol(BusinessesDataControllerDelegate));
-    OCMExpect([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:errorCheckBlock]]);
-    self.SUT.delegate = testDelegate;
+    id testDelegate = OCMStrictProtocolMock(@protocol(ModelObserving));
+    OCMExpect([testDelegate modelDidFailWithError:[OCMArg checkWithBlock:errorCheckBlock]]);
+    self.SUT.observer = testDelegate;
     return testDelegate;
 }
 
 - (void)testLocationGatewayDidFailWithError_UnableToRetrieve {
-    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Unable to retrieve location." errorCode:kBusinessesDataControllerErrorLocation];
+    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Unable to retrieve location." errorCode:kModelErrorLocation];
     NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorLocationUnknown userInfo:nil];
     [self.SUT locationGatewayDidFailWithError:error];
     OCMVerifyAll(testDelegate);
 }
 
 - (void)testLocationGatewayDidFailWithError_AuthorizationDenied {
-    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Please enable location services in your device settings." errorCode:kBusinessesDataControllerErrorLocationPermissionDenied];
+    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Please enable location services in your device settings." errorCode:kModelErrorLocationPermissionDenied];
     NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorDenied userInfo:nil];
     [self.SUT locationGatewayDidFailWithError:error];
     OCMVerifyAll(testDelegate);
@@ -193,14 +193,14 @@
 
 - (void)testFourSquareGatewayDidFail {
     // Setup fake delegate
-    id testDelegate = OCMProtocolMock(@protocol(BusinessesDataControllerDelegate));
-    self.SUT.delegate = testDelegate;
+    id testDelegate = OCMProtocolMock(@protocol(ModelObserving));
+    self.SUT.observer = testDelegate;
     
     [self.SUT fourSquareGatewayDidFail];
-    OCMVerify([testDelegate businessesDataControllerDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+    OCMVerify([testDelegate modelDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
         NSError *error = obj;
         if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
-            error.code == kBusinessesDataControllerErrorServer &&
+            error.code == kModelErrorServer &&
             [error.localizedDescription isEqualToString: NSLocalizedString(@"Unable to retrieve businesses from the server.", @"")]){
             return true;
         }

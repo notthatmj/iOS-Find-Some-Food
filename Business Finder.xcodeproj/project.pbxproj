@@ -13,23 +13,32 @@
 		89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AE71D5532C300BCA3A0 /* URLFetcher.m */; };
 		89034AFA1D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AF91D5537EF00BCA3A0 /* URLFetcherIntegrationTests.m */; };
 		89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */; };
+		890E51A81E563B01004A6061 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51A71E563B01004A6061 /* MapViewController.m */; };
+		890E51AA1E579DEF004A6061 /* MapViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51A91E579DEF004A6061 /* MapViewControllerTests.m */; };
+		890E51AC1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */; };
+		890E51BA1E57BC4E004A6061 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51B91E57BC4E004A6061 /* BusinessCell.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
 		891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */; };
 		891FC68C1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */; };
 		891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */; };
 		8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */; };
 		893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */; };
+		8940B6DC1E5CE36E000D8946 /* BusinessAnnotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6DB1E5CE36E000D8946 /* BusinessAnnotationTests.m */; };
+		8940B6DF1E5CE448000D8946 /* BusinessAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */; };
+		8940B6E21E5CED14000D8946 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E11E5CED14000D8946 /* MapController.m */; };
+		8940B6E41E5CED3C000D8946 /* MapControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E31E5CED3C000D8946 /* MapControllerTests.m */; };
+		8940B6E61E5F330D000D8946 /* AppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E51E5F330D000D8946 /* AppDelegateTests.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
 		8974895C1D4FB5FD00531975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8974895B1D4FB5FD00531975 /* Assets.xcassets */; };
 		8974895F1D4FB5FD00531975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8974895D1D4FB5FD00531975 /* LaunchScreen.storyboard */; };
 		897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */; };
-		897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489871D4FBD5200531975 /* MainStoryboardTests.m */; };
 		8995D7DB1D7A0204006034B9 /* FourSquareGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */; };
 		89A10CDC1D511ABA009E5867 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CDB1D511ABA009E5867 /* Business.m */; };
-		89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* BusinessesDataController.m */; };
-		89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */; };
+		89A10CE21D512DFD009E5867 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A10CE11D512DFC009E5867 /* Model.m */; };
+		89BD5A6F1D8860AF007879E0 /* ModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BD5A6D1D886068007879E0 /* ModelTests.m */; };
+		89CD09AB1E562CAB00F2CFD2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CD09AA1E562CAB00F2CFD2 /* MapKit.framework */; };
 		89E9A4F71DA6C2760046E868 /* FourSquareResponseParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */; };
 		89E9A4FB1DA6CE930046E868 /* Sample FourSquare Response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */; };
 		89EE610D1DBEADE400D2FB36 /* Test Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EE610C1DBEADE400D2FB36 /* Test Media.xcassets */; };
@@ -72,8 +81,14 @@
 		89034AFB1D5544DA00BCA3A0 /* FourSquareGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareGateway.h; sourceTree = "<group>"; };
 		89034AFC1D5544DA00BCA3A0 /* FourSquareGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGateway.m; sourceTree = "<group>"; };
 		89034B031D58F02800BCA3A0 /* FourSquareGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayIntegrationTests.m; sourceTree = "<group>"; };
+		890E51A61E563B01004A6061 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		890E51A71E563B01004A6061 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		890E51A91E579DEF004A6061 /* MapViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewControllerTests.m; sourceTree = "<group>"; };
+		890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTableViewControllerTests.m; sourceTree = "<group>"; };
+		890E51B81E57BC4E004A6061 /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
+		890E51B91E57BC4E004A6061 /* BusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCell.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
-		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; };
+		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegateTests.m; sourceTree = "<group>"; };
 		891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTVCDelegate.h; sourceTree = "<group>"; };
 		891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +96,13 @@
 		891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessFinderErrorDomain.m; sourceTree = "<group>"; };
 		8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayIntegrationTests.m; sourceTree = "<group>"; };
 		893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayUnitTests.m; sourceTree = "<group>"; };
+		8940B6DB1E5CE36E000D8946 /* BusinessAnnotationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessAnnotationTests.m; sourceTree = "<group>"; };
+		8940B6DD1E5CE448000D8946 /* BusinessAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessAnnotation.h; sourceTree = "<group>"; };
+		8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessAnnotation.m; sourceTree = "<group>"; };
+		8940B6E01E5CED14000D8946 /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
+		8940B6E11E5CED14000D8946 /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
+		8940B6E31E5CED3C000D8946 /* MapControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapControllerTests.m; sourceTree = "<group>"; };
+		8940B6E51E5F330D000D8946 /* AppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTests.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8974894D1D4FB5FD00531975 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8974894F1D4FB5FD00531975 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,20 +115,20 @@
 		8974896B1D4FB5FE00531975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTableViewController.h; sourceTree = "<group>"; };
 		897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTableViewController.m; sourceTree = "<group>"; };
-		897489871D4FBD5200531975 /* MainStoryboardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStoryboardTests.m; sourceTree = "<group>"; };
 		89A10CDA1D511ABA009E5867 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
 		89A10CDB1D511ABA009E5867 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
-		89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessesDataController.h; sourceTree = "<group>"; };
-		89A10CE11D512DFC009E5867 /* BusinessesDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataController.m; sourceTree = "<group>"; };
-		89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataControllerTests.m; sourceTree = "<group>"; };
+		89A10CDD1D5123ED009E5867 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Model.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		89A10CE11D512DFC009E5867 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Model.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		89BD5A6D1D886068007879E0 /* ModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		89CD09AA1E562CAB00F2CFD2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareResponseParserTests.m; sourceTree = "<group>"; };
 		89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Sample FourSquare Response.txt"; sourceTree = "<group>"; };
 		89EE610C1DBEADE400D2FB36 /* Test Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Test Media.xcassets"; sourceTree = "<group>"; };
-		89F2D08E1D74B45B00C98165 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
+		89F2D08E1D74B45B00C98165 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IntegrationTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		89F2D0951D76041700C98165 /* LocationGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGateway.h; sourceTree = "<group>"; };
 		89F2D0961D76041700C98165 /* LocationGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGateway.m; sourceTree = "<group>"; };
-		89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesDataSourceTests.m; sourceTree = "<group>"; };
-		89F60C931DC1220D00F38C49 /* BusinessesDataControllerIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessesDataControllerIntegrationTests.m; sourceTree = "<group>"; };
+		89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NearbyBusinessesDataSourceTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		89F60C931DC1220D00F38C49 /* BusinessesDataControllerIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BusinessesDataControllerIntegrationTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareGatewayUnitTests.m; sourceTree = "<group>"; };
 		89FB39071D88A08C0086851E /* FourSquareResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareResponseParser.h; sourceTree = "<group>"; };
 		89FB39081D88A08C0086851E /* FourSquareResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareResponseParser.m; sourceTree = "<group>"; };
@@ -136,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CD09AB1E562CAB00F2CFD2 /* MapKit.framework in Frameworks */,
 				1158243836A1B6A4F86ABC66 /* libPods-Business Finder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +177,7 @@
 		4662B8DC08A55B1D83FB1A79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89CD09AA1E562CAB00F2CFD2 /* MapKit.framework */,
 				7134A03E733D2E77AB586C7A /* libPods-Business Finder.a */,
 				E0366CFC301E99CB673E4E05 /* libPods-Business FinderTests.a */,
 				F9DBF609E3D820FC6BF64DD6 /* libPods-Business FinderUITests.a */,
@@ -174,6 +198,15 @@
 				89F2D08E1D74B45B00C98165 /* IntegrationTests.m */,
 			);
 			path = "Slower Tests";
+			sourceTree = "<group>";
+		};
+		890E51AE1E57BAAB004A6061 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				890E51B81E57BC4E004A6061 /* BusinessCell.h */,
+				890E51B91E57BC4E004A6061 /* BusinessCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		897489401D4FB5FD00531975 = {
@@ -201,6 +234,7 @@
 		8974894B1D4FB5FD00531975 /* Business Finder */ = {
 			isa = PBXGroup;
 			children = (
+				890E51AE1E57BAAB004A6061 /* Views */,
 				89A8F94A1DD5297F00135762 /* Controllers */,
 				89A8F94B1DD529F200135762 /* Model */,
 				89A8F9481DD5290400135762 /* Gateways */,
@@ -226,16 +260,20 @@
 		897489681D4FB5FE00531975 /* Fastest Tests */ = {
 			isa = PBXGroup;
 			children = (
-				89BD5A6D1D886068007879E0 /* BusinessesDataControllerTests.m */,
+				89BD5A6D1D886068007879E0 /* ModelTests.m */,
+				8940B6DB1E5CE36E000D8946 /* BusinessAnnotationTests.m */,
 				89EE610C1DBEADE400D2FB36 /* Test Media.xcassets */,
 				893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */,
 				89F2D9501D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m */,
-				897489871D4FBD5200531975 /* MainStoryboardTests.m */,
+				890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */,
+				890E51A91E579DEF004A6061 /* MapViewControllerTests.m */,
+				8940B6E31E5CED3C000D8946 /* MapControllerTests.m */,
 				8974896B1D4FB5FE00531975 /* Info.plist */,
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
 				89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */,
 				89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */,
 				891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */,
+				8940B6E51E5F330D000D8946 /* AppDelegateTests.m */,
 			);
 			path = "Fastest Tests";
 			sourceTree = "<group>";
@@ -260,12 +298,16 @@
 		89A8F94A1DD5297F00135762 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				89A10CDD1D5123ED009E5867 /* BusinessesDataController.h */,
-				89A10CE11D512DFC009E5867 /* BusinessesDataController.m */,
 				891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */,
 				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
 				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
+				890E51A61E563B01004A6061 /* MapViewController.h */,
+				890E51A71E563B01004A6061 /* MapViewController.m */,
+				8940B6E01E5CED14000D8946 /* MapController.h */,
+				8940B6E11E5CED14000D8946 /* MapController.m */,
+				8940B6DD1E5CE448000D8946 /* BusinessAnnotation.h */,
+				8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */,
 				8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */,
 				8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */,
 				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
@@ -277,6 +319,8 @@
 		89A8F94B1DD529F200135762 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89A10CDD1D5123ED009E5867 /* Model.h */,
+				89A10CE11D512DFC009E5867 /* Model.m */,
 				89A10CDA1D511ABA009E5867 /* Business.h */,
 				89A10CDB1D511ABA009E5867 /* Business.m */,
 			);
@@ -593,16 +637,20 @@
 				891FC68C1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m in Sources */,
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
 				891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */,
-				89A10CE21D512DFD009E5867 /* BusinessesDataController.m in Sources */,
+				89A10CE21D512DFD009E5867 /* Model.m in Sources */,
 				89FB39091D88A08C0086851E /* FourSquareResponseParser.m in Sources */,
 				89034AE81D5532C300BCA3A0 /* URLFetcher.m in Sources */,
+				8940B6DF1E5CE448000D8946 /* BusinessAnnotation.m in Sources */,
+				8940B6E21E5CED14000D8946 /* MapController.m in Sources */,
 				897489511D4FB5FD00531975 /* AppDelegate.m in Sources */,
 				89A10CDC1D511ABA009E5867 /* Business.m in Sources */,
+				890E51BA1E57BC4E004A6061 /* BusinessCell.m in Sources */,
 				8974894E1D4FB5FD00531975 /* main.m in Sources */,
 				8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */,
 				89034AFD1D5544DA00BCA3A0 /* FourSquareGateway.m in Sources */,
 				89F2D0971D76041700C98165 /* LocationGateway.m in Sources */,
 				89FB390C1D88A0C80086851E /* GCDGateway.m in Sources */,
+				890E51A81E563B01004A6061 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,9 +658,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89BD5A6F1D8860AF007879E0 /* BusinessesDataControllerTests.m in Sources */,
-				897489881D4FBD5200531975 /* MainStoryboardTests.m in Sources */,
+				8940B6E41E5CED3C000D8946 /* MapControllerTests.m in Sources */,
+				89BD5A6F1D8860AF007879E0 /* ModelTests.m in Sources */,
+				8940B6E61E5F330D000D8946 /* AppDelegateTests.m in Sources */,
+				890E51AC1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
+				8940B6DC1E5CE36E000D8946 /* BusinessAnnotationTests.m in Sources */,
+				890E51AA1E579DEF004A6061 /* MapViewControllerTests.m in Sources */,
 				893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */,
 				891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */,
 				89E9A4F71DA6C2760046E868 /* FourSquareResponseParserTests.m in Sources */,

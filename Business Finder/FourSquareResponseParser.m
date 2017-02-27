@@ -24,6 +24,10 @@
         NSNumber *distance = [locationDictionary valueForKey:@"distance"];
         const float metersPerMile = 1609.344;
         business.distance = [distance floatValue] / metersPerMile ;
+        NSNumber *latitude = [locationDictionary valueForKey:@"lat"];
+        business.latitude = [latitude doubleValue];
+        NSNumber *longitude = [locationDictionary valueForKey:@"lng"];
+        business.longitude = [longitude doubleValue];
         [result addObject:business];
     }
     return  [NSArray arrayWithArray:result];

@@ -49,7 +49,6 @@
     NSString *longitudeString = [formatter stringFromNumber:longitudeNumber];
     NSString *latLongString = [NSString stringWithFormat:@"\%@,\%@",latitudeString,longitudeString];
     NSURLQueryItem *latLongItem  = [NSURLQueryItem queryItemWithName:@"ll" value:latLongString];
-//    NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:@"query" value:@"sushi"];
     NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:@"query" value:@""];
     urlComponents.queryItems = [self.commonQueryItems arrayByAddingObjectsFromArray:@[latLongItem,queryItem]];
     NSString *returnValue = [urlComponents string];

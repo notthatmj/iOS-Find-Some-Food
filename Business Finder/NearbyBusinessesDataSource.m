@@ -9,6 +9,8 @@
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"
 #import "LocationGateway.h"
+#import "BusinessCell.h"
+#import "AppDelegate.h"
 
 @import UIKit;
 
@@ -16,11 +18,12 @@
 @property (strong,nonatomic) void (^completionBlock)();
 @end
 @implementation NearbyBusinessesDataSource
-- (BusinessesDataController *)businessesDataController {
-    if (_businessesDataController == nil) {
-        _businessesDataController = [BusinessesDataController new];
+- (Model *)model {
+    if (_model == nil) {
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        _model = appDelegate.model;
     }
-    return _businessesDataController;
+    return _model;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -28,32 +31,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger result = self.businessesDataController.businesses.count;
+    NSUInteger result = self.model.businesses.count;
     return result;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.businessesDataController businesses][indexPath.row];
-    cell.textLabel.text = business.name;
-    NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
-    cell.detailTextLabel.text = distanceString;
-    UIImage *image = business.image;
-    cell.imageView.isAccessibilityElement = YES;
-    cell.imageView.accessibilityIdentifier = @"photo";
-    cell.imageView.image = image;
+    BusinessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
+    Business *business = [self.model businesses][indexPath.row];
+    cell.business = business;
     return cell;
 }
 
 -(void)updateBusinesses {
-    self.businessesDataController.delegate = self;
-    [self.businessesDataController updateLocationAndBusinesses];
+    self.model.observer = self;
+    [self.model updateLocationAndBusinesses];
 }
--(void)businessesDataControllerDidUpdateBusinesses {
+-(void)modelDidUpdateBusinesses {
     [self.delegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
 }
 
--(void)businessesDataControllerDidFailWithError:(NSError *)error {
+-(void)modelDidFailWithError:(NSError *)error {
     [self.delegate nearbyBusinessesDataSourceDidFailWithError:error];
 }
 

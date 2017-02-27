@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 @import UIKit;
-#import "BusinessesDataController.h"
+#import "Model.h"
 
 @protocol NearbyBusinessesDataSourceDelegate <NSObject>
 - (void) nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses;
 - (void) nearbyBusinessesDataSourceDidFailWithError:(NSError *)error;
 @end
 
-@interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,BusinessesDataControllerDelegate>
-@property (strong,nonatomic) BusinessesDataController* businessesDataController;
+@interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource,ModelObserving>
+@property (strong,nonatomic) Model* model;
 @property (weak,nonatomic) id<NearbyBusinessesDataSourceDelegate> delegate;
 -(void)updateBusinesses;
 @end
