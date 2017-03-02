@@ -60,7 +60,7 @@
     MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse * _Nullable response,
                                                            NSError * _Nullable error) {
-        if (!error && response.routes != nil && response.routes.count>0) {
+        if (!error && response.routes != nil && response.routes.count > 0) {
             self.routeOverlay = response.routes[0].polyline;
             [self.mapView addOverlay:self.routeOverlay level:MKOverlayLevelAboveRoads];
         }

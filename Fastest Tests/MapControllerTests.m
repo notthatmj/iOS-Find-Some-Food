@@ -20,10 +20,6 @@
 
 @implementation MapControllerTests
 
-- (void)setUp {
-    [super setUp];
-}
-
 - (void)testConfigureViewController {
     const int testBusinessLatitude = 1.0, testBusinessLongitude = 2.0;
     const int testUserLatitude = 3.0, testUserLongitude = 4.0;
