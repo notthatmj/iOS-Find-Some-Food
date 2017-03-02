@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 
 @interface MapController ()
-@property (nonatomic, strong) MapViewController *mapViewController;
+@property (nonatomic, weak) MapViewController *mapViewController;
 @property (nonatomic, strong) Model* model;
 @end
 
