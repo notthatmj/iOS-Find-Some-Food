@@ -37,6 +37,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.refreshControl beginRefreshing];
     CGFloat offset = self.tableView.contentOffset.y-self.refreshControl.frame.size.height;
     [self.tableView setContentOffset:CGPointMake(0, offset) animated:YES];
