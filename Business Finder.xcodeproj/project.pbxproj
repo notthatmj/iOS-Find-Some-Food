@@ -26,7 +26,6 @@
 		8940B6DF1E5CE448000D8946 /* BusinessAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6DE1E5CE448000D8946 /* BusinessAnnotation.m */; };
 		8940B6E21E5CED14000D8946 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E11E5CED14000D8946 /* MapController.m */; };
 		8940B6E41E5CED3C000D8946 /* MapControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E31E5CED3C000D8946 /* MapControllerTests.m */; };
-		8940B6E61E5F330D000D8946 /* AppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940B6E51E5F330D000D8946 /* AppDelegateTests.m */; };
 		8974894E1D4FB5FD00531975 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8974894D1D4FB5FD00531975 /* main.m */; };
 		897489511D4FB5FD00531975 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897489501D4FB5FD00531975 /* AppDelegate.m */; };
 		897489571D4FB5FD00531975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897489551D4FB5FD00531975 /* Main.storyboard */; };
@@ -100,7 +99,6 @@
 		8940B6E01E5CED14000D8946 /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		8940B6E11E5CED14000D8946 /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		8940B6E31E5CED3C000D8946 /* MapControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapControllerTests.m; sourceTree = "<group>"; };
-		8940B6E51E5F330D000D8946 /* AppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTests.m; sourceTree = "<group>"; };
 		897489491D4FB5FD00531975 /* Business Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8974894D1D4FB5FD00531975 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8974894F1D4FB5FD00531975 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 				89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */,
 				89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */,
 				891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */,
-				8940B6E51E5F330D000D8946 /* AppDelegateTests.m */,
 			);
 			path = "Fastest Tests";
 			sourceTree = "<group>";
@@ -657,7 +654,6 @@
 			files = (
 				8940B6E41E5CED3C000D8946 /* MapControllerTests.m in Sources */,
 				89BD5A6F1D8860AF007879E0 /* ModelTests.m in Sources */,
-				8940B6E61E5F330D000D8946 /* AppDelegateTests.m in Sources */,
 				890E51AC1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m in Sources */,
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
 				890E51AA1E579DEF004A6061 /* MapViewControllerTests.m in Sources */,

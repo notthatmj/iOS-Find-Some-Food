@@ -21,8 +21,7 @@
 @implementation NearbyBusinessesDataSource
 - (Model *)model {
     if (_model == nil) {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        _model = appDelegate.model;
+        _model = [Model new];
     }
     return _model;
 }
