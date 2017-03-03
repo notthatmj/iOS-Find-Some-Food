@@ -45,4 +45,12 @@
     return [self.dataSource businessAtIndex:index];
 }
 
+-(double)userLatitude {
+    return [self.dataSource userLatitude];
+}
+
+-(double)userLongitude {
+    return [self.dataSource userLongitude];
+}
+
 @end

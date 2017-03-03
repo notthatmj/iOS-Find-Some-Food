@@ -24,6 +24,7 @@
 @property (nonnull,strong) NearbyBusinessesDataSource *SUT;
 @property (strong, nonatomic) NSArray<Business *> *businesses;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) Model *fakeModel;
 @end
 
 @implementation NearbyBusinessesDataSourceTests
@@ -44,9 +45,9 @@
     Business *business2 = [self makeBusinessWithName:@"Moe's Restaurant" distance:2.0 imagedNamed:@"B"];
     Business *business3 = [self makeBusinessWithName:@"Curly's Restaurant" distance:3.0 imagedNamed:@"C"];
     self.businesses = @[business1,business2,business3];
-    Model *fakeModel = OCMClassMock([Model class]);
-    OCMStub([fakeModel businesses]).andReturn(self.businesses);
-    self.SUT.model = fakeModel;
+    self.fakeModel = OCMClassMock([Model class]);
+    OCMStub([self.fakeModel businesses]).andReturn(self.businesses);
+    self.SUT.model = self.fakeModel;
     
     self.tableView = [UITableView new];
     [self.tableView registerClass:[DummyCellClass class] forCellReuseIdentifier:@"PrototypeCell"];
@@ -78,7 +79,6 @@
         XCTAssertEqual(fakeCell, cell);
         OCMVerify([fakeCell setBusinessName:currentBusiness.name]);
         OCMVerify([fakeCell setDistanceText:expectedDistanceString[i]]);
-//        OCMVerify([fakeCell setDistanceText:[OCMArg any]]);
         OCMVerify([fakeCell setBusinessImage:currentBusiness.image]);
         OCMVerify([fakeCell setIndexPath:indexPath]);
     }
@@ -93,8 +93,8 @@
     [self.SUT updateBusinesses];
     
     //Verify
-    OCMVerify([self.SUT.model setObserver:self.SUT]);
-    OCMVerify([self.SUT.model updateLocationAndBusinesses]);
+    OCMVerify([self.fakeModel setObserver:self.SUT]);
+    OCMVerify([self.fakeModel updateLocationAndBusinesses]);
 
     // Run
     [self.SUT modelDidUpdateBusinesses];
@@ -117,17 +117,23 @@
     XCTAssertEqual(self.businesses[1], [self.SUT businessAtIndex:1]);
     XCTAssertEqual(self.businesses[2], [self.SUT businessAtIndex:2]);
 }
-@end
 
-
-@interface NearbyBusinessesDataSourceSimplePropertyTests : XCTestCase
-@end
-
-@implementation NearbyBusinessesDataSourceSimplePropertyTests
--(void) testModel {
-    NearbyBusinessesDataSource *SUT = [NearbyBusinessesDataSource new];
-    XCTAssertNotNil(SUT.model);
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    XCTAssert(SUT.model == appDelegate.model);
+- (void)testUserLatitude {
+    double fakeLatitude = 42;
+    OCMStub([self.fakeModel userLatitude]).andReturn(fakeLatitude);
+    
+    double returnValue = self.SUT.userLatitude;
+    
+    XCTAssertEqual(returnValue, fakeLatitude);
 }
+
+- (void)testUserLongitude {
+    double fakeLongitude = 42;
+    OCMStub([self.fakeModel userLongitude]).andReturn(fakeLongitude);
+    
+    double returnValue = self.SUT.userLongitude;
+    
+    XCTAssertEqual(returnValue, fakeLongitude);
+}
+
 @end

@@ -16,6 +16,7 @@
 
 @interface NearbyBusinessesDataSource ()
 @property (strong,nonatomic) void (^completionBlock)();
+@property (strong,nonatomic) Model* model;
 @end
 @implementation NearbyBusinessesDataSource
 - (Model *)model {
@@ -61,6 +62,14 @@
 
 -(void)modelDidFailWithError:(NSError *)error {
     [self.delegate nearbyBusinessesDataSourceDidFailWithError:error];
+}
+
+- (double)userLatitude {
+    return self.model.userLatitude;
+}
+
+- (double)userLongitude {
+    return self.model.userLongitude;
 }
 
 @end

@@ -33,6 +33,14 @@
     self.controller.business = business;
 }
 
+-(void)setUserLatitude:(double)userLatitude {
+    self.controller.userLatitude = userLatitude;
+}
+
+-(void)setUserLongitude:(double)userLongitude {
+    self.controller.userLongitude = userLongitude;
+}
+
 - (void)annotateCoordinate:(CLLocationCoordinate2D)coordinate withTitle:(NSString *)title {
     BusinessAnnotation *annotation = [BusinessAnnotation new];
     annotation.coordinate = coordinate;

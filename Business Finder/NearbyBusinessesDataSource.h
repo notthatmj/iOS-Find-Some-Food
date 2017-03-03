@@ -16,8 +16,10 @@
 @end
 
 @interface NearbyBusinessesDataSource : NSObject <UITableViewDataSource, ModelObserving>
-@property (strong,nonatomic) Model* model;
+@property (nonatomic, readonly) double userLatitude;
+@property (nonatomic, readonly) double userLongitude;
 @property (weak,nonatomic) id<NearbyBusinessesDataSourceDelegate> delegate;
+-(void)setModel:(Model *)model;
 -(void)updateBusinesses;
 - (Business *)businessAtIndex:(NSInteger)index;
 @end

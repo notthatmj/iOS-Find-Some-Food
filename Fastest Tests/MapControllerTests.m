@@ -26,14 +26,10 @@
     // Distance (in meters) betweeen the coordinates above
     const double expectedRadius = 313713;
     // Setup
-    Model *fakeModel = OCMClassMock([Model class]);
-    OCMStub([fakeModel userLatitude]).andReturn(testUserLatitude);
-    OCMStub([fakeModel userLongitude]).andReturn(testUserLongitude);
-
     MapViewController *fakeViewController = OCMClassMock([MapViewController class]);
-    MapController *SUT = [[MapController alloc] initWithViewController:fakeViewController
-                                              model:fakeModel];
-    
+    MapController *SUT = [[MapController alloc] initWithViewController:fakeViewController];
+    SUT.userLatitude = testUserLatitude;
+    SUT.userLongitude = testUserLongitude;
     Business *business = [[Business alloc] initWithName:@"Cyberdyne Systems" distance:1.0];
     business.latitude = testBusinessLatitude;
     business.longitude = testBusinessLongitude;
@@ -50,19 +46,6 @@
     
     OCMVerify([fakeViewController zoomToCoordinate:expectedUserCoordinate withRadius:expectedRadius]);
     OCMVerify([fakeViewController displayDirectionsToCoordinate:expectedBusinessCoordinate]);
-}
-
--(void)testModel {
-    // Setup
-    id fakeViewController = OCMClassMock([MapViewController class]);
-    MapController *SUT = [[MapController alloc] initWithViewController:fakeViewController];
-    
-    // Run
-    Model *model = SUT.model;
-    
-    // Verify
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    XCTAssert(model == [appDelegate model]);
 }
 
 @end

@@ -92,4 +92,32 @@
     XCTAssertEqual(secondBusiness, self.anotherFakeBusiness);
     
 }
+
+- (void)testUserLatitudeAndLongitude {
+    XCTAssertEqual(self.SUT.userLatitude, 0);
+    XCTAssertEqual(self.SUT.userLongitude, 0);
+}
+
+- (void)testUserLatitude {
+    double fakeLatitude = 42;
+    OCMStub(self.fakeDataSource.userLatitude).andReturn(fakeLatitude);
+
+    // Run
+    double returnValue = self.SUT.userLatitude;
+    
+    // Verify
+    XCTAssertEqual(returnValue, fakeLatitude);
+}
+
+- (void)testUserLongitude {
+    double fakeLongitude = 42;
+    OCMStub(self.fakeDataSource.userLongitude).andReturn(fakeLongitude);
+    
+    // Run
+    double returnValue = self.SUT.userLongitude;
+    
+    // Verify
+    XCTAssertEqual(returnValue, fakeLongitude);
+}
+
 @end

@@ -14,6 +14,7 @@
 
 @interface MapViewControllerTests : XCTestCase
 @property (strong, nonatomic) MapViewController *SUT;
+@property (strong, nonatomic) MapController *fakeController;
 @end
 
 @implementation MapViewControllerTests
@@ -22,30 +23,43 @@
     [super setUp];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.SUT = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    self.fakeController = OCMClassMock([MapController class]);
+    self.SUT.controller = self.fakeController;
 }
-- (void)testProperties {
+- (void)testInstantiation {
     XCTAssertNotNil(self.SUT);
 }
 
 - (void)testViewDidLoad {
-    id fakeController = OCMClassMock([MapController class]);
-    self.SUT.controller = fakeController;
-    
     // Load View
     [self.SUT view];
     
     XCTAssertNotNil(self.SUT.mapView);
-    OCMVerify([fakeController configureViewController]);
+    OCMVerify([self.fakeController configureViewController]);
 }
 
 - (void)testSetBusiness {
-    MapController *fakeController = OCMClassMock([MapController class]);
-    self.SUT.controller = fakeController;
     Business *business = [[Business alloc] initWithName:@"Cyberdyne Systems" distance:1.0];
 
     self.SUT.business = business;
     
-    OCMVerify([fakeController setBusiness:business]);
+    OCMVerify([self.fakeController setBusiness:business]);
+}
+
+- (void)testSetUserLatitude {
+    double fakeLatitude = 13;
+    
+    [self.SUT setUserLatitude:fakeLatitude];
+    
+    OCMVerify([self.fakeController setUserLatitude:fakeLatitude]);
+}
+
+- (void)testSetUserLongitude {
+    double fakeLongitude = 13;
+    
+    [self.SUT setUserLongitude:fakeLongitude];
+    
+    OCMVerify([self.fakeController setUserLongitude:fakeLongitude]);
 }
 
 @end

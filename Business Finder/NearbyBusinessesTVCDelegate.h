@@ -18,4 +18,6 @@
 // reference to its `NearbyBusinessesTVCDelegate`, and we want to avoid a retain cycle.
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @property (strong, nonatomic) NearbyBusinessesDataSource *dataSource;
+@property (nonatomic) double userLatitude;
+@property (nonatomic) double userLongitude;
 @end

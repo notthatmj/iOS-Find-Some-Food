@@ -13,9 +13,8 @@
 
 @interface MapController : NSObject
 @property (nonatomic, strong) Business *business;
-@property (nonatomic, strong, readonly) Model* model;
+@property (nonatomic) double userLatitude;
+@property (nonatomic) double userLongitude;
 - (instancetype) initWithViewController:(MapViewController *)mapViewController;
-- (instancetype) initWithViewController:(MapViewController *)mapViewController
-                                  model:(Model *)model;
 -(void) configureViewController;
 @end

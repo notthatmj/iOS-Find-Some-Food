@@ -47,6 +47,8 @@
     MapViewController *mapViewController = segue.destinationViewController;
     BusinessCell *cell = sender;
     mapViewController.business = [self.delegate businessAtIndex:cell.indexPath.row];
+    mapViewController.userLatitude = self.delegate.userLatitude;
+    mapViewController.userLongitude = self.delegate.userLongitude;
 }
 
 @end
