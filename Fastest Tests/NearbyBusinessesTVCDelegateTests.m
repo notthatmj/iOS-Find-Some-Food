@@ -14,7 +14,7 @@
 #import "Business.h"
 
 @interface NearbyBusinessesTVCDelegateTests : XCTestCase
-@property (nonatomic, strong) NearbyBusinessesTVCDelegate *SUT;
+@property (nonatomic, strong) NearbyBusinessesController *SUT;
 @property (nonatomic, strong) NearbyBusinessesDataSource *fakeDataSource;
 @property (nonatomic, strong) NearbyBusinessesTableViewController *fakeTableViewController;
 @property (nonatomic, strong) id aFakeBusiness;
@@ -34,7 +34,7 @@
     self.fakeTableView = OCMClassMock([UITableView class]);
     OCMStub([self.fakeTableView dataSource]).andReturn(self.fakeDataSource);
     OCMStub([fakeTableViewController tableView]).andReturn(self.fakeTableView);
-    self.SUT = [NearbyBusinessesTVCDelegate new];
+    self.SUT = [NearbyBusinessesController new];
     self.SUT.dataSource = self.fakeDataSource;
     self.SUT.nearbyBusinessesTableViewController = fakeTableViewController;
 }

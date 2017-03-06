@@ -1,5 +1,5 @@
 //
-//  NearbyBusinessesTVCDelegate.m
+//  NearbyBusinessesController.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -9,7 +9,7 @@
 #import "NearbyBusinessesController.h"
 #import "NearbyBusinessesTableViewController.h"
 
-@implementation NearbyBusinessesTVCDelegate
+@implementation NearbyBusinessesController
 
 - (void)startInitialLoad {
     self.nearbyBusinessesTableViewController.tableView.dataSource = self.dataSource;

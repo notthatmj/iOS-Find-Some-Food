@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.delegate == nil) {
-        self.delegate = [NearbyBusinessesTVCDelegate new];
+        self.delegate = [NearbyBusinessesController new];
         self.delegate.nearbyBusinessesTableViewController = self;
         self.delegate.dataSource = [NearbyBusinessesDataSource new];
     }

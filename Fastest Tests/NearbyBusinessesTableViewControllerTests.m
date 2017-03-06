@@ -21,7 +21,7 @@
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     XCTAssertNotNil(SUT);
     NearbyBusinessesTableViewController *viewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
-    NearbyBusinessesTVCDelegate *fakeDelegate = OCMPartialMock([NearbyBusinessesTVCDelegate new]);
+    NearbyBusinessesController *fakeDelegate = OCMPartialMock([NearbyBusinessesController new]);
     viewController.delegate = fakeDelegate;
     [viewController view];
     UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
