@@ -13,7 +13,7 @@
 #import "BusinessFinderErrorDomain.h"
 #import "Business.h"
 
-@interface NearbyBusinessesTVCDelegateTests : XCTestCase
+@interface NearbyBusinessesControllerTests : XCTestCase
 @property (nonatomic, strong) NearbyBusinessesController *SUT;
 @property (nonatomic, strong) NearbyBusinessesDataSource *fakeDataSource;
 @property (nonatomic, strong) NearbyBusinessesTableViewController *fakeTableViewController;
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) id fakeTableView;
 @end
 
-@implementation NearbyBusinessesTVCDelegateTests
+@implementation NearbyBusinessesControllerTests
 
 -(void)setUp {
     self.fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
