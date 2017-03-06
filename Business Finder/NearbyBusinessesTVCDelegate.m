@@ -6,7 +6,7 @@
 //  Copyright © 2016 Michael Johnson. All rights reserved.
 //
 
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 #import "NearbyBusinessesTableViewController.h"
 
 @implementation NearbyBusinessesTVCDelegate

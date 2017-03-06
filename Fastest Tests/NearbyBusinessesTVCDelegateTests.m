@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
 #import "BusinessFinderErrorDomain.h"

@@ -1,5 +1,5 @@
 //
-//  NearbyBusinessesTVCDelegate.h
+//  NearbyBusinessesController.h
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.

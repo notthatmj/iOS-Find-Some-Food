@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 
 @interface NearbyBusinessesTableViewControllerTests : XCTestCase
 

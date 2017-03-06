@@ -88,7 +88,7 @@
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegateTests.m; sourceTree = "<group>"; };
-		891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTVCDelegate.h; sourceTree = "<group>"; };
+		891FC68A1D96C3F500ED44C4 /* NearbyBusinessesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesController.h; sourceTree = "<group>"; };
 		891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegate.m; sourceTree = "<group>"; };
 		891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessFinderErrorDomain.h; sourceTree = "<group>"; };
 		891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessFinderErrorDomain.m; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
 				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
-				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
+				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesController.h */,
 				891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */,
 				890E51A61E563B01004A6061 /* MapViewController.h */,
 				890E51A71E563B01004A6061 /* MapViewController.m */,

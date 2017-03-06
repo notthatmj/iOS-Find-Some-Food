@@ -7,7 +7,7 @@
 //
 
 #import "NearbyBusinessesTableViewController.h"
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 #import "MapViewController.h"
 #import "BusinessCell.h"
 
