@@ -22,7 +22,7 @@
     XCTAssertNotNil(SUT);
     NearbyBusinessesTableViewController *viewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
     NearbyBusinessesController *fakeDelegate = OCMPartialMock([NearbyBusinessesController new]);
-    viewController.delegate = fakeDelegate;
+    viewController.controller = fakeDelegate;
     [viewController view];
     UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);
