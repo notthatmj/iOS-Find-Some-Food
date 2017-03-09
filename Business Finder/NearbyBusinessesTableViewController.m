@@ -12,6 +12,7 @@
 #import "BusinessCell.h"
 
 @interface NearbyBusinessesTableViewController ()
+@property (nonatomic) BOOL hasStartedInitialLoad;
 @end
 
 @implementation NearbyBusinessesTableViewController
@@ -38,10 +39,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.refreshControl beginRefreshing];
-    CGFloat offset = self.tableView.contentOffset.y-self.refreshControl.frame.size.height;
-    [self.tableView setContentOffset:CGPointMake(0, offset) animated:YES];
-    [self.delegate startInitialLoad];
+    if (!self.hasStartedInitialLoad) {
+        [self.refreshControl beginRefreshing];
+        CGFloat offset = self.tableView.contentOffset.y-self.refreshControl.frame.size.height;
+        [self.tableView setContentOffset:CGPointMake(0, offset) animated:YES];
+        [self.delegate startInitialLoad];
+        self.hasStartedInitialLoad = YES;
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
