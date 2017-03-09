@@ -32,7 +32,7 @@
 @property (nonatomic) double testLatitude;
 @property (nonatomic) double testLongitude;
 @property (nonatomic, strong) UIImage *testImage;
-@property (nonatomic, strong) ModelObserverForHappyPathTests *testDelegate;
+@property (nonatomic, strong) ModelObserverForHappyPathTests *testObserver;
 @end
 
 @implementation ModelHappyPathTests
@@ -88,13 +88,13 @@
                                                                longitude:self.testLongitude]);
 }
 
-- (void) setupTestDelegate {
-    ModelObserverForHappyPathTests *testDelegate = [ModelObserverForHappyPathTests new];
+- (void) setupTestObserver {
+    ModelObserverForHappyPathTests *testObserver = [ModelObserverForHappyPathTests new];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Expectation"];
-    testDelegate.testExpectation = expectation;
-    self.SUT.observer = testDelegate;
-    // We need to keep a strong refrence to testDelegate to keep it alive until the end of the test
-    self.testDelegate = testDelegate;
+    testObserver.testExpectation = expectation;
+    self.SUT.observer = testObserver;
+    // We need to keep a strong refrence to testObserver to keep it alive until the end of the test
+    self.testObserver = testObserver;
 }
 
 - (void)testFourSquareGatewayDidFinishGettingBusinesses {
@@ -103,7 +103,7 @@
     [businesses addObject:[[Business alloc] initWithName:@"Aldi" distance:2.0]];
     [self setupFakeFourSquareGatewayWithBusinesses: businesses];
     
-    [self setupTestDelegate];
+    [self setupTestObserver];
     [self.SUT updateLocationAndBusinesses];
     [self.SUT locationGatewayDidUpdateLocation:nil];
     
@@ -128,7 +128,7 @@
     [businesses addObject:[[Business alloc] initWithName:@"Popeyes" distance:4.0]];
     [self setupFakeFourSquareGatewayWithBusinesses: businesses];
     
-    [self setupTestDelegate];
+    [self setupTestObserver];
     [self.SUT updateLocationAndBusinesses];
     [self.SUT locationGatewayDidUpdateLocation:nil];
     
@@ -171,33 +171,33 @@
         return false;
     };
     
-    id testDelegate = OCMStrictProtocolMock(@protocol(ModelObserving));
-    OCMExpect([testDelegate modelDidFailWithError:[OCMArg checkWithBlock:errorCheckBlock]]);
-    self.SUT.observer = testDelegate;
-    return testDelegate;
+    id testObserver = OCMStrictProtocolMock(@protocol(ModelObserving));
+    OCMExpect([testObserver modelDidFailWithError:[OCMArg checkWithBlock:errorCheckBlock]]);
+    self.SUT.observer = testObserver;
+    return testObserver;
 }
 
 - (void)testLocationGatewayDidFailWithError_UnableToRetrieve {
-    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Unable to retrieve location." errorCode:kModelErrorLocation];
+    id testObserver = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Unable to retrieve location." errorCode:kModelErrorLocation];
     NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorLocationUnknown userInfo:nil];
     [self.SUT locationGatewayDidFailWithError:error];
-    OCMVerifyAll(testDelegate);
+    OCMVerifyAll(testObserver);
 }
 
 - (void)testLocationGatewayDidFailWithError_AuthorizationDenied {
-    id testDelegate = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Please enable location services in your device settings." errorCode:kModelErrorLocationPermissionDenied];
+    id testObserver = [self setUpForLocationGatewayDidFailTestsWithErrorMessage:@"Please enable location services in your device settings." errorCode:kModelErrorLocationPermissionDenied];
     NSError *error = [NSError errorWithDomain:kCLErrorDomain code:kCLErrorDenied userInfo:nil];
     [self.SUT locationGatewayDidFailWithError:error];
-    OCMVerifyAll(testDelegate);
+    OCMVerifyAll(testObserver);
 }
 
 - (void)testFourSquareGatewayDidFail {
     // Setup fake delegate
-    id testDelegate = OCMProtocolMock(@protocol(ModelObserving));
-    self.SUT.observer = testDelegate;
+    id testObserver = OCMProtocolMock(@protocol(ModelObserving));
+    self.SUT.observer = testObserver;
     
     [self.SUT fourSquareGatewayDidFail];
-    OCMVerify([testDelegate modelDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+    OCMVerify([testObserver modelDidFailWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
         NSError *error = obj;
         if ([error.domain isEqualToString:kBusinessFinderErrorDomain] &&
             error.code == kModelErrorServer &&

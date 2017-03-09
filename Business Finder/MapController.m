@@ -8,7 +8,6 @@
 
 #import "MapController.h"
 #import "Business.h"
-#import "AppDelegate.h"
 
 @interface MapController ()
 @property (nonatomic, weak) MapViewController *mapViewController;

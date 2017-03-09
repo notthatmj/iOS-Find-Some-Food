@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 
 @interface NearbyBusinessesTableViewControllerTests : XCTestCase
 
@@ -21,8 +21,8 @@
     UIStoryboard *SUT = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     XCTAssertNotNil(SUT);
     NearbyBusinessesTableViewController *viewController = [SUT instantiateViewControllerWithIdentifier:@"NearbyBusinessesTableViewController"];
-    NearbyBusinessesTVCDelegate *fakeDelegate = OCMPartialMock([NearbyBusinessesTVCDelegate new]);
-    viewController.delegate = fakeDelegate;
+    NearbyBusinessesController *fakeController = OCMPartialMock([NearbyBusinessesController new]);
+    viewController.controller = fakeController;
     [viewController view];
     UITableViewCell *cell = [viewController.tableView dequeueReusableCellWithIdentifier:@"PrototypeCell"];
     XCTAssertNotNil(cell.detailTextLabel);

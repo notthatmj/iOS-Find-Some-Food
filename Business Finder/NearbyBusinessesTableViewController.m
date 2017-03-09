@@ -7,7 +7,7 @@
 //
 
 #import "NearbyBusinessesTableViewController.h"
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 #import "MapViewController.h"
 #import "BusinessCell.h"
 
@@ -19,13 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.delegate == nil) {
-        self.delegate = [NearbyBusinessesTVCDelegate new];
-        self.delegate.nearbyBusinessesTableViewController = self;
-        self.delegate.dataSource = [NearbyBusinessesDataSource new];
+    if (self.controller == nil) {
+        self.controller = [NearbyBusinessesController new];
+        self.controller.nearbyBusinessesTableViewController = self;
+        self.controller.dataSource = [NearbyBusinessesDataSource new];
     }
     self.refreshControl = [UIRefreshControl new];
-    [self.refreshControl addTarget:self.delegate
+    [self.refreshControl addTarget:self.controller
                             action:@selector(updateBusinesses)
                   forControlEvents:UIControlEventValueChanged];
 }
@@ -43,7 +43,7 @@
         [self.refreshControl beginRefreshing];
         CGFloat offset = self.tableView.contentOffset.y-self.refreshControl.frame.size.height;
         [self.tableView setContentOffset:CGPointMake(0, offset) animated:YES];
-        [self.delegate startInitialLoad];
+        [self.controller startInitialLoad];
         self.hasStartedInitialLoad = YES;
     }
 }
@@ -51,9 +51,9 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MapViewController *mapViewController = segue.destinationViewController;
     BusinessCell *cell = sender;
-    mapViewController.business = [self.delegate businessAtIndex:cell.indexPath.row];
-    mapViewController.userLatitude = self.delegate.userLatitude;
-    mapViewController.userLongitude = self.delegate.userLongitude;
+    mapViewController.business = [self.controller businessAtIndex:cell.indexPath.row];
+    mapViewController.userLatitude = self.controller.userLatitude;
+    mapViewController.userLongitude = self.controller.userLongitude;
 }
 
 @end

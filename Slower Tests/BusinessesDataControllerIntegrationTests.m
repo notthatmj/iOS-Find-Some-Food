@@ -33,13 +33,13 @@
 
 -(void)testUpdateLocationAndBusinesses {
     Model *SUT = [Model new];
-    ModelTestObserver *testDelegate = [ModelTestObserver new];
-    testDelegate.expectation = [self expectationWithDescription:@"expectation"];
-    SUT.observer = testDelegate;
+    ModelTestObserver *testObserver = [ModelTestObserver new];
+    testObserver.expectation = [self expectationWithDescription:@"expectation"];
+    SUT.observer = testObserver;
     
     [SUT updateLocationAndBusinesses];
     
     [self waitForExpectationsWithTimeout:20.0 handler:nil];
-    XCTAssertTrue(testDelegate.businessesWereUpdatedSuccessfully);
+    XCTAssertTrue(testObserver.businessesWereUpdatedSuccessfully);
 }
 @end

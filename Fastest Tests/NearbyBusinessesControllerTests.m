@@ -1,5 +1,5 @@
 //
-//  NearbyBusinessesTVCDelegateTests.m
+//  NearbyBusinessesControllerTests.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -7,14 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
 #import "BusinessFinderErrorDomain.h"
 #import "Business.h"
 
-@interface NearbyBusinessesTVCDelegateTests : XCTestCase
-@property (nonatomic, strong) NearbyBusinessesTVCDelegate *SUT;
+@interface NearbyBusinessesControllerTests : XCTestCase
+@property (nonatomic, strong) NearbyBusinessesController *SUT;
 @property (nonatomic, strong) NearbyBusinessesDataSource *fakeDataSource;
 @property (nonatomic, strong) NearbyBusinessesTableViewController *fakeTableViewController;
 @property (nonatomic, strong) id aFakeBusiness;
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) id fakeTableView;
 @end
 
-@implementation NearbyBusinessesTVCDelegateTests
+@implementation NearbyBusinessesControllerTests
 
 -(void)setUp {
     self.fakeDataSource = OCMClassMock([NearbyBusinessesDataSource class]);
@@ -34,7 +34,7 @@
     self.fakeTableView = OCMClassMock([UITableView class]);
     OCMStub([self.fakeTableView dataSource]).andReturn(self.fakeDataSource);
     OCMStub([fakeTableViewController tableView]).andReturn(self.fakeTableView);
-    self.SUT = [NearbyBusinessesTVCDelegate new];
+    self.SUT = [NearbyBusinessesController new];
     self.SUT.dataSource = self.fakeDataSource;
     self.SUT.nearbyBusinessesTableViewController = fakeTableViewController;
 }

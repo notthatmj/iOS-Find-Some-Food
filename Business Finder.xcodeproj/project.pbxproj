@@ -18,8 +18,8 @@
 		890E51AC1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51AB1E579E6C004A6061 /* NearbyBusinessesTableViewControllerTests.m */; };
 		890E51BA1E57BC4E004A6061 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E51B91E57BC4E004A6061 /* BusinessCell.m */; };
 		8919F7591D5273810061FA3E /* NearbyBusinessesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */; };
-		891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */; };
-		891FC68C1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */; };
+		891FC6891D96C37E00ED44C4 /* NearbyBusinessesControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC6881D96C37E00ED44C4 /* NearbyBusinessesControllerTests.m */; };
+		891FC68C1D96C3F500ED44C4 /* NearbyBusinessesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68B1D96C3F500ED44C4 /* NearbyBusinessesController.m */; };
 		891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */; };
 		8931282D1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */; };
 		893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893552DE1D7739B300D590A6 /* LocationGatewayUnitTests.m */; };
@@ -87,9 +87,9 @@
 		890E51B91E57BC4E004A6061 /* BusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCell.m; sourceTree = "<group>"; };
 		8919F7571D5273810061FA3E /* NearbyBusinessesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesDataSource.h; sourceTree = "<group>"; };
 		8919F7581D5273810061FA3E /* NearbyBusinessesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NearbyBusinessesDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegateTests.m; sourceTree = "<group>"; };
-		891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesTVCDelegate.h; sourceTree = "<group>"; };
-		891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesTVCDelegate.m; sourceTree = "<group>"; };
+		891FC6881D96C37E00ED44C4 /* NearbyBusinessesControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesControllerTests.m; sourceTree = "<group>"; };
+		891FC68A1D96C3F500ED44C4 /* NearbyBusinessesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyBusinessesController.h; sourceTree = "<group>"; };
+		891FC68B1D96C3F500ED44C4 /* NearbyBusinessesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyBusinessesController.m; sourceTree = "<group>"; };
 		891FC68D1D9C4E4F00ED44C4 /* BusinessFinderErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessFinderErrorDomain.h; sourceTree = "<group>"; };
 		891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessFinderErrorDomain.m; sourceTree = "<group>"; };
 		8931282C1D89C7220078B8F1 /* LocationGatewayIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGatewayIntegrationTests.m; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 				89FB39041D88A00B0086851E /* FourSquareGatewayUnitTests.m */,
 				89E9A4F61DA6C2760046E868 /* FourSquareResponseParserTests.m */,
 				89E9A4FA1DA6CE930046E868 /* Sample FourSquare Response.txt */,
-				891FC6881D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m */,
+				891FC6881D96C37E00ED44C4 /* NearbyBusinessesControllerTests.m */,
 			);
 			path = "Fastest Tests";
 			sourceTree = "<group>";
@@ -296,8 +296,8 @@
 				891FC68E1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m */,
 				897489841D4FBC3E00531975 /* NearbyBusinessesTableViewController.h */,
 				897489851D4FBC3E00531975 /* NearbyBusinessesTableViewController.m */,
-				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.h */,
-				891FC68B1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m */,
+				891FC68A1D96C3F500ED44C4 /* NearbyBusinessesController.h */,
+				891FC68B1D96C3F500ED44C4 /* NearbyBusinessesController.m */,
 				890E51A61E563B01004A6061 /* MapViewController.h */,
 				890E51A71E563B01004A6061 /* MapViewController.m */,
 				8940B6E01E5CED14000D8946 /* MapController.h */,
@@ -628,7 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				891FC68C1D96C3F500ED44C4 /* NearbyBusinessesTVCDelegate.m in Sources */,
+				891FC68C1D96C3F500ED44C4 /* NearbyBusinessesController.m in Sources */,
 				897489861D4FBC3E00531975 /* NearbyBusinessesTableViewController.m in Sources */,
 				891FC68F1D9C4FE900ED44C4 /* BusinessFinderErrorDomain.m in Sources */,
 				89A10CE21D512DFD009E5867 /* Model.m in Sources */,
@@ -658,7 +658,7 @@
 				89F2D9511D53C44000E4E5A0 /* NearbyBusinessesDataSourceTests.m in Sources */,
 				890E51AA1E579DEF004A6061 /* MapViewControllerTests.m in Sources */,
 				893552DF1D7739B300D590A6 /* LocationGatewayUnitTests.m in Sources */,
-				891FC6891D96C37E00ED44C4 /* NearbyBusinessesTVCDelegateTests.m in Sources */,
+				891FC6891D96C37E00ED44C4 /* NearbyBusinessesControllerTests.m in Sources */,
 				89E9A4F71DA6C2760046E868 /* FourSquareResponseParserTests.m in Sources */,
 				89FB39061D88A00B0086851E /* FourSquareGatewayUnitTests.m in Sources */,
 			);

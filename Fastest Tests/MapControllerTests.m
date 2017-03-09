@@ -12,7 +12,6 @@
 #import "OCMock.h"
 #import "Business.h"
 #import "Model.h"
-#import "AppDelegate.h"
 
 @interface MapControllerTests : XCTestCase
 

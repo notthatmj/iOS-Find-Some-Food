@@ -1,5 +1,5 @@
 //
-//  NearbyBusinessesTVCDelegate.h
+//  NearbyBusinessesController.h
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
@@ -10,12 +10,12 @@
 @class NearbyBusinessesTableViewController;
 #import "NearbyBusinessesDataSource.h"
 
-@interface NearbyBusinessesTVCDelegate : NSObject<NearbyBusinessesDataSourceDelegate>
+@interface NearbyBusinessesController : NSObject<NearbyBusinessesDataSourceDelegate>
 -(void)startInitialLoad;
 -(void)updateBusinesses;
 -(Business *)businessAtIndex:(NSInteger) index;
 // This property is weak because `NearbyBusinessesTableViewController` maintains a strong
-// reference to its `NearbyBusinessesTVCDelegate`, and we want to avoid a retain cycle.
+// reference to its `NearbyBusinessesController`, and we want to avoid a retain cycle.
 @property (weak, nonatomic) NearbyBusinessesTableViewController* nearbyBusinessesTableViewController;
 @property (strong, nonatomic) NearbyBusinessesDataSource *dataSource;
 @property (nonatomic) double userLatitude;
