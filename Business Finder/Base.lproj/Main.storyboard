@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Nearby Businesses-->
+        <!--Nearby Restaurants-->
         <scene sceneID="KXH-QT-pa6">
             <objects>
                 <tableViewController storyboardIdentifier="NearbyBusinessesTableViewController" id="HZ4-mB-aSb" customClass="NearbyBusinessesTableViewController" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                             <outlet property="delegate" destination="HZ4-mB-aSb" id="bfP-QM-zj0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nearby Businesses" id="ifZ-mG-BL4"/>
+                    <navigationItem key="navigationItem" title="Nearby Restaurants" id="ifZ-mG-BL4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zm-Lg-z5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
