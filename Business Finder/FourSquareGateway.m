@@ -49,8 +49,12 @@
     NSString *longitudeString = [formatter stringFromNumber:longitudeNumber];
     NSString *latLongString = [NSString stringWithFormat:@"\%@,\%@",latitudeString,longitudeString];
     NSURLQueryItem *latLongItem  = [NSURLQueryItem queryItemWithName:@"ll" value:latLongString];
-    NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:@"query" value:@""];
-    urlComponents.queryItems = [self.commonQueryItems arrayByAddingObjectsFromArray:@[latLongItem,queryItem]];
+    NSURLQueryItem *categoryItem = [NSURLQueryItem queryItemWithName:@"categoryId"
+                                                               value:@"4d4b7105d754a06374d81259"];
+    NSURLQueryItem *rangeItem = [NSURLQueryItem queryItemWithName:@"radius" value:@"1000"];
+    NSURLQueryItem *intentItem = [NSURLQueryItem queryItemWithName:@"intent" value:@"browse"];
+    urlComponents.queryItems = [self.commonQueryItems arrayByAddingObjectsFromArray:@[latLongItem,categoryItem,rangeItem,intentItem]];
+    
     NSString *returnValue = [urlComponents string];
     return returnValue;
 }
