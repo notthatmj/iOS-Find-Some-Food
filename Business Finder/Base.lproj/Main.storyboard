@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bqb-Jx-tsc">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Nearby Businesses-->
+        <!--Nearby Restaurants-->
         <scene sceneID="KXH-QT-pa6">
             <objects>
                 <tableViewController storyboardIdentifier="NearbyBusinessesTableViewController" id="HZ4-mB-aSb" customClass="NearbyBusinessesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MxV-kS-5q2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MxV-kS-5q2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrototypeCell" textLabel="WTr-Zi-0wd" detailTextLabel="vua-jF-qY1" style="IBUITableViewCellStyleSubtitle" id="Vsn-aC-Ofm">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PrototypeCell" textLabel="WTr-Zi-0wd" detailTextLabel="vua-jF-qY1" style="IBUITableViewCellStyleSubtitle" id="Vsn-aC-Ofm" customClass="BusinessCell">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsn-aC-Ofm" id="rPQ-gr-3G2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WTr-Zi-0wd">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <accessibility key="accessibilityConfiguration" label="Business Name"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -34,7 +35,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vua-jF-qY1">
-                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <accessibility key="accessibilityConfiguration" label="Distance"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -43,6 +44,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="rcT-Gh-wul" kind="show" id="jli-Lm-Icw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,11 +54,43 @@
                             <outlet property="delegate" destination="HZ4-mB-aSb" id="bfP-QM-zj0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nearby Businesses" id="ifZ-mG-BL4"/>
+                    <navigationItem key="navigationItem" title="Nearby Restaurants" id="ifZ-mG-BL4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zm-Lg-z5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1263.2" y="956.67166416791611"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="va8-5R-E3G">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="rcT-Gh-wul" userLabel="Map" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5NA-FR-BLM"/>
+                        <viewControllerLayoutGuide type="bottom" id="g16-tm-ayZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zoQ-sT-hJe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8tD-K2-Gzn">
+                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8tD-K2-Gzn" firstAttribute="top" secondItem="5NA-FR-BLM" secondAttribute="bottom" constant="8" id="BKn-OS-fl1"/>
+                            <constraint firstItem="g16-tm-ayZ" firstAttribute="top" secondItem="8tD-K2-Gzn" secondAttribute="bottom" id="dGR-UO-0Mh"/>
+                            <constraint firstItem="8tD-K2-Gzn" firstAttribute="leading" secondItem="zoQ-sT-hJe" secondAttribute="leadingMargin" constant="-16" id="gPG-iF-Qx3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8tD-K2-Gzn" secondAttribute="trailing" constant="-16" id="jZi-IY-Us1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="8tD-K2-Gzn" id="LdN-Ks-b4X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHe-dg-48q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2202.4000000000001" y="956.67166416791611"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="i4F-FW-wTr">
@@ -64,6 +100,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ofD-9i-jve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.20000000000000001" green="0.66411000490188599" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

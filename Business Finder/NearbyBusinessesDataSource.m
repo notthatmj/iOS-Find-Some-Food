@@ -9,18 +9,21 @@
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"
 #import "LocationGateway.h"
+#import "BusinessCell.h"
+#import "AppDelegate.h"
 
 @import UIKit;
 
 @interface NearbyBusinessesDataSource ()
 @property (strong,nonatomic) void (^completionBlock)();
+@property (strong,nonatomic) Model* model;
 @end
 @implementation NearbyBusinessesDataSource
-- (BusinessesDataController *)businessesDataController {
-    if (_businessesDataController == nil) {
-        _businessesDataController = [BusinessesDataController new];
+- (Model *)model {
+    if (_model == nil) {
+        _model = [Model new];
     }
-    return _businessesDataController;
+    return _model;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -28,33 +31,44 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger result = self.businessesDataController.businesses.count;
+    NSUInteger result = self.model.businesses.count;
     return result;
 }
 
+- (Business *)businessAtIndex:(NSInteger)index {
+    return [self.model businesses][index];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
-    Business *business = [self.businessesDataController businesses][indexPath.row];
-    cell.textLabel.text = business.name;
+    BusinessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrototypeCell" forIndexPath:indexPath];
+    Business *business = [self businessAtIndex:indexPath.row];
+    cell.businessName = business.name;
     NSString *distanceString = [NSString stringWithFormat:@"%1.2f miles",business.distance];
-    cell.detailTextLabel.text = distanceString;
+    cell.distanceText = distanceString;
     UIImage *image = business.image;
-    cell.imageView.isAccessibilityElement = YES;
-    cell.imageView.accessibilityIdentifier = @"photo";
-    cell.imageView.image = image;
+    [cell setBusinessImage:image];
+    [cell setIndexPath:indexPath];
     return cell;
 }
 
 -(void)updateBusinesses {
-    self.businessesDataController.delegate = self;
-    [self.businessesDataController updateLocationAndBusinesses];
+    self.model.observer = self;
+    [self.model updateLocationAndBusinesses];
 }
--(void)businessesDataControllerDidUpdateBusinesses {
+-(void)modelDidUpdateBusinesses {
     [self.delegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses];
 }
 
--(void)businessesDataControllerDidFailWithError:(NSError *)error {
+-(void)modelDidFailWithError:(NSError *)error {
     [self.delegate nearbyBusinessesDataSourceDidFailWithError:error];
+}
+
+- (double)userLatitude {
+    return self.model.userLatitude;
+}
+
+- (double)userLongitude {
+    return self.model.userLongitude;
 }
 
 @end

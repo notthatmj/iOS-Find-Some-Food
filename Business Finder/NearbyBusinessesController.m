@@ -1,15 +1,15 @@
 //
-//  NearbyBusinessesTVCDelegate.m
+//  NearbyBusinessesController.m
 //  Business Finder
 //
 //  Created by Michael Johnson on 9/24/16.
 //  Copyright © 2016 Michael Johnson. All rights reserved.
 //
 
-#import "NearbyBusinessesTVCDelegate.h"
+#import "NearbyBusinessesController.h"
 #import "NearbyBusinessesTableViewController.h"
 
-@implementation NearbyBusinessesTVCDelegate
+@implementation NearbyBusinessesController
 
 - (void)startInitialLoad {
     self.nearbyBusinessesTableViewController.tableView.dataSource = self.dataSource;
@@ -40,4 +40,17 @@
 -(void)updateBusinesses {
     [self.dataSource updateBusinesses];
 }
+
+-(Business *)businessAtIndex:(NSInteger) index {
+    return [self.dataSource businessAtIndex:index];
+}
+
+-(double)userLatitude {
+    return [self.dataSource userLatitude];
+}
+
+-(double)userLongitude {
+    return [self.dataSource userLongitude];
+}
+
 @end

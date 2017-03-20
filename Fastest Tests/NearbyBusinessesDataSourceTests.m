@@ -9,9 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "NearbyBusinessesDataSource.h"
 #import "Business.h"
-#import "BusinessesDataController.h"
+#import "Model.h"
 #import "OCMock.h"
 #import "NearbyBusinessesTableViewController.h"
+#import "BusinessCell.h"
+#import "AppDelegate.h"
 
 @interface DummyCellClass : UITableViewCell
 @end
@@ -22,6 +24,7 @@
 @property (nonnull,strong) NearbyBusinessesDataSource *SUT;
 @property (strong, nonatomic) NSArray<Business *> *businesses;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) Model *fakeModel;
 @end
 
 @implementation NearbyBusinessesDataSourceTests
@@ -42,9 +45,9 @@
     Business *business2 = [self makeBusinessWithName:@"Moe's Restaurant" distance:2.0 imagedNamed:@"B"];
     Business *business3 = [self makeBusinessWithName:@"Curly's Restaurant" distance:3.0 imagedNamed:@"C"];
     self.businesses = @[business1,business2,business3];
-    BusinessesDataController *fakeBusinessesDataController = OCMClassMock([BusinessesDataController class]);
-    OCMStub([fakeBusinessesDataController businesses]).andReturn(self.businesses);
-    self.SUT.businessesDataController = fakeBusinessesDataController;
+    self.fakeModel = OCMClassMock([Model class]);
+    OCMStub([self.fakeModel businesses]).andReturn(self.businesses);
+    self.SUT.model = self.fakeModel;
     
     self.tableView = [UITableView new];
     [self.tableView registerClass:[DummyCellClass class] forCellReuseIdentifier:@"PrototypeCell"];
@@ -63,28 +66,21 @@
 
 - (void)testTableViewCellForRowAtIndexPath {
     UITableView *fakeTableView = OCMClassMock([UITableView class]);
-    NSArray *expectedDistanceStrings = @[@"1.00 miles",@"2.00 miles",@"3.00 miles"];
+    NSArray<NSString *> *expectedDistanceString = @[@"1.00 miles", @"2.00 miles", @"3.00 miles"];
     for (int i=0; i < [self.businesses count]; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        UITableViewCell *fakeCell = OCMClassMock([UITableViewCell class]);
-        UILabel *fakeTextLabel = OCMClassMock([UILabel class]);
-        UILabel *fakeDetailTextLabel = OCMClassMock([UILabel class]);
-        UIImageView *fakeImageView = OCMClassMock([UIImageView class]);
-        OCMStub([fakeCell textLabel]).andReturn(fakeTextLabel);
-        OCMStub([fakeCell detailTextLabel]).andReturn(fakeDetailTextLabel);
-        OCMStub([fakeCell imageView]).andReturn(fakeImageView);
+        BusinessCell *fakeCell = OCMClassMock([BusinessCell class]);
         OCMStub([fakeTableView dequeueReusableCellWithIdentifier:@"PrototypeCell"
                                                     forIndexPath:indexPath]).andReturn(fakeCell);
         
         UITableViewCell *cell = [self.SUT tableView:fakeTableView cellForRowAtIndexPath:indexPath];
         Business *currentBusiness = self.businesses[i];
-
+        
         XCTAssertEqual(fakeCell, cell);
-        OCMVerify([fakeTextLabel setText:currentBusiness.name]);
-        OCMVerify([fakeDetailTextLabel setText:expectedDistanceStrings[i]]);
-        OCMVerify([fakeImageView setIsAccessibilityElement:YES]);
-        OCMVerify([fakeImageView setAccessibilityIdentifier:@"photo"]);
-        OCMVerify([fakeImageView setImage:currentBusiness.image]);
+        OCMVerify([fakeCell setBusinessName:currentBusiness.name]);
+        OCMVerify([fakeCell setDistanceText:expectedDistanceString[i]]);
+        OCMVerify([fakeCell setBusinessImage:currentBusiness.image]);
+        OCMVerify([fakeCell setIndexPath:indexPath]);
     }
 }
 
@@ -97,33 +93,47 @@
     [self.SUT updateBusinesses];
     
     //Verify
-    OCMVerify([self.SUT.businessesDataController setDelegate:self.SUT]);
-    OCMVerify([self.SUT.businessesDataController updateLocationAndBusinesses]);    
+    OCMVerify([self.fakeModel setObserver:self.SUT]);
+    OCMVerify([self.fakeModel updateLocationAndBusinesses]);
 
     // Run
-    [self.SUT businessesDataControllerDidUpdateBusinesses];
+    [self.SUT modelDidUpdateBusinesses];
     
     //Verify
     OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidUpdateLocationAndBusinesses]);
 }
 
-- (void)testBusinessDataControllerDidFail {
+- (void)testModelDidFail {
     id<NearbyBusinessesDataSourceDelegate> fakeDelegate = OCMProtocolMock(@protocol(NearbyBusinessesDataSourceDelegate));
     self.SUT.delegate = fakeDelegate;
     
-    [self.SUT businessesDataControllerDidFailWithError:nil];
+    [self.SUT modelDidFailWithError:nil];
     
     OCMVerify([fakeDelegate nearbyBusinessesDataSourceDidFailWithError:nil]);
 }
-@end
 
-
-@interface NearbyBusinessesDataSourceSimplePropertyTests : XCTestCase
-@end
-
-@implementation NearbyBusinessesDataSourceSimplePropertyTests
--(void) testBusinessesDataController {
-    NearbyBusinessesDataSource *SUT = [NearbyBusinessesDataSource new];
-    XCTAssertNotNil(SUT.businessesDataController);
+- (void)testBusinessAtIndex {
+    XCTAssertEqual(self.businesses[0], [self.SUT businessAtIndex:0]);
+    XCTAssertEqual(self.businesses[1], [self.SUT businessAtIndex:1]);
+    XCTAssertEqual(self.businesses[2], [self.SUT businessAtIndex:2]);
 }
+
+- (void)testUserLatitude {
+    double fakeLatitude = 42;
+    OCMStub([self.fakeModel userLatitude]).andReturn(fakeLatitude);
+    
+    double returnValue = self.SUT.userLatitude;
+    
+    XCTAssertEqual(returnValue, fakeLatitude);
+}
+
+- (void)testUserLongitude {
+    double fakeLongitude = 42;
+    OCMStub([self.fakeModel userLongitude]).andReturn(fakeLongitude);
+    
+    double returnValue = self.SUT.userLongitude;
+    
+    XCTAssertEqual(returnValue, fakeLongitude);
+}
+
 @end
